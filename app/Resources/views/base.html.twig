@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  {% block head %}
+  <head>
+    <title>{% block title %}Wozbe{% endblock title %}</title>
+    {% block stylesheets %}{% endblock %}
+    
+    {% block head_meta %}
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% endblock head_meta %}
+    
+    {% block head_script %}{% endblock %}
+
+    <link rel="shortcut icon" href="{{ asset('favicon.ico') }}" />
+    <link rel="stylesheet" href="{{ asset('css/bootstrap.css') }}" type="text/css"/>
+    {% block head_bottom %}
+    {% endblock head_bottom %}
+  </head>
+  {% endblock head %}
+  {% block body %}
+  <body>
+    {% block body_top %}{% endblock %}
+      
+    {% block body_container %}
+      {% block navbar %}{% endblock %}
+      
+      {% block content %}{% endblock %}
+    {% endblock %}
+      
+    {% block footer %}
+    <footer>
+      {% block footer_top %}{% endblock %}
+        
+      {% block footer_bottom %}{% endblock %}
+    </footer>
+    {% endblock footer %}
+      
+    {% block body_script %}{% endblock %}
+      
+    {% block body_bottom %}{% endblock %}
+  </body>
+  {% endblock body %}
+</html>

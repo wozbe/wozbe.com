@@ -1,0 +1,4 @@
+wozbe_page:
+    resource: "@WozbePageBundle/Controller"
+    type:     annotation
+

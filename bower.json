@@ -1,0 +1,14 @@
+{
+  "name": "src",
+  "version": "0.0.0",
+  "main": "bower.json",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "components"
+  ],
+  "dependencies": {
+    "jquery": "1.9.1",
+    "bootstrap": "2.3.2"
+  }
+}
