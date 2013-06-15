@@ -1,0 +1,92 @@
+{% extends '::base.html.twig' %}
+
+{% block title %}Wozbe - Expertise projet Web - Symfony & Infrastructure Haute-Disponibilité{% endblock title %}
+
+{% block stylesheets %}
+{{ parent() }}
+<link rel="stylesheet" href="{{ asset('built/app/css/wozbe.css') }}" type="text/css"/>
+{% endblock %}
+
+{% block head_meta_viewport %}<meta name="viewport" content="width=1000px, initial-scale=1.0">{% endblock head_meta_viewport %}
+
+{% block head_meta %}
+{{ parent() }}
+<link rel="canonical" href="http://wozbe.com"/>
+<meta name="robots" content="noindex,follow" />
+{% endblock head_meta %}
+
+{% block body_script %}
+<script src="{{ asset('built/app/js/wozbe.js') }}"></script>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-3801711-8', 'wozbe.com');
+  ga('send', 'pageview');
+
+</script>
+{% endblock %}
+
+{% block content_top %}
+<div class="container-logo">
+  <img alt="Logo Wozbe" src="{{ asset('bundles/app/images/logo-wozbe-full-alpha.png') }}" />
+  <a href="https://github.com/wozbe/wozbe.com"><img class="github" src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"></a>
+</div>
+<div id="navbar-outer">
+  <div id="navbar" class="navbar">
+    <a class="brand" href="#"><img alt="Logo Wozbe" src="{{ asset('bundles/app/images/logo-wozbe-small.jpg') }}" /></a>
+    <div class="navbar-inner">
+      <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+      <a class="btn btn-block btn-navbar " data-toggle="collapse" data-target=".nav-collapse">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </a>
+      <div class="nav-collapse collapse">
+        <ul class="nav">
+          {% set route = app.request.attributes.get('_route') %}
+          <li{% if 'wozbe' == route %} class="active"{% endif %}><a href="{{ url('wozbe') }}"><i class="icon-fixed-width icon-home"></i>Accueil</a></li>
+          <li{% if 'wozbe_skills' == route %} class="active"{% endif %}><a href="{{ url('wozbe_skills') }}"><i class="icon-fixed-width icon-tasks"></i>Compétences</a></li>
+          <li{% if 'wozbe_references' == route %} class="active"{% endif %}><a href="{{ url('wozbe_references') }}"><i class="icon-fixed-width icon-book"></i>Réferences</a></li>
+          <li{% if 'wozbe_contact' == route %} class="active"{% endif %}><a href="{{ url('wozbe_contact') }}"><i class="icon-fixed-width icon-envelope"></i>Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+<div id="navbar-mock"></div>
+{% endblock %}
+
+{% block footer_content %}
+<p class="text-center">
+  2013 Wozbe © - <a href="#modalInformations" role="button" data-toggle="modal">Informations légales</a><br />
+  <a href="http://symfony.com/">Symfony2</a>, <a href="http://www.doctrine-project.org/">Doctrine2</a>, <a href="http://twig.sensiolabs.org/">Twig</a>, <a href="http://jquery.com/">jQuery</a>, <a href="http://lesscss.org/">LESS</a>, <a href="http://gruntjs.com/">Grunt</a>, <a href="https://github.com/bower/bower">Bower</a>, <a href="https://github.com/sebastianbergmann/phpunit/">PHPUnit</a> & <a href="http://capifony.org/">Capifony</a>
+</p>
+{% endblock %}
+
+{% block content_after %}
+<!-- Modal -->
+<div id="modalInformations" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="modalInformations" aria-hidden="true">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+    <h3 id="myModalLabel">Informations légales</h3>
+  </div>
+  <div class="modal-body">
+    <p class="text-center">
+      <img alt="Logo Wozbe" src="{{ asset('bundles/app/images/logo-wozbe-small.jpg') }}" /><br />
+      <br />
+      SARL au capital de 1000€<br />
+      792 992 018 RCS Lyon<br />
+      <br />
+      GSM : {{ gsm }}<br />
+      Mail : {{ email }}
+    </p>
+  </div>
+  <div class="modal-footer">
+    <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+  </div>
+</div>
+{% endblock %}

@@ -8,8 +8,15 @@ vendor/*
 web/uploads/*
 web/bundles/*
 web/vendor/*
-web/css/*
-web/js/*
+web/built/*
+web/assets/*
+node_modules/*
+
+#symlink or compiled files
+app/Resources/public/js/built.js
+app/Resources/public/images/glyphicons*
+app/Resources/public/css/wozbe.css
+app/Resources/public/fonts/awesome
 
 # Configuration files
 app/config/parameters.yml

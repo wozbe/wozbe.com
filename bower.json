@@ -8,7 +8,11 @@
     "components"
   ],
   "dependencies": {
-    "jquery": "1.9.1",
-    "bootstrap": "2.3.2"
+    "jquery": "1.8.0",
+    "mustache": "0.7.2",
+    "bootstrap": "2.3.2",
+    "isotope": "1.5.25",
+    "font-awesome": "3.2.1",
+    "underscore": "1.4.4"
   }
 }

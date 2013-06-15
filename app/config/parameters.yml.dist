@@ -13,3 +13,6 @@ parameters:
 
     locale:            en
     secret:            ThisTokenIsNotSoSecretChangeIt
+
+    email:             "thomas@tourlourat.com"
+    gsm:               "0626525698"

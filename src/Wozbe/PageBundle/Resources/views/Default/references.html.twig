@@ -1,0 +1,80 @@
+{% extends '::wozbe.html.twig' %}
+
+{% block stylesheets %}
+{{ parent() }}
+<link rel="stylesheet" href="{{ asset('built/wozbepage/css/references.css') }}" type="text/css"/>
+{% endblock %}
+
+{% block content %}
+<h1>Nos Références</h1>
+{% set class = ['first', 'second', 'third'] %}
+{% set references = [
+  [
+    'Kolor', 
+    'kolor', 
+    'http://www.kolor.com',
+    ['symfony2', 'process', 'infrastructure', 'architecture', 'conseils', 'execution', 'formation'],
+    "Kolor propose des solutions d'assemblage d'images et de visites virtuelles. Pour le développement d'une plateforme d'hébergement et de diffusion de vidéo 360°, Wozbe a apporté son expertise au niveau des <strong>infrastructures de diffusion HTTP</strong>.<br /><br />De plus, nous avons travaillé sur la mise en place de <strong>processus de développement</strong> et <strong>des stratégies de déploiement</strong> pour la plateforme basée sur <strong>Symfony2</strong>"
+  ], 
+  [ 
+    'Konbini',
+    'konbini',
+    'http://www.konbini.com',
+    ['symfony2', 'vmware esx', 'coordination', 'infrastructure', 'wordpress'],
+    "Konbini est une agence de communication <strong>digitale & brand content</strong> basée à Paris.<br /> Wozbe a réalisé le <strong>développement d'une solution de gestion vidéo</strong> basée sur Symfony2, ainsi qu'un accompagnement sur la mise en place de Wordpress avec des options avancées comme la <strong>Géolocalisation, et le Multi-Site</strong>.<br /><br />Aussi, nous avons assuré <strong>la conception & le déploiement</strong> des infrastructures hébergeant l'ensemble des projets Web réalisés par Konbini.<br /><strong>La coordination technique</strong> est effectuée sur differents projets."
+  ],
+  [
+    'La Virgule', 
+    'virgule', 
+    'http://www.lavirgule.tv',
+    ['accompagnement', 'conseils', 'coordination', 'execution', 'cdn'],
+    "<strong>La Virgule</strong> est une startup média avec des contraintes associées à la <strong>diffusion de vidéo</strong>.<br />Wozbe réalise un travail d'accompagnement et de conseils sur les choix techniques afin de péréniser l'ensemble des produits."
+  ],
+  [
+    'Numerosus', 
+    'numerosus', 
+    'http://www.numerosus.com',
+    ['architecture', 'symfony2', 'infrastructure', 'conseils', 'execution', ],
+    "Numerosus est une <strong>plateforme de vente</strong>, valorisant les biens immobiliers. Wozbe s'investit pleinement à la création de ce projet & de cette <strong>entreprise ambitieuse</strong>.<br />Développé avec le <strong>framework Symfony2</strong>, nous utilisons des technologies modernes & innovantes afin de réaliser un produit performant."
+  ],
+  [
+    'Turnaway', 
+    'turnaway', 
+    'http://www.turnaway.fr',
+    ['wordpress', 'communication', 'infrastructure', 'blog'],
+    "Turnaway est une <strong>association d'indépendants</strong> où nous participons à la réalisation de certains projets d'infrastructure.<br />Orientés TPE/PME, ces projets sont un moyen pour Wozbe de rester en contact avec des contraintes hors-Web."
+  ],
+  [
+    'Armetiz.info', 
+    'armetiz', 
+    'http://www.armetiz.info',
+    ['blog', 'wordpress', 'R&D'],
+    "Armetiz.info est le support de communication personnel de <strong>Thomas Tourlourat</strong> gérant de Wozbe.<br />On y retrouve des articles sur le <a href=\"http://www.armetiz.info/category/systeme/\">système</a>, la <a href=\"http://www.armetiz.info/category/programmation/\">programmation</a>, les <a href=\"http://www.armetiz.info/category/livres/\">livres</a> ou encore l'<a href=\"http://www.armetiz.info/category/aeronautique-2/\">aéronautique</a>"
+  ]
+] %}
+
+<div class="zone-references">
+  {% for i in 0..5 %}
+  {% set title = cycle(references, i)[0] %}
+  {% set screen = cycle(references, i)[1] %}
+  {% set link = cycle(references, i)[2] %}
+  {% set tags = cycle(references, i)[3] %}
+  {% set description = cycle(references, i)[4] %}
+  <div class="reference">
+    <div class="title">
+      <h2>{{ title }}</h2>
+      <hr />
+    </div>
+    <p class="text-center">
+      <a href="{{ link }}" target="_blank"><img alt="{{ title }} aperçu" class="screenshot" src="{{ asset('bundles/wozbepage/images/screen-' ~ screen ~ '.jpg') }}" /></a>
+    </p>
+    <p class="description">
+      <p>{% autoescape false %}{{ description }}{% endautoescape %}</p>
+      <br />
+      {% for tag in tags %}<i class="icon-fixed-width icon-tag"></i><strong>{{tag|capitalize}}</strong>{% if false == loop.last %},{% endif %} {% endfor %}
+    </p>
+  </div>
+  {% endfor %}
+  <div class="clearfix"></div>
+</div>
+{% endblock content %}

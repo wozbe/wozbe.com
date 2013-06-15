@@ -1,6 +1,179 @@
-{% extends '::base.html.twig' %}
+{% extends '::wozbe.html.twig' %}
+
+{% block stylesheets %}
+{{ parent() }}
+<link rel="stylesheet" href="{{ asset('built/wozbepage/css/index.css') }}" type="text/css"/>
+{% endblock %}
+
+{% block body_open_tag %}
+<body data-spy="scroll" data-target=".navbar">
+{% endblock %}
 
 {% block content %}
-Hello {{ name }}!
+<h1>Réussir vos projets Web !</h1>
+<div id="zone-skills" class="container-fluid">
+  <ul class="cbp-ig-grid">
+    {% set skills = [
+      [
+        'Développement', 
+        'Client & Serveur', 
+        url('wozbe_skills'), 
+        'icon-code',
+        ''
+      ],
+      [
+        'Architecture / DevOps', 
+        'Communication & Déploiement', 
+        url('wozbe_skills'), 
+        'icon-cogs',
+        ''
+      ],
+      [
+        'Infrastructure', 
+        'Performance & Haute-Disponibilité', 
+        url('wozbe_skills'), 
+        'icon-cloud-upload',
+        ''
+      ],
+      [
+        'Agilité', 
+        'Methode de travail', 
+        url('wozbe_skills'), 
+        'icon-tasks',
+        'hidden-phone'
+      ],
+      [
+        'Recherche & Développement', 
+        'Fresh Technologies', 
+        url('wozbe_skills'), 
+        'icon-refresh',
+        'hidden-phone'
+      ],
+      [
+        'Diffusion vidéo', 
+        'Content Delivery Network', 
+        url('wozbe_skills'), 
+        'icon-youtube-play',
+        'hidden-phone'
+      ]
+    ] %}
+    {% for skill in skills %}
+    <li class="{{ skill[4] }}">
+      <a href="{{ skill[2] }}">
+        <i class="{{ skill[3] }} icon-5x"></i>
+        <h3 class="cbp-ig-title">{{ skill[0] }}</h3>
+        <span class="cbp-ig-slogan">{{ skill[1] }}</span>
+      </a>
+    </li>
+    {% endfor %}
+  </ul>
+</div>
+<div class="well well-large description-wozbe">
+  <div class="row-fluid">
+    <div class="span2 text-center hidden-phone">
+      <img alt="Wozbe logo" class="logo" src="{{ asset('bundles/app/images/logo-wozbe-short.png') }}" />
+    </div>
+    <div class="span10">
+      <p class="lead text-left">
+        <strong>Wozbe</strong> est une société qui réalise <strong>vos projets Web</strong>.<br />
+        Nous nous efferçons de prendre en compte <strong>vos objectifs business</strong> pour construire avec vous <strong>vos produits & services</strong>.
+      </p>
+    </div>
+  </div>
+</div>  
+<div id="zone-references" class="hidden-phone container-fluid">
+  <a name="zone-references"></a>
+  <h2>Nos Références</h2>
+  <div class="row">
+    <div class="reference left">
+      <a href="{{ url('wozbe_references') }}#numerosus">
+        <img alt="Numerosus aperçu" class="screenshot" src="{{ asset('bundles/wozbepage/images/screen-numerosus.jpg') }}" />
+        <span class="caption fade-caption">
+          <h3>Numerosus</h3>
+          <p>Plateforme de vente pour biens de prestiges</p>
+        </span>
+      </a>
+    </div>
+    <div class="reference middle">
+      <a href="{{ url('wozbe_references') }}#konbini">
+        <img alt="Konbini aperçu" class="screenshot" src="{{ asset('bundles/wozbepage/images/screen-konbini.jpg') }}" />
+        <span class="caption fade-caption">
+          <h3>Konbini</h3>
+          <p>The #1 source of pop culture</p>
+        </span>
+      </a>
+    </div>
+    <div class="reference right">
+      <a href="{{ url('wozbe_references') }}#armetiz">
+        <img alt="Armetiz aperçu" class="screenshot" src="{{ asset('bundles/wozbepage/images/screen-armetiz.jpg') }}" />
+        <span class="caption fade-caption">
+          <h3>Armetiz</h3>
+          <p>
+            Blog<br />
+            Thomas Tourlourat</p>
+        </span>
+      </a>
+    </div>
+  </div>
+  <div class="row">
+    <div class="reference left">
+      <a href="{{ url('wozbe_references') }}#turnaway">
+        <img alt="Numerosus aperçu" class="screenshot" src="{{ asset('bundles/wozbepage/images/screen-turnaway.jpg') }}" />
+        <span class="caption fade-caption">
+          <h3>Turnaway</h3>
+          <p>Maintenance & Infogérance Informatique</p>
+        </span>
+      </a>
+    </div>
+    <div class="reference middle">
+      <a href="{{ url('wozbe_references') }}#kolor">
+        <img alt="Kolor aperçu" class="screenshot" src="{{ asset('bundles/wozbepage/images/screen-kolor.jpg') }}" />
+        <span class="caption fade-caption">
+          <h3>Kolor</h3>
+          <p>Kolor Eyes is based on the most innovative technology to display and interact with immersive 360° videos</p>
+        </span>
+      </a>
+    </div>
+    <div class="reference right">
+      <a href="{{ url('wozbe_references') }}#virgule">
+        <img alt="La Virgule aperçu" class="screenshot" src="{{ asset('bundles/wozbepage/images/screen-virgule.jpg') }}" />
+        <span class="caption fade-caption">
+          <h3>La Virgule</h3>
+          <p>La Virgule Humour selectionne pour vous les webseries les plus hilarantes du moment</p>
+        </span>
+      </a>
+    </div>
+  </div>
+</div>
+<div id="zone-partners">
+  <a name="zone-partners"></a>
+  <h2>Nos Partenaires</h2>
+  <div class="row-fluid">
+    <div class="span4 partner anonymation">
+      <div class="logo"><a target="_blank" href="http://www.anonymation.com/"><img alt="Anonymation Logo" src="{{ asset('bundles/wozbepage/images/logo-anonymation.png') }}" /></a></div>
+      <p>
+        Studio de création animé par une passion partagée pour le web et les technologies de l'internet.<br />
+        <br />
+        Anonymation, par la qualité de ces équipes, nous permet d'aller au-delà des limites de l'architecture logicielle. 
+      </p>
+    </div>
+    <div class="span4 partner vlabs">
+      <div class="logo"><a target="_blank" href="http://www.v-labs.fr/"><img alt="VLabs Logo" src="{{ asset('bundles/wozbepage/images/logo-vlabs.png') }}" /></a></div>
+      <p>
+        VLabs est une petite structure pleine de surprises.<br />
+        <br />
+        Des expériences réussies sur des projets Symfony2, mais aussi des réalisations d'application mobile iOS & Android.<br />
+      </p>
+    </div>
+    <div class="span4 partner kitpages">
+      <div class="logo"><a target="_blank" href="http://www.kitpages.fr/"><img alt="Kitpages Logo" src="{{ asset('bundles/wozbepage/images/logo-kitpages.png') }}" /></a></div>
+      <p>
+        Avec 13 ans d'expérience, Kitpages apporte pragmatisme et expertise technique, notamment dans les domaines de l'hébergement, du PHP (Symfony 2, Zend Framework) ou du Javascript (JQuery, YUI3).<br />
+        <br />
+        Nous travaillons en osmose sur des projets innovants depuis plusieurs années.
+      </p>
+    </div>
+  </div>
+  <p class="text-center tagline">Ces échanges nous font évoluer au quotidien !</p>
+</div>
 {% endblock content %}
-

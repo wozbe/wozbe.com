@@ -1,0 +1,167 @@
+@import "web/vendor/bootstrap/less/bootstrap.less";
+@import "web/vendor/bootstrap/less/responsive.less";
+
+@import "web/vendor/font-awesome/less/font-awesome.less";
+
+@import "web/bundles/app/less/isotope.less";
+@import "web/bundles/app/less/functions.less";
+@import "web/bundles/app/less/variables.less";
+
+body {
+  background: url("@{bodyPath}") repeat;
+}
+
+*, *:before, *:after {
+  .box-sizing(border-box);
+}
+
+form * {
+  .box-sizing(content-box);
+}
+
+hr {
+  background: @brown;
+  width: 180px;
+  height: 6px;
+  margin: 10px auto;
+}
+
+#navbar {
+  margin-bottom: 0;
+  .brand {
+    padding-top: 0;
+    padding-bottom: 0;
+    display: none;
+  }
+
+  .navbar-inner {
+    border-left: none;
+    border-right: none;
+
+    .borderRadius(0px);
+  }
+}
+
+#navbar-mock {
+  height: @navbarHeight;
+}
+
+#content {
+  max-width: @contentMaxWidth;
+  margin-left: auto;
+  margin-right: auto;
+  background: @contentBackground;
+  .boxShadow(0 0 10px 1px rgba(0, 0, 0, 0.1));
+}
+
+footer {
+  padding-top: 50px;
+  padding-bottom: 20px;
+  margin-top: @zoneMargin;
+  background: url("@{skinBlackPath}") repeat;
+  color: @footerColor;
+
+  a,
+  a:hover,
+  a:active,
+  a:visited {
+    color: @footerLinkColor;
+    text-decoration: none;
+
+    .transition(color @transitionDuration);
+  }
+
+  a:hover {
+    color: @footerLinkHoverColor;
+  }
+}
+
+.container-logo {
+  position: relative;
+
+  text-align: center;
+  height: 380px;
+
+  background: url('../../../bundles/app/images/skin-header-bw.jpg');
+  background-attachment: fixed;
+  background-position: center top;
+  background-repeat: no-repeat;
+
+  .github {
+    position: absolute;
+    float: right;
+    top: 0;
+    right: 0;
+    border: 0;
+  }
+}
+
+h1 {
+  background: url("@{skinBlackPath}") repeat;
+  color: white;
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  font-size: 30px;
+  text-align: center;
+}
+
+h2 {
+  text-align: center;
+}
+
+h1,
+h2, 
+h3 {
+  font-family: @titleFontFamily;
+  font-weight: normal;
+}
+
+.modal-header {
+  background: @orange;
+}
+
+a,
+a:hover,
+a:active,
+a:visited {
+  text-decoration: none;
+
+  .transition(color @transitionDuration);
+}
+
+div.title {
+  text-align: center;
+
+  [class^="icon-"] {
+    color: @orange;
+  }
+
+  h2 {
+    color: @orange;
+  }
+
+  hr {
+    margin: 0 auto 20px;
+  }
+}
+
+@media (max-width: 980px) {
+  body {
+    padding-top: 0;
+  }
+
+  .navbar .btn-navbar {
+    margin-left: 0;
+    margin-right: 0;
+    margin-bottom: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .container-logo {
+    height: auto;
+    background: white;
+  }
+}

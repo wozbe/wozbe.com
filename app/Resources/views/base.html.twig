@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr">
   {% block head %}
   <head>
     <title>{% block title %}Wozbe{% endblock title %}</title>
@@ -7,34 +7,45 @@
     
     {% block head_meta %}
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% block head_meta_viewport %}<meta name="viewport" content="width=device-width, initial-scale=1.0">{% endblock head_meta_viewport %}
     {% endblock head_meta %}
     
     {% block head_script %}{% endblock %}
 
     <link rel="shortcut icon" href="{{ asset('favicon.ico') }}" />
-    <link rel="stylesheet" href="{{ asset('css/bootstrap.css') }}" type="text/css"/>
     {% block head_bottom %}
     {% endblock head_bottom %}
   </head>
   {% endblock head %}
   {% block body %}
+  {% block body_open_tag %}
   <body>
+  {% endblock %}
     {% block body_top %}{% endblock %}
       
-    {% block body_container %}
-      {% block navbar %}{% endblock %}
+    {% block navbar %}{% endblock %}
+      
+    {% block content_before %}{% endblock %}
+    
+    <div id="content" class="container-fluid">
+      {% block content_top %}{% endblock %}
       
       {% block content %}{% endblock %}
-    {% endblock %}
-      
-    {% block footer %}
-    <footer>
-      {% block footer_top %}{% endblock %}
         
-      {% block footer_bottom %}{% endblock %}
-    </footer>
-    {% endblock footer %}
+      {% block content_bottom %}{% endblock %}
+        
+      {% block footer %}
+      <footer class="container-fluid">
+        {% block footer_top %}{% endblock %}
+
+        {% block footer_content %}{% endblock %}
+
+        {% block footer_bottom %}{% endblock %}
+      </footer>
+      {% endblock footer %}  
+    </div>
+      
+    {% block content_after %}{% endblock %}
       
     {% block body_script %}{% endblock %}
       

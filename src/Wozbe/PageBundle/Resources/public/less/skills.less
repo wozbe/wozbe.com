@@ -1,0 +1,43 @@
+@import "web/bundles/app/less/functions.less";
+@import "web/bundles/app/less/variables.less";
+
+.zone-skills {
+  text-align: justify;
+
+  .skill {
+    padding: @boxPadding;
+    position: relative;
+
+    .logos {
+      text-align: center;
+      margin: 30px 0;
+
+      img {
+        margin-right: 30px;
+      }
+
+      img:last-child {
+        margin-right: 0;
+      }
+    }
+  }
+
+  .container-skills {
+    border-top: @border;
+    border-bottom: @border;
+
+    .skill {
+      width: 49.9%;
+      float: left;
+
+      &:first-child {
+        border-right: @border;
+      }
+
+      @media (max-width: 767px) {
+        width: 100%;
+        border-right: none;
+      }
+    }
+  }
+}

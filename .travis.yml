@@ -1,0 +1,21 @@
+language: php
+
+php:
+  - 5.3
+  - 5.4
+
+before_script:
+  - cp app/config/parameters.yml.dist app/config/parameters.yml
+  - composer install --prefer-source
+  - npm install -g bower
+  - npm install -g grunt-cli
+  - npm install
+  - bower install
+  - grunt symlink
+  - grunt  
+
+script: phpunit -c app/
+
+notifications:
+  email:
+    - thomas@tourlourat.com
