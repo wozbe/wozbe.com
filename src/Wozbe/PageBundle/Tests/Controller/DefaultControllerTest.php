@@ -17,7 +17,8 @@ class DefaultControllerTest extends WebTestCase
         $this->assertTrue(file_exists($webDir . '/built/wozbepage/css/index.css'));
         
         $this->assertTrue(file_exists($webDir . '/bundles/app/images/logo-wozbe-full-alpha.png'));
-        $this->assertTrue(file_exists($webDir . '/bundles/app/images/logo-wozbe-small.jpg'));
+        $this->assertTrue(file_exists($webDir . '/bundles/app/images/logo-wozbe-simple.png'));
+        $this->assertTrue(file_exists($webDir . '/bundles/app/images/logo-wozbe-letter.png'));
     }
     
     public function testHomeKeywords()
