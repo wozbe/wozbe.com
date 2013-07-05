@@ -21,11 +21,32 @@ class DefaultControllerTest extends WebTestCase
         $this->assertTrue(file_exists($webDir . '/bundles/app/images/logo-wozbe-letter.png'));
     }
     
+    public function getPagesFR ()
+    {
+        return array (
+            array('/fr'),
+            array('/fr/skills'),
+            array('/fr/references'),
+            array('/fr/contact'),
+        );
+    }
+    
+    /**
+     * @dataProvider getPagesFR
+     */
+    public function testPages($url)
+    {
+        $client = static::createClient();
+        $client->request('GET', $url);
+                
+        $this->assertTrue($client->getResponse()->isSuccessful());
+    }
+    
     public function testHomeKeywords()
     {
         $client = static::createClient();
 
-        $crawler = $client->request('GET', '/skills');
+        $crawler = $client->request('GET', '/fr/skills');
         
         $this->assertTrue($client->getResponse()->isSuccessful());
 
@@ -46,11 +67,14 @@ class DefaultControllerTest extends WebTestCase
         $this->assertGreaterThan(0, $crawler->filter('html:contains("DevOps")')->count());
     }
     
-    public function testLegalsInformations()
+    /**
+     * @dataProvider getPagesFR
+     */
+    public function testLegalsInformations($url)
     {
         $client = static::createClient();
 
-        $crawler = $client->request('GET', '/');
+        $crawler = $client->request('GET', $url);
         
         $this->assertTrue($client->getResponse()->isSuccessful());
 
@@ -58,42 +82,17 @@ class DefaultControllerTest extends WebTestCase
         $this->assertGreaterThan(0, $crawler->filter('#modalInformations')->count());
     }
     
-    public function testGAnalytics()
+    /**
+     * @dataProvider getPagesFR
+     */
+    public function testGAnalytics($url)
     {
         $client = static::createClient();
 
-        $crawler = $client->request('GET', '/');
+        $crawler = $client->request('GET', $url);
         
         $this->assertTrue($client->getResponse()->isSuccessful());
 
         $this->assertGreaterThan(0, $crawler->filter('html:contains("GoogleAnalyticsObject")')->count());
-    }
-    
-    public function testAjaxContact()
-    {
-        $client = static::createClient();
-
-        // Submit a raw JSON string in the request body
-        $client->request(
-            'POST',
-            '/ajax/contact',
-            array(),
-            array(),
-            array('HTTP_X-Requested-With' => 'XMLHttpRequest'),
-            '{"email": "test@wozbe.com", "message": "Hello World"}'
-        );
-        
-        $this->assertTrue($client->getResponse()->isSuccessful());
-        $this->assertTrue($client->getResponse()->headers->contains(
-                'Content-Type',
-                'application/json'
-            )
-        );
-        
-        $responseData = json_decode($client->getResponse()->getContent(), true);
-        
-        $this->assertNotNull($responseData);
-        $this->arrayHasKey('title', $responseData);
-        $this->arrayHasKey('message', $responseData);
     }
 }

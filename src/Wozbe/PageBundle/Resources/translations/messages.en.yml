@@ -1,0 +1,38 @@
+description: description   # FIXME
+
+partner:
+    description:
+        anonymation: partner.description.anonymation   # FIXME
+        kitpages: partner.description.kitpages   # FIXME
+        vlabs: partner.description.vlabs   # FIXME
+
+    tagline: partner.tagline   # FIXME
+    title: partner.title   # FIXME
+
+reference:
+    description:
+        armetiz: reference.description.armetiz   # FIXME
+        kolor: reference.description.kolor   # FIXME
+        konbini: reference.description.konbini   # FIXME
+        la_virgule: reference.description.la_virgule   # FIXME
+        numerosus: reference.description.numerosus   # FIXME
+        turnaway: reference.description.turnaway   # FIXME
+
+    overview: reference.overview   # FIXME
+    title: reference.title   # FIXME
+
+skill:
+    agile: skill.agile   # FIXME
+    architecture_devops: skill.architecture_devops   # FIXME
+    client_server: skill.client_server   # FIXME
+    communication_deployment: skill.communication_deployment   # FIXME
+    content_delivery_network: skill.content_delivery_network   # FIXME
+    development: development   # FIXME
+    fresh_technologies: skill.fresh_technologies   # FIXME
+    infrastructure: skill.infrastructure   # FIXME
+    performance_high_availability: skill.performance_high_availability   # FIXME
+    search_development: skill.search_development   # FIXME
+    video_streaming: skill.video_streaming   # FIXME
+    working_method: skill.working_method   # FIXME
+
+slogan: 'Success your Web project !'

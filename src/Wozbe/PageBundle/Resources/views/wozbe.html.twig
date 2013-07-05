@@ -1,6 +1,6 @@
 {% extends '::base.html.twig' %}
 
-{% block title %}Wozbe - Expertise projet Web - Symfony & Infrastructure Haute-Disponibilité{% endblock title %}
+{% block title %}Wozbe - {{ 'slogan'|trans }}{% endblock title %}
 
 {% block stylesheets %}
 {{ parent() }}
@@ -13,12 +13,12 @@
 {{ parent() }}
 <link rel="canonical" href="http://wozbe.com"/>
 <meta name="robots" content="index,follow" />
-<meta property='og:title' content='Wozbe - Réalisation de projet Web'/>
-<meta property='og:description' content='Wozbe est une société qui réalise vos projets Web. Nous prenons en compte vos objectifs business pour construire vos produits & services.'/>
+<meta property='og:title' content='Wozbe - {{ 'slogan'|trans }}'/>
+<meta property='og:description' content='{{ 'description'|trans|striptags }}'/>
 <meta property='og:url' content='http://wozbe.com/'/>
 <meta property='og:site_name' content='Wozbe'/>
 <meta property='og:type' content='website'/>
-<meta property='og:image' content='http://wozbe.com/bundles/app/images/xlogo-wozbe-letter.png.pagespeed.ic.7D9Wg-60-h.png' />
+<meta property='og:image' content='http://wozbe.com/bundles/app/images/logo-wozbe-letter.png' />
 {% endblock head_meta %}
 
 {% block body_script %}
@@ -54,10 +54,10 @@
       <div class="nav-collapse collapse">
         <ul class="nav">
           {% set route = app.request.attributes.get('_route') %}
-          <li{% if 'wozbe' == route %} class="active"{% endif %}><a href="{{ url('wozbe') }}"><i class="icon-fixed-width icon-home"></i>Accueil</a></li>
-          <li{% if 'wozbe_skills' == route %} class="active"{% endif %}><a href="{{ url('wozbe_skills') }}"><i class="icon-fixed-width icon-tasks"></i>Compétences</a></li>
-          <li{% if 'wozbe_references' == route %} class="active"{% endif %}><a href="{{ url('wozbe_references') }}"><i class="icon-fixed-width icon-book"></i>Réferences</a></li>
-          <li{% if 'wozbe_contact' == route %} class="active"{% endif %}><a href="{{ url('wozbe_contact') }}"><i class="icon-fixed-width icon-envelope"></i>Contact</a></li>
+          <li{% if 'wozbe' == route %} class="active"{% endif %}><a href="{{ url('wozbe') }}"><i class="icon-fixed-width icon-home"></i> {{ 'home'|trans }}</a></li>
+          <li{% if 'wozbe_skills' == route %} class="active"{% endif %}><a href="{{ url('wozbe_skills') }}"><i class="icon-fixed-width icon-tasks"></i> {{ 'skills'|trans }}</a></li>
+          <li{% if 'wozbe_references' == route %} class="active"{% endif %}><a href="{{ url('wozbe_references') }}"><i class="icon-fixed-width icon-book"></i> {{ 'references'|trans }}</a></li>
+          <li{% if 'wozbe_contact' == route %} class="active"{% endif %}><a href="{{ url('wozbe_contact') }}"><i class="icon-fixed-width icon-envelope"></i> {{ 'contact'|trans }}</a></li>
         </ul>
       </div>
     </div>
@@ -68,7 +68,7 @@
 
 {% block footer_content %}
 <p class="text-center">
-  2013 Wozbe © - <a href="#modalInformations" role="button" data-toggle="modal">Informations légales</a><br />
+  2013 Wozbe © - <a href="#modalInformations" role="button" data-toggle="modal">{{ 'legals_informations'|trans }}</a><br />
   <a href="http://symfony.com/">Symfony2</a>, <a href="http://www.doctrine-project.org/">Doctrine2</a>, <a href="http://twig.sensiolabs.org/">Twig</a>, <a href="http://jquery.com/">jQuery</a>, <a href="http://lesscss.org/">LESS</a>, <a href="http://gruntjs.com/">Grunt</a>, <a href="https://github.com/bower/bower">Bower</a>, <a href="https://github.com/sebastianbergmann/phpunit/">PHPUnit</a> & <a href="http://capifony.org/">Capifony</a>
 </p>
 {% endblock %}
@@ -78,7 +78,7 @@
 <div id="modalInformations" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="modalInformations" aria-hidden="true">
   <div class="modal-header">
     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-    <h3 id="myModalLabel">Informations légales</h3>
+    <h3 id="myModalLabel">{{ 'legals_informations'|trans }}</h3>
   </div>
   <div class="modal-body">
     <p class="text-center">
@@ -92,7 +92,7 @@
     </p>
   </div>
   <div class="modal-footer">
-    <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+    <button class="btn" data-dismiss="modal" aria-hidden="true">{{ 'close'|trans }}</button>
   </div>
 </div>
 {% endblock %}

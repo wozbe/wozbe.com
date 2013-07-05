@@ -1,3 +1,7 @@
+var messages = {
+  error: 'error',
+  missingFields: 'missing fields'
+};
 
 var managerNavbarWithHash = function () {
   var navbarPositionTop = jQuery('#navbar').position().top;
@@ -59,8 +63,8 @@ var managerContactForm = function() {
     if(email === '' || message === '') {
       $alerts.append(Mustache.render($mailTemplate.html(), {
         class: "alert-error",
-        title: "Error",
-        message: "Please, email & message fields are required."
+        title: messages.error,
+        message: messages.missingFields
       }));
     } else {
         // appel Ajax
@@ -78,7 +82,7 @@ var managerContactForm = function() {
           error: function(jqXHR, textStatus, errorThrown) { // je récupère la réponse du fichier PHP
             $alerts.append(Mustache.render($mailTemplate.html(), {
               class: "alert-error",
-              title: "Problem !",
+              title: messages.error,
               message: jqXHR.responseText
             }));
           }

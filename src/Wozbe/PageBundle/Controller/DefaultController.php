@@ -7,9 +7,6 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\HttpFoundation\JsonResponse;
-use Symfony\Component\Validator\Constraints\Email;
 
 /**
  * @Route("/")
@@ -17,7 +14,16 @@ use Symfony\Component\Validator\Constraints\Email;
 class DefaultController extends Controller
 {
     /**
-     * @Route("/", name="wozbe")
+     * @Route("/", name="wozbe_root")
+     * @Method({"GET", "HEAD"})
+     */
+    public function rootAction()
+    {
+        return $this->redirect($this->generateUrl('wozbe'));
+    }
+    
+    /**
+     * @Route("/{_locale}", name="wozbe", requirements={"_locale" = "fr"})
      * @Method({"GET", "HEAD"})
      * @Cache(expires="+2 hours", public="true")
      */
@@ -27,7 +33,7 @@ class DefaultController extends Controller
     }
     
     /**
-     * @Route("/skills", name="wozbe_skills")
+     * @Route("/{_locale}/skills", name="wozbe_skills", requirements={"_locale" = "fr"})
      * @Method({"GET", "HEAD"})
      * @Cache(expires="+2 hours", public="true")
      */
@@ -37,7 +43,7 @@ class DefaultController extends Controller
     }
     
     /**
-     * @Route("/references", name="wozbe_references")
+     * @Route("/{_locale}/references", name="wozbe_references", requirements={"_locale" = "fr"})
      * @Method({"GET", "HEAD"})
      * @Cache(expires="+2 hours", public="true")
      */
@@ -47,52 +53,12 @@ class DefaultController extends Controller
     }
     
     /**
-     * @Route("/contact", name="wozbe_contact")
+     * @Route("/{_locale}/contact", name="wozbe_contact", requirements={"_locale" = "fr"})
      * @Method({"GET", "HEAD"})
      * @Cache(expires="+2 hours", public="true")
      */
     public function contactAction()
     {
         return $this->render('WozbePageBundle:Default:contact.html.twig');
-    }
-    
-    /**
-     * @Route("/ajax/contact", name="wozbe_ajax_contact")
-     * @Method({"POST"})
-     */
-    public function contactAjaxAction()
-    {
-        $request = $this->getRequest();
-        if ($request->isXmlHttpRequest()) {
-            $email = $request->request->get('email');
-            $message = $request->request->get('message');
-            
-            $emailConstraint = new Email();
-            
-            $errorList = $this->get('validator')->validateValue(
-                $email,
-                $emailConstraint
-            );
-            
-            if (count($errorList) > 0) {
-                // this is *not* a valid email address
-                return new Response($errorList[0]->getMessage(), 400);
-            }
-            
-            $swiftMail = \Swift_Message::newInstance()
-                ->setSubject('Contact Wozbe')
-                ->setFrom($email)
-                ->setTo($this->container->getParameter('email'))
-                ->setBody($message)
-            ;
-            $this->get('mailer')->send($swiftMail);
-            
-            return new JsonResponse(array (
-                'title' => 'Success !',
-                'message' =>  'Your message was sent to ' . $this->container->getParameter('email'),
-            ));
-        }
-        
-        return new Response('Server accept only XML HTTP Request', 400);
     }
 }

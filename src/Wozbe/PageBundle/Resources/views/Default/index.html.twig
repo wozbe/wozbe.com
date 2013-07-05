@@ -1,4 +1,4 @@
-{% extends '::wozbe.html.twig' %}
+{% extends 'WozbePageBundle::wozbe.html.twig' %}
 
 {% block stylesheets %}
 {{ parent() }}
@@ -10,48 +10,48 @@
 {% endblock %}
 
 {% block content %}
-<h1>Réussir vos projets Web !</h1>
+<h1>{{ "slogan"|trans }}</h1>
 <div id="zone-skills" class="container-fluid">
   <ul class="cbp-ig-grid">
     {% set skills = [
       [
-        'Développement', 
-        'Client & Serveur', 
+        'skill.development'|trans, 
+        'skill.client_server'|trans, 
         url('wozbe_skills'), 
         'icon-code',
         ''
       ],
       [
-        'Architecture / DevOps', 
-        'Communication & Déploiement', 
+        'skill.architecture_devops'|trans, 
+        'skill.communication_deployment'|trans, 
         url('wozbe_skills'), 
         'icon-cogs',
         ''
       ],
       [
-        'Infrastructure', 
-        'Performance & Haute-Disponibilité', 
+        'skill.infrastructure'|trans, 
+        'skill.performance_high_availability'|trans, 
         url('wozbe_skills'), 
         'icon-cloud-upload',
         ''
       ],
       [
-        'Agilité', 
-        'Methode de travail', 
+        'skill.agile'|trans, 
+        'skill.working_method'|trans, 
         url('wozbe_skills'), 
         'icon-tasks',
         'hidden-phone'
       ],
       [
-        'Recherche & Développement', 
-        'Fresh Technologies', 
+        'skill.search_development'|trans, 
+        'skill.fresh_technologies'|trans, 
         url('wozbe_skills'), 
         'icon-refresh',
         'hidden-phone'
       ],
       [
-        'Diffusion vidéo', 
-        'Content Delivery Network', 
+        'skill.video_streaming'|trans, 
+        'skill.content_delivery_network'|trans, 
         url('wozbe_skills'), 
         'icon-youtube-play',
         'hidden-phone'
@@ -75,41 +75,39 @@
     </div>
     <div class="span9 offset1">
       <p class="lead text-left">
-        <strong>Wozbe</strong> réalise vos <strong>produits & services Web</strong> en tenant compte de <strong>vos problématiques & objectifs business</strong>.
+        {% autoescape false %}{{ "description"|trans }}{% endautoescape %}
       </p>
     </div>
   </div>
 </div>  
 <div id="zone-references" class="hidden-phone container-fluid">
   <a name="zone-references"></a>
-  <h2>Nos Références</h2>
+  <h2>{{ 'reference.title'|trans }}</h2>
   <div class="row">
     <div class="reference left">
       <a href="{{ url('wozbe_references') }}#numerosus">
-        <img alt="Numerosus aperçu" class="screenshot" src="{{ asset('bundles/wozbepage/images/screen-numerosus.jpg') }}" />
+        <img alt="{{ 'reference.overview'|trans({'%project%': 'Numerosus'}) }}" class="screenshot" src="{{ asset('bundles/wozbepage/images/screen-numerosus.jpg') }}" />
         <span class="caption fade-caption">
           <h3>Numerosus</h3>
-          <p>Plateforme de vente pour biens de prestiges</p>
+          <p>{% autoescape false %}{{ 'reference.description.short.numerosus'|trans }}{% endautoescape %}</p>
         </span>
       </a>
     </div>
     <div class="reference middle">
       <a href="{{ url('wozbe_references') }}#konbini">
-        <img alt="Konbini aperçu" class="screenshot" src="{{ asset('bundles/wozbepage/images/screen-konbini.jpg') }}" />
+        <img alt="{{ 'reference.overview'|trans({'%project%': 'Konbini'}) }}" class="screenshot" src="{{ asset('bundles/wozbepage/images/screen-konbini.jpg') }}" />
         <span class="caption fade-caption">
           <h3>Konbini</h3>
-          <p>The #1 source of pop culture</p>
+          <p>{% autoescape false %}{{ 'reference.description.short.konbini'|trans }}{% endautoescape %}</p>
         </span>
       </a>
     </div>
     <div class="reference right">
       <a href="{{ url('wozbe_references') }}#armetiz">
-        <img alt="Armetiz aperçu" class="screenshot" src="{{ asset('bundles/wozbepage/images/screen-armetiz.jpg') }}" />
+        <img alt="{{ 'reference.overview'|trans({'%project%': 'Armetiz'}) }}" class="screenshot" src="{{ asset('bundles/wozbepage/images/screen-armetiz.jpg') }}" />
         <span class="caption fade-caption">
           <h3>Armetiz</h3>
-          <p>
-            Blog<br />
-            Thomas Tourlourat</p>
+          <p>{% autoescape false %}{{ 'reference.description.short.armetiz'|trans }}{% endautoescape %}</p>
         </span>
       </a>
     </div>
@@ -117,28 +115,28 @@
   <div class="row">
     <div class="reference left">
       <a href="{{ url('wozbe_references') }}#turnaway">
-        <img alt="Numerosus aperçu" class="screenshot" src="{{ asset('bundles/wozbepage/images/screen-turnaway.jpg') }}" />
+        <img alt="{{ 'reference.overview'|trans({'%project%': 'Turnaway'}) }}" class="screenshot" src="{{ asset('bundles/wozbepage/images/screen-turnaway.jpg') }}" />
         <span class="caption fade-caption">
           <h3>Turnaway</h3>
-          <p>Maintenance & Infogérance Informatique</p>
+          <p>{% autoescape false %}{{ 'reference.description.short.turnaway'|trans }}{% endautoescape %}</p>
         </span>
       </a>
     </div>
     <div class="reference middle">
       <a href="{{ url('wozbe_references') }}#kolor">
-        <img alt="Kolor aperçu" class="screenshot" src="{{ asset('bundles/wozbepage/images/screen-kolor.jpg') }}" />
+        <img alt="{{ 'reference.overview'|trans({'%project%': 'Kolor'}) }}" class="screenshot" src="{{ asset('bundles/wozbepage/images/screen-kolor.jpg') }}" />
         <span class="caption fade-caption">
           <h3>Kolor</h3>
-          <p>Kolor Eyes is based on the most innovative technology to display and interact with immersive 360° videos</p>
+          <p>{% autoescape false %}{{ 'reference.description.short.kolor'|trans }}{% endautoescape %}</p>
         </span>
       </a>
     </div>
     <div class="reference right">
       <a href="{{ url('wozbe_references') }}#virgule">
-        <img alt="La Virgule aperçu" class="screenshot" src="{{ asset('bundles/wozbepage/images/screen-virgule.jpg') }}" />
+        <img alt="{{ 'reference.overview'|trans({'%project%': 'La Virgule'}) }}" class="screenshot" src="{{ asset('bundles/wozbepage/images/screen-virgule.jpg') }}" />
         <span class="caption fade-caption">
           <h3>La Virgule</h3>
-          <p>La Virgule Humour selectionne pour vous les webseries les plus hilarantes du moment</p>
+          <p>{% autoescape false %}{{ 'reference.description.short.la_virgule'|trans }}{% endautoescape %}</p>
         </span>
       </a>
     </div>
@@ -146,33 +144,21 @@
 </div>
 <div id="zone-partners">
   <a name="zone-partners"></a>
-  <h2>Nos Partenaires</h2>
+  <h2>{{ 'partner.title'|trans }}</h2>
   <div class="row-fluid">
     <div class="span4 partner anonymation">
       <div class="logo"><a target="_blank" href="http://www.anonymation.com/"><img alt="Anonymation Logo" src="{{ asset('bundles/wozbepage/images/logo-anonymation.png') }}" /></a></div>
-      <p>
-        Studio de création animé par une passion partagée pour le web et les technologies de l'internet.<br />
-        <br />
-        Anonymation, par la qualité de ces équipes, nous permet d'aller au-delà des limites de l'architecture logicielle. 
-      </p>
+      <p>{% autoescape false %}{{ 'partner.description.anonymation'|trans }}{% endautoescape %}</p>
     </div>
     <div class="span4 partner vlabs">
       <div class="logo"><a target="_blank" href="http://www.v-labs.fr/"><img alt="VLabs Logo" src="{{ asset('bundles/wozbepage/images/logo-vlabs.png') }}" /></a></div>
-      <p>
-        VLabs est une petite structure pleine de surprises.<br />
-        <br />
-        Des expériences réussies sur des projets Symfony2, mais aussi des réalisations d'application mobile iOS & Android.<br />
-      </p>
+      <p>{% autoescape false %}{{ 'partner.description.vlabs'|trans }}{% endautoescape %}</p>
     </div>
     <div class="span4 partner kitpages">
       <div class="logo"><a target="_blank" href="http://www.kitpages.fr/"><img alt="Kitpages Logo" src="{{ asset('bundles/wozbepage/images/logo-kitpages.png') }}" /></a></div>
-      <p>
-        Avec 13 ans d'expérience, Kitpages apporte pragmatisme et expertise technique, notamment dans les domaines de l'hébergement, du PHP (Symfony 2, Zend Framework) ou du Javascript (JQuery, YUI3).<br />
-        <br />
-        Nous travaillons en osmose sur des projets innovants depuis plusieurs années.
-      </p>
+      <p>{% autoescape false %}{{ 'partner.description.kitpages'|trans }}{% endautoescape %}</p>
     </div>
   </div>
-  <p class="text-center tagline">Ces échanges nous font évoluer au quotidien !</p>
+  <p class="text-center tagline">{{ 'partner.tagline'|trans }}</p>
 </div>
 {% endblock content %}

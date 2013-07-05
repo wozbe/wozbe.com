@@ -1,4 +1,4 @@
-{% extends '::wozbe.html.twig' %}
+{% extends 'WozbePageBundle::wozbe.html.twig' %}
 
 {% block stylesheets %}
 {{ parent() }}
@@ -6,93 +6,52 @@
 {% endblock %}
 
 {% block content %}
-<h1>Nos compétences</h1>
+<h1>{{ 'our_skills'|trans }}</h1>
 <div class="zone-skills">
   <div class="skill development">
     <div class="title">
       <i class="icon-fixed-width icon-code icon-5x"></i>
-      <h2>Développement</h2>
+      <h2>{{ 'skill.development'|trans }}</h2>
       <hr class="title" />
     </div>
-    <p>
-      Ayant acquis de fortes compétences avec les <strong>technologies du Web</strong>, et plus particulièrement avec <strong>Symfony2</strong>. Wozbe prend en charge le développement de vos produits & services.<br />
-      Nous travaillons avec des outils <strong>collaboratifs & de controle qualité</strong> tels que GIT, PHPUnit, TravisCI...
-    </p>
-    <p>
-      Wozbe maitrise des technologies client & serveur : <strong>PHP, Javascript & ActionScript</strong>. Les autres technologies sont étudiées en R&amp;D afin d'etre utilisées en cas de besoin spécifique : <strong>NodeJS</strong>, <strong>MongoDB</strong>, <strong>Redis</strong>, <strong>ElasticSearch</strong>
-    </p>
-    <p class="logos">
+    <div>{% autoescape false %}{{ 'skill.description.development'|trans }}{% endautoescape %}</div>
+    <div class="logos">
       <img src="{{ asset('bundles/wozbepage/images/technologies/logo-symfony.png') }}" />
       <img src="{{ asset('bundles/wozbepage/images/technologies/logo-grunt.png') }}" />
       <img src="{{ asset('bundles/wozbepage/images/technologies/logo-html5.png') }}" />
       <img src="{{ asset('bundles/wozbepage/images/technologies/logo-nodejs.png') }}" />
-    </p>
+    </div>
   </div>
   <div class="container-skills">
     <div class="skill">
       <div class="title">
         <i class="icon-fixed-width icon-cloud-upload icon-5x"></i>
-        <h2>Infrastructure</h2>
+        <h2>{{ 'skill.infrastructure'|trans }}</h2>
         <hr class="title" />
       </div>
-      <p>
-        De fortes compétences en <strong>système & infrastructure</strong> sont disponibles chez Wozbe.<br />
-        Nous mettons rapidement en place des environnements <strong>Web de Haute-Disponibilité & Performants</strong> en prenant en compte vos <strong>besoins business</strong>.
-      </p>
-      <p>
-        <a href="http://www.ovh.com">OVH</a> est une société dont nous connaissons les produits pour les avoir exploités régulierement. Des <strong>serveurs dédiés</strong> aux solutions <strong>IaaS via VMWare</strong> en passant par les <strong>VGS</strong>, nous pouvons faire un travail d'accompagnement vers la gamme adaptée.
-      </p>
-      <p>
-        <a href="http://aws.amazon.com/fr/">Amazon AWS</a> propose des services interessants à étudier. Cela vous apporte un avantage lors du lancement de certains de vos projets : <strong>coût, évolution, stabilité & sérénité</strong><br />
-      </p>
-      <p class="logos">
+      <div>{% autoescape false %}{{ 'skill.description.infrastructure'|trans }}{% endautoescape %}</div>
+      <div class="logos">
         <img src="{{ asset('bundles/wozbepage/images/technologies/logo-ovh.jpg') }}" />
         <img src="{{ asset('bundles/wozbepage/images/technologies/logo-amazon.jpg') }}" />
-      </p>
+      </div>
     </div>
     <div class="skill">
       <div class="title">
         <i class="icon-fixed-width icon-cogs icon-5x"></i>
-        <h2>Architecture & DevOps</h2>
+        <h2>{{ 'skill.architecture_devops'|trans }}</h2>
         <hr class="title" />
       </div>
-      <p>
-        La réussite de votre projet se fera grâce à des bases solides, <strong>performantes et évolutives</strong>.<br />
-        L'architecture est donc à définir au niveau <strong>logiciel & infrastructure</strong>.
-      </p>
-      <p>
-        Wozbe dispose de compétences en développement ainsi qu'en administration des systèmes informatique.<br />
-        Cela est un atout qui permet d'avoir une <strong>vision de l'ensemble</strong> des composantes de votre projet.<br />
-        <strong>Des choix techniques</strong> au niveau du développement peuvent avoir des impacts sur les systèmes de plus bas niveau, il convient d'en mesurer les impacts pour <strong>valider ces choix</strong>.
-      </p>
-      <p>
-        <strong>La tendance DevOps</strong> vise à concilier le monde du développement et le monde de l'infrastructure. On parle aussi <strong>d'outils d'intégration continue et de mise en production</strong> permettant de simplifier les mises à jours et de supprimer le stress induit.</p>
+      <div>{% autoescape false %}{{ 'skill.description.architecture_devops'|trans }}{% endautoescape %}</div>
     </div>
     <br clear="both" />
   </div>
   <div class="skill cdn">
     <div class="title">
-        <i class="icon-fixed-width icon-youtube-play icon-5x"></i>
-        <h2>Diffusion Vidéo</h2>
-        <hr class="title" />
-      </div>
-    <p>
-      La mise en place de <strong>CDN</strong> ( Content Delivery Network ) signifie mettre en place des serveurs de fichiers capables de fournir du contenu sur HTTP.<br/>
-      Au niveau vidéo, différents services peuvent être associés comme le <strong><a href="http://fr.wikipedia.org/wiki/Timeshifting">timeshifting</a></strong>, l'<strong>encodage à la volée</strong> ou la mise en place d'URL spécifiques pour <strong>protéger vos fichiers</strong>.
-    </p>
-    <p>
-      Les difficultés rencontrées lors de la mise en place des CDN sont la <strong>géo-localisation</strong> des services, l'optimisation des ressources réseaux / stockages et la <strong>disponibilité</strong>.<br />
-      Les fichiers vidéos sont de tailles importantes, et lorsque le service rencontre un certain succès, il faut que l'infrastructure soit capable de diffuser le contenu sans perte de qualité.
-    </p>
-    <p>
-      Afin de vous proposez des services de qualité, <strong>nous pouvons associer notre expertise à l'infrastructure OVH</strong> ou à celle <strong>d'Amazon EC2</strong> en fonction de vos besoins.
-    </p>
-    <p>
-      Lorsque vous réalisez une solution de <strong>Content Delivery Network</strong>, cela doit être fait en envisageant la couverture de <strong>réseau IPv4 & IPv6</strong>, cela peut impliquer des compétences spécifiques.
-    </p>
-    <p>
-      Si vous avez besoin de plus d'information ou que vous souhaitez mettre en place un <strong>CDN de Haute Disponibilité</strong>, n’hésitez pas à <a href="{{ url('wozbe_contact') }}">nous contacter</a>.
-    </p>
+      <i class="icon-fixed-width icon-youtube-play icon-5x"></i>
+      <h2>{{ 'skill.video_streaming'|trans }}</h2>
+      <hr class="title" />
+    </div>
+    <div>{% autoescape false %}{{ 'skill.description.video_streaming'|trans({'%url_contact%': url('wozbe_contact')}) }}{% endautoescape %}</div>
   </div>
 </div>
 {% endblock content %}
