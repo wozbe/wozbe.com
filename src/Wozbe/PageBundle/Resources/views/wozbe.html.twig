@@ -1,6 +1,8 @@
 {% extends '::base.html.twig' %}
 
-{% block title %}Wozbe - {{ 'slogan'|trans }}{% endblock title %}
+{% block title %}Wozbe{% endblock %}
+{% block description %}{{ 'description'|trans|striptags }}{% endblock %}
+{% block keywords %}{{ 'keywords'|trans|striptags }}{% endblock %}
 
 {% block stylesheets %}
 {{ parent() }}

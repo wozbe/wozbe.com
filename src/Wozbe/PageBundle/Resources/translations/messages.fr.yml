@@ -5,6 +5,7 @@ contact_us: 'Nous Contacter'
 description: '<strong>Wozbe</strong> réalise vos <strong>produits & services Web</strong> en tenant compte de <strong>vos problématiques & objectifs business</strong>.'
 error: Erreur
 home: Accueil
+keywords: wozbe,lyon,rhone,france,consultant,symfony,nodejs,developpement,infrastructure,architecture,cdn,plateforme,design,ergonomie,ovh,moderne,paris,startup,association,partenariat,projet
 legals_informations: 'Informations légales'
 message_sent_to: 'Votre message a été envoyé à %email%'
 missing_fields: 'Tout les champs sont obligatoires'
@@ -82,5 +83,5 @@ skill:
     working_method: 'Méthode de travail'
 
 skills: Compétences
-slogan: 'Réussir vos projets Web !'
+slogan: 'Réalisation de vos projets Web'
 success: Succès

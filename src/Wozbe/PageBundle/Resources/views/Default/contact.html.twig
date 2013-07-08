@@ -1,5 +1,7 @@
 {% extends 'WozbePageBundle::wozbe.html.twig' %}
 
+{% block title %}{{ parent() }} - {{ 'contact_us'|trans }}{% endblock %}
+
 {% block stylesheets %}
 {{ parent() }}
 <link rel="stylesheet" href="{{ asset('built/wozbepage/css/contact.css') }}" type="text/css"/>

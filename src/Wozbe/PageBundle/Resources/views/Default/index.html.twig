@@ -1,5 +1,7 @@
 {% extends 'WozbePageBundle::wozbe.html.twig' %}
 
+{% block title %}{{ parent() }} - {{ 'slogan'|trans }}{% endblock %}
+
 {% block stylesheets %}
 {{ parent() }}
 <link rel="stylesheet" href="{{ asset('built/wozbepage/css/index.css') }}" type="text/css"/>
@@ -10,7 +12,7 @@
 {% endblock %}
 
 {% block content %}
-<h1>{{ "slogan"|trans }}</h1>
+<h1>{{ "slogan"|trans }} !</h1>
 <div id="zone-skills" class="container-fluid">
   <ul class="cbp-ig-grid">
     {% set skills = [

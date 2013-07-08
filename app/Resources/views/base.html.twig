@@ -2,7 +2,10 @@
 <html lang="{{ app.request.locale }}">
   {% block head %}
   <head>
-    <title>{% block title %}Wozbe{% endblock title %}</title>
+    <title>{% block title %}{% endblock %}</title>
+    <meta name="description" content="{% block description %}{% endblock %}"/>
+    <meta name="keywords" content="{% block keywords %}{% endblock %}"/>
+    
     {% block stylesheets %}{% endblock %}
     
     {% block head_meta %}
