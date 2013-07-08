@@ -117,13 +117,13 @@ module.exports = function(grunt) {
           'Mustache': true
         }
       },
-      target: {
+      dist: {
         src: ['web/bundles/app/js/*.js']
       }
     }
   });
 
   // Default task(s).
-  grunt.registerTask('default', ['less', 'concat']);
+  grunt.registerTask('default', ['less', 'jshint', 'concat']);
 
 };
