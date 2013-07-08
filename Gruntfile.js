@@ -4,6 +4,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-less');
   grunt.loadNpmTasks('grunt-contrib-concat');
   grunt.loadNpmTasks('grunt-contrib-watch');
+  grunt.loadNpmTasks('grunt-contrib-jshint');
   
   grunt.file.mkdir('app/Resources/public/images/');
   
@@ -87,7 +88,37 @@ module.exports = function(grunt) {
       },
       javascript: {
         files: ['web/bundles/app/js/*.js'],
-        tasks: ['concat']
+        tasks: ['concat', 'jshint']
+      }
+    },
+    jshint: {
+      options: {
+        curly: true,
+        eqeqeq: true,
+        eqnull: true,
+        browser: true,
+        undef: true,
+        unused: true,
+        bitwise: true,
+        camelcase: true,
+        forin: true,
+        immed: true,
+        latedef: true,
+        newcap: true,
+        quotmark: 'single',
+        strict: true,
+        maxparams: 4,
+        maxdepth: 2,
+        maxcomplexity: 2,
+        globals: {
+          'jQuery': true,
+          '$': true,
+          '_': true,
+          'Mustache': true
+        }
+      },
+      target: {
+        src: ['web/bundles/app/js/*.js']
       }
     }
   });
