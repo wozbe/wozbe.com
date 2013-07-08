@@ -5,6 +5,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-concat');
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-jshint');
+  grunt.loadNpmTasks('grunt-contrib-uglify');
   
   grunt.file.mkdir('app/Resources/public/images/');
   
@@ -88,7 +89,17 @@ module.exports = function(grunt) {
       },
       javascript: {
         files: ['web/bundles/app/js/*.js'],
-        tasks: ['concat', 'jshint']
+        tasks: ['javascript']
+      }
+    },
+    uglify: {
+      options: {
+        report: 'gzip'
+      },
+      dist: {
+        files: {
+          'web/built/app/js/wozbe.min.js': ['web/built/app/js/wozbe.js']
+        }
       }
     },
     jshint: {
@@ -124,6 +135,8 @@ module.exports = function(grunt) {
   });
 
   // Default task(s).
-  grunt.registerTask('default', ['less', 'jshint', 'concat']);
+  grunt.registerTask('default', ['css', 'javascript']);
+  grunt.registerTask('css', ['less']);
+  grunt.registerTask('javascript', ['jshint', 'concat', 'uglify']);
 
 };
