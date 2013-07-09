@@ -1,6 +1,10 @@
+set :stages,        %w(production development)
+set :default_stage, "development"
+set :stage_dir,     "deployment/stages"
+require 'capistrano/ext/multistage'
+
 set :application, "wozbe"
 set :host,        "arthos.armetiz.info"
-set :deploy_to,   "/var/www/vhosts/com.wozbe.www"
 set :app_path,    "app"
 set :user,        "root"
 
