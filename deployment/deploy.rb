@@ -12,7 +12,7 @@ set :repository,  "git@github.com:wozbe/wozbe.com.git"
 set :scm,         :git
 set :model_manager, "doctrine"
 
-set :shared_files,  ["app/config/parameters.yml"]
+set :shared_files,  ["app/config/parameters.yml", "web/robots.txt"]
 set :clear_controllers, false
 set :writable_dirs, ["app/cache", "app/logs"]
 set :webserver_user, "apache"
@@ -67,6 +67,19 @@ namespace :assets do
 
     capifony_puts_ok
   end
+
+  desc "Robots SEO"
+  task :robots do
+    capifony_pretty_print '--> Uploading stage robots.txt'
+
+    origin_file = "deployment/files/robots_#{fetch(:stage)}.txt"
+    destination_file = deploy_to + '/' + shared_dir + '/web/robots.txt'
+
+    run "sh -c 'if [ ! -d #{File.dirname(destination_file)} ] ; then mkdir -p #{File.dirname(destination_file)}; fi'"
+    top.upload(origin_file, destination_file)
+
+    capifony_puts_ok
+  end
 end
 
 namespace :cache do
@@ -94,7 +107,7 @@ namespace :cache do
 end
 
 after "deploy", "deploy:cleanup", "cache:pagespeed:flush", "cache:varnish:restart"
-after "deploy:update_code", "assets:bower_install", "assets:npm_install", "assets:grunt_symlink", "assets:grunt"
+after "deploy:update_code", "assets:bower_install", "assets:npm_install", "assets:grunt_symlink", "assets:grunt", "assets:robots"
 
 # Be more verbose by uncommenting the following line
 # logger.level = Logger::MAX_LEVEL
