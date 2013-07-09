@@ -70,28 +70,30 @@ namespace :assets do
 end
 
 namespace :cache do
-  desc "Flush the mod_pagespeed cache"
-  task :pagespeed_flush do
-    capifony_pretty_print '--> Clear mod_pagespeed cache'
+  namespace :pagespeed do
+    desc "Flush the mod_pagespeed cache"
+    task :flush do
+      capifony_pretty_print '--> Clear mod_pagespeed cache'
 
-    run "touch /var/cache/mod_pagespeed/cache.flush"
+      run "touch /var/cache/mod_pagespeed/cache.flush"
 
-    capifony_puts_ok
+      capifony_puts_ok
+    end
+  end
+
+  namespace :varnish do
+    desc "Varnish restart"
+    task :restart do
+      capifony_pretty_print '--> Restart Varnish'
+
+      run "service varnish restart"
+
+      capifony_puts_ok
+    end
   end
 end
 
-namespace :varnish do
-  desc "Varnish restart"
-  task :restart do
-    capifony_pretty_print '--> Restart Varnish'
-
-    run "service varnish restart"
-
-    capifony_puts_ok
-  end
-end
-
-after "deploy", "deploy:cleanup", "cache:pagespeed_flush", "varnish:restart"
+after "deploy", "deploy:cleanup", "cache:pagespeed:flush", "cache:varnish:restart"
 after "deploy:update_code", "assets:bower_install", "assets:npm_install", "assets:grunt_symlink", "assets:grunt"
 
 # Be more verbose by uncommenting the following line
