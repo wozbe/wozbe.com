@@ -17,7 +17,7 @@ Also, [bower](https://github.com/bower/bower) & [grunt](http://gruntjs.com/) are
 
 To deploy you need capifony
 
-    cap deploy
+    cap production deploy
 
 Assets
 ------
@@ -30,6 +30,7 @@ Using [glyphicons](http://glyphicons.com/) & [font-awesome](http://fortawesome.g
 Deploy assets
 -------------
 Symlink assets from bundles & application to web/
+
     php app/console assets:install --symlink && grunt symlink
 
 Make a first pass to compile assets
@@ -47,7 +48,7 @@ Production deployment
 
 Simply use capifony 
 
-    cap deploy
+    cap production deploy
 
 This will do all the deployment jobs : clone repository, install dependencies, compiled assets ...
 
