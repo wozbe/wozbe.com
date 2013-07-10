@@ -39,8 +39,8 @@ class AjaxController extends Controller
             }
             
             $swiftMail = \Swift_Message::newInstance()
-                ->setSubject('Contact Wozbe')
-                ->setFrom($email)
+                ->setSubject('Contact Wozbe : ' . $email)
+                ->setFrom($this->container->getParameter('email'))
                 ->setTo($this->container->getParameter('email'))
                 ->setBody($message);
             
