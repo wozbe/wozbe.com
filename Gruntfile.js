@@ -93,9 +93,6 @@ module.exports = function(grunt) {
       }
     },
     uglify: {
-      options: {
-        report: 'gzip'
-      },
       dist: {
         files: {
           'web/built/app/js/wozbe.min.js': ['web/built/app/js/wozbe.js']
