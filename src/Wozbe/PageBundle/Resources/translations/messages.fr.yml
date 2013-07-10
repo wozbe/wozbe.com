@@ -5,8 +5,9 @@ contact_us: 'Nous Contacter'
 description: '<strong>Wozbe</strong> réalise vos <strong>produits & services Web</strong> en tenant compte de <strong>vos problématiques & objectifs business</strong>.'
 error: Erreur
 home: Accueil
-keywords: wozbe,lyon,rhone,france,consultant,symfony,nodejs,developpement,infrastructure,architecture,cdn,plateforme,design,ergonomie,ovh,moderne,paris,startup,association,partenariat,projet
+keywords: 'wozbe,lyon,rhone,france,consultant,symfony,nodejs,developpement,infrastructure,architecture,cdn,plateforme,design,ergonomie,ovh,moderne,paris,startup,association,partenariat,projet'
 legals_informations: 'Informations légales'
+message_delivery_problem: 'Votre message n''a pas pu être envoyé'
 message_sent_to: 'Votre message a été envoyé à %email%'
 missing_fields: 'Tout les champs sont obligatoires'
 our_references: 'Nos Réferences'
@@ -60,6 +61,7 @@ reference:
     title: 'Nos Réferences'
 
 references: Réferences
+server_only_xml_http: 'Le serveur n''accepte que des XMLHTTPRequest'
 
 skill:
     agile: Agilité

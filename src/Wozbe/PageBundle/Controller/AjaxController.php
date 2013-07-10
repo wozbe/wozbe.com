@@ -42,16 +42,21 @@ class AjaxController extends Controller
                 ->setSubject('Contact Wozbe')
                 ->setFrom($email)
                 ->setTo($this->container->getParameter('email'))
-                ->setBody($message)
-            ;
-            $this->get('mailer')->send($swiftMail);
+                ->setBody($message);
             
-            return new JsonResponse(array (
-                'title' => $translated = $this->get('translator')->trans('success'),
-                'message' =>  $translated = $this->get('translator')->trans('message_sent_to', array('%email%' => $this->container->getParameter('email'))),
-            ));
+            $recipients = $this->get('mailer')->send($swiftMail);
+            
+            if($recipients > 0) {
+                return new JsonResponse(array (
+                    'title' => $this->get('translator')->trans('success'),
+                    'message' => $this->get('translator')->trans('message_sent_to', array('%email%' => $this->container->getParameter('email'))),
+                ));
+            }
+            else {
+                return new Response($this->get('translator')->trans('message_delivery_problem'), 500);
+            }
         }
         
-        return new Response('Server accept only XML HTTP Request', 400);
+        return new Response($this->get('translator')->trans('server_only_xml_http'), 400);
     }
 }

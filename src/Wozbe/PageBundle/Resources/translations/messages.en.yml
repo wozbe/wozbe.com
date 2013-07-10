@@ -7,6 +7,7 @@ error: Error
 home: Home
 keywords: 'wozbe,lyon,rhone,france,consultant,symfony,nodejs,development,infrastructure,architecture,cdn,plateform,design,ovh,modern,paris,startup,association,collaboration,projet'
 legals_informations: 'Legals Informations'
+message_delivery_problem: message_delivery_problem
 message_sent_to: 'Your mail was sent to %email%'
 missing_fields: 'All fields are mandatories'
 our_references: 'Our References'
@@ -60,6 +61,7 @@ reference:
     title: 'Our References'
 
 references: References
+server_only_xml_http: 'Server accept only XML HTTP Request'
 
 skill:
     agile: Agile
