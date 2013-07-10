@@ -35,7 +35,7 @@
   <div class="row-fluid">
     <div class="span6">
       <h2>{{ 'contact_us'|trans }}</h2>
-      <p>{% autoescape false %}{{ 'contact_call_to_action'|trans({'%gsm%': gsm, '%email%': email}) }}{% endautoescape %}</p>
+      <p>{% autoescape false %}{{ 'contact_call_to_action'|trans({'%phone%': phone, '%email%': email}) }}{% endautoescape %}</p>
     </div>
     <div class="span6">
       <form action="{{ url('wozbe_ajax_contact') }}" method="post">
