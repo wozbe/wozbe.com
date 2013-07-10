@@ -1,38 +1,87 @@
-description: description   # FIXME
+close: Close
+contact: Contact
+contact_call_to_action: 'We don''t know each other ? It''s time to meet !'
+contact_us: 'Contact us'
+description: 'Wozbe realize your web products & services'
+error: Error
+home: Home
+keywords: 'wozbe,lyon,rhone,france,consultant,symfony,nodejs,development,infrastructure,architecture,cdn,plateform,design,ovh,modern,paris,startup,association,collaboration,projet'
+legals_informations: 'Legals Informations'
+message_sent_to: 'Your mail was sent to %email%'
+missing_fields: 'All fields are mandatories'
+our_references: 'Our References'
+our_skills: 'Our Skills'
 
 partner:
     description:
-        anonymation: partner.description.anonymation   # FIXME
-        kitpages: partner.description.kitpages   # FIXME
-        vlabs: partner.description.vlabs   # FIXME
+        anonymation: partner.description.anonymation
+        kitpages: partner.description.kitpages
+        vlabs: partner.description.vlabs
 
-    tagline: partner.tagline   # FIXME
-    title: partner.title   # FIXME
+    tagline: partner.tagline
+    title: 'Our Partners'
 
 reference:
     description:
-        armetiz: reference.description.armetiz   # FIXME
-        kolor: reference.description.kolor   # FIXME
-        konbini: reference.description.konbini   # FIXME
-        la_virgule: reference.description.la_virgule   # FIXME
-        numerosus: reference.description.numerosus   # FIXME
-        turnaway: reference.description.turnaway   # FIXME
+        long:
+            armetiz: reference.description.long.armetiz
+            kolor: reference.description.long.kolor
+            konbini: reference.description.long.konbini
+            la_virgule: reference.description.long.la_virgule
+            numerosus: reference.description.long.numerosus
+            turnaway: reference.description.long.turnaway
 
-    overview: reference.overview   # FIXME
-    title: reference.title   # FIXME
+        short:
+            armetiz: reference.description.short.armetiz
+            kolor: reference.description.short.kolor
+            konbini: reference.description.short.konbini
+            la_virgule: reference.description.short.la_virgule
+            numerosus: reference.description.short.numerosus
+            turnaway: reference.description.short.turnaway
+
+    overview: reference.overview
+
+    tag:
+        advices: Advices
+        architecture: Architecture
+        blog: Blog
+        cdn: CDN
+        communication: Communication
+        coordination: reference.tag.coordination
+        execution: reference.tag.execution
+        infrastructure: reference.tag.infrastructure
+        process: Process
+        search_development: 'R&D'
+        symfony2: Symfony2
+        training: Training
+        vmware_esx: 'VMWare ESX'
+        wordpress: Wordpress
+
+    title: 'Our References'
+
+references: References
 
 skill:
-    agile: skill.agile   # FIXME
-    architecture_devops: skill.architecture_devops   # FIXME
-    client_server: skill.client_server   # FIXME
-    communication_deployment: skill.communication_deployment   # FIXME
-    content_delivery_network: skill.content_delivery_network   # FIXME
-    development: development   # FIXME
-    fresh_technologies: skill.fresh_technologies   # FIXME
-    infrastructure: skill.infrastructure   # FIXME
-    performance_high_availability: skill.performance_high_availability   # FIXME
-    search_development: skill.search_development   # FIXME
-    video_streaming: skill.video_streaming   # FIXME
-    working_method: skill.working_method   # FIXME
+    agile: Agile
+    architecture_devops: 'Architecture & DevOps'
+    client_server: 'Client & Server'
+    communication_deployment: skill.communication_deployment
+    content_delivery_network: CDN
 
+    description:
+        architecture_devops: skill.description.architecture_devops
+        development: skill.description.development
+        infrastructure: skill.description.infrastructure
+        video_streaming: skill.description.video_streaming
+
+    development: Development
+    fresh_technologies: 'Fresh Technologies'
+    infrastructure: Infrastructure
+    performance_high_availability: 'Performance & High Availability'
+    search_development: 'Research & Development'
+    video_streaming: 'Vidéo Streaming'
+    working_method: 'Working Method'
+
+skills: Skills
 slogan: 'Success your Web project'
+success: Success
