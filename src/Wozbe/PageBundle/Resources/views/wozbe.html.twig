@@ -20,6 +20,8 @@
 <meta property='og:site_name' content='Wozbe'/>
 <meta property='og:type' content='website'/>
 <meta property='og:image' content='http://wozbe.com/bundles/app/images/logo-wozbe-letter.png' />
+
+<link rel="canonical" href="{{ path(app.request.attributes.get('_route')) }}"/>
 {% endblock head_meta %}
 
 {% block body_script %}
