@@ -36,21 +36,31 @@ var messages = {
   jQuery('#navbar-mock').hide();
 
   var navbarPositionTop = jQuery('#navbar').position().top;
+  var navbarWidthFixed = jQuery('#navbar').data('width-fixed');
+  var isNavbarFixed = false;
   
   var navbarFixed = function () {
-    jQuery('#navbar').addClass('navbar-fixed-top');
-    jQuery('#navbar-mock').show();
-    jQuery('#navbar .brand').show();
+    if(!isNavbarFixed) {
+      isNavbarFixed = true;
+      
+      jQuery('#navbar').addClass('navbar-fixed-top');
+      jQuery('#navbar-mock').show();
+      jQuery('#navbar .brand').show();
+    }
   };
   
   var navbarUnFixed = function () {
-    jQuery('#navbar').removeClass('navbar-fixed-top');
-    jQuery('#navbar-mock').hide();
-    jQuery('#navbar .brand').hide();
+    if(isNavbarFixed) {
+      isNavbarFixed = false;
+      
+      jQuery('#navbar').removeClass('navbar-fixed-top');
+      jQuery('#navbar-mock').hide();
+      jQuery('#navbar .brand').hide();
+    }
   };
   
   var checkPosition = _.throttle(function () {
-    if(jQuery(window).scrollTop() >= navbarPositionTop) {
+    if(jQuery(window).width() >= navbarWidthFixed && jQuery(window).scrollTop() >= navbarPositionTop) {
       navbarFixed();
     }
     else {
