@@ -74,7 +74,7 @@ skill:
     content_delivery_network: CDN
 
     description:
-        architecture_devops: skill.description.architecture_devops
+        architecture_devops: 'Design quality doesn''t ensure success, but design failure can ensure failure'
         development: skill.description.development
         infrastructure: skill.description.infrastructure
         video_streaming: skill.description.video_streaming
