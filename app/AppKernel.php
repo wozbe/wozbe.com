@@ -19,6 +19,7 @@ class AppKernel extends Kernel
             new Wozbe\PageBundle\WozbePageBundle(),
             new Armetiz\RedirectBundle\ArmetizRedirectBundle(),
             new JMS\TranslationBundle\JMSTranslationBundle(),
+            new Presta\SitemapBundle\PrestaSitemapBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

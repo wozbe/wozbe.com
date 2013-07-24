@@ -14,7 +14,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 class DefaultController extends Controller
 {
     /**
-     * @Route("/", name="wozbe_root")
+     * @Route("/", name="wozbe_root", options={"sitemap" = true})
      * @Method({"GET", "HEAD"})
      */
     public function rootAction()
@@ -23,7 +23,7 @@ class DefaultController extends Controller
     }
     
     /**
-     * @Route("/{_locale}", name="wozbe", requirements={"_locale" = "fr"})
+     * @Route("/{_locale}", name="wozbe", requirements={"_locale" = "fr"}, options={"sitemap" = true})
      * @Method({"GET", "HEAD"})
      * @Cache(expires="+2 hours", public="true")
      */
@@ -33,7 +33,7 @@ class DefaultController extends Controller
     }
     
     /**
-     * @Route("/{_locale}/skills", name="wozbe_skills", requirements={"_locale" = "fr"})
+     * @Route("/{_locale}/skills", name="wozbe_skills", requirements={"_locale" = "fr"}, options={"sitemap" = true})
      * @Method({"GET", "HEAD"})
      * @Cache(expires="+2 hours", public="true")
      */
@@ -43,7 +43,7 @@ class DefaultController extends Controller
     }
     
     /**
-     * @Route("/{_locale}/references", name="wozbe_references", requirements={"_locale" = "fr"})
+     * @Route("/{_locale}/references", name="wozbe_references", requirements={"_locale" = "fr"}, options={"sitemap" = true})
      * @Method({"GET", "HEAD"})
      * @Cache(expires="+2 hours", public="true")
      */
@@ -53,7 +53,7 @@ class DefaultController extends Controller
     }
     
     /**
-     * @Route("/{_locale}/contact", name="wozbe_contact", requirements={"_locale" = "fr"})
+     * @Route("/{_locale}/contact", name="wozbe_contact", requirements={"_locale" = "fr"}, options={"sitemap" = true})
      * @Method({"GET", "HEAD"})
      * @Cache(expires="+2 hours", public="true")
      */
