@@ -35,29 +35,49 @@
   <div class="row-fluid">
     <div class="span6">
       <h2>{{ 'contact_us'|trans }}</h2>
-      <p>{% autoescape false %}{{ 'contact_call_to_action'|trans({'%phone%': phone, '%email%': email}) }}{% endautoescape %}</p>
+      <p>
+        {% autoescape false %}{{ 'contact_description'|trans({'%phone%': phone, '%email%': email}) }}{% endautoescape %}
+      </p>
+      <div class="call_to_action">
+        <div class="hidden-phone">
+          <p class="text-center">
+            <button class="btn btn-large btn-warning" type="button"><i class="icon-phone-sign"></i> {{ phone }}</button>
+            <a href="mailto:{{ email }}"><button class="btn btn-large btn-warning" type="button"><i class="icon-envelope"></i> {{ email }}</button></a>
+          </p>
+        </div>
+        <div class="visible-phone">
+          <p class="text-center">
+            <a href="tel://{{ phone }}"><button class="btn btn-large btn-warning" type="button"><i class="icon-phone-sign"></i> {{ phone }}</button></a>
+            <br />
+            <br />
+            <a href="mailto:{{ email }}"><button class="btn btn-large btn-warning" type="button"><i class="icon-envelope"></i> {{ email }}</button></a>
+          </p>
+        </div>
+      </div>
     </div>
     <div class="span6">
-      <form action="{{ url('wozbe_ajax_contact') }}" method="post">
-        <div class="control-group">
-          <div class="controls">
-            <div class="input-prepend">
-              <span class="add-on"><i class="icon-envelope"></i></span>
-              <input type="text" id="contactEmail" name="email" class="input-xlarge" placeholder="Email">
+      <div class="hidden-phone">
+        <form action="{{ url('wozbe_ajax_contact') }}" method="post">
+          <div class="control-group">
+            <div class="controls">
+              <div class="input-prepend">
+                <span class="add-on"><i class="icon-envelope"></i></span>
+                <input type="text" id="contactEmail" name="email" class="input-xlarge" placeholder="Email">
+              </div>
             </div>
           </div>
-        </div>
-        <div class="control-group">
-          <div class="controls">
-            <textarea rows="10" id="contactMessage" name="message" class="input-block-level" ></textarea>
+          <div class="control-group">
+            <div class="controls">
+              <textarea rows="10" id="contactMessage" name="message" class="input-block-level" ></textarea>
+            </div>
           </div>
-        </div>
-        <div class="control-group">
-          <div class="controls">
-            <button type="submit" class="btn">Envoyer</button>
+          <div class="control-group">
+            <div class="controls">
+              <button type="submit" class="btn">Envoyer</button>
+            </div>
           </div>
-        </div>
-      </form>
+        </form>
+      </div>
     </div>
   </div>
 </div>
