@@ -1,6 +1,6 @@
 close: Fermer
 contact: Contact
-contact_call_to_action: 'On ne se connait pas encore ? Alors <strong>c''est le moment de se rencontrer !</strong><br />Par téléphone ou autour d''une table pour discuter de vos projets, ou simplement faire connaissance !<br /><br />Mail : <a href="mailto:%email%">%email%</a><br />Téléphone : %phone%'
+contact_description: 'On ne se connait pas encore ? Alors <strong>c''est le moment de se rencontrer !</strong><br />Par téléphone ou autour d''une table pour discuter de vos projets, ou simplement faire connaissance !'
 contact_us: 'Nous Contacter'
 description: '<strong>Wozbe</strong> réalise vos <strong>produits & services Web</strong> en tenant compte de <strong>vos problématiques & objectifs business</strong>.'
 email: email
