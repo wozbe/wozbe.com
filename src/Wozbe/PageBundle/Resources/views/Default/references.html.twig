@@ -73,7 +73,9 @@
     <p class="description">
       <p>{% autoescape false %}{{ description }}{% endautoescape %}</p>
       <br />
-      {% for tag in tags %}<i class="icon-fixed-width icon-tag"></i><strong>{{ tag }}</strong>{% if false == loop.last %},{% endif %} {% endfor %}
+      <div class="hidden-phone">
+        {% for tag in tags %}<i class="icon-fixed-width icon-tag"></i><strong>{{ tag }}</strong>{% if false == loop.last %},{% endif %} {% endfor %}
+      </div>
     </p>
   </div>
   {% endfor %}
