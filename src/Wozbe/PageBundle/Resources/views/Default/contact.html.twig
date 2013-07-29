@@ -39,7 +39,22 @@
       <p>
         {% autoescape false %}{{ 'contact_description'|trans({'%phone%': phone, '%email%': email}) }}{% endautoescape %}
       </p>
-      {{ widgets.contact_buttons() }}
+      <div class="call_to_action">
+        <div class="hidden-phone">
+          <p class="text-center">
+            {{ widgets.button_contact_phone(false) }}
+            {{ widgets.button_contact_email() }}
+          </p>
+        </div>
+        <div class="visible-phone">
+          <p>
+            {{ widgets.button_contact_email() }}
+            <br />
+            <br />
+            {{ widgets.button_contact_phone(true) }}
+          </p>
+        </div>
+      </div>
     </div>
     <div class="span6">
       <div class="hidden-phone">
