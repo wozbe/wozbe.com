@@ -97,8 +97,10 @@
       <br />
       SARL au capital de 1000€<br />
       792 992 018 RCS Lyon<br />
+      <br />
+      {{ 'phone'|trans|capitalize }} : {{ phone }}<br />
+      {{ 'email'|trans|capitalize }} : {{ email }}
     </p>
-    {{ widgets.contact_buttons() }}
   </div>
   <div class="modal-footer">
     <button class="btn" data-dismiss="modal" aria-hidden="true">{{ 'close'|trans }}</button>
