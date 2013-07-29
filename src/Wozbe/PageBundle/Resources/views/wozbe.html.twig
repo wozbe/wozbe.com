@@ -1,4 +1,5 @@
 {% extends '::base.html.twig' %}
+{% import '::widgets.html.twig' as widgets %}
 
 {% block title %}Wozbe{% endblock %}
 {% block description %}{{ 'description'|trans|striptags }}{% endblock %}
@@ -75,9 +76,12 @@
 
 {% block footer_content %}
 <p class="text-center">
-  2013 Wozbe © - <a href="#modalInformations" role="button" data-toggle="modal">{{ 'legals_informations'|trans }}</a><br />
-  <a href="http://symfony.com/">Symfony2</a>, <a href="http://www.doctrine-project.org/">Doctrine2</a>, <a href="http://twig.sensiolabs.org/">Twig</a>, <a href="http://jquery.com/">jQuery</a>, <a href="http://lesscss.org/">LESS</a>, <a href="http://gruntjs.com/">Grunt</a>, <a href="https://github.com/bower/bower">Bower</a>, <a href="https://github.com/sebastianbergmann/phpunit/">PHPUnit</a> & <a href="http://capifony.org/">Capifony</a>
+  © 2013 Wozbe - {{ "slogan"|trans }}. Tous droits réservés.<br />
+  <a href="#modalInformations" role="button" data-toggle="modal">{{ 'legals_informations'|trans }}.</a><br />
 </p>
+<div class="hidden-phone">
+  <p class="text-center">Fait avec: <a href="http://symfony.com/">Symfony2</a>, <a href="http://www.doctrine-project.org/">Doctrine2</a>, <a href="http://twig.sensiolabs.org/">Twig</a>, <a href="http://jquery.com/">jQuery</a>, <a href="http://lesscss.org/">LESS</a>, <a href="http://gruntjs.com/">Grunt</a>, <a href="https://github.com/bower/bower">Bower</a>, <a href="https://github.com/sebastianbergmann/phpunit/">PHPUnit</a> & <a href="http://capifony.org/">Capifony</a></p>
+</div>
 {% endblock %}
 
 {% block content_after %}
@@ -93,10 +97,8 @@
       <br />
       SARL au capital de 1000€<br />
       792 992 018 RCS Lyon<br />
-      <br />
-      {{ 'phone'|trans|capitalize }} : {{ phone }}<br />
-      {{ 'email'|trans|capitalize }} : {{ email }}
     </p>
+    {{ widgets.contact_buttons() }}
   </div>
   <div class="modal-footer">
     <button class="btn" data-dismiss="modal" aria-hidden="true">{{ 'close'|trans }}</button>

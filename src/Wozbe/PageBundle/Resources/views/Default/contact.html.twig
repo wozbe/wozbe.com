@@ -1,4 +1,5 @@
 {% extends 'WozbePageBundle::wozbe.html.twig' %}
+{% import '::widgets.html.twig' as widgets %}
 
 {% block title %}{{ parent() }} - {{ 'contact_us'|trans }}{% endblock %}
 
@@ -38,22 +39,7 @@
       <p>
         {% autoescape false %}{{ 'contact_description'|trans({'%phone%': phone, '%email%': email}) }}{% endautoescape %}
       </p>
-      <div class="call_to_action">
-        <div class="hidden-phone">
-          <p class="text-center">
-            <button class="btn btn-large btn-warning" type="button"><i class="icon-phone-sign"></i> {{ phone }}</button>
-            <a href="mailto:{{ email }}"><button class="btn btn-large btn-warning" type="button"><i class="icon-envelope"></i> {{ email }}</button></a>
-          </p>
-        </div>
-        <div class="visible-phone">
-          <p class="text-center">
-            <a href="tel://{{ phone }}"><button class="btn btn-large btn-warning" type="button"><i class="icon-phone-sign"></i> {{ phone }}</button></a>
-            <br />
-            <br />
-            <a href="mailto:{{ email }}"><button class="btn btn-large btn-warning" type="button"><i class="icon-envelope"></i> {{ email }}</button></a>
-          </p>
-        </div>
-      </div>
+      {{ widgets.contact_buttons() }}
     </div>
     <div class="span6">
       <div class="hidden-phone">
