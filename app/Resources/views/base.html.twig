@@ -22,7 +22,7 @@
   {% endblock head %}
   {% block body %}
   {% block body_open_tag %}
-  <body>
+  <body class="{% block body_class %}{% endblock body_class %}">
   {% endblock %}
     {% block body_top %}{% endblock %}
       

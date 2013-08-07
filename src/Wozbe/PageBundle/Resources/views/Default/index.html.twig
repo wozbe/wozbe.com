@@ -7,13 +7,11 @@
 <link rel="stylesheet" href="{{ asset('built/wozbepage/css/index.css') }}" type="text/css"/>
 {% endblock %}
 
-{% block body_open_tag %}
-<body data-spy="scroll" data-target=".navbar">
-{% endblock %}
+{% block body_class %}page-index{% endblock body_class %}
 
 {% block content %}
 <h1>{{ "slogan"|trans }} !</h1>
-<div id="zone-skills" class="container-fluid">
+<div class="zone-skills">
   <ul class="cbp-ig-grid">
     {% set skills = [
       [
@@ -82,7 +80,7 @@
     </div>
   </div>
 </div>  
-<div id="zone-references" class="hidden-phone container-fluid">
+<div class="zone-references" class="hidden-phone container-fluid">
   <a name="zone-references"></a>
   <h2>{{ 'reference.title'|trans }}</h2>
   <div class="row">
@@ -144,7 +142,7 @@
     </div>
   </div>
 </div>
-<div id="zone-partners">
+<div class="zone-partners">
   <a name="zone-partners"></a>
   <h2>{{ 'partner.title'|trans }}</h2>
   <div class="row-fluid">

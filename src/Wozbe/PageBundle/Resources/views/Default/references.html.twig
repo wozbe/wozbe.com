@@ -7,6 +7,8 @@
 <link rel="stylesheet" href="{{ asset('built/wozbepage/css/references.css') }}" type="text/css"/>
 {% endblock %}
 
+{% block body_class %}page-references{% endblock body_class %}
+
 {% block content %}
 <h1>{{ 'our_references'|trans }}</h1>
 {% set class = ['first', 'second', 'third'] %}

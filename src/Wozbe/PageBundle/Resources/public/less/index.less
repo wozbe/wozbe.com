@@ -1,321 +1,323 @@
 @import "web/bundles/app/less/functions.less";
 @import "web/bundles/app/less/variables.less";
 
-footer {
-  margin-top: 0;
-}
+.page-index {
+  footer {
+    margin-top: 0;
+  }
 
-.description-wozbe {
-  width: 80%;
-  margin: 40px auto 0;
+  .description-wozbe {
+    width: 80%;
+    margin: 40px auto 0;
 
-  .logo {
-    padding: 0 10px;
+    .logo {
+      padding: 0 10px;
 
-    img {
-      border-bottom: 6px solid @brown;
+      img {
+        border-bottom: 6px solid @brown;
+      }
     }
   }
-}
 
-#zone-skills {
-  @cbpHeight: 280px;
-  @cbpBorderColor: #DDD;
-  @cbpColor: @orange;
-  @cbpBarColor: @brown;
-  @cbpSloganColor: @brown;
+  .zone-skills {
+    @cbpHeight: 280px;
+    @cbpBorderColor: #DDD;
+    @cbpColor: @orange;
+    @cbpBarColor: @brown;
+    @cbpSloganColor: @brown;
 
-  .cbp-ig-grid {
-    list-style: none;
-    padding: 0;
-    margin: 0;
+    .cbp-ig-grid {
+      list-style: none;
+      padding: 0;
+      margin: 0;
 
-    /* Clear floats */
-    &:before, 
-    &:after { 
-        content: " "; 
-        display: table; 
-    }
-
-    &:after { 
-        clear: both; 
-    }
-
-    /* grid item */
-    li {
-      width: 33.33%;
-      float: left;
-      height: @cbpHeight;
-      text-align: center;
-      border-top: @border;
-
-      /* we are using a combination of borders and box shadows to control the grid lines */
-      &:nth-child(-n+3){
-        border-top: none;
+      /* Clear floats */
+      &:before, 
+      &:after { 
+          content: " "; 
+          display: table; 
       }
 
-      &:nth-child(3n-1),
-      &:nth-child(3n-2) {
-        box-shadow: 1px 0 0 @borderColor;
+      &:after { 
+          clear: both; 
       }
 
-      /* anchor style */
-      & > a {
-        display: block;
-        height: 100%;
-        color: @cbpColor;
+      /* grid item */
+      li {
+        width: 33.33%;
+        float: left;
+        height: @cbpHeight;
+        text-align: center;
+        border-top: @border;
 
-        .transition(background 0.2s);
-      }
-
-
-      & > a:hover {
-        background: @cbpColor;
-
-        [class^="icon-"] {
-          .transform(translateY(10px));
-        }
-
-        [class^="icon-"]:before,
-        .cbp-ig-title {
-          color: #fff;
-        }
-
-        .cbp-ig-title {
-          .transform(translateY(-30px));
-        }
-
-        .cbp-ig-title:before {
-          background: #fff;
-          margin-top: 80px;
-        }
-
-        .cbp-ig-slogan {
-          opacity: 1;
-          .transform(translateY(0px));
-        }
-      }
-
-      @media screen and (max-width: 979px) {
-        width: 50%;
-
-        /* reset the grid lines */
+        /* we are using a combination of borders and box shadows to control the grid lines */
         &:nth-child(-n+3){
-          border-top: @border;
+          border-top: none;
         }
 
         &:nth-child(3n-1),
         &:nth-child(3n-2) {
-          box-shadow: none;
-        }
-
-        &:nth-child(-n+2){
-          border-top: none;
-        }
-
-        &:nth-child(2n-1) {
           box-shadow: 1px 0 0 @borderColor;
         }
-      }
 
-      @media screen and (max-width: 767px) { 
-        width: 100%;
+        /* anchor style */
+        & > a {
+          display: block;
+          height: 100%;
+          color: @cbpColor;
 
-        &:nth-child(-n+2){
-          border-top: 1px solid @borderColor;
+          .transition(background 0.2s);
         }
 
-        &:nth-child(2n-1) {
-          box-shadow: none
+
+        & > a:hover {
+          background: @cbpColor;
+
+          [class^="icon-"] {
+            .transform(translateY(10px));
+          }
+
+          [class^="icon-"]:before,
+          .cbp-ig-title {
+            color: #fff;
+          }
+
+          .cbp-ig-title {
+            .transform(translateY(-30px));
+          }
+
+          .cbp-ig-title:before {
+            background: #fff;
+            margin-top: 80px;
+          }
+
+          .cbp-ig-slogan {
+            opacity: 1;
+            .transform(translateY(0px));
+          }
         }
 
-        &:first-child {
-          border-top: none;
+        @media screen and (max-width: 979px) {
+          width: 50%;
+
+          /* reset the grid lines */
+          &:nth-child(-n+3){
+            border-top: @border;
+          }
+
+          &:nth-child(3n-1),
+          &:nth-child(3n-2) {
+            box-shadow: none;
+          }
+
+          &:nth-child(-n+2){
+            border-top: none;
+          }
+
+          &:nth-child(2n-1) {
+            box-shadow: 1px 0 0 @borderColor;
+          }
+        }
+
+        @media screen and (max-width: 767px) { 
+          width: 100%;
+
+          &:nth-child(-n+2){
+            border-top: 1px solid @borderColor;
+          }
+
+          &:nth-child(2n-1) {
+            box-shadow: none
+          }
+
+          &:first-child {
+            border-top: none;
+          }
+        }
+
+      }
+
+
+      /* title element */
+      .cbp-ig-title {
+        margin: 20px 0 10px 0;
+        padding: 20px 0 0 0;
+        font-size: 2em;
+        position: relative;
+        color: @cbpSloganColor;
+
+        .transitionPerBrowser(transform 0.2s);
+
+        &:before {
+          content: '';
+          position: absolute;
+          background: @cbpBarColor;
+          width: 160px;
+          height: 6px;
+          top: 0px;
+          left: 50%;
+          margin: -10px 0 0 -80px;
+
+          .transition(margin-top 0.2s);
         }
       }
 
-    }
 
 
-    /* title element */
-    .cbp-ig-title {
-      margin: 20px 0 10px 0;
-      padding: 20px 0 0 0;
-      font-size: 2em;
-      position: relative;
-      color: @cbpSloganColor;
+      .cbp-ig-slogan {
+        text-transform: uppercase;
+        display: inline-block;
+        font-size: 1em;
+        letter-spacing: 1px;
+        color: #fff;
+        opacity: 0;
 
-      .transitionPerBrowser(transform 0.2s);
+        .transformPerBrowser(translateY(10px));
+        .transitionPerBrowser(transform 0.3s, opacity 0.2s);
 
-      &:before {
-        content: '';
-        position: absolute;
-        background: @cbpBarColor;
-        width: 160px;
-        height: 6px;
-        top: 0px;
-        left: 50%;
-        margin: -10px 0 0 -80px;
-
-        .transition(margin-top 0.2s);
+        @media screen and (max-width: 25em) { 
+          margin-top: 20px;
+        }
       }
-    }
 
+      [class^="icon-"] {
+        padding: 30px 0 0 0;
+        display: block;
 
-
-    .cbp-ig-slogan {
-      text-transform: uppercase;
-      display: inline-block;
-      font-size: 1em;
-      letter-spacing: 1px;
-      color: #fff;
-      opacity: 0;
-
-      .transformPerBrowser(translateY(10px));
-      .transitionPerBrowser(transform 0.3s, opacity 0.2s);
+        .transitionPerBrowser(transform 0.2s);
+      }
 
       @media screen and (max-width: 25em) { 
-        margin-top: 20px;
+        font-size: 80%;
       }
     }
-
-    [class^="icon-"] {
-      padding: 30px 0 0 0;
-      display: block;
-
-      .transitionPerBrowser(transform 0.2s);
-    }
-
-    @media screen and (max-width: 25em) { 
-      font-size: 80%;
-    }
-  }
-}
-
-#zone-partners {
-  background: url("@{skinBlackPath}") repeat;
-  color: @white;
-
-  padding: 30px 30px 10px 30px;
-  margin-top: @zoneMargin;
-
-  @color: @white;
-  @backgroundColor: @white;
-
-  .partner {
-    border-bottom: 3px solid @backgroundColor;
-    color: @backgroundColor;
-    min-height: 330px;
-    padding: 0 20px;
-    margin-bottom: 30px;
-
-    .transition(all @transitionDuration);
-
-    &:hover {
-      color: @orange;
-      text-shadow: 1px 1px 1px @brown;
-      border-bottom: 3px solid @orange;
-    }
-
-    .logo {
-      height: 100px;
-      text-align: center;
-      margin-bottom: 10px;
-    }
   }
 
-  .anonymation {
-    .logo img {
-      background: white;
-      .borderRadius(5px);
-    }
-  }
+  .zone-partners {
+    background: url("@{skinBlackPath}") repeat;
+    color: @white;
 
-  .kitpages {
-    .logo img {
-      background: white;
-      padding: 5px;
+    padding: 30px 30px 10px 30px;
+    margin-top: @zoneMargin;
 
-      .borderRadius(5px);
-    }
-  }
+    @color: @white;
+    @backgroundColor: @white;
 
-  .tagline {
-    font-family: @titleFontFamily;
-    font-size: 32px;
-  }
-}
+    .partner {
+      border-bottom: 3px solid @backgroundColor;
+      color: @backgroundColor;
+      min-height: 330px;
+      padding: 0 20px;
+      margin-bottom: 30px;
 
-#zone-references {
-  @referenceWidth: 220px;
-  @referenceHeight: 165px;
-  @referenceGutter: 10px;
-  @referenceMaxItemPerLine: 3;
-  @referenceBorderSize: 1px;
-  @referenceCaptionPadding: 6px;
-
-  max-width: @referenceWidth * @referenceMaxItemPerLine + @referenceGutter * (@referenceMaxItemPerLine - 1) + @referenceBorderSize * (@referenceMaxItemPerLine) * 2;
-  margin: @zoneMargin auto 0 auto;
-
-  [class*='row'] {
-    margin-top: @referenceGutter;
-    margin-left: 0 !important;
-  }
-
-  .reference {
-    @backgroundColor: @orange;
-    @textColor: @brown;
-
-    float: left;
-    border: @border;
-    width: @referenceWidth;
-    height: @referenceHeight;
-
-    margin-left: @referenceGutter;
-    cursor: pointer;
-    position: relative;
-    overflow: hidden;
-
-    &:first-child {
-      margin-left: 0;
-    }
-
-    &:hover {
-      background: @orange;
-      border: @referenceBorderSize solid @white;
-
-      .fade-caption {
-        opacity: 1;
-      }
-    }
-
-    img.screenshot {
-      position: absolute;
-      left: 0;
-      .transition(all @transitionDuration);
-    }
-
-    .caption {
-      background-color: @backgroundColor;
-      color: @textColor;
-
-      position: absolute;
-      z-index: 100;
-      left: 0;
       .transition(all @transitionDuration);
 
-      p {
-        font-size: 14px;
+      &:hover {
+        color: @orange;
+        text-shadow: 1px 1px 1px @brown;
+        border-bottom: 3px solid @orange;
+      }
+
+      .logo {
+        height: 100px;
+        text-align: center;
+        margin-bottom: 10px;
       }
     }
 
-    .fade-caption, .scale-caption {
+    .anonymation {
+      .logo img {
+        background: white;
+        .borderRadius(5px);
+      }
+    }
+
+    .kitpages {
+      .logo img {
+        background: white;
+        padding: 5px;
+
+        .borderRadius(5px);
+      }
+    }
+
+    .tagline {
+      font-family: @titleFontFamily;
+      font-size: 32px;
+    }
+  }
+
+  .zone-references {
+    @referenceWidth: 220px;
+    @referenceHeight: 165px;
+    @referenceGutter: 10px;
+    @referenceMaxItemPerLine: 3;
+    @referenceBorderSize: 1px;
+    @referenceCaptionPadding: 6px;
+
+    max-width: @referenceWidth * @referenceMaxItemPerLine + @referenceGutter * (@referenceMaxItemPerLine - 1) + @referenceBorderSize * (@referenceMaxItemPerLine) * 2;
+    margin: @zoneMargin auto 0 auto;
+
+    [class*='row'] {
+      margin-top: @referenceGutter;
+      margin-left: 0 !important;
+    }
+
+    .reference {
+      @backgroundColor: @orange;
+      @textColor: @brown;
+
+      float: left;
+      border: @border;
       width: @referenceWidth;
       height: @referenceHeight;
-      padding: @referenceCaptionPadding;
 
-      text-align: left;
-      opacity: 0;
-    } 
+      margin-left: @referenceGutter;
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+
+      &:first-child {
+        margin-left: 0;
+      }
+
+      &:hover {
+        background: @orange;
+        border: @referenceBorderSize solid @white;
+
+        .fade-caption {
+          opacity: 1;
+        }
+      }
+
+      img.screenshot {
+        position: absolute;
+        left: 0;
+        .transition(all @transitionDuration);
+      }
+
+      .caption {
+        background-color: @backgroundColor;
+        color: @textColor;
+
+        position: absolute;
+        z-index: 100;
+        left: 0;
+        .transition(all @transitionDuration);
+
+        p {
+          font-size: 14px;
+        }
+      }
+
+      .fade-caption, .scale-caption {
+        width: @referenceWidth;
+        height: @referenceHeight;
+        padding: @referenceCaptionPadding;
+
+        text-align: left;
+        opacity: 0;
+      } 
+    }
   }
 }
