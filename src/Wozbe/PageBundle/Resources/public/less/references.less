@@ -1,39 +1,15 @@
 @import "web/bundles/app/less/functions.less";
 @import "web/bundles/app/less/variables.less";
 
-footer {
-  margin-top: 0;
-}
 
-.zone-references {
-  .reference {
-    float: left;
-    position: relative;
-    width: 49.9%;
-    min-height: 600px;
-    border-right: @border;
-    padding: @boxPadding;
+.page-references {
+  footer {
+    margin-top: 0;
+  }
 
-    &:nth-child(n+3) {
-      border-top: @border;
-    }
-
-    &:nth-child(even) {
-      border-right: none;
-    }
-
-    .screenshot {
-      border: @border;
-      margin-bottom: 30px;
-    }
-
-    @media (max-width: 767px) {
-      width: 100%;
-      border-right: none;
-
-      &:nth-child(n+2) {
-        border-top: @border;
-      }
+  .zone-references {
+    .reference {
+      .boxedContent (600px);
     }
   }
 }
