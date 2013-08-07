@@ -11,7 +11,9 @@ module.exports = function(grunt) {
   
   var filesLess = {};
   
-  //get all assets, and prepare less file to be compiled into assets/[bundle]/css/[file].css
+  // LESS Files management
+  // Source LESS files are located inside : bundles/[bundle]/less/
+  // Destination CSS files are located inside : built/[bundle]/css/
   var mappingFileLess = grunt.file.expandMapping(
     ['*/less/*.less', '*/less/*/*.less'], 
     'web/built/', {
@@ -22,7 +24,7 @@ module.exports = function(grunt) {
     });
     
   grunt.util._.each(mappingFileLess, function(value) {
-    //why value.src is an array ??
+    // Why value.src is an array ??
     filesLess[value.dest] = value.src[0];
   });
   
@@ -84,7 +86,7 @@ module.exports = function(grunt) {
     },
     watch: {
       css: {
-        files: ['web/bundles/*/less/*.less', 'app/Resources/public/less/*.less'],
+        files: ['web/bundles/*/less/*.less'],
         tasks: ['less']
       },
       javascript: {
