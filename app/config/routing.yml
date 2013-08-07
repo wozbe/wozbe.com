@@ -1,8 +1,12 @@
+wozbe_blog:
+    resource: "@WozbeBlogBundle/Controller/"
+    type:     annotation
+
 PrestaSitemapBundle:
     resource: "@PrestaSitemapBundle/Resources/config/routing.yml"
     prefix:   /
 
 wozbe_page:
-    resource: "@WozbePageBundle/Controller"
+    resource: "@WozbePageBundle/Controller/"
     type:     annotation
 

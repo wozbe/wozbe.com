@@ -1,0 +1,9 @@
+{% extends '::wozbe.html.twig' %}
+
+{% block head_canonical %}<link rel="canonical" href="{{ path(app.request.attributes.get('_route'), {slug: slug}) }}"/>{% endblock head_canonical %}
+
+{% block content %}
+
+{{ post_content|markdown }}
+
+{% endblock content %}

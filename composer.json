@@ -22,7 +22,8 @@
         "incenteev/composer-parameter-handler": "~2.0",
         "armetiz/redirect-bundle": "1.0.0",
         "jms/translation-bundle": "~1.1",
-        "presta/sitemap-bundle": "~1.2"
+        "presta/sitemap-bundle": "~1.2",
+        "knplabs/knp-markdown-bundle": "~1.2"
     },
     "scripts": {
         "post-install-cmd": [
