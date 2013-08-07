@@ -75,6 +75,17 @@
   }
 }
 
+.fontFace(@family, @fontPath) {
+  font-family: 'reeniebeanie';
+  src: url('@{fontPath}.eot');
+  src: url('@{fontPath}.eot?#iefix') format('embedded-opentype'),
+       url('@{fontPath}.woff') format('woff'),
+       url('@{fontPath}.ttf') format('truetype'),
+       url('@{fontPath}.svg#reenie_beanieregular') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
 .boxedContent (@minHeight) {
   float: left;
   position: relative;
