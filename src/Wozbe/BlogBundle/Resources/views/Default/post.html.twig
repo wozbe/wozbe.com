@@ -1,6 +1,13 @@
 {% extends '::wozbe.html.twig' %}
 
+{% block stylesheets %}
+{{ parent() }}
+<link rel="stylesheet" href="{{ asset('built/wozbeblog/css/post.css') }}" type="text/css"/>
+{% endblock %}
+
 {% block head_canonical %}<link rel="canonical" href="{{ path(app.request.attributes.get('_route'), {slug: slug}) }}"/>{% endblock head_canonical %}
+
+{% block body_class %}blog-post{% endblock body_class %}
 
 {% block content %}
 
