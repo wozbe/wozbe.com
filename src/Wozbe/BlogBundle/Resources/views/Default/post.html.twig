@@ -10,7 +10,8 @@
 {% block body_class %}blog-post{% endblock body_class %}
 
 {% block content %}
-
-{{ post_content|markdown }}
-
+<h1>Notre article</h1>
+<div class="zone-post">
+  {{ post_content|markdown }}
+</div>
 {% endblock content %}

@@ -1,7 +1,5 @@
 ## Déploiement d'application Symfony 2 avec Capifony
 
-> Pourquoi utiliser un gestionnaire de tâche ?
-> En un mot : L'automatisation. Moins vous avez de travail quand vous executez des tâches répétitives comme la **minification**, la **compilation**, les **tests unitaires**, le **linting**, etc, plus votre travail deviendra simple. Après l'avoir configuré, le gestionnaire de tâche peut faire la plupart du travail trivial pour vous et votre équipe sans aucun effort.
 
 ### Définition du besoin
 
