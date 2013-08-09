@@ -119,7 +119,7 @@ module.exports = function(grunt) {
         strict: true,
         maxparams: 4,
         maxdepth: 2,
-        maxcomplexity: 2,
+        maxcomplexity: 3,
         globals: {
           'jQuery': true,
           '$': true,
