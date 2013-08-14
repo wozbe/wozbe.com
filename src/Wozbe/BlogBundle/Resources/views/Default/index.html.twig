@@ -12,44 +12,18 @@
 {% block content %}
 <h1>{{ 'our blog posts'|trans }}</h1>
 
-{% set references = [
-  [
-    "Intégration de Grunt au sein d'une application Symfony2", 
-    'kolor', 
-    url('wozbe_blog_post', {slug: '2013-08-07-integration-grunt-au-sein-application-symfony'}),
-    'reference.description.long.kolor'|trans
-  ], 
-  [ 
-    'Mise en place de Capifony pour Symfony2',
-    'konbini',
-    url('wozbe_blog_post', {slug: '2013-08-07-integration-grunt-au-sein-application-symfony'}),
-    'reference.description.long.konbini'|trans
-  ],
-  [
-    'Intégration Bootstrap avec Grunt pour un projet Symfony2', 
-    'virgule', 
-    url('wozbe_blog_post', {slug: '2013-08-07-integration-grunt-au-sein-application-symfony'}),
-    'reference.description.long.la_virgule'|trans
-  ]
-] %}
-
-
 <div class="zone-references">
-  {% for i in 0..5 %}
-  {% set title = cycle(references, i)[0] %}
-  {% set screen = cycle(references, i)[1] %}
-  {% set link = cycle(references, i)[2] %}
-  {% set description = cycle(references, i)[3] %}
+  {% for post in posts %}
   <div class="reference">
     <div class="title">
-      <h2>{{ title }}</h2>
+      <a href="{{ url('wozbe_blog_post', {slug: post.slug}) }}"><h2>{{ post.title|capitalize }}</h2></a>
       <hr />
     </div>
-    <p class="text-center">
-      <a href="{{ link }}"><img alt="{{ title }} aperçu" class="screenshot" src="{{ asset('bundles/wozbepage/images/screen-' ~ screen ~ '.jpg') }}" /></a>
-    </p>
     <p class="description">
-      {% autoescape false %}{{ description }}{% endautoescape %}
+      {% autoescape false %}
+        Montius nos tumore inusitato quodam et novo ut rebellis et maiestati recalcitrantes Augustae per haec quae strepit incusat iratus nimirum quod contumacem praefectum, quid rerum ordo postulat ignorare dissimulantem formidine tenus iusserim custodiri.<br /><br />
+        Vbi curarum abiectis ponderibus aliis tamquam nodum et codicem difficillimum Caesarem convellere nisu valido cogitabat, eique deliberanti cum proximis clandestinis conloquiis et nocturnis qua vi, quibusve commentis id fieret, antequam effundendis rebus pertinacius incumberet confidentia, acciri mollioribus scriptis per simulationem tractatus publici nimis urgentis eundem placuerat Gallum, ut auxilio destitutus sine ullo interiret obstaculo.
+      {% endautoescape %}
     </p>
   </div>
   {% endfor %}

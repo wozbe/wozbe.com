@@ -34,7 +34,10 @@ class DefaultController extends Controller
         };
 
         foreach ($finder as $file) {
-            $posts[$slugNormalizer($file->getFilename())] = $titleNormalizer($file->getFilename());
+            $posts[] = array(
+                'title' => $titleNormalizer($file->getFilename()),
+                'slug' => $slugNormalizer($file->getFilename()),
+            );
         }
         
         return array(
