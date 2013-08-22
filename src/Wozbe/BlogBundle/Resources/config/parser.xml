@@ -4,17 +4,13 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
 
-    <!--
     <parameters>
-        <parameter key="wozbe_blog.example.class">Wozbe\BlogBundle\Example</parameter>
+        <parameter key="wozbe_blog.markdown.parser.geshi.class">Wozbe\BlogBundle\Markdown\Parser\GeshiParser</parameter>
     </parameters>
 
     <services>
-        <service id="wozbe_blog.example" class="%wozbe_blog.example.class%">
-            <argument type="service" id="service_id" />
-            <argument>plain_value</argument>
-            <argument>%parameter_name%</argument>
+        <service id="wozbe_blog.markdown.parser.geshi" class="%wozbe_blog.markdown.parser.geshi.class%" public="false">
+            <tag name="markdown.parser" alias="geshi" />
         </service>
     </services>
-    -->
 </container>

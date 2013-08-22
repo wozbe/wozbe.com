@@ -23,7 +23,8 @@
         "armetiz/redirect-bundle": "1.0.0",
         "jms/translation-bundle": "~1.1",
         "presta/sitemap-bundle": "~1.2",
-        "knplabs/knp-markdown-bundle": "~1.2"
+        "knplabs/knp-markdown-bundle": "~1.2",
+        "easybook/geshi": "~1.0.8.11"
     },
     "scripts": {
         "post-install-cmd": [

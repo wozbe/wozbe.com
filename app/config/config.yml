@@ -61,4 +61,6 @@ armetiz_redirect:
                 - www.wozbe.com
                 - www.woxbe.com
                 - woxbe.com
-                
+knp_markdown:
+    parser:
+         service: wozbe_blog.markdown.parser.geshi
