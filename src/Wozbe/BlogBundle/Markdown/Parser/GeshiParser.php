@@ -17,7 +17,7 @@ class GeshiParser extends BaseParser
         $geshi = new GeSHi($codeblock, 'php');
         $code = $geshi->parse_code();
         
-        $codeblock = "<pre><code>$code</code></pre>";
-        return "\n\n".$this->hashBlock($codeblock)."\n\n";
+        $codeblock = '<code>' . $code . '</code>';
+        return $this->hashBlock($codeblock);
     }
 }
