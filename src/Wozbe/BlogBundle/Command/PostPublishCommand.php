@@ -34,10 +34,7 @@ class PostPublishCommand extends PostCommand
             return 1;
         }
         
-        $post->setPublished(true);
-        
-        $objectManager = $this->getObjectManager();
-        $objectManager->flush();
+        $this->getContainer()->get('wozbe_blog.manager.post')->publishPost($post);
         
         $output->writeln('done!');
     }

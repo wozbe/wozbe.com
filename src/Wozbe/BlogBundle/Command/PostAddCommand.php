@@ -10,8 +10,6 @@ use Symfony\Bundle\FrameworkBundle\Command\ContainerAwareCommand;
 
 use Sensio\Bundle\GeneratorBundle\Command\Helper\DialogHelper;
 
-use Wozbe\BlogBundle\Entity\PostFactory;
-
 /**
  * Command for creating new post.
  *
@@ -47,12 +45,7 @@ class PostAddCommand extends ContainerAwareCommand
             $postContent = file_get_contents($contentFromFile);
         }
         
-        $postFactory = new PostFactory();
-        $post = $postFactory->createPost($postTitle, $postSlug, $postContent);
-        
-        $objectManager = $this->getObjectManager();
-        $objectManager->persist($post);
-        $objectManager->flush();
+        $this->getContainer()->get('wozbe_blog.manager.post')->addPost($postTitle, $postSlug, $postContent);
         
         $output->writeln('done!');
     }

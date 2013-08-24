@@ -12,4 +12,12 @@ use Doctrine\ORM\EntityRepository;
  */
 class PostRepository extends EntityRepository
 {
+    public function findPublished(array $criteria = array(), array $orderBy = null, $limit = null, $offset = null)
+    {
+        return $this->findBy(
+                array_merge($criteria, array('published' => true)),
+                $orderBy, 
+                $limit, 
+                $offset);
+    }
 }

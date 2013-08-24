@@ -23,7 +23,7 @@ class DefaultController extends Controller
         $postRepository = $this->getDoctrine()->getRepository('WozbeBlogBundle:Post');
         
         return array(
-            'posts' => $postRepository->findAll()
+            'posts' => $postRepository->findPublished()
         );
     }
     
@@ -62,7 +62,7 @@ class DefaultController extends Controller
         $website = $request->request->get('website');
         $content = $request->request->get('content');
 
-        $comment = $this->getDoctrine()->getRepository('WozbeBlogBundle:Comment')->addComment($post, $username, $email, $website, $content);
+        $comment = $this->get('wozbe_blog.manager.comment')->addComment($post, $username, $email, $website, $content);
 
         return $this->redirect($this->generateUrl('wozbe_blog_post', array('slug' => $post->getSlug())) . "#comment-" . $comment->getId());
     }

@@ -80,15 +80,10 @@ abstract class CommentCommand extends ContainerAwareCommand
     
     /**
      * 
-     * @return \Wozbe\BlogBundle\Entity\CommentRepository
+     * @return \Wozbe\BlogBundle\Entity\CommentManager
      */
-    protected function getCommentRepository()
+    protected function getCommentManager()
     {
-        return $this->getContainer()->get('doctrine')->getRepository('WozbeBlogBundle:Comment');
-    }
-    
-    protected function getObjectManager()
-    {
-        return $this->getContainer()->get('doctrine.orm.entity_manager');
+        return $this->getContainer()->get('wozbe_blog.manager.comment');
     }
 }

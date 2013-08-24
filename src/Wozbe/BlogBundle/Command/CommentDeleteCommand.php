@@ -41,9 +41,7 @@ class CommentDeleteCommand extends CommentCommand
             return 1;
         }
         
-        $objectManager = $this->getObjectManager();
-        $objectManager->remove($comment);
-        $objectManager->flush();
+        $this->getCommentManager()->deleteCommand($comment);
         
         $output->writeln('done!');
     }
