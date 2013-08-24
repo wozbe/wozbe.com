@@ -17,7 +17,7 @@
 <div class="zone-comments">
   <a name="comments"></a>
   <h2>{{ 'comments'|trans|capitalize }}</h2>
-  {% for comment in comments %}
+  {% for comment in comments if comment.published %}
   <div class="row-fluid comment">
     <a name="comment-{{ comment.id }}"></a>
     <div class="span3">

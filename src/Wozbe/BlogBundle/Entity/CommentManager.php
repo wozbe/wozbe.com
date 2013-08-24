@@ -61,6 +61,34 @@ class CommentManager
     }
     
     /**
+     * 
+     * @param \Wozbe\BlogBundle\Entity\Comment $comment
+     * @return \Wozbe\BlogBundle\Entity\CommentManager
+     */
+    public function publishComment(Comment $comment)
+    {
+        $comment->setPublished(true);
+        
+        $this->getObjectManager()->flush();
+        
+        return $this;
+    }
+    
+    /**
+     * 
+     * @param \Wozbe\BlogBundle\Entity\Comment $comment
+     * @return \Wozbe\BlogBundle\Entity\CommentManager
+     */
+    public function unpublishComment(Comment $comment)
+    {
+        $comment->setPublished(false);
+        
+        $this->getObjectManager()->flush();
+        
+        return $this;
+    }
+    
+    /**
      * @return \Doctrine\Common\Persistence\ObjectManager
      */
     protected function getObjectManager()

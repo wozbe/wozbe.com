@@ -33,6 +33,16 @@ class Comment
      * @var \DateTime
      */
     private $createdAt;
+    
+    /**
+     * @var \DateTime
+     */
+    private $modifiedAt;
+
+    /**
+     * @var boolean
+     */
+    private $published;
 
     /**
      * @var string
@@ -47,6 +57,8 @@ class Comment
     public function __construct() 
     {
         $this->createdAt = new \DateTime();
+        $this->modifiedAt = new \DateTime();
+        $this->published = false;
     }
 
 
@@ -69,6 +81,8 @@ class Comment
     public function setUsername($username)
     {
         $this->username = $username;
+        
+        $this->modifiedAt = new \DateTime();
     
         return $this;
     }
@@ -92,6 +106,8 @@ class Comment
     public function setEmail($email)
     {
         $this->email = $email;
+        
+        $this->modifiedAt = new \DateTime();
     
         return $this;
     }
@@ -115,6 +131,8 @@ class Comment
     public function setWebsite($website)
     {
         $this->website = $website;
+        
+        $this->modifiedAt = new \DateTime();
     
         return $this;
     }
@@ -151,6 +169,31 @@ class Comment
     {
         return $this->createdAt;
     }
+    
+    /**
+     * Set published
+     *
+     * @param boolean $published
+     * @return Post
+     */
+    public function setPublished($published)
+    {
+        $this->published = $published;
+        
+        $this->modifiedAt = new \DateTime();
+    
+        return $this;
+    }
+
+    /**
+     * Get published
+     *
+     * @return boolean 
+     */
+    public function getPublished()
+    {
+        return $this->published;
+    }
 
     /**
      * Set content
@@ -161,6 +204,8 @@ class Comment
     public function setContent($content)
     {
         $this->content = $content;
+        
+        $this->modifiedAt = new \DateTime();
     
         return $this;
     }
@@ -184,6 +229,8 @@ class Comment
     public function setPost(Post $post)
     {
         $this->post = $post;
+        
+        $this->modifiedAt = new \DateTime();
     
         return $this;
     }

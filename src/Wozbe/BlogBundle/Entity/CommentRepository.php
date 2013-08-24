@@ -18,4 +18,9 @@ class CommentRepository extends EntityRepository
     {
         return $this->findBy(array('post' => $post));
     }
+    
+    public function findUnpublished()
+    {
+        return $this->findBy(array('published' => false));
+    }
 }

@@ -45,7 +45,7 @@ class PostAddCommand extends ContainerAwareCommand
             $postContent = file_get_contents($contentFromFile);
         }
         
-        $this->getContainer()->get('wozbe_blog.manager.post')->addPost($postTitle, $postSlug, $postContent);
+        $this->getPostManager()->addPost($postTitle, $postSlug, $postContent);
         
         $output->writeln('done!');
     }

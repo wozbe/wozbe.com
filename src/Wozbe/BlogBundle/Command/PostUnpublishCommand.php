@@ -34,7 +34,7 @@ class PostUnpublishCommand extends PostCommand
             return 1;
         }
         
-        $this->getContainer()->get('wozbe_blog.manager.post')->unpublishPost($post);
+        $this->getPostManager()->unpublishPost($post);
         
         $output->writeln('done!');
     }

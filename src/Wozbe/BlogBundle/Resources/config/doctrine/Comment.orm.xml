@@ -4,11 +4,13 @@
     <id name="id" type="integer" column="id">
       <generator strategy="AUTO"/>
     </id>
-    <field name="username" type="string" column="username" length="255"/>
-    <field name="email" type="string" column="email" length="255"/>
-    <field name="website" type="string" column="website" length="255"/>
-    <field name="createdAt" type="datetime" column="created_at"/>
-    <field name="content" type="text" column="content"/>
+    <field name="username" type="string" column="username" length="255" nullable="false"/>
+    <field name="email" type="string" column="email" length="255" nullable="false"/>
+    <field name="website" type="string" column="website" length="255" nullable="true"/>
+    <field name="createdAt" type="datetime" column="created_at" nullable="false"/>
+    <field name="modifiedAt" type="datetime" column="modified_at" nullable="false"/>
+    <field name="published" type="boolean" column="published"/>
+    <field name="content" type="text" column="content" nullable="false"/>
     
     <many-to-one field="post" target-entity="Wozbe\BlogBundle\Entity\Post" inversed-by="comments" />
   </entity>

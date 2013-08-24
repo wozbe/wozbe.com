@@ -8,6 +8,8 @@ use Symfony\Bundle\FrameworkBundle\Command\ContainerAwareCommand;
 
 use Sensio\Bundle\GeneratorBundle\Command\Helper\DialogHelper;
 
+use Wozbe\BlogBundle\Entity\Comment;
+
 /**
  * Command for creating new post.
  *
@@ -68,6 +70,18 @@ abstract class CommentCommand extends ContainerAwareCommand
         return $comment;
     }
     
+    protected function displayCommentInformation(OutputInterface $output, Comment $comment)
+    {
+        $output->writeln('');
+        $output->writeln('Comment information:');
+        $output->writeln(sprintf('<info>Post</info> : %s', $comment->getPost()->getTitle()));
+        $output->writeln(sprintf('<info>Username</info> : %s', $comment->getUsername()));
+        $output->writeln(sprintf('<info>Email</info> : %s', $comment->getEmail()));
+        $output->writeln(sprintf('<info>Website</info> : %s', $comment->getWebsite()));
+        $output->writeln(sprintf('<info>Content</info> : %s', $comment->getContent()));
+        $output->writeln('');
+    }
+    
     protected function getDialogHelper()
     {
         $dialog = $this->getHelperSet()->get('dialog');
@@ -79,11 +93,18 @@ abstract class CommentCommand extends ContainerAwareCommand
     }
     
     /**
-     * 
      * @return \Wozbe\BlogBundle\Entity\CommentManager
      */
     protected function getCommentManager()
     {
         return $this->getContainer()->get('wozbe_blog.manager.comment');
+    }
+    
+    /**
+     * @return \Wozbe\BlogBundle\Entity\CommentRepository
+     */
+    protected function getCommentRepository()
+    {
+        return $this->getContainer()->get('doctrine')->getRepository('WozbeBlogBundle:Comment');
     }
 }

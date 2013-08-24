@@ -34,7 +34,7 @@ class PostDeleteCommand extends PostCommand
             return 1;
         }
         
-        $this->getContainer()->get('wozbe_blog.manager.post')->deletePost($post);
+        $this->getPostManager()->deletePost($post);
         
         $output->writeln('done!');
     }

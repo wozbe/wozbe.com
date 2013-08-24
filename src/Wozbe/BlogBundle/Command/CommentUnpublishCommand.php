@@ -6,35 +6,37 @@ use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
 /**
- * Command for creating new post.
+ * Command for unpublish comment.
  *
  * @author Thomas Tourlourat <thomas@tourlourat.com>
  */
-class PostPublishCommand extends PostCommand
+class CommentUnpublishCommand extends CommentCommand
 {
     protected function configure()
     {
         $this
-            ->setName('blog:post:publish')
-            ->setDescription('Publish a post.')
+            ->setName('blog:comment:unpublish')
+            ->setDescription('Unpublish comment.')
         ;
     }
     
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-        $post = $this->getPost($input, $output);
+        $comment = $this->getComment($input, $output);
         
-        if(!$post) {
+        if(!$comment) {
             return 1;
         }
+        
+        $this->displayCommentInformation($output, $comment);
         
         $dialog = $this->getDialogHelper();
         
-        if (!$dialog->askConfirmation($output, $dialog->getQuestion('Do you confirm post publication', 'yes', '?'), true)) {
+        if (!$dialog->askConfirmation($output, $dialog->getQuestion('Do you confirm comment unpublication', 'yes', '?'), true)) {
             return 1;
         }
         
-        $this->getPostManager()->publishPost($post);
+        $this->getCommentManager()->unpublishComment($comment);
         
         $output->writeln('done!');
     }

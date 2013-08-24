@@ -55,4 +55,12 @@ abstract class PostCommand extends ContainerAwareCommand
 
         return $dialog;
     }
+    
+    /**
+     * @return \Wozbe\BlogBundle\Entity\PostManager
+     */
+    protected function getPostManager()
+    {
+        return $this->getContainer()->get('wozbe_blog.manager.post');
+    }
 }
