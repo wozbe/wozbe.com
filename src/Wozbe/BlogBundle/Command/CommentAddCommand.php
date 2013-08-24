@@ -2,14 +2,8 @@
 
 namespace Wozbe\BlogBundle\Command;
 
-use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
-use Symfony\Bundle\FrameworkBundle\Command\ContainerAwareCommand;
-
-use Sensio\Bundle\GeneratorBundle\Command\Helper\DialogHelper;
-
-use Wozbe\BlogBundle\Entity\PostFactory;
 
 /**
  * Command for creating new comment.

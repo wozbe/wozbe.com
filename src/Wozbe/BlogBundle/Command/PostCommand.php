@@ -46,6 +46,11 @@ abstract class PostCommand extends ContainerAwareCommand
         return $post;
     }
     
+    protected function getObjectManager()
+    {
+        return $this->getContainer()->get('doctrine.orm.entity_manager');
+    }
+    
     protected function getDialogHelper()
     {
         $dialog = $this->getHelperSet()->get('dialog');

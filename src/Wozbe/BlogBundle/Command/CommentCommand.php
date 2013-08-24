@@ -46,6 +46,28 @@ abstract class CommentCommand extends ContainerAwareCommand
         return $post;
     }
     
+    /**
+     * 
+     * @param \Symfony\Component\Console\Input\InputInterface $input
+     * @param \Symfony\Component\Console\Output\OutputInterface $output
+     * 
+     * @return \Wozbe\BlogBundle\Entity\Comment
+     */
+    protected function getComment(InputInterface $input, OutputInterface $output, $displayError = true)
+    {
+        $dialog = $this->getDialogHelper();
+        
+        $id = $dialog->ask($output, $dialog->getQuestion('Select a comment id', null), null);
+
+        $comment = $this->getCommentRepository()->findOneBy(array('id' => $id));
+        
+        if(!$comment && $displayError) {
+            $output->writeln(sprintf('<error>Comment is not found : %d</error>', $id));
+        }
+        
+        return $comment;
+    }
+    
     protected function getDialogHelper()
     {
         $dialog = $this->getHelperSet()->get('dialog');
@@ -63,5 +85,10 @@ abstract class CommentCommand extends ContainerAwareCommand
     protected function getCommentRepository()
     {
         return $this->getContainer()->get('doctrine')->getRepository('WozbeBlogBundle:Comment');
+    }
+    
+    protected function getObjectManager()
+    {
+        return $this->getContainer()->get('doctrine.orm.entity_manager');
     }
 }

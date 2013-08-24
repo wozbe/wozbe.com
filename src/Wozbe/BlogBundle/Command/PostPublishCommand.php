@@ -41,9 +41,4 @@ class PostPublishCommand extends PostCommand
         
         $output->writeln('done!');
     }
-    
-    protected function getObjectManager()
-    {
-        return $this->getContainer()->get('doctrine.orm.entity_manager');
-    }
 }
