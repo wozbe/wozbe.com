@@ -42,7 +42,7 @@ class DefaultController extends Controller
         
         return array(
             'post' => $post,
-            'post_content' => $post->getContent(),
+            'post_content' => $post_content,
             'comments' => $comments,
         );
     }
