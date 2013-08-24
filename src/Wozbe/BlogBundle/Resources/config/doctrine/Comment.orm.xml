@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity repository-class="Wozbe\BlogBundle\Entity\CommentRepository" name="Wozbe\BlogBundle\Entity\Comment">
+    <id name="id" type="integer" column="id">
+      <generator strategy="AUTO"/>
+    </id>
+    <field name="username" type="string" column="username" length="255"/>
+    <field name="email" type="string" column="email" length="255"/>
+    <field name="createdAt" type="datetime" column="created_at"/>
+    <field name="content" type="text" column="content"/>
+    
+    <many-to-one field="post" target-entity="Wozbe\BlogBundle\Entity\Post" inversed-by="comments" />
+  </entity>
+</doctrine-mapping>

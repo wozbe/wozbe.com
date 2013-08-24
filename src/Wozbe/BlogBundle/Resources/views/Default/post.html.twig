@@ -17,38 +17,17 @@
 <div class="zone-comments">
   <h2>{{ 'comments'|trans|capitalize }}</h2>
   <div class="row-fluid comment">
+    {% for comment in comments %}
     <div class="span3">
       <img class="avatar" />
       <hr />
-      <h3 class="username">Armetiz</h3>
+      <h3 class="username">{{ comment.username }}</h3>
     </div>
     <div class="span9 content">
-      <p>Montius nos tumore inusitato quodam et novo ut rebellis et maiestati recalcitrantes Augustae per haec quae strepit incusat iratus nimirum quod contumacem praefectum, quid rerum ordo postulat ignorare dissimulantem formidine tenus iusserim custodiri.</p>
-      <p>Vbi curarum abiectis ponderibus aliis tamquam nodum et codicem difficillimum Caesarem convellere nisu valido cogitabat, eique deliberanti cum proximis clandestinis conloquiis et nocturnis qua vi, quibusve commentis id fieret, antequam effundendis rebus pertinacius incumberet confidentia, acciri mollioribus scriptis per simulationem tractatus publici nimis urgentis eundem placuerat Gallum, ut auxilio destitutus sine ullo interiret obstaculo.</p>
-      <p>Vbi curarum abiectis ponderibus aliis tamquam nodum et codicem difficillimum Caesarem convellere nisu valido cogitabat, eique deliberanti cum proximis clandestinis conloquiis et nocturnis qua vi, quibusve commentis id fieret, antequam effundendis rebus pertinacius incumberet confidentia, acciri mollioribus scriptis per simulationem tractatus publici nimis urgentis eundem placuerat Gallum, ut auxilio destitutus sine ullo interiret obstaculo.</p>
+      {{ comment.content }}
     </div>
   </div>
-  <div class="row-fluid comment">
-    <div class="span3">
-      <img class="avatar" />
-      <hr />
-      <h3 class="username">Armetiz</h3>
-    </div>
-    <div class="span9 content">
-      <p>Montius nos tumore inusitato quodam et novo ut rebellis et maiestati recalcitrantes Augustae per haec quae strepit incusat iratus nimirum quod contumacem praefectum, quid rerum ordo postulat ignorare dissimulantem formidine tenus iusserim custodiri.</p>
-      <p>Vbi curarum abiectis ponderibus aliis tamquam nodum et codicem difficillimum Caesarem convellere nisu valido cogitabat, eique deliberanti cum proximis clandestinis conloquiis et nocturnis qua vi, quibusve commentis id fieret, antequam effundendis rebus pertinacius incumberet confidentia, acciri mollioribus scriptis per simulationem tractatus publici nimis urgentis eundem placuerat Gallum, ut auxilio destitutus sine ullo interiret obstaculo.</p>
-    </div>
-  </div>
-  <div class="row-fluid comment">
-    <div class="span3">
-      <img class="avatar" />
-      <hr />
-      <h3 class="username">Armetiz</h3>
-    </div>
-    <div class="span9 content">
-      <p>Montius nos tumore inusitato quodam et novo ut rebellis et maiestati recalcitrantes Augustae per haec quae strepit incusat iratus nimirum quod contumacem praefectum, quid rerum ordo postulat ignorare dissimulantem formidine tenus iusserim custodiri.</p>
-    </div>
-  </div>
+  {% endfor %}
 </div>
 
 <div class="zone-add-comment">

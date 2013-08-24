@@ -15,6 +15,12 @@ class DefaultController extends Controller
      */
     public function indexAction()
     {
+        $postRepository = $this->getDoctrine()->getRepository('WozbeBlogBundle:Post');
+        
+        return array(
+            'posts' => $postRepository->findAll()
+        );
+        
         $kernel = $this->get('kernel');
         $path = $kernel->locateResource('@WozbeBlogBundle/Resources/posts/');
         
@@ -51,21 +57,17 @@ class DefaultController extends Controller
      */
     public function postAction($slug)
     {
-        $kernel = $this->get('kernel');
+        $postRepository = $this->getDoctrine()->getRepository('WozbeBlogBundle:Post');
+        $commentRepository = $this->getDoctrine()->getRepository('WozbeBlogBundle:Comment');
         
-        try {
-            $path = $kernel->locateResource(sprintf('@WozbeBlogBundle/Resources/posts/%s.md', $slug));
-        }
-        catch(\InvalidArgumentException $e) {
-            throw $this->createNotFoundException(sprintf('Blog post "%s" not found', $slug));
-        }
+        $post = $postRepository->findOneBy(array('slug' => $slug));
+        $comments = $commentRepository->findByPost($post);
         
-        $post_content = file_get_contents($path);
-        $post_content = str_replace('{{ site.url }}', 'http://localhost/Wozbe/bundles/wozbeblog/', $post_content);
-        
+        $post_content = str_replace('{{ site.url }}', 'http://localhost/Wozbe/bundles/wozbeblog/', $post->getContent());
         
         return array(
-            'post_content' => $post_content,
+            'post_content' => $post->getContent(),
+            'comments' => $comments,
             'slug' => $slug,
         );
     }
