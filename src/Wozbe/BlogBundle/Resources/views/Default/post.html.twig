@@ -15,9 +15,11 @@
 </div>
 
 <div class="zone-comments">
+  <a name="comments"></a>
   <h2>{{ 'comments'|trans|capitalize }}</h2>
+  {% for comment in comments %}
   <div class="row-fluid comment">
-    {% for comment in comments %}
+    <a name="comment-{{ comment.id }}"></a>
     <div class="span3">
       <img class="avatar" />
       <hr />
@@ -31,7 +33,7 @@
 </div>
 
 <div class="zone-add-comment">
-  <form action="{{ url('wozbe_ajax_contact') }}" method="post">
+  <form action="{{ url('wozbe_blog_post_comment', {slug: post.slug}) }}" method="post">
     <div class="control-group">
       <div class="controls">
         <div class="input-prepend">
@@ -52,7 +54,7 @@
         </div>
       </div>
       <div class="controls">
-        <textarea rows="10" id="contactMessage" name="message" class="input-block-level" ></textarea>
+        <textarea rows="10" id="commentContent" name="content" class="input-block-level" ></textarea>
       </div>
     </div>
       
