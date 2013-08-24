@@ -38,9 +38,10 @@ class CommentAddCommand extends CommentCommand
         
         $username = $dialog->ask($output, $dialog->getQuestion('Comment username', null));
         $email = $dialog->ask($output, $dialog->getQuestion('Comment email', null));
+        $website = $dialog->ask($output, $dialog->getQuestion('Comment website', null));
         $content = $dialog->ask($output, $dialog->getQuestion('Comment content', null));
         
-        $this->getCommentRepository()->addComment($post, $username, $email, $content);
+        $this->getCommentRepository()->addComment($post, $username, $email, $website, $content);
         
         $output->writeln('done!');
     }

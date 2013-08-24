@@ -23,11 +23,12 @@ class CommentRepository extends EntityRepository
      * 
      * @return \Wozbe\BlogBundle\Entity\Comment
      */
-    public function addComment(Post $post, $username, $email, $content)
+    public function addComment(Post $post, $username, $email, $website, $content)
     {
         $comment = new Comment();
         $comment->setUsername($username);
         $comment->setEmail($email);
+        $comment->setWebsite($website);
         $comment->setContent($content);
         $comment->setPost($post);
         

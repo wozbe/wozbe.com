@@ -6,6 +6,7 @@
     </id>
     <field name="username" type="string" column="username" length="255"/>
     <field name="email" type="string" column="email" length="255"/>
+    <field name="website" type="string" column="website" length="255"/>
     <field name="createdAt" type="datetime" column="created_at"/>
     <field name="content" type="text" column="content"/>
     

@@ -25,6 +25,11 @@ class Comment
     private $email;
 
     /**
+     * @var string
+     */
+    private $website;
+
+    /**
      * @var \DateTime
      */
     private $createdAt;
@@ -99,6 +104,29 @@ class Comment
     public function getEmail()
     {
         return $this->email;
+    }
+    
+    /**
+     * Set website
+     *
+     * @param string $website
+     * @return Comment
+     */
+    public function setWebsite($website)
+    {
+        $this->website = $website;
+    
+        return $this;
+    }
+
+    /**
+     * Get website
+     *
+     * @return string 
+     */
+    public function getWebsite()
+    {
+        return $this->website;
     }
 
     /**
