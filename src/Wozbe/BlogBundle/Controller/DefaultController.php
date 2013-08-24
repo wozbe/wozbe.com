@@ -3,7 +3,6 @@
 namespace Wozbe\BlogBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Symfony\Component\Finder\Finder;
 
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
@@ -46,5 +45,25 @@ class DefaultController extends Controller
             'post_content' => $post->getContent(),
             'comments' => $comments,
         );
+    }
+    
+    /**
+     * @Route("/{_locale}/blog/{slug}/comment", name="wozbe_blog_post_comment", requirements={"_locale" = "fr"})
+     * @ParamConverter("post", class="WozbeBlogBundle:Post")
+     * @Method({"POST"})
+     */
+    public function commentAction(Post $post)
+    {
+        // TODO - Use Symfony Form
+        $request = $this->getRequest();
+        
+        $username = $request->request->get('username');
+        $email = $request->request->get('email');
+        $website = $request->request->get('website');
+        $content = $request->request->get('content');
+
+        $comment = $this->getDoctrine()->getRepository('WozbeBlogBundle:Comment')->addComment($post, $username, $email, $website, $content);
+
+        return $this->redirect($this->generateUrl('wozbe_blog_post', array('slug' => $post->getSlug())) . "#comment-" . $comment->getId());
     }
 }
