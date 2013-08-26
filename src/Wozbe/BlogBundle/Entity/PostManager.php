@@ -29,7 +29,6 @@ class PostManager
      */
     public function deletePost(Post $post)
     {
-        // TODO - Cascade delete for comments
         $objectManager = $this->getObjectManager();
         $objectManager->remove($post);
         $objectManager->flush();
