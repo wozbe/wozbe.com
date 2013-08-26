@@ -5,7 +5,7 @@
 <link rel="stylesheet" href="{{ asset('built/wozbeblog/css/index.css') }}" type="text/css"/>
 {% endblock %}
 
-{% block title %}{{ parent() }} - {{ 'blog'|trans }}{% endblock %}
+{% block title %}{{ parent() }} - {{ 'blog'|trans|capitalize }}{% endblock %}
 
 {% block body_class %}blog-index{% endblock body_class %}
 
