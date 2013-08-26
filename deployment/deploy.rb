@@ -26,6 +26,7 @@ set :composer_options,  "--no-dev --verbose --prefer-dist --optimize-autoloader"
 
 role :web,        host                         # Your HTTP server, Apache/etc
 role :app,        host, :primary => true       # This may be the same as your `Web` server
+role :db,         host, :primary => true
 
 set  :keep_releases,  3
 
