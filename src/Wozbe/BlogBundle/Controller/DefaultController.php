@@ -16,6 +16,8 @@ class DefaultController extends Controller
 {
     /**
      * @Route("/{_locale}/blog", name="wozbe_blog", requirements={"_locale" = "fr"}, options={"sitemap" = true})
+     * @Method({"GET", "HEAD"})
+     * @Cache(expires="+2 hours", public="true")
      * @Template()
      */
     public function indexAction()
@@ -26,7 +28,7 @@ class DefaultController extends Controller
             'posts' => $postRepository->findPublished()
         );
     }
-    
+
     /**
      * @Route("/{_locale}/blog/{slug}", name="wozbe_blog_post", requirements={"_locale" = "fr"}, options={"sitemap" = true})
      * @ParamConverter("post", class="WozbeBlogBundle:Post")
@@ -48,22 +50,11 @@ class DefaultController extends Controller
     }
     
     /**
-     * @Route("/{_locale}/blog/{slug}/comment", name="wozbe_blog_post_comment", requirements={"_locale" = "fr"})
-     * @ParamConverter("post", class="WozbeBlogBundle:Post")
-     * @Method({"POST"})
+     * 
+     * @return \Wozbe\BlogBundle\Entity\CommentManager
      */
-    public function commentAction(Post $post)
+    protected function getCommentManager()
     {
-        // TODO - Use Symfony Form
-        $request = $this->getRequest();
-        
-        $username = $request->request->get('username');
-        $email = $request->request->get('email');
-        $website = $request->request->get('website');
-        $content = $request->request->get('content');
-
-        $comment = $this->get('wozbe_blog.manager.comment')->addComment($post, $username, $email, $website, $content);
-
-        return $this->redirect($this->generateUrl('wozbe_blog_post', array('slug' => $post->getSlug())) . "#comment-" . $comment->getId());
+        return $this->get('wozbe_blog.manager.comment');
     }
 }

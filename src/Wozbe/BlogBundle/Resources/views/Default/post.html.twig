@@ -17,6 +17,13 @@
 <div class="zone-comments">
   <a name="comments"></a>
   <h2>{{ 'comments'|trans|capitalize }}</h2>
+  
+  {% for flashMessage in app.session.flashbag.get('comments') %}
+    <div class="alert alert-info">
+      {{ flashMessage }}
+    </div>
+  {% endfor %}
+  
   {% for comment in comments if comment.published %}
   <div class="row-fluid comment">
     <a name="comment-{{ comment.id }}"></a>
@@ -32,37 +39,8 @@
   {% endfor %}
 </div>
 
-<div class="zone-add-comment">
-  <form action="{{ url('wozbe_blog_post_comment', {slug: post.slug}) }}" method="post">
-    <div class="control-group">
-      <div class="controls">
-        <div class="input-prepend">
-          <span class="add-on"><i class="icon-user"></i></span>
-          <input type="text" id="commentUsername" name="username" class="input-xlarge" placeholder="Username">
-        </div>
-      </div>
-      <div class="controls">
-        <div class="input-prepend">
-          <span class="add-on"><i class="icon-envelope"></i></span>
-          <input type="text" id="commentEmail" name="email" class="input-xlarge" placeholder="Email">
-        </div>
-      </div>
-      <div class="controls">
-        <div class="input-prepend">
-          <span class="add-on"><i class="icon-html5"></i></span>
-          <input type="text" id="commentWebsite" name="website" class="input-xlarge" placeholder="Website">
-        </div>
-      </div>
-      <div class="controls">
-        <textarea rows="10" id="commentContent" name="content" class="input-block-level" ></textarea>
-      </div>
-    </div>
-      
-    <div class="control-group">
-      <div class="controls">
-        <button type="submit" class="btn">Envoyer</button>
-      </div>
-    </div>
-  </form>
-</div>
+ {{ render(controller('WozbeBlogBundle:Comment:add', {
+  'slug': post.slug
+})) }}
+
 {% endblock content %}
