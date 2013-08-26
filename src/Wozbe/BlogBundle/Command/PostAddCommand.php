@@ -2,11 +2,9 @@
 
 namespace Wozbe\BlogBundle\Command;
 
-use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
-use Symfony\Bundle\FrameworkBundle\Command\ContainerAwareCommand;
 
 use Sensio\Bundle\GeneratorBundle\Command\Helper\DialogHelper;
 
@@ -15,7 +13,7 @@ use Sensio\Bundle\GeneratorBundle\Command\Helper\DialogHelper;
  *
  * @author Thomas Tourlourat <thomas@tourlourat.com>
  */
-class PostAddCommand extends ContainerAwareCommand
+class PostAddCommand extends PostCommand
 {
     protected function configure()
     {
