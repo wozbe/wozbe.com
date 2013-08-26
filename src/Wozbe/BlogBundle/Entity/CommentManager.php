@@ -36,6 +36,8 @@ class CommentManager
     }
     
     /**
+     * Build and save comment
+     * 
      * @param \Wozbe\BlogBundle\Entity\Post $post
      * @param string $username
      * @param string $email
@@ -43,7 +45,7 @@ class CommentManager
      * 
      * @return \Wozbe\BlogBundle\Entity\Comment
      */
-    public function addComment(Post $post, $username, $email, $website, $content)
+    public function buildComment(Post $post, $username, $email, $website, $content)
     {
         $comment = new Comment();
         $comment->setUsername($username);
@@ -54,6 +56,11 @@ class CommentManager
         
         $post->addComment($comment);
         
+        return $this->saveComment($comment);
+    }
+    
+    public function saveComment(Comment $comment)
+    {
         $this->getObjectManager()->persist($comment);
         $this->getObjectManager()->flush();
         

@@ -31,7 +31,12 @@ class PostInformationCommand extends PostCommand
         }
         else {
             $postRepository = $this->getContainer()->get('doctrine')->getRepository('WozbeBlogBundle:Post');
-            $this->displayPostsInformation($postRepository->findAll(), $output);
+            
+            $posts = $postRepository->findAll();
+            
+            foreach($posts as $post) {
+                $this->displayPostInformation($post, $output);
+            }
         }
     }
     
@@ -46,11 +51,5 @@ class PostInformationCommand extends PostCommand
         $output->writeln(sprintf('<info>Modified At</info> : %s', $post->getModifiedAt()->format('Y-m-d H:i:s')));
         $output->writeln(sprintf('<info>Tags</info> : %d', count($post->getTags())));
         $output->writeln(sprintf('<info>Comments</info> : %d', count($post->getComments())));
-    }
-    
-    protected function displayPostsInformation(array $posts, OutputInterface $output)
-    {
-        $output->writeln('');
-        $output->writeln(sprintf('<info>Posts</info> : %d', count($posts)));
     }
 }

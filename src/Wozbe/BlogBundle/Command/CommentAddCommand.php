@@ -35,7 +35,7 @@ class CommentAddCommand extends CommentCommand
         $website = $dialog->ask($output, $dialog->getQuestion('Comment website', null));
         $content = $dialog->ask($output, $dialog->getQuestion('Comment content', null));
         
-        $this->getCommentManager()->addComment($post, $username, $email, $website, $content);
+        $this->getCommentManager()->buildComment($post, $username, $email, $website, $content);
         
         $output->writeln('done!');
     }
