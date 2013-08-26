@@ -11,6 +11,7 @@ web/vendor/*
 web/built/*
 web/assets/*
 node_modules/*
+backups/*
 
 #symlink or compiled files
 app/Resources/public/js/built.js
