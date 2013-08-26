@@ -12,7 +12,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 
 use Wozbe\BlogBundle\Entity\Post;
 
-class DefaultController extends Controller
+class PostController extends Controller
 {
     /**
      * @Route("/{_locale}/blog", name="wozbe_blog", requirements={"_locale" = "fr"}, options={"sitemap" = true})
