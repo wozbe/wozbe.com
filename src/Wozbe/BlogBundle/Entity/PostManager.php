@@ -48,7 +48,7 @@ class PostManager
         
         $this->savePost($post);
         
-        return $this;
+        return $post;
     }
     
     /**
@@ -62,7 +62,7 @@ class PostManager
         $objectManager->persist($post);
         $objectManager->flush();
         
-        return $this;
+        return $post;
     }
     
     /**
@@ -76,7 +76,7 @@ class PostManager
         
         $this->getObjectManager()->flush();
         
-        return $this;
+        return $post;
     }
     
     /**
@@ -90,7 +90,7 @@ class PostManager
         
         $this->getObjectManager()->flush();
         
-        return $this;
+        return $post;
     }
     
     /**

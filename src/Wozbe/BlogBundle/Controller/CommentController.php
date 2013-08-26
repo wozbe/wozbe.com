@@ -23,8 +23,7 @@ class CommentController extends Controller
      */
     public function addAction(Post $post)
     {
-        $comment = new Comment();
-        $comment->setPost($post);
+        $comment = $this->getCommentManager()->buildComment($post);
         
         $form = $this->createForm(new CommentType(), $comment, array(
             'action' => $this->generateUrl('wozbe_blog_post_comment', array('slug' => $comment->getPost()->getSlug())),

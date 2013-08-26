@@ -32,7 +32,7 @@ class CommentManager
         $objectManager->remove($comment);
         $objectManager->flush();
         
-        return $this;
+        return $comment;
     }
     
     /**
@@ -45,7 +45,7 @@ class CommentManager
      * 
      * @return \Wozbe\BlogBundle\Entity\Comment
      */
-    public function buildComment(Post $post, $username, $email, $website, $content)
+    public function buildComment(Post $post, $username = null, $email = null, $website = null, $content = null)
     {
         $comment = new Comment();
         $comment->setUsername($username);
@@ -56,7 +56,7 @@ class CommentManager
         
         $post->addComment($comment);
         
-        return $this->saveComment($comment);
+        return $comment;
     }
     
     public function saveComment(Comment $comment)
@@ -78,7 +78,7 @@ class CommentManager
         
         $this->getObjectManager()->flush();
         
-        return $this;
+        return $comment;
     }
     
     /**
@@ -92,7 +92,7 @@ class CommentManager
         
         $this->getObjectManager()->flush();
         
-        return $this;
+        return $comment;
     }
     
     /**

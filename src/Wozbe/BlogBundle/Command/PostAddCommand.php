@@ -43,18 +43,12 @@ class PostAddCommand extends PostCommand
             $postContent = file_get_contents($contentFromFile);
         }
         
-        $this->getPostManager()->addPost($postTitle, $postSlug, $postContent);
+        $post = $this->getPostManager()->addPost($postTitle, $postSlug, $postContent);
+        
+        if ($dialog->askConfirmation($output, $dialog->getQuestion('Do you confirm post publication', 'yes', '?'), true)) {
+            $this->getPostManager()->publishPost($post);
+        }
         
         $output->writeln('done!');
-    }
-    
-    protected function getDialogHelper()
-    {
-        $dialog = $this->getHelperSet()->get('dialog');
-        if (!$dialog || get_class($dialog) !== 'Sensio\Bundle\GeneratorBundle\Command\Helper\DialogHelper') {
-            $this->getHelperSet()->set($dialog = new DialogHelper());
-        }
-
-        return $dialog;
     }
 }
