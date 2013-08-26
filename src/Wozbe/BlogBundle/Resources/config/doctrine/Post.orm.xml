@@ -13,6 +13,8 @@
     <field name="slug" type="string" column="slug" length="255" nullable="false"/>
     <field name="tags" type="array" column="tags"/>
     
-    <one-to-many field="comments" target-entity="Wozbe\BlogBundle\Entity\Comment" mapped-by="post" />
+    <one-to-many field="comments" target-entity="Wozbe\BlogBundle\Entity\Comment" mapped-by="post">
+      <cascade><cascade-remove /></cascade>
+    </one-to-many>
   </entity>
 </doctrine-mapping>
