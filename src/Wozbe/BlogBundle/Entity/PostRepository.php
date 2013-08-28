@@ -20,4 +20,13 @@ class PostRepository extends EntityRepository
                 $limit, 
                 $offset);
     }
+    
+    public function findOneBySlug($slug, array $criteria = array(), array $orderBy = null, $limit = null, $offset = null)
+    {
+        return $this->findOneBy(
+                array_merge($criteria, array('slug' => $slug)),
+                $orderBy, 
+                $limit, 
+                $offset);
+    }
 }
