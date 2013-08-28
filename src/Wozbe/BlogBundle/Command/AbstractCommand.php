@@ -11,11 +11,11 @@ use Sensio\Bundle\GeneratorBundle\Command\Helper\DialogHelper;
 use Wozbe\BlogBundle\Entity\Comment;
 
 /**
- * Command for creating new post.
+ * Abstract Command provided with some blog features
  *
  * @author Thomas Tourlourat <thomas@tourlourat.com>
  */
-abstract class CommentCommand extends ContainerAwareCommand
+abstract class AbstractCommand extends ContainerAwareCommand
 {
     /**
      * 
@@ -82,6 +82,20 @@ abstract class CommentCommand extends ContainerAwareCommand
         $output->writeln('');
     }
     
+    protected function displayPostInformation(Post $post, OutputInterface $output)
+    {
+        $output->writeln('');
+        $output->writeln(sprintf('<info>Title</info> : %s', $post->getTitle()));
+        $output->writeln(sprintf('<info>Description</info> : %s', $post->getDescription()));
+        $output->writeln(sprintf('<info>Slug</info> : %s', $post->getSlug()));
+        $output->writeln(sprintf('<info>Published</info> : %s', $post->getPublished() ? 'yes': 'no'));
+        $output->writeln(sprintf('<info>Created At</info> : %s', $post->getCreatedAt()->format('Y-m-d H:i:s')));
+        $output->writeln(sprintf('<info>Modified At</info> : %s', $post->getModifiedAt()->format('Y-m-d H:i:s')));
+        $output->writeln(sprintf('<info>Tags</info> : %d', count($post->getTags())));
+        $output->writeln(sprintf('<info>Comments</info> : %d', count($post->getComments())));
+        $output->writeln('');
+    }
+    
     protected function getDialogHelper()
     {
         $dialog = $this->getHelperSet()->get('dialog');
@@ -106,5 +120,37 @@ abstract class CommentCommand extends ContainerAwareCommand
     protected function getCommentRepository()
     {
         return $this->getContainer()->get('doctrine')->getRepository('WozbeBlogBundle:Comment');
+    }
+    
+    /**
+     * @return \Wozbe\BlogBundle\Entity\PostManager
+     */
+    protected function getPostManager()
+    {
+        return $this->getContainer()->get('wozbe_blog.manager.post');
+    }
+    
+    /**
+     * @return \Wozbe\BlogBundle\Entity\PostRepository
+     */
+    protected function getPostRepository()
+    {
+        return $this->getContainer()->get('doctrine')->getRepository('WozbeBlogBundle:Post');
+    }
+    
+    /**
+     * @return \Wozbe\BlogBundle\Entity\PostGithubManager
+     */
+    protected function getPostGithubManager()
+    {
+        return $this->getContainer()->get('wozbe_blog.manager.post_github');
+    }
+    
+    /**
+     * @return \Wozbe\BlogBundle\Entity\PostGithubRepository
+     */
+    protected function getPostGithubRepository()
+    {
+        return $this->getContainer()->get('doctrine')->getRepository('WozbeBlogBundle:PostGithub');
     }
 }

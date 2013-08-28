@@ -10,7 +10,7 @@ use Symfony\Component\Console\Output\OutputInterface;
  *
  * @author Thomas Tourlourat <thomas@tourlourat.com>
  */
-class CommentDeleteCommand extends CommentCommand
+class CommentDeleteCommand extends AbstractCommand
 {
     protected function configure()
     {

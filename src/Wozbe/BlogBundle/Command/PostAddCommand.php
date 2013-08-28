@@ -6,14 +6,12 @@ use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
-use Sensio\Bundle\GeneratorBundle\Command\Helper\DialogHelper;
-
 /**
  * Command for creating new post.
  *
  * @author Thomas Tourlourat <thomas@tourlourat.com>
  */
-class PostAddCommand extends PostCommand
+class PostAddCommand extends AbstractCommand
 {
     protected function configure()
     {

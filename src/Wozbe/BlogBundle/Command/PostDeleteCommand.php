@@ -10,7 +10,7 @@ use Symfony\Component\Console\Output\OutputInterface;
  *
  * @author Thomas Tourlourat <thomas@tourlourat.com>
  */
-class PostDeleteCommand extends PostCommand
+class PostDeleteCommand extends AbstractCommand
 {
     protected function configure()
     {

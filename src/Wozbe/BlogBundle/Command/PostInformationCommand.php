@@ -12,7 +12,7 @@ use Wozbe\BlogBundle\Entity\Post;
  *
  * @author Thomas Tourlourat <thomas@tourlourat.com>
  */
-class PostInformationCommand extends PostCommand
+class PostInformationCommand extends AbstractCommand
 {
     protected function configure()
     {
@@ -38,18 +38,5 @@ class PostInformationCommand extends PostCommand
                 $this->displayPostInformation($post, $output);
             }
         }
-    }
-    
-    protected function displayPostInformation(Post $post, OutputInterface $output)
-    {
-        $output->writeln('');
-        $output->writeln(sprintf('<info>Title</info> : %s', $post->getTitle()));
-        $output->writeln(sprintf('<info>Description</info> : %s', $post->getDescription()));
-        $output->writeln(sprintf('<info>Slug</info> : %s', $post->getSlug()));
-        $output->writeln(sprintf('<info>Published</info> : %s', $post->getPublished() ? 'yes': 'no'));
-        $output->writeln(sprintf('<info>Created At</info> : %s', $post->getCreatedAt()->format('Y-m-d H:i:s')));
-        $output->writeln(sprintf('<info>Modified At</info> : %s', $post->getModifiedAt()->format('Y-m-d H:i:s')));
-        $output->writeln(sprintf('<info>Tags</info> : %d', count($post->getTags())));
-        $output->writeln(sprintf('<info>Comments</info> : %d', count($post->getComments())));
     }
 }

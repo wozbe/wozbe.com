@@ -10,7 +10,7 @@ use Symfony\Component\Console\Output\OutputInterface;
  *
  * @author Thomas Tourlourat <thomas@tourlourat.com>
  */
-class PostGithubDeleteCommand extends PostGithubCommand
+class PostGithubDeleteCommand extends AbstractCommand
 {
     protected function configure()
     {
