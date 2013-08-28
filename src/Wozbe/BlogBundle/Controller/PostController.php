@@ -21,26 +21,41 @@ class PostController extends Controller
      */
     public function githubHookBlogContentAction(Request $request)
     {
-        //https://api.github.com/repos/wozbe/BlogContent/contents/posts/2013-08-09-deploiement-application-symfony-avec-capifony.md
-        //GET /repos/:owner/:repo/contents/:path
-        
         $payloadResult = json_decode($request->request->get('payload'));
         
-        $path = $payloadResult['commits']['added'];
-        $path = $payloadResult['commits']['removed'];
-        $path = $payloadResult['commits']['modified'];
+        $pathAddedList = $payloadResult['commits']['added'];
+        $pathRemovedList = $payloadResult['commits']['removed'];
+        $pathModifiedList = $payloadResult['commits']['modified'];
         
         $repo = $payloadResult['repository']['name'];
         $owner = $payloadResult['repository']['owner']['name'];
         
         $postGithubRepository = $this->getDoctrine()->getRepository('WozbeBlogBundle:PostGithub');
-        $postGithub = $postGithubRepository->getPostGithubWithOwnerRepoAndPath($owner, $repo, $path);
+        $postGithubModifiedList = $postGithubRepository->getPostsGithubWithOwnerRepoAndPath($owner, $repo, $path);
+        $postGithubRemovedList = $postGithubRepository->getPostsGithubWithOwnerRepoAndPath($owner, $repo, $path);
         
-        if(!$postGithub) {
-            throw $this->createNotFoundException();
+        foreach($postGithubModifiedList as $postGithubModified) {
+            $this->getPostGithubManager()->updatePostFromGithub($postGithubModified);
         }
+    }
+    
+    /**
+     * @Route("/blog/github_hook_blog_content", options={"sitemap" = false})
+     * @Method({"GET"})
+     */
+    public function githubHookBlogContentGetAction(Request $request)
+    {
+        $pathModifiedList = $request->query->get('modified');
         
-        $this->getPostGithubMasager()->updatePostFromGithub($postGithub);
+        $repo = $request->query->get('repo');
+        $owner = $request->query->get('owner');
+        
+        $postGithubRepository = $this->getDoctrine()->getRepository('WozbeBlogBundle:PostGithub');
+        $postGithubModifiedList = $postGithubRepository->getPostsGithubWithOwnerRepoAndPaths($owner, $repo, $pathModifiedList);
+        
+        foreach($postGithubModifiedList as $postGithubModified) {
+            $this->getPostGithubManager()->updatePostFromGithub($postGithubModified);
+        }
     }
     
     /**

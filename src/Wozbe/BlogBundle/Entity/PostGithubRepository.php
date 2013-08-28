@@ -15,7 +15,6 @@ use Doctrine\ORM\EntityRepository;
 class PostGithubRepository extends EntityRepository
 {
     /**
-     * 
      * @param string $owner
      * @param string $repo
      * @param string $path
@@ -29,20 +28,26 @@ class PostGithubRepository extends EntityRepository
                 )
             );
     }
-    
+
     /**
-     * 
-     * @param \Wozbe\BlogBundle\Entity\Post $post
-     * @return \Wozbe\BlogBundle\Entity\PostGithub
+     * @param string $owner
+     * @param string $repo
+     * @param array $paths
+     * @return \Wozbe\BlogBundle\Entity\PostGithub[]
      */
-    public function getPostGithubWithOwnerRepoAndPath($owner, $repo, $path)
+    public function getPostsGithubWithOwnerRepoAndPaths($owner, $repo, array $paths)
     {
-        return $this->findOneBy(
-                array(
-                    'owner' => $owner,
-                    'repo' => $repo,
-                    'path' => $path,
-                )
-            );
+        $qb = $this->_em->createQueryBuilder();
+        $qb->select('post_github')
+            ->from('\Wozbe\BlogBundle\Entity\PostGithub', 'post_github')
+            ->where('post_github.owner = :owner')
+            ->andWhere('post_github.repo = :repo')
+            ->andWhere($qb->expr()->in('post_github.path', ':paths'))
+            ->setParameter('owner', $owner)
+            ->setParameter('repo', $repo)
+            ->setParameter('paths', $paths)
+            ;
+        
+        return $qb->getQuery()->getResult();
     }
 }
