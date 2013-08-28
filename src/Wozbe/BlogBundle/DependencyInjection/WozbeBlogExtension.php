@@ -24,6 +24,7 @@ class WozbeBlogExtension extends Extension
 
         $loader = new Loader\XmlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
         $loader->load('managers.xml');
+        $loader->load('repositories.xml');
         $loader->load('parser.xml');
     }
 }
