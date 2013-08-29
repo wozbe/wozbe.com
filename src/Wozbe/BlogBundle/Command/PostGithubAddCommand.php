@@ -25,9 +25,23 @@ class PostGithubAddCommand extends AbstractCommand
     {
         $dialog = $this->getDialogHelper();
         
-        if ($dialog->askConfirmation($output, $dialog->getQuestion('Do you want to create post first', 'yes', '?'), true)) {
+        $owner = $dialog->ask($output, $dialog->getQuestion('Github owner', null));
+        $repo = $dialog->ask($output, $dialog->getQuestion('Github repo', null));
+        
+        $pathPostList = $this->getPostGithubManager()->listAvailablePathPostFromGithub($owner, $repo);
+        
+        $path = $dialog->ask($output, $dialog->getQuestion('Github path', null), null, $pathPostList);
+        
+        
+        if ($dialog->askConfirmation($output, $dialog->getQuestion('Do you want to create a new post', 'yes', '?'), true)) {
+            $addPostArguments = array(
+                '',
+                '--preferred-title' => $path,
+                '--preferred-slug' => $path,
+            );
+            
             $command = $this->getApplication()->find('blog:post:add');
-            $command->run(new ArrayInput(array('')), $output);
+            $command->run(new ArrayInput($addPostArguments), $output);
         }
         
         $post = $this->getPost($input, $output);
@@ -35,14 +49,8 @@ class PostGithubAddCommand extends AbstractCommand
         if(!$post) {
             $output->writeln('Post not found');
             return 1;
-        }
+        }        
         
-        $owner = $dialog->ask($output, $dialog->getQuestion('Github owner', null));
-        $repo = $dialog->ask($output, $dialog->getQuestion('Github repo', null));
-        
-        $pathPostList = $this->getPostGithubManager()->listAvailablePathPostFromGithub($owner, $repo);
-        
-        $path = $dialog->ask($output, $dialog->getQuestion('Github path', null), null, $pathPostList);
         
         $postGithub = $this->getPostGithubManager()->addPostGithub($post, $owner, $repo, $path);
         
