@@ -6,7 +6,7 @@ require 'capistrano/ext/multistage'
 set :application, "wozbe"
 set :host,        "arthos.armetiz.info"
 set :app_path,    "app"
-set :user,        "thomas"
+set :user,        "root"
 
 set :repository,  "git@github.com:wozbe/wozbe.com.git"
 set :scm,         :git
@@ -19,7 +19,7 @@ set :webserver_user, "apache"
 set :permission_method, :acl
 set :use_composer, true
 set :use_set_permissions, true
-set :use_sudo, true
+set :use_sudo, false
 
 set :dump_assetic_assets, true
 set :composer_options,  "--no-dev --verbose --prefer-dist --optimize-autoloader"
@@ -46,7 +46,7 @@ namespace :assets do
     capifony_pretty_print '--> Installing Bower dependencies'
 
     # Hope to be able to remove the pipe to /dev/null
-    run "cd #{latest_release} && bower install 2> /dev/null"
+    run "cd #{latest_release} && bower install --allow-root 2> /dev/null"
 
     capifony_puts_ok
   end
