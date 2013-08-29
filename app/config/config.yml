@@ -64,3 +64,18 @@ armetiz_redirect:
 knp_markdown:
     parser:
          service: wozbe_blog.markdown.parser.geshi
+
+jms_translation:
+    configs:
+        app:
+            dirs: [%kernel.root_dir%/Resources/views, %kernel.root_dir%/../src]
+            output_dir: %kernel.root_dir%/Resources/translations
+            ignored_domains: [routes]
+            excluded_names: [*TestCase.php, *Test.php]
+            output_format: xliff
+            
+services:
+    twig.text_extension:
+        class: Twig_Extensions_Extension_Text
+        tags:
+            - name: twig.extension

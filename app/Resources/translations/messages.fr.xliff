@@ -1,0 +1,435 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:jms="urn:jms:translation" version="1.2">
+  <file date="2013-08-29T10:58:07Z" source-language="en" target-language="fr" datatype="plaintext" original="not.available">
+    <header>
+      <tool tool-id="JMSTranslationBundle" tool-name="JMSTranslationBundle" tool-version="1.1.0-DEV"/>
+      <note>The source node in most cases contains the sample message as written by the developer. If it looks like a dot-delimitted string such as "form.label.firstname", then the developer has not provided a default message.</note>
+    </header>
+    <body>
+      <trans-unit id="84add5b2952787581cb9a8851eef63d1ec75d22b" resname="Email">
+        <jms:reference-file line="23">Form/Type/CommentType.php</jms:reference-file>
+        <source>Email</source>
+        <target>Email</target>
+      </trans-unit>
+      <trans-unit id="84c29015de33e5d22422382a372caba5c58f8c01" resname="Username">
+        <jms:reference-file line="19">Form/Type/CommentType.php</jms:reference-file>
+        <source>Username</source>
+        <target>Username</target>
+      </trans-unit>
+      <trans-unit id="2e8a57cc5c472f4ac3b071979a38e80db7e59e87" resname="Website">
+        <jms:reference-file line="27">Form/Type/CommentType.php</jms:reference-file>
+        <source>Website</source>
+        <target>Site Internet</target>
+      </trans-unit>
+      <trans-unit id="7d10110ca4fa687c200026a308d9d7ba1911914d" resname="add_your_comment">
+        <jms:reference-file line="2">views/Comment/add.html.twig</jms:reference-file>
+        <source>add_your_comment</source>
+        <target>Ajoute ton commentaire</target>
+      </trans-unit>
+      <trans-unit id="169254c45fa4ed7ea11c00541ffb17b0cde39625" resname="blog">
+        <jms:reference-file line="66">Resources/views/wozbe.html.twig</jms:reference-file>
+        <jms:reference-file line="8">views/Post/index.html.twig</jms:reference-file>
+        <source>blog</source>
+        <target>Blog</target>
+      </trans-unit>
+      <trans-unit id="da38860cb875cb64092e402d80d9fe29c4865b18" resname="close">
+        <jms:reference-file line="105">Resources/views/wozbe.html.twig</jms:reference-file>
+        <source>close</source>
+        <target>Fermer</target>
+      </trans-unit>
+      <trans-unit id="5b17a6c606a82dafd93db84a19945afe2d559ed4" resname="comments">
+        <jms:reference-file line="19">views/Post/post.html.twig</jms:reference-file>
+        <source>comments</source>
+        <target>Commentaires</target>
+      </trans-unit>
+      <trans-unit id="1a73af9e7ae00182733b2292511b814be66f065f" resname="contact">
+        <jms:reference-file line="67">Resources/views/wozbe.html.twig</jms:reference-file>
+        <source>contact</source>
+        <target>Contact</target>
+      </trans-unit>
+      <trans-unit id="c66e2449a055979b034c0a365c42bf498ec6c480" resname="contact_description">
+        <jms:reference-file line="42">views/Default/contact.html.twig</jms:reference-file>
+        <source>contact_description</source>
+        <target><![CDATA[On ne se connait pas encore ? Alors <strong>c'est le moment de se rencontrer !</strong><br />Par téléphone ou autour d'une table pour discuter de vos projets, ou simplement faire connaissance !]]></target>
+      </trans-unit>
+      <trans-unit id="23c27e8d350c6c1628758ff08447f7aced93fd9a" resname="contact_us">
+        <jms:reference-file line="4">views/Default/contact.html.twig</jms:reference-file>
+        <jms:reference-file line="31">views/Default/contact.html.twig</jms:reference-file>
+        <jms:reference-file line="40">views/Default/contact.html.twig</jms:reference-file>
+        <source>contact_us</source>
+        <target>Nous Contacter</target>
+      </trans-unit>
+      <trans-unit id="cb329146a0dd0d566b0628744d67936558741ffa" resname="description">
+        <jms:reference-file line="5">Resources/views/wozbe.html.twig</jms:reference-file>
+        <jms:reference-file line="17">Resources/views/wozbe.html.twig</jms:reference-file>
+        <jms:reference-file line="78">views/Default/index.html.twig</jms:reference-file>
+        <source>description</source>
+        <target><![CDATA[<strong>Wozbe</strong> réalise vos <strong>produits & services Web</strong> en tenant compte de <strong>vos problématiques & objectifs business</strong>.]]></target>
+      </trans-unit>
+      <trans-unit id="a88b7dcd1a9e3e17770bbaa6d7515b31a2d7e85d" resname="email">
+        <jms:reference-file line="101">Resources/views/wozbe.html.twig</jms:reference-file>
+        <source>email</source>
+        <target>email</target>
+      </trans-unit>
+      <trans-unit id="11f9578d05e6f7bb58a3cdd00107e9f4e3882671" resname="error">
+        <jms:reference-file line="23">views/Default/contact.html.twig</jms:reference-file>
+        <source>error</source>
+        <target>Erreur</target>
+      </trans-unit>
+      <trans-unit id="e83249bd3ba79932e16fb1fb5100dafade9954c2" resname="home">
+        <jms:reference-file line="63">Resources/views/wozbe.html.twig</jms:reference-file>
+        <source>home</source>
+        <target>Accueil</target>
+      </trans-unit>
+      <trans-unit id="88fc09e54b17679b0028556344b50c9fe169bdb5" resname="keywords">
+        <jms:reference-file line="6">Resources/views/wozbe.html.twig</jms:reference-file>
+        <source>keywords</source>
+        <target>wozbe,lyon,rhone,france,consultant,symfony,nodejs,developpement,infrastructure,architecture,cdn,plateforme,design,ergonomie,ovh,moderne,paris,startup,association,partenariat,projet</target>
+      </trans-unit>
+      <trans-unit id="b4057305a88ab90db113d8509c04d3f00fa4152f" resname="legals_informations">
+        <jms:reference-file line="79">Resources/views/wozbe.html.twig</jms:reference-file>
+        <jms:reference-file line="91">Resources/views/wozbe.html.twig</jms:reference-file>
+        <source>legals_informations</source>
+        <target>Informations légales</target>
+      </trans-unit>
+      <trans-unit id="9617b72454d628c227d1f20172d20e6d79e22f58" resname="message_delivery_problem">
+        <jms:reference-file line="56">PageBundle/Controller/AjaxController.php</jms:reference-file>
+        <source>message_delivery_problem</source>
+        <target>Votre message n'a pas pu être envoyé</target>
+      </trans-unit>
+      <trans-unit id="1e34a3df06edc562b01ad47064a28c6f5ed6bccd" resname="message_sent_to">
+        <jms:reference-file line="52">PageBundle/Controller/AjaxController.php</jms:reference-file>
+        <source>message_sent_to</source>
+        <target>Votre message a été envoyé à %email%</target>
+      </trans-unit>
+      <trans-unit id="e10123e09892d51fac13ab2ec3528f4f5cf1425d" resname="missing_fields">
+        <jms:reference-file line="24">views/Default/contact.html.twig</jms:reference-file>
+        <source>missing_fields</source>
+        <target>Tout les champs sont obligatoires</target>
+      </trans-unit>
+      <trans-unit id="08a895242f2e542a711e746d51715863f17dc217" resname="our_blog_posts">
+        <jms:reference-file line="13">views/Post/index.html.twig</jms:reference-file>
+        <source>our_blog_posts</source>
+        <target>Nos Articles</target>
+      </trans-unit>
+      <trans-unit id="6bc8872f9872aec831fcc9ce59486c83b58224fa" resname="our_references">
+        <jms:reference-file line="3">views/Default/references.html.twig</jms:reference-file>
+        <jms:reference-file line="13">views/Default/references.html.twig</jms:reference-file>
+        <source>our_references</source>
+        <target>Nos Réferences</target>
+      </trans-unit>
+      <trans-unit id="217de529516e49a8e535425c54e40dfaea128e2c" resname="our_skills">
+        <jms:reference-file line="3">views/Default/skills.html.twig</jms:reference-file>
+        <jms:reference-file line="13">views/Default/skills.html.twig</jms:reference-file>
+        <source>our_skills</source>
+        <target>Nos Compétences</target>
+      </trans-unit>
+      <trans-unit id="b264adc65f501a9c8649a70ba06f4a302164ea07" resname="partner.description.anonymation">
+        <jms:reference-file line="151">views/Default/index.html.twig</jms:reference-file>
+        <source>partner.description.anonymation</source>
+        <target><![CDATA[Studio de création animé par une passion partagée pour le web et les technologies de l'internet.<br /><br />Anonymation, par la qualité de ces équipes, nous permet d'aller au-delà des limites de l'architecture logicielle.]]></target>
+      </trans-unit>
+      <trans-unit id="704bee82704b5bdd30fb18d996c3fc189708455d" resname="partner.description.kitpages">
+        <jms:reference-file line="159">views/Default/index.html.twig</jms:reference-file>
+        <source>partner.description.kitpages</source>
+        <target><![CDATA[Avec 13 ans d'expérience, Kitpages apporte pragmatisme et expertise technique, notamment dans les domaines de l'hébergement, du PHP (Symfony 2, Zend Framework) ou du Javascript (JQuery, YUI3).<br /><br />Nous travaillons en osmose sur des projets innovants depuis plusieurs années.]]></target>
+      </trans-unit>
+      <trans-unit id="4082830a1093314d40db8d5b264d074bf11f9780" resname="partner.description.vlabs">
+        <jms:reference-file line="155">views/Default/index.html.twig</jms:reference-file>
+        <source>partner.description.vlabs</source>
+        <target><![CDATA[VLabs est une petite structure pleine de surprises.<br /><br />Des expériences réussies sur des projets Symfony2, mais aussi des réalisations d'application mobile iOS & Android.<br />]]></target>
+      </trans-unit>
+      <trans-unit id="04bb002c17b4da4da9f081f635f7299baa03848a" resname="partner.tagline">
+        <jms:reference-file line="162">views/Default/index.html.twig</jms:reference-file>
+        <source>partner.tagline</source>
+        <target>Ces échanges nous font évoluer au quotidien !</target>
+      </trans-unit>
+      <trans-unit id="494f630909e04297092f7850e9c41479104f237b" resname="partner.title">
+        <jms:reference-file line="147">views/Default/index.html.twig</jms:reference-file>
+        <source>partner.title</source>
+        <target>Nos Partenaires</target>
+      </trans-unit>
+      <trans-unit id="f6be6ca910984ef05a237a180d464ceb8847c14a" resname="phone">
+        <jms:reference-file line="100">Resources/views/wozbe.html.twig</jms:reference-file>
+        <source>phone</source>
+        <target>téléphone</target>
+      </trans-unit>
+      <trans-unit id="42690451cd1fa9cfc18d2092361d21ead87c7600" resname="reference.description.long.armetiz">
+        <jms:reference-file line="56">views/Default/references.html.twig</jms:reference-file>
+        <source>reference.description.long.armetiz</source>
+        <target><![CDATA[Armetiz.info est le support de communication personnel de <strong>Thomas Tourlourat</strong> gérant de Wozbe.<br />On y retrouve des articles sur le <a href="http://www.armetiz.info/category/systeme/">système</a>, la <a href="http://www.armetiz.info/category/programmation/">programmation</a>, les <a href="http://www.armetiz.info/category/livres/">livres</a> ou encore l'<a href="http://www.armetiz.info/category/aeronautique-2/">aéronautique</a>]]></target>
+      </trans-unit>
+      <trans-unit id="e7561053fd576d833448e1dfda14adfe223546cc" resname="reference.description.long.kolor">
+        <jms:reference-file line="21">views/Default/references.html.twig</jms:reference-file>
+        <source>reference.description.long.kolor</source>
+        <target><![CDATA[Kolor propose des solutions d'assemblage d'images et de visites virtuelles. Pour le développement d'une plateforme d'hébergement et de diffusion de vidéo 360°, Wozbe a apporté son expertise au niveau des <strong>infrastructures de diffusion HTTP</strong>.<br /><br />De plus, nous avons travaillé sur la mise en place de <strong>processus de développement</strong> et <strong>des stratégies de déploiement</strong> pour la plateforme basée sur <strong>Symfony2</strong>]]></target>
+      </trans-unit>
+      <trans-unit id="5468c91c8bdad20fa57d12012f85046a1f07ee3a" resname="reference.description.long.konbini">
+        <jms:reference-file line="28">views/Default/references.html.twig</jms:reference-file>
+        <source>reference.description.long.konbini</source>
+        <target><![CDATA[Konbini est une agence de communication <strong>digitale & brand content</strong> basée à Paris.<br /> Wozbe a réalisé le <strong>développement d'une solution de gestion vidéo</strong> basée sur Symfony2, ainsi qu'un accompagnement sur la mise en place de Wordpress avec des options avancées comme la <strong>Géolocalisation, et le Multi-Site</strong>.<br /><br />Aussi, nous avons assuré <strong>la conception & le déploiement</strong> des infrastructures hébergeant l'ensemble des projets Web réalisés par Konbini.<br /><strong>La coordination technique</strong> est effectuée sur differents projets.]]></target>
+      </trans-unit>
+      <trans-unit id="5edce068248c64a7169ea3a975cffaeab04cd106" resname="reference.description.long.la_virgule">
+        <jms:reference-file line="35">views/Default/references.html.twig</jms:reference-file>
+        <source>reference.description.long.la_virgule</source>
+        <target><![CDATA[<strong>La Virgule</strong> est une startup média avec les problématiques associées à la <strong>diffusion de vidéo</strong>.<br />Wozbe réalise un travail d'accompagnement et de conseils sur les choix techniques afin de péréniser le projet.]]></target>
+      </trans-unit>
+      <trans-unit id="2d37c260dd8c4582c7addfff0da2981c3b0afbce" resname="reference.description.long.numerosus">
+        <jms:reference-file line="42">views/Default/references.html.twig</jms:reference-file>
+        <source>reference.description.long.numerosus</source>
+        <target><![CDATA[Numerosus est une <strong>plateforme de vente</strong>, valorisant des biens immobiliers. Wozbe s'investit pleinement à la création de ce projet et de cette <strong>entreprise ambitieuse</strong>.<br />Développée avec le <strong>framework Symfony2</strong>, nous utilisons des technologies modernes & innovantes.]]></target>
+      </trans-unit>
+      <trans-unit id="ce33c3d419d525754759c2ea9a50417247caaca9" resname="reference.description.long.turnaway">
+        <jms:reference-file line="49">views/Default/references.html.twig</jms:reference-file>
+        <source>reference.description.long.turnaway</source>
+        <target><![CDATA[Turnaway est une <strong>association d'indépendants</strong> où nous participons à la réalisation de certains projets d'infrastructure.<br />Orientés TPE/PME, ces projets sont un moyen pour Wozbe de rester en contact avec des contraintes hors-Web.]]></target>
+      </trans-unit>
+      <trans-unit id="38e715a246aa4cbc6365e9ef77443917a9978072" resname="reference.description.short.armetiz">
+        <jms:reference-file line="110">views/Default/index.html.twig</jms:reference-file>
+        <source>reference.description.short.armetiz</source>
+        <target>Blog Technique : Développement - Infrastructure - Système - Aéronautique</target>
+      </trans-unit>
+      <trans-unit id="e815040aa7c58a4f74042cbc43cb8f9c78704c47" resname="reference.description.short.kolor">
+        <jms:reference-file line="130">views/Default/index.html.twig</jms:reference-file>
+        <source>reference.description.short.kolor</source>
+        <target>Kolor Eyes is based on the most innovative technology to display and interact with immersive 360° videos</target>
+      </trans-unit>
+      <trans-unit id="aa1cee0d7ff98aeac42b2a1e9062fa5d5b8d0db6" resname="reference.description.short.konbini">
+        <jms:reference-file line="101">views/Default/index.html.twig</jms:reference-file>
+        <source>reference.description.short.konbini</source>
+        <target>The #1 source of pop culture</target>
+      </trans-unit>
+      <trans-unit id="7af485bb7d2d9c9aa9c0a13a9e6db2c1aa329a72" resname="reference.description.short.la_virgule">
+        <jms:reference-file line="139">views/Default/index.html.twig</jms:reference-file>
+        <source>reference.description.short.la_virgule</source>
+        <target>La Virgule Humour selectionne pour vous les webseries les plus hilarantes du moment</target>
+      </trans-unit>
+      <trans-unit id="69c2e347124636c8e7fe5ac14201f7bfe9332df7" resname="reference.description.short.numerosus">
+        <jms:reference-file line="92">views/Default/index.html.twig</jms:reference-file>
+        <source>reference.description.short.numerosus</source>
+        <target>Plateforme de vente pour biens de prestiges</target>
+      </trans-unit>
+      <trans-unit id="563b1a24f8da4fdeadcca813e80d1d883539c3e4" resname="reference.description.short.turnaway">
+        <jms:reference-file line="121">views/Default/index.html.twig</jms:reference-file>
+        <source>reference.description.short.turnaway</source>
+        <target><![CDATA[Maintenance & Infogérance Informatique]]></target>
+      </trans-unit>
+      <trans-unit id="a1f50c47709379715c65e9da0b21254246aa249c" resname="reference.overview">
+        <jms:reference-file line="89">views/Default/index.html.twig</jms:reference-file>
+        <jms:reference-file line="98">views/Default/index.html.twig</jms:reference-file>
+        <jms:reference-file line="107">views/Default/index.html.twig</jms:reference-file>
+        <jms:reference-file line="118">views/Default/index.html.twig</jms:reference-file>
+        <jms:reference-file line="127">views/Default/index.html.twig</jms:reference-file>
+        <jms:reference-file line="136">views/Default/index.html.twig</jms:reference-file>
+        <source>reference.overview</source>
+        <target>Aperçu %project%</target>
+      </trans-unit>
+      <trans-unit id="5b86bec9cd47d61191b144e6e640bc1076d0ab2a" resname="reference.tag.advices">
+        <jms:reference-file line="20">views/Default/references.html.twig</jms:reference-file>
+        <jms:reference-file line="34">views/Default/references.html.twig</jms:reference-file>
+        <jms:reference-file line="41">views/Default/references.html.twig</jms:reference-file>
+        <source>reference.tag.advices</source>
+        <target>Conseils</target>
+      </trans-unit>
+      <trans-unit id="15dc910ff76ce2aefb8229fc6a7acc0261fa946e" resname="reference.tag.architecture">
+        <jms:reference-file line="20">views/Default/references.html.twig</jms:reference-file>
+        <jms:reference-file line="41">views/Default/references.html.twig</jms:reference-file>
+        <source>reference.tag.architecture</source>
+        <target>Architecture</target>
+      </trans-unit>
+      <trans-unit id="66287e66086cc1682ac4474870d9f2c71a87ca11" resname="reference.tag.blog">
+        <jms:reference-file line="48">views/Default/references.html.twig</jms:reference-file>
+        <jms:reference-file line="55">views/Default/references.html.twig</jms:reference-file>
+        <source>reference.tag.blog</source>
+        <target>Blog</target>
+      </trans-unit>
+      <trans-unit id="e3af348b8076417d970c1e704669e0fbf02b2185" resname="reference.tag.cdn">
+        <jms:reference-file line="34">views/Default/references.html.twig</jms:reference-file>
+        <source>reference.tag.cdn</source>
+        <target>CDN</target>
+      </trans-unit>
+      <trans-unit id="594d8c899fdede1f9b752dae975035baeee5b44e" resname="reference.tag.communication">
+        <jms:reference-file line="48">views/Default/references.html.twig</jms:reference-file>
+        <source>reference.tag.communication</source>
+        <target>Communication</target>
+      </trans-unit>
+      <trans-unit id="7e3888cb1ea8f1d0f292775f5bbe5b52b92827a3" resname="reference.tag.coordination">
+        <jms:reference-file line="27">views/Default/references.html.twig</jms:reference-file>
+        <jms:reference-file line="34">views/Default/references.html.twig</jms:reference-file>
+        <source>reference.tag.coordination</source>
+        <target>Coordination</target>
+      </trans-unit>
+      <trans-unit id="cbfa947148aad134149d914d39a28423b382ba7d" resname="reference.tag.execution">
+        <jms:reference-file line="20">views/Default/references.html.twig</jms:reference-file>
+        <jms:reference-file line="34">views/Default/references.html.twig</jms:reference-file>
+        <jms:reference-file line="41">views/Default/references.html.twig</jms:reference-file>
+        <source>reference.tag.execution</source>
+        <target>Execution</target>
+      </trans-unit>
+      <trans-unit id="2caa79b90938618e4b3d0409508223d21ef9dbd5" resname="reference.tag.infrastructure">
+        <jms:reference-file line="20">views/Default/references.html.twig</jms:reference-file>
+        <jms:reference-file line="27">views/Default/references.html.twig</jms:reference-file>
+        <jms:reference-file line="41">views/Default/references.html.twig</jms:reference-file>
+        <jms:reference-file line="48">views/Default/references.html.twig</jms:reference-file>
+        <source>reference.tag.infrastructure</source>
+        <target>Infrastructure</target>
+      </trans-unit>
+      <trans-unit id="cc8d7db10e980c61878c6648c00be9f43cc4cc6f" resname="reference.tag.process">
+        <jms:reference-file line="20">views/Default/references.html.twig</jms:reference-file>
+        <source>reference.tag.process</source>
+        <target>Process</target>
+      </trans-unit>
+      <trans-unit id="d7e03447ac34d730bc133c04557c6fda94a05200" resname="reference.tag.search_development">
+        <jms:reference-file line="55">views/Default/references.html.twig</jms:reference-file>
+        <source>reference.tag.search_development</source>
+        <target><![CDATA[R&D]]></target>
+      </trans-unit>
+      <trans-unit id="52fc9aaf64e4dc19f86d4d1c38f05b7afa97eddc" resname="reference.tag.symfony2">
+        <jms:reference-file line="20">views/Default/references.html.twig</jms:reference-file>
+        <jms:reference-file line="27">views/Default/references.html.twig</jms:reference-file>
+        <jms:reference-file line="41">views/Default/references.html.twig</jms:reference-file>
+        <source>reference.tag.symfony2</source>
+        <target>Symfony2</target>
+      </trans-unit>
+      <trans-unit id="7998dbd576838786a72a03591b625761549c9ecb" resname="reference.tag.training">
+        <jms:reference-file line="20">views/Default/references.html.twig</jms:reference-file>
+        <source>reference.tag.training</source>
+        <target>Formation</target>
+      </trans-unit>
+      <trans-unit id="c051bbd514f63d7561e86fe70648d1ad8bc5529d" resname="reference.tag.vmware_esx">
+        <jms:reference-file line="27">views/Default/references.html.twig</jms:reference-file>
+        <source>reference.tag.vmware_esx</source>
+        <target>VMWare ESX</target>
+      </trans-unit>
+      <trans-unit id="e60389b907b825f00e25be909c5b6ed840f250c5" resname="reference.tag.wordpress">
+        <jms:reference-file line="27">views/Default/references.html.twig</jms:reference-file>
+        <jms:reference-file line="48">views/Default/references.html.twig</jms:reference-file>
+        <jms:reference-file line="55">views/Default/references.html.twig</jms:reference-file>
+        <source>reference.tag.wordpress</source>
+        <target>Wordpress</target>
+      </trans-unit>
+      <trans-unit id="e487fd421578b1cfc7bdf6ae04099c710a7c05d6" resname="reference.title">
+        <jms:reference-file line="85">views/Default/index.html.twig</jms:reference-file>
+        <source>reference.title</source>
+        <target>Nos Réferences</target>
+      </trans-unit>
+      <trans-unit id="f4c9a69f715c3c60aa2fc15795b3834d2dc51b9d" resname="references">
+        <jms:reference-file line="65">Resources/views/wozbe.html.twig</jms:reference-file>
+        <source>references</source>
+        <target>Réferences</target>
+      </trans-unit>
+      <trans-unit id="37ed539c0cef13959abd980bebf30f4922f606e3" resname="send">
+        <jms:reference-file line="31">views/Comment/add.html.twig</jms:reference-file>
+        <source>send</source>
+        <target>Envoyer</target>
+      </trans-unit>
+      <trans-unit id="4ac56631874812b4b4f14b0ab2d2f56e943a446a" resname="server_only_xml_http">
+        <jms:reference-file line="60">PageBundle/Controller/AjaxController.php</jms:reference-file>
+        <source>server_only_xml_http</source>
+        <target>Le serveur n'accepte que des XMLHTTPRequest</target>
+      </trans-unit>
+      <trans-unit id="c07b242892fa99da438d65fb811a1599716433ea" resname="skill.agile">
+        <jms:reference-file line="39">views/Default/index.html.twig</jms:reference-file>
+        <source>skill.agile</source>
+        <target>Agilité</target>
+      </trans-unit>
+      <trans-unit id="c153ddd16d37297840aa94cb0d71d85ac427f6b6" resname="skill.architecture_devops">
+        <jms:reference-file line="25">views/Default/index.html.twig</jms:reference-file>
+        <jms:reference-file line="45">views/Default/skills.html.twig</jms:reference-file>
+        <source>skill.architecture_devops</source>
+        <target><![CDATA[Architecture & DevOps]]></target>
+      </trans-unit>
+      <trans-unit id="be174111fc3643336b97b43e2d0802a36a955062" resname="skill.client_server">
+        <jms:reference-file line="19">views/Default/index.html.twig</jms:reference-file>
+        <source>skill.client_server</source>
+        <target>Client / Serveur</target>
+      </trans-unit>
+      <trans-unit id="9682bf90f036794e9400e51310d8de3fe2168777" resname="skill.communication_deployment">
+        <jms:reference-file line="26">views/Default/index.html.twig</jms:reference-file>
+        <source>skill.communication_deployment</source>
+        <target><![CDATA[Communication & Déploiement]]></target>
+      </trans-unit>
+      <trans-unit id="d24105385fecd070990ecc0ec22ab51a0a2116e0" resname="skill.content_delivery_network">
+        <jms:reference-file line="54">views/Default/index.html.twig</jms:reference-file>
+        <source>skill.content_delivery_network</source>
+        <target>Content Delivery Network</target>
+      </trans-unit>
+      <trans-unit id="e2054cf0774b876a96ec5b1ea5b89c0f89664724" resname="skill.description.architecture_devops">
+        <jms:reference-file line="48">views/Default/skills.html.twig</jms:reference-file>
+        <source>skill.description.architecture_devops</source>
+        <target><![CDATA[<p>La qualité de l'architecture n'assure pas <strong>la réussite</strong>, mais une mauvaise conception assure <strong>l'échec</strong>.<br />Ainsi la réussite de votre projet se fera grâce à des bases solides, <strong>performantes et évolutives</strong>.<br /></p><p>Wozbe dispose de compétences en développement ainsi qu'en administration des systèmes informatique.<br />Cela est un atout qui permet d'avoir une <strong>vision de l'ensemble</strong> des composantes de votre projet.<br /><strong>Des choix techniques</strong> au niveau du développement peuvent avoir des impacts sur les systèmes de plus bas niveau, il convient d'en mesurer les impacts pour <strong>valider ces choix</strong>.</p><p><strong>La tendance DevOps</strong> vise à concilier le monde du développement et le monde de l'infrastructure. On parle aussi <strong>d'outils d'intégration continue et de mise en production</strong> permettant de simplifier les mises à jours et de supprimer le stress induit.</p>]]></target>
+      </trans-unit>
+      <trans-unit id="d6e1b0ce561ed3daa9fa03bc19fe00e338f0edca" resname="skill.description.development">
+        <jms:reference-file line="21">views/Default/skills.html.twig</jms:reference-file>
+        <source>skill.description.development</source>
+        <target><![CDATA[<p>Ayant acquis de fortes compétences avec les <strong>technologies du Web</strong>, et plus particulièrement avec <strong>Symfony2</strong>. Wozbe prend en charge le développement de vos produits & services.<br />Nous travaillons avec des outils <strong>collaboratifs & de controle qualité</strong> tels que GIT, PHPUnit, TravisCI...</p><p>Wozbe maitrise des technologies client & serveur : <strong>PHP, Javascript & ActionScript</strong>. Les autres technologies sont étudiées en R&amp;D afin d'etre utilisées en cas de besoin spécifique : <strong>NodeJS</strong>, <strong>MongoDB</strong>, <strong>Redis</strong>, <strong>ElasticSearch</strong></p>]]></target>
+      </trans-unit>
+      <trans-unit id="85ec9a6f1aa0abacb676966660894fd4a9d8a275" resname="skill.description.infrastructure">
+        <jms:reference-file line="36">views/Default/skills.html.twig</jms:reference-file>
+        <source>skill.description.infrastructure</source>
+        <target><![CDATA[<p>De fortes compétences en <strong>système & infrastructure</strong> sont disponibles chez Wozbe.<br />Nous mettons rapidement en place des environnements <strong>Web de Haute-Disponibilité & Performants</strong> en prenant en compte vos <strong>besoins business</strong>.</p><p><a href="http://www.ovh.com">OVH</a> est une société dont nous connaissons les produits pour les avoir exploités régulierement. Des <strong>serveurs dédiés</strong> aux solutions <strong>IaaS via VMWare</strong> en passant par les <strong>VGS</strong>, nous pouvons faire un travail d'accompagnement vers la gamme adaptée.</p><p><a href="http://aws.amazon.com/fr/">Amazon AWS</a> propose des services interessants à étudier. Cela vous apporte un avantage lors du lancement de certains de vos projets : <strong>coût, évolution, stabilité & sérénité</strong><br /></p>]]></target>
+      </trans-unit>
+      <trans-unit id="13caef32cdef0f3b904144cb79632dcba042d4e6" resname="skill.description.video_streaming">
+        <jms:reference-file line="58">views/Default/skills.html.twig</jms:reference-file>
+        <source>skill.description.video_streaming</source>
+        <target><![CDATA[<p>La mise en place de <strong>CDN</strong> ( Content Delivery Network ) signifie mettre en place des serveurs de fichiers capables de fournir du contenu sur HTTP.<br/>Au niveau vidéo, différents services peuvent être associés comme le <strong><a href="http://fr.wikipedia.org/wiki/Timeshifting">timeshifting</a></strong>, l'<strong>encodage à la volée</strong> ou la mise en place d'URL spécifiques pour <strong>protéger vos fichiers</strong>.</p><p>Les difficultés rencontrées lors de la mise en place des CDN sont la <strong>géo-localisation</strong> des services, l'optimisation des ressources réseaux / stockages et la <strong>disponibilité</strong>.<br />Les fichiers vidéos sont de tailles importantes, et lorsque le service rencontre un certain succès, il faut que l'infrastructure soit capable de diffuser le contenu sans perte de qualité.</p><p>Afin de vous proposez des services de qualité, <strong>nous pouvons associer notre expertise à l'infrastructure OVH</strong> ou à celle <strong>d'Amazon EC2</strong> en fonction de vos besoins.</p><p>Lorsque vous réalisez une solution de <strong>Content Delivery Network</strong>, cela doit être fait en envisageant la couverture de <strong>réseau IPv4 & IPv6</strong>, cela peut impliquer des compétences spécifiques.</p><p>Si vous avez besoin de plus d'information ou que vous souhaitez mettre en place un <strong>CDN de Haute Disponibilité</strong>, n’hésitez pas à <a href="%url_contact%">nous contacter</a>.</p>]]></target>
+      </trans-unit>
+      <trans-unit id="c1e2609612ccdfd9a66e370c087c5bab6b7f765a" resname="skill.development">
+        <jms:reference-file line="18">views/Default/index.html.twig</jms:reference-file>
+        <jms:reference-file line="18">views/Default/skills.html.twig</jms:reference-file>
+        <source>skill.development</source>
+        <target>Développement</target>
+      </trans-unit>
+      <trans-unit id="955b7b28b044a88e698bdc072dcb4cd8739e9d79" resname="skill.fresh_technologies">
+        <jms:reference-file line="47">views/Default/index.html.twig</jms:reference-file>
+        <source>skill.fresh_technologies</source>
+        <target>Fresh Technologies</target>
+      </trans-unit>
+      <trans-unit id="c2bfd24c3b7c9c1c1a102cb6bbb821201c7d5ef4" resname="skill.infrastructure">
+        <jms:reference-file line="32">views/Default/index.html.twig</jms:reference-file>
+        <jms:reference-file line="33">views/Default/skills.html.twig</jms:reference-file>
+        <source>skill.infrastructure</source>
+        <target>Infrastructure</target>
+      </trans-unit>
+      <trans-unit id="28500843186dc61a9d815bfe9c97830af96b50a0" resname="skill.performance_high_availability">
+        <jms:reference-file line="33">views/Default/index.html.twig</jms:reference-file>
+        <source>skill.performance_high_availability</source>
+        <target><![CDATA[Performance & Haute-Disponibilité]]></target>
+      </trans-unit>
+      <trans-unit id="a3bd462c8dd6262f52e8d8c2830102ad3950e4e6" resname="skill.search_development">
+        <jms:reference-file line="46">views/Default/index.html.twig</jms:reference-file>
+        <source>skill.search_development</source>
+        <target><![CDATA[Recherche & Développement]]></target>
+      </trans-unit>
+      <trans-unit id="c6261e55015ba40ba2559fca93a20967b92a402d" resname="skill.video_streaming">
+        <jms:reference-file line="53">views/Default/index.html.twig</jms:reference-file>
+        <jms:reference-file line="55">views/Default/skills.html.twig</jms:reference-file>
+        <source>skill.video_streaming</source>
+        <target>Diffusion Vidéo</target>
+      </trans-unit>
+      <trans-unit id="0f89a18d1a630ff51be98bba22ff32fccb92e969" resname="skill.working_method">
+        <jms:reference-file line="40">views/Default/index.html.twig</jms:reference-file>
+        <source>skill.working_method</source>
+        <target>Méthode de travail</target>
+      </trans-unit>
+      <trans-unit id="816f2b87d3d3be351dee9d599849e5804aacc967" resname="skills">
+        <jms:reference-file line="64">Resources/views/wozbe.html.twig</jms:reference-file>
+        <source>skills</source>
+        <target>Compétences</target>
+      </trans-unit>
+      <trans-unit id="0780fb588fda543293c20eff3a4019e198bd37ed" resname="slogan">
+        <jms:reference-file line="16">Resources/views/wozbe.html.twig</jms:reference-file>
+        <jms:reference-file line="78">Resources/views/wozbe.html.twig</jms:reference-file>
+        <jms:reference-file line="3">views/Default/index.html.twig</jms:reference-file>
+        <jms:reference-file line="13">views/Default/index.html.twig</jms:reference-file>
+        <source>slogan</source>
+        <target>Réalisation de projets Web</target>
+      </trans-unit>
+      <trans-unit id="53a5687cb26dc41f2ab4033e97e13adefd3740d6" resname="success">
+        <jms:reference-file line="51">PageBundle/Controller/AjaxController.php</jms:reference-file>
+        <source>success</source>
+        <target>Succès</target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

@@ -19,6 +19,8 @@ class AppKernel extends Kernel
             new Wozbe\PageBundle\WozbePageBundle(),
             new Armetiz\RedirectBundle\ArmetizRedirectBundle(),
             new JMS\TranslationBundle\JMSTranslationBundle(),
+            new JMS\DiExtraBundle\JMSDiExtraBundle($this),
+            new JMS\AopBundle\JMSAopBundle(),
             new Presta\SitemapBundle\PrestaSitemapBundle(),
             new Knp\Bundle\MarkdownBundle\KnpMarkdownBundle(),
             new Wozbe\BlogBundle\WozbeBlogBundle(),

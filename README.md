@@ -19,6 +19,16 @@ To deploy you need capifony
 
     cap production deploy
 
+Translations
+------------
+
+Extract translations using JMS
+
+    php app/console translation:extract en --config=app
+    php app/console translation:extract fr --config=app
+
+Update translations using JMS WebUI : **http://wozbe.local/_trans/**
+
 Assets
 ------
 Global assets are manage inside **app/Resource/public**
