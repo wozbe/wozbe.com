@@ -1,3 +1,7 @@
+wozbe_admin:
+    resource: "@WozbeAdminBundle/Controller/"
+    type:     annotation
+
 PrestaSitemapBundle:
     resource: "@PrestaSitemapBundle/Resources/config/routing.yml"
     prefix:   /

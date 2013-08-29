@@ -20,7 +20,7 @@
       <hr />
     </div>
     <p class="description">
-      {% autoescape false %}{{ post.description }}{% endautoescape %}
+      {% autoescape false %}{{ post.description|markdown }}{% endautoescape %}
     </p>
   </div>
   {% endfor %}

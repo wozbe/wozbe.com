@@ -9,7 +9,6 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 
-use Wozbe\BlogBundle\Entity\Comment;
 use Wozbe\BlogBundle\Entity\Post;
 use Wozbe\BlogBundle\Form\Type\CommentType;
 

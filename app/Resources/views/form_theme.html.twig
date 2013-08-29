@@ -1,0 +1,122 @@
+{% extends 'form_div_layout.html.twig' %}
+
+{% block form_row %}
+{% spaceless %}
+    {% set classes = ['control-group'] %}
+    {% set type = form_type|default('text') %}
+    {% if errors|length > 0 %}
+        {% set classes = classes|merge(['error']) %}
+    {% endif %}
+    <div class="{{ classes|join(' ') }}">
+        {% if type == 'checkbox' %}
+            <div class="controls">
+                <label class="checkbox">
+                    {{ form_widget(form) }}
+                    {{ label|trans({}, translation_domain) }}
+                </label>
+                {{ block('help_block') }}
+                {{ form_errors(form) }}
+            </div>
+        {% else  %}
+            {{ form_label(form) }}
+            {% if type != 'hidden' %}
+                <div class="controls">
+            {% endif %}
+                    {{ form_widget(form) }}
+                    {{ form_errors(form) }}
+            {% if type != 'hidden' %}
+                </div>
+            {% endif %}
+        {% endif %}
+    </div>
+{% endspaceless %}
+{% endblock form_row %}
+
+{% block form_label %}
+{% spaceless %}
+    {% if label is not sameas(false) %}
+        {% set label_attr = label_attr|merge({'class': (label_attr.class|default('') ~ ' control-label')|trim}) %}
+        {% if not compound %}
+            {% set label_attr = label_attr|merge({'for': id}) %}
+        {% endif %}
+        {% if required %}
+            {% set label_attr = label_attr|merge({'class': (label_attr.class|default('') ~ ' required')|trim}) %}
+        {% endif %}
+        {% if label is empty %}
+            {% set label = name|humanize %}
+        {% endif %}
+        <label{% for attrname, attrvalue in label_attr %} {{ attrname }}="{{ attrvalue }}"{% endfor %}>{{ label|trans({}, translation_domain) }}</label>
+    {% endif %}
+{% endspaceless %}
+{% endblock form_label %}
+
+{% block form_errors %}
+{% spaceless %}
+    {% if errors|length > 0 %}
+    <ul class="help-inline">
+        {% for error in errors %}
+            <li>{{ error.message }}</li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+{% endspaceless %}
+{% endblock form_errors %}
+
+{% block form_widget_simple %}
+{% spaceless %}
+    {{ parent() }}
+    {{ block('help_block') }}
+{% endspaceless %}
+{% endblock form_widget_simple %}
+
+{% block choice_widget %}
+{% spaceless %}
+    {% if expanded %}
+        {{ block('choice_widget_expanded') }}
+        {{ block('help_block') }}
+    {% else %}
+        {{ block('choice_widget_collapsed') }}
+        {{ block('help_block') }}
+    {% endif %}
+{% endspaceless %}
+{% endblock choice_widget %}
+
+{% block help_block %}
+    {% if help_block is defined and help_block is not empty %}
+        <div class="form-help help-block">
+            {{ help_block|trans }}
+        </div>
+    {% endif %}
+{% endblock %}
+
+{% block button_row %}
+{% spaceless %}
+    {{ form_widget(form) }}
+{% endspaceless %}
+{% endblock button_row %}
+
+{% block submit_widget %}
+{% spaceless %}
+    {% set type = type|default('submit') %}
+    {{ block('button_widget') }}
+{% endspaceless %}
+{% endblock submit_widget %}
+
+{% block button_widget %}
+{% spaceless %}
+    {% from '::buttons.html.twig' import submit, reset %}
+
+    {% set type = type|default('button') %}
+    {% if label is empty %}
+        {% set label = name|humanize %}
+    {% endif %}
+    {% if 'submit' == type %}
+        {{ submit(label|trans({}, translation_domain)) }}
+    {% elseif 'reset' == type %}
+        {{ reset(label|trans({}, translation_domain)) }}
+    {% else %}
+        <button type="{{ type|default('button') }}" {{ block('button_attributes') }}>{{ label|trans({}, translation_domain) }}</button>
+    {% endif %}
+{% endspaceless %}
+{% endblock button_widget %}
+

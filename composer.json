@@ -23,6 +23,7 @@
         "armetiz/redirect-bundle": "1.0.0",
         "jms/di-extra-bundle": "~1.4",
         "jms/translation-bundle": "~1.1",
+        "jms/security-extra-bundle": "~1.5",
         "presta/sitemap-bundle": "~1.2",
         "knplabs/knp-markdown-bundle": "~1.2",
         "easybook/geshi": "~1.0.8.11"

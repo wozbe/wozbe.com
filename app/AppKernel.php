@@ -19,11 +19,13 @@ class AppKernel extends Kernel
             new Wozbe\PageBundle\WozbePageBundle(),
             new Armetiz\RedirectBundle\ArmetizRedirectBundle(),
             new JMS\TranslationBundle\JMSTranslationBundle(),
+            new JMS\SecurityExtraBundle\JMSSecurityExtraBundle(),
             new JMS\DiExtraBundle\JMSDiExtraBundle($this),
             new JMS\AopBundle\JMSAopBundle(),
             new Presta\SitemapBundle\PrestaSitemapBundle(),
             new Knp\Bundle\MarkdownBundle\KnpMarkdownBundle(),
             new Wozbe\BlogBundle\WozbeBlogBundle(),
+            new Wozbe\AdminBundle\WozbeAdminBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

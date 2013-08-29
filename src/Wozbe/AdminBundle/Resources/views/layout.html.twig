@@ -1,0 +1,62 @@
+{% extends '::base.html.twig' %}
+
+{% block title %}Wozbe - Admin{% endblock %}
+
+{% block stylesheets %}
+{{ parent() }}
+<link rel="stylesheet" href="{{ asset('built/wozbeadmin/css/admin.css') }}" type="text/css"/>
+{% endblock %}
+
+{% block head_meta %}
+{{ parent() }}
+<meta name="robots" content="noindex,nofollow" />
+{% endblock head_meta %}
+
+{% block body_script %}
+<script src="{{ asset('built/wozbeadmin/js/admin.js') }}"></script>
+{% endblock %}
+
+{% block content_top %}
+<div id="navbar-outer">
+  <div id="navbar" class="navbar" data-width-fixed="980">
+    <div class="navbar-inner">
+      <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+      <a class="btn btn-block btn-navbar " data-toggle="collapse" data-target=".nav-collapse">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </a>
+      <div class="nav-collapse collapse">
+        <ul class="nav">
+          {% set route = app.request.attributes.get('_route') %}
+          <li{% if 'wozbe' == route %} class="active"{% endif %}><a href="{{ url('wozbe') }}">{{ 'wozbe'|trans|capitalize }}</a></li>
+          <li{% if 'wozbe_admin' == route %} class="active"{% endif %}><a href="{{ url('wozbe_admin') }}">{{ 'admin'|trans|capitalize }}</a></li>
+          <li{% if 'wozbe_admin_post_list' == route %} class="active"{% endif %}><a href="{{ url('wozbe_admin_post_list') }}">{{ 'posts'|trans|capitalize }}</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+<div id="navbar-mock"></div>
+
+{% for flashMessage in app.session.flashbag.get('admin') %}
+  <div class="alert alert-info">
+    {{ flashMessage }}
+  </div>
+{% endfor %}
+
+<div class="row-fluid">
+  <div class="span3">
+    <ul class="nav nav-list">
+      <li class="nav-header">Administration</li>
+      <li class="active"><a href="#">Home</a></li>
+      <li><a href="#">Library</a></li>
+    </ul>
+  </div>
+  <div class="span9">
+{% endblock %}
+
+{% block content_bottom %}
+   </div>
+</div>
+{% endblock %}
