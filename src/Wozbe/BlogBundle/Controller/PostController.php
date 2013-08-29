@@ -40,25 +40,6 @@ class PostController extends Controller
     }
     
     /**
-     * @Route("/blog/github_hook_blog_content", options={"sitemap" = false})
-     * @Method({"GET"})
-     */
-    public function githubHookBlogContentGetAction(Request $request)
-    {
-        $pathModifiedList = $request->query->get('modified');
-        
-        $repo = $request->query->get('repo');
-        $owner = $request->query->get('owner');
-        
-        $postGithubRepository = $this->getDoctrine()->getRepository('WozbeBlogBundle:PostGithub');
-        $postGithubModifiedList = $postGithubRepository->getPostsGithubWithOwnerRepoAndPaths($owner, $repo, $pathModifiedList);
-        
-        foreach($postGithubModifiedList as $postGithubModified) {
-            $this->getPostGithubManager()->updatePostFromGithub($postGithubModified);
-        }
-    }
-    
-    /**
      * @Route("/{_locale}/blog", name="wozbe_blog", requirements={"_locale" = "fr"}, options={"sitemap" = true})
      * @Method({"GET", "HEAD"})
      * @Cache(expires="+2 hours", public="true")
