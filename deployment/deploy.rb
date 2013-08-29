@@ -46,7 +46,7 @@ namespace :assets do
     capifony_pretty_print '--> Installing Bower dependencies'
 
     # Hope to be able to remove the pipe to /dev/null
-    run "cd #{latest_release} && bower install 2> /dev/null"
+    run "cd #{latest_release} && bower install --allow-root 2> /dev/null"
 
     capifony_puts_ok
   end
