@@ -6,7 +6,7 @@ require 'capistrano/ext/multistage'
 set :application, "wozbe"
 set :host,        "arthos.armetiz.info"
 set :app_path,    "app"
-set :user,        "root"
+set :user,        "thomas"
 
 set :repository,  "git@github.com:wozbe/wozbe.com.git"
 set :scm,         :git
