@@ -4,6 +4,7 @@ namespace Wozbe\BlogBundle\Command;
 
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
+use Symfony\Component\Console\Input\ArrayInput;
 
 /**
  * Command for creating new post github.
@@ -24,12 +25,24 @@ class PostGithubAddCommand extends AbstractCommand
     {
         $dialog = $this->getDialogHelper();
         
-        $slug = $dialog->ask($output, $dialog->getQuestion('Post slug', null));
+        if ($dialog->askConfirmation($output, $dialog->getQuestion('Do you want to create post first', 'yes', '?'), true)) {
+            $command = $this->getApplication()->find('blog:post:add');
+            $command->run(new ArrayInput(array('')), $output);
+        }
+        
+        $post = $this->getPost($input, $output);
+        
+        if(!$post) {
+            $output->writeln('Post not found');
+            return 1;
+        }
+        
         $owner = $dialog->ask($output, $dialog->getQuestion('Github owner', null));
         $repo = $dialog->ask($output, $dialog->getQuestion('Github repo', null));
-        $path = $dialog->ask($output, $dialog->getQuestion('Github path', null));
         
-        $post = $this->getPostRepository()->findOneBySlug($slug);
+        $pathPostList = $this->getPostGithubManager()->listAvailablePathPostFromGithub($owner, $repo);
+        
+        $path = $dialog->ask($output, $dialog->getQuestion('Github path', null), null, $pathPostList);
         
         $postGithub = $this->getPostGithubManager()->addPostGithub($post, $owner, $repo, $path);
         

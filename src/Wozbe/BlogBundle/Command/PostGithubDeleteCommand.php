@@ -24,12 +24,23 @@ class PostGithubDeleteCommand extends AbstractCommand
     {
         $dialog = $this->getDialogHelper();
         
-        $slug = $dialog->ask($output, $dialog->getQuestion('Post slug', null));
+        $post = $this->getPost($input, $output);
         
-        $post = $this->getPostRepository()->findOneBySlug($slug);
+        if(!$post) {
+            $output->writeln('Post not found');
+            return 1;
+        }
+        
+        $slug = $post->getSlug();
+        
         $postGithub = $this->getPostGithubRepository()->getPostGithubWithPost($post);
         
-        if (!$dialog->askConfirmation($output, $dialog->getQuestion('Do you want to confirme suppresion', 'yes', '?'), true)) {
+        if (!$postGithub) {
+            $output->writeln(sprintf('Post <info>%s</info> is not github linked', $slug));
+            return 1;
+        }
+        
+        if (!$dialog->askConfirmation($output, $dialog->getQuestion('Do you confirm PostGithub suppresion', 'yes', '?'), true)) {
             return 1;
         }
         

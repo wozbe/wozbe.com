@@ -68,6 +68,20 @@ class PostGithubManager
         return $postGithub;
     }
     
+    public function listAvailablePathPostFromGithub($owner, $repo, $path = 'posts')
+    {
+        $getContentUrl = sprintf('https://api.github.com/repos/%s/%s/contents/%s', $owner, $repo, $path);
+        $contentDescList = json_decode(file_get_contents($getContentUrl));
+        
+        $pathPostList = array();
+        
+        foreach($contentDescList as $contentDesc) {
+            $pathPostList[] = $contentDesc->path;
+        }
+        
+        return $pathPostList;
+    }
+    
     /**
      * @return \Doctrine\Common\Persistence\ObjectManager
      */
