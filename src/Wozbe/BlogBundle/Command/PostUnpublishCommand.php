@@ -10,7 +10,7 @@ use Symfony\Component\Console\Output\OutputInterface;
  *
  * @author Thomas Tourlourat <thomas@tourlourat.com>
  */
-class PostUnpublishCommand extends PostCommand
+class PostUnpublishCommand extends AbstractCommand
 {
     protected function configure()
     {
