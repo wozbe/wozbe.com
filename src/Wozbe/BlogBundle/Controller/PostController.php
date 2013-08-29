@@ -4,6 +4,7 @@ namespace Wozbe\BlogBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
@@ -23,20 +24,19 @@ class PostController extends Controller
     {
         $payloadResult = json_decode($request->request->get('payload'));
         
-        $pathAddedList = $payloadResult['commits']['added'];
-        $pathRemovedList = $payloadResult['commits']['removed'];
         $pathModifiedList = $payloadResult['commits']['modified'];
         
         $repo = $payloadResult['repository']['name'];
         $owner = $payloadResult['repository']['owner']['name'];
         
         $postGithubRepository = $this->getDoctrine()->getRepository('WozbeBlogBundle:PostGithub');
-        $postGithubModifiedList = $postGithubRepository->getPostsGithubWithOwnerRepoAndPath($owner, $repo, $path);
-        $postGithubRemovedList = $postGithubRepository->getPostsGithubWithOwnerRepoAndPath($owner, $repo, $path);
+        $postGithubModifiedList = $postGithubRepository->getPostsGithubWithOwnerRepoAndPath($owner, $repo, $pathModifiedList);
         
         foreach($postGithubModifiedList as $postGithubModified) {
             $this->getPostGithubManager()->updatePostFromGithub($postGithubModified);
         }
+        
+        return new Response();
     }
     
     /**
