@@ -5,5 +5,10 @@
 {% block title %}{{ 'Post creation'|trans }}{% endblock %}
 
 {% block content %}
+  <div class="">
+    <h1>
+      {{ 'Post creation'|trans }}
+    </h1>
+  </div>
   {{ include('WozbeAdminBundle:Post:form.html.twig', {'form': form}) }}
 {% endblock %}
