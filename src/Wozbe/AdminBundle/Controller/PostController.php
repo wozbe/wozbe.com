@@ -7,8 +7,9 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 
+use Wozbe\AdminBundle\Form\Type\PostType;
+
 use Wozbe\BlogBundle\Entity\Post;
-use Wozbe\BlogBundle\Form\Type\PostType;
 
 /**
  * @Route("/admin/post")
@@ -32,31 +33,7 @@ class PostController extends Controller
      */
     public function createAction()
     {
-        $post = new Post();
-        
-        $form = $this->createForm(new PostType(), $post);
-
-        $request = $this->getRequest();
-        
-        if ('POST' === $request->getMethod()) {
-            $form->submit($request);
-            if ($form->isValid()) {
-                $this->getPostManager()->savePost($post);
-                
-                $this->getRequest()->getSession()->getFlashBag()->add('admin', sprintf('Post created: %s', $post->getSlug()));
-                
-                $postUrl = $this->generateUrl('wozbe_admin_post_edit', array('slug' => $post->getSlug()));
-                
-                return $this->redirect($postUrl);
-            } else {
-                $this->getRequest()->getSession()->getFlashBag()->add('admin', 'A problem occured');
-            }
-        }
-        
-        return array(
-            'post' => $post,
-            'form' => $form->createView()
-        );
+        return $this->handleForm(new Post());
     }
 
     /**
@@ -65,6 +42,24 @@ class PostController extends Controller
      * @Template()
      */
     public function editAction(Post $post)
+    {
+        return $this->handleForm($post);
+    }
+    
+    /**
+     * @Route("/remove/{slug}")
+     * @ParamConverter("post", class="WozbeBlogBundle:Post")
+     */
+    public function removeAction(Post $post)
+    {
+        $this->getPostManager()->deletePost($post);
+        
+        $this->getRequest()->getSession()->getFlashBag()->add('admin', sprintf('Post deleted: %s', $post->getSlug()));
+        
+        return $this->redirect($this->generateUrl('wozbe_admin_post_list'));
+    }
+    
+    protected function handleForm(Post $post)
     {
         $form = $this->createForm(new PostType(), $post);
 
@@ -77,7 +72,7 @@ class PostController extends Controller
                 
                 $this->getRequest()->getSession()->getFlashBag()->add('admin', sprintf('Post update: %s', $post->getSlug()));
                 
-                $postUrl = $this->generateUrl('wozbe_admin_post_edit', array('slug' => $post->getSlug()));
+                $postUrl = $this->generateUrl('wozbe_admin_post_list');
                 
                 return $this->redirect($postUrl);
             } else {
@@ -89,19 +84,6 @@ class PostController extends Controller
             'post' => $post,
             'form' => $form->createView()
         );
-    }
-
-    /**
-     * @Route("/remove/{slug}")
-     * @ParamConverter("post", class="WozbeBlogBundle:Post")
-     */
-    public function removeAction(Post $post)
-    {
-        $this->getPostManager()->deletePost($post);
-        
-        $this->getRequest()->getSession()->getFlashBag()->add('admin', sprintf('Post deleted: %s', $post->getSlug()));
-        
-        return $this->redirect($this->generateUrl('wozbe_admin_post_list'));
     }
 
     /**

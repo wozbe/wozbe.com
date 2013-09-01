@@ -1,0 +1,14 @@
+{% extends 'WozbeAdminBundle::layout.html.twig' %}
+
+{% form_theme form '::form_theme.html.twig' %}
+
+{% block title %}{{ 'Comment edition'|trans }}{% endblock %}
+
+{% block content %}
+  <div class="">
+    <h1>
+      {{ 'Comment edition'|trans }}
+    </h1>
+  </div>
+  {{ include('WozbeAdminBundle:Comment:form.html.twig', {'form': form}) }}
+{% endblock %}

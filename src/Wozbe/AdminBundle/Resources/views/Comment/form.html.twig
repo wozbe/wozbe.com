@@ -1,0 +1,17 @@
+{% form_theme form '::form_theme.html.twig' %}
+
+{{ form_start(form, {'attr': {'class': 'form-horizontal'}}) }}
+
+{{ form_errors(form) }}
+
+{{ form_row(form.username) }}
+{{ form_row(form.email) }}
+{{ form_row(form.website) }}
+{{ form_row(form.published) }}
+{{ form_row(form.content, {'attr': {'rows': 15, 'class': 'input-block-level'}}) }}
+
+<div class="form-actions">
+  {{ form_row(form.save) }}
+</div>
+
+{{ form_end(form) }}

@@ -30,8 +30,9 @@
         <ul class="nav">
           {% set route = app.request.attributes.get('_route') %}
           <li{% if 'wozbe' == route %} class="active"{% endif %}><a href="{{ url('wozbe') }}">{{ 'wozbe'|trans|capitalize }}</a></li>
-          <li{% if 'wozbe_admin' == route %} class="active"{% endif %}><a href="{{ url('wozbe_admin') }}">{{ 'admin'|trans|capitalize }}</a></li>
-          <li{% if 'wozbe_admin_post_list' == route %} class="active"{% endif %}><a href="{{ url('wozbe_admin_post_list') }}">{{ 'posts'|trans|capitalize }}</a></li>
+        </ul>
+        <ul class="nav pull-right">
+          <li><a href="{{ url('wozbe_admin_post_list') }}">{{ 'logout'|trans|capitalize }}</a></li>
         </ul>
       </div>
     </div>
@@ -49,8 +50,11 @@
   <div class="span3">
     <ul class="nav nav-list">
       <li class="nav-header">Administration</li>
-      <li class="active"><a href="#">Home</a></li>
-      <li><a href="#">Library</a></li>
+      {% set route = app.request.attributes.get('_route') %}
+      <li{% if 'wozbe_admin_dashboard' == route %} class="active"{% endif %}><a href="{{ url('wozbe_admin_dashboard') }}">{{ 'dashboard'|trans|capitalize }}</a></li>
+      <li{% if 'wozbe_admin_post_list' == route %} class="active"{% endif %}><a href="{{ url('wozbe_admin_post_list') }}">{{ 'posts'|trans|capitalize }}</a></li>
+      <li{% if 'wozbe_admin_comment_list' == route %} class="active"{% endif %}><a href="{{ url('wozbe_admin_comment_list') }}">{{ 'comments'|trans|capitalize }}</a></li>
+      <li{% if 'wozbe' == route %} class="active"{% endif %}><a href="{{ url('wozbe_admin_post_list') }}">{{ 'references'|trans|capitalize }}</a></li>
     </ul>
   </div>
   <div class="span9">

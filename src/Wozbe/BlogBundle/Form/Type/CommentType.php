@@ -26,7 +26,12 @@ class CommentType extends AbstractType
                 'required' => true,
                 'label' => 'Website'
             ))
-            ->add('content', 'textarea')
+            ->add('content', 'textarea', array(
+                'required' => true,
+                'label' => 'Content',
+                'read_only' => true
+            ))
+            ->add('save', 'submit', array('label' => 'Save'))
         ;
     }
 

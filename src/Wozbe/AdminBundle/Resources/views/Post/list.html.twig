@@ -6,7 +6,10 @@
 <div class="">
   <h1>
     Post management
-    <a href="{{ url('wozbe_admin_post_create') }}"><button class="btn pull-right">{{ 'Create new post'|trans }}</button></a>
+    <div class="pull-right">
+      <a href="{{ url('wozbe_admin_post_create') }}"><button class="btn">{{ 'New post'|trans }}</button></a>&nbsp;
+      <a href="{{ url('wozbe_admin_post_create') }}"><button class="btn">{{ 'New post from Github'|trans }}</button></a>
+    </div>
   </h1>
 </div>
 <table class="table table-striped table-bordered table-hover">

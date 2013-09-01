@@ -13,12 +13,12 @@ use JMS\SecurityExtraBundle\Annotation\Secure;
 class DefaultController extends Controller
 {
     /**
-     * @Route("/admin", name="wozbe_admin")
+     * @Route("/admin", name="wozbe_admin_dashboard")
      * @Template()
      * @Method({"GET", "HEAD"})
      * @Secure(roles="ROLE_ADMIN")
      */
-    public function indexAction()
+    public function dashboardAction()
     {
         return $this->render('WozbeAdminBundle:Default:index.html.twig', array('name' => 'thomas'));
     }

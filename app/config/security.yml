@@ -15,7 +15,8 @@ security:
     firewalls:
         admin:
             pattern:    ^/admin
-            logout:       true
+            logout:
+                path:   /admin/logout
             anonymous:    true
             http_basic:
                 realm: "Secured Area"
