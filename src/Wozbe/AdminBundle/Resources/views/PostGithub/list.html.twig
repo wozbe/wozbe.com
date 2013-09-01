@@ -1,0 +1,39 @@
+{% extends 'WozbeAdminBundle::layout.html.twig' %}
+
+{% block title %}{{ 'Posts'|trans }}{% endblock %}
+
+{% block content %}
+<div class="">
+  <h1>
+    {{ 'Post Github management'|trans }}
+  </h1>
+</div>
+<table class="table table-striped table-bordered table-hover">
+  <thead>
+    <tr>
+      <th>{{ 'Id'|trans }}</th>
+      <th>{{ 'Post'|trans }}</th>
+      <th>{{ 'Actions'|trans }}</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for post_github in post_github_list %}
+    <tr>
+      <td>{{ post_github.id }}</td>
+      <td>{{ post_github.post.title }}</td>
+      <td>
+        <a href="{{ url('wozbe_admin_postgithub_update', {'id': post_github.id}) }}">
+          <button class="btn btn-mini" type="button"><i class="icon-github"></i> {{ 'Update'|trans }}</button>
+        </a>
+        <a href="{{ url('wozbe_admin_postgithub_open', {'id': post_github.id}) }}">
+          <button class="btn btn-mini" type="button"><i class="icon-github"></i> {{ 'Open'|trans }}</button>
+        </a>
+        <a href="{{ url('wozbe_admin_postgithub_remove', {'id': post_github.id}) }}">
+          <button class="btn btn-mini" type="button"><i class="icon-remove"></i> {{ 'Remove'|trans }}</button>
+        </a>
+      </td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock %}

@@ -10,7 +10,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 
 use JMS\SecurityExtraBundle\Annotation\Secure;
 
-class DefaultController extends Controller
+class DashboardController extends Controller
 {
     /**
      * @Route("/admin", name="wozbe_admin_dashboard")
@@ -18,8 +18,8 @@ class DefaultController extends Controller
      * @Method({"GET", "HEAD"})
      * @Secure(roles="ROLE_ADMIN")
      */
-    public function dashboardAction()
+    public function indexAction()
     {
-        return $this->render('WozbeAdminBundle:Default:index.html.twig', array('name' => 'thomas'));
+        return array();
     }
 }

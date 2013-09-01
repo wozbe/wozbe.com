@@ -13,6 +13,16 @@ class PostGithub
      * @var integer
      */
     private $id;
+    
+    /**
+     * @var string
+     */
+    private $owner;
+
+    /**
+     * @var string
+     */
+    private $repo;
 
     /**
      * @var string
@@ -122,16 +132,6 @@ class PostGithub
     {
         return $this->post;
     }
-    /**
-     * @var string
-     */
-    private $owner;
-
-    /**
-     * @var string
-     */
-    private $repo;
-
 
     /**
      * Set owner

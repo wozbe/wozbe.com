@@ -20,4 +20,9 @@ class CommentType extends CommentTypeBase
             ->add('save', 'submit', array('label' => 'Save'))
         ;
     }
+    
+    public function getName()
+    {
+        return 'wozbe_admin_comment_type';
+    }
 }
