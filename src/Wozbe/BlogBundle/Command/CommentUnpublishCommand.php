@@ -36,7 +36,7 @@ class CommentUnpublishCommand extends AbstractCommand
             return 1;
         }
         
-        $this->getCommentManager()->unpublishComment($comment);
+        $this->getCommentManager()->unpublish($comment);
         
         $output->writeln('done!');
     }

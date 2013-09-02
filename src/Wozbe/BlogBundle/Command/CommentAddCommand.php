@@ -35,9 +35,9 @@ class CommentAddCommand extends AbstractCommand
         $website = $dialog->ask($output, $dialog->getQuestion('Comment website', null));
         $content = $dialog->ask($output, $dialog->getQuestion('Comment content', null));
         
-        $comment = $this->getCommentManager()->buildComment($post, $username, $email, $website, $content);
+        $comment = $this->getCommentManager()->build($post, $username, $email, $website, $content);
         
-        $this->getCommentManager()->saveComment($comment);
+        $this->getCommentManager()->add($comment);
         
         $output->writeln('done!');
     }

@@ -25,7 +25,40 @@ class PostGithubManager
         $this->objectManager = $objectManager;
     }
     
-    public function addPostGithub(Post $post, $owner, $repo, $path)
+    /**
+     * @param \Wozbe\BlogBundle\Entity\PostGithub $postGithub
+     * @return \Wozbe\BlogBundle\Entity\PostGithub
+     */
+    public function add(PostGithub $postGithub)
+    {
+        $objectManager = $this->getObjectManager();
+        $objectManager->persist($postGithub);
+        $objectManager->flush();
+        
+        return $postGithub;
+    }
+    
+    /**
+     * @param \Wozbe\BlogBundle\Entity\PostGithub $postGithub
+     * @return \Wozbe\BlogBundle\Entity\PostGithub
+     */
+    public function delete(PostGithub $postGithub)
+    {
+        $objectManager = $this->getObjectManager();
+        $objectManager->remove($postGithub);
+        $objectManager->flush();
+        
+        return $postGithub;
+    }
+    
+    /**
+     * @param \Wozbe\BlogBundle\Entity\Post $post
+     * @param string $owner
+     * @param string $repo
+     * @param string $path
+     * @return \Wozbe\BlogBundle\Entity\PostGithub
+     */
+    public function build(Post $post, $owner, $repo, $path)
     {
         $postGithub = new PostGithub($post, $owner, $repo, $path);
         
@@ -35,15 +68,11 @@ class PostGithubManager
         return $postGithub;
     }
     
-    public function deletePostGithub(PostGithub $postGithub)
-    {
-        $objectManager = $this->getObjectManager();
-        $objectManager->remove($postGithub);
-        $objectManager->flush();
-        
-        return $postGithub;
-    }
-    
+    /**
+     * @param \Wozbe\BlogBundle\Entity\PostGithub $postGithub
+     * @return \Wozbe\BlogBundle\Entity\PostGithub
+     * @throws \RuntimeException
+     */
     public function updatePostFromGithub(PostGithub $postGithub)
     {
         $owner = $postGithub->getOwner();
@@ -68,6 +97,14 @@ class PostGithubManager
         return $postGithub;
     }
     
+    /**
+     * TODO Move to a Github API Wrapper
+     * 
+     * @param string $owner
+     * @param string $repo
+     * @param string $path
+     * @return array
+     */
     public function listAvailablePathPostFromGithub($owner, $repo, $path = 'posts')
     {
         $getContentUrl = sprintf('https://api.github.com/repos/%s/%s/contents/%s', $owner, $repo, $path);

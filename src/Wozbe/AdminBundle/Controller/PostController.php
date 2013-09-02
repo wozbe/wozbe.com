@@ -52,7 +52,7 @@ class PostController extends Controller
      */
     public function removeAction(Post $post)
     {
-        $this->getPostManager()->deletePost($post);
+        $this->getPostManager()->delete($post);
         
         $this->getRequest()->getSession()->getFlashBag()->add('admin', sprintf('Post deleted: %s', $post->getSlug()));
         
@@ -68,7 +68,7 @@ class PostController extends Controller
         if ('POST' === $request->getMethod()) {
             $form->submit($request);
             if ($form->isValid()) {
-                $this->getPostManager()->savePost($post);
+                $this->getPostManager()->add($post);
                 
                 $this->getRequest()->getSession()->getFlashBag()->add('admin', sprintf('Post update: %s', $post->getSlug()));
                 

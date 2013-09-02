@@ -36,7 +36,7 @@ class CommentPublishCommand extends AbstractCommand
             return 1;
         }
         
-        $this->getCommentManager()->publishComment($comment);
+        $this->getCommentManager()->publish($comment);
         
         $output->writeln('done!');
     }

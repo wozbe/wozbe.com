@@ -34,7 +34,7 @@ class PostDeleteCommand extends AbstractCommand
             return 1;
         }
         
-        $this->getPostManager()->deletePost($post);
+        $this->getPostManager()->delete($post);
         
         $output->writeln('done!');
     }

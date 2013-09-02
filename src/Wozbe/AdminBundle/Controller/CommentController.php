@@ -52,7 +52,7 @@ class CommentController extends Controller
      */
     public function removeAction(Comment $comment)
     {
-        $this->getCommentManager()->deleteComment($comment);
+        $this->getCommentManager()->delete($comment);
         
         $this->getRequest()->getSession()->getFlashBag()->add('admin', sprintf('Comment deleted'));
         
@@ -68,7 +68,7 @@ class CommentController extends Controller
         if ('POST' === $request->getMethod()) {
             $form->submit($request);
             if ($form->isValid()) {
-                $this->getCommentManager()->saveComment($comment);
+                $this->getCommentManager()->add($comment);
                 
                 $this->getRequest()->getSession()->getFlashBag()->add('admin', sprintf('Comment update: %d', $comment->getId()));
                 

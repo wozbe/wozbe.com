@@ -44,7 +44,7 @@ class PostGithubDeleteCommand extends AbstractCommand
             return 1;
         }
         
-        $this->getPostGithubManager()->deletePostGithub($postGithub);
+        $this->getPostGithubManager()->delete($postGithub);
         
         $output->writeln('done!');
     }

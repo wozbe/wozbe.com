@@ -34,7 +34,7 @@ class PostPublishCommand extends AbstractCommand
             return 1;
         }
         
-        $this->getPostManager()->publishPost($post);
+        $this->getPostManager()->publish($post);
         
         $output->writeln('done!');
     }

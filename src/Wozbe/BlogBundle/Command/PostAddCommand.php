@@ -45,10 +45,12 @@ class PostAddCommand extends AbstractCommand
             $postContent = file_get_contents($contentFromFile);
         }
         
-        $post = $this->getPostManager()->addPost($postTitle, $postSlug, $postContent, $postDescription);
+        $post = $this->getPostManager()->build($postTitle, $postSlug, $postContent, $postDescription);
+        
+        $this->getPostManager()->add($post);
         
         if ($dialog->askConfirmation($output, $dialog->getQuestion('Do you confirm post publication', 'yes', '?'), true)) {
-            $this->getPostManager()->publishPost($post);
+            $this->getPostManager()->publish($post);
         }
         
         $output->writeln('done!');

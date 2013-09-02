@@ -22,11 +22,23 @@ class CommentManager
     }
     
     /**
+     * @param \Wozbe\BlogBundle\Entity\Comment $comment
+     * @return \Wozbe\BlogBundle\Entity\Comment
+     */
+    public function add(Comment $comment)
+    {
+        $this->getObjectManager()->persist($comment);
+        $this->getObjectManager()->flush();
+        
+        return $comment;
+    }
+    
+    /**
      * 
      * @param \Wozbe\BlogBundle\Entity\Comment $comment
      * @return \Wozbe\BlogBundle\Entity\CommentManager
      */
-    public function deleteComment(Comment $comment)
+    public function remove(Comment $comment)
     {
         $objectManager = $this->getObjectManager();
         $objectManager->remove($comment);
@@ -45,7 +57,7 @@ class CommentManager
      * 
      * @return \Wozbe\BlogBundle\Entity\Comment
      */
-    public function buildComment(Post $post, $username = null, $email = null, $website = null, $content = null)
+    public function build(Post $post, $username = null, $email = null, $website = null, $content = null)
     {
         $comment = new Comment();
         $comment->setUsername($username);
@@ -59,20 +71,12 @@ class CommentManager
         return $comment;
     }
     
-    public function saveComment(Comment $comment)
-    {
-        $this->getObjectManager()->persist($comment);
-        $this->getObjectManager()->flush();
-        
-        return $comment;
-    }
-    
     /**
      * 
      * @param \Wozbe\BlogBundle\Entity\Comment $comment
      * @return \Wozbe\BlogBundle\Entity\CommentManager
      */
-    public function publishComment(Comment $comment)
+    public function publish(Comment $comment)
     {
         $comment->setPublished(true);
         
@@ -86,7 +90,7 @@ class CommentManager
      * @param \Wozbe\BlogBundle\Entity\Comment $comment
      * @return \Wozbe\BlogBundle\Entity\CommentManager
      */
-    public function unpublishComment(Comment $comment)
+    public function unpublish(Comment $comment)
     {
         $comment->setPublished(false);
         

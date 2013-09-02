@@ -52,7 +52,9 @@ class PostGithubAddCommand extends AbstractCommand
         }        
         
         
-        $postGithub = $this->getPostGithubManager()->addPostGithub($post, $owner, $repo, $path);
+        $postGithub = $this->getPostGithubManager()->build($post, $owner, $repo, $path);
+        
+        $this->getPostGithubManager()->add($postGithub);
         
         if ($dialog->askConfirmation($output, $dialog->getQuestion('Do you want to update content', 'yes', '?'), true)) {
             $this->getPostGithubManager()->updatePostFromGithub($postGithub);

@@ -36,7 +36,7 @@ class CommentDeleteCommand extends AbstractCommand
             return 1;
         }
         
-        $this->getCommentManager()->deleteComment($comment);
+        $this->getCommentManager()->delete($comment);
         
         $output->writeln('done!');
     }

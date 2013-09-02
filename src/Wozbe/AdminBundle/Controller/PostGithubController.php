@@ -52,7 +52,7 @@ class PostGithubController extends Controller
      */
     public function removeAction(PostGithub $postGithub)
     {
-        $this->getPostGithubManager()->deletePostGithub($postGithub);
+        $this->getPostGithubManager()->delete($postGithub);
         
         $this->getRequest()->getSession()->getFlashBag()->add('admin', sprintf('PostGithub deleted: %s', $postGithub->getId()));
         
@@ -68,7 +68,7 @@ class PostGithubController extends Controller
         if ('POST' === $request->getMethod()) {
             $form->submit($request);
             if ($form->isValid()) {
-                $this->getPostGithubManager()->savePostGithub($postGithub);
+                $this->getPostGithubManager()->add($postGithub);
                 
                 $this->getRequest()->getSession()->getFlashBag()->add('admin', sprintf('PostGithub update: %s', $postGithub->getId()));
                 

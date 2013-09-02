@@ -34,7 +34,7 @@ class PostUnpublishCommand extends AbstractCommand
             return 1;
         }
         
-        $this->getPostManager()->unpublishPost($post);
+        $this->getPostManager()->unpublish($post);
         
         $output->writeln('done!');
     }

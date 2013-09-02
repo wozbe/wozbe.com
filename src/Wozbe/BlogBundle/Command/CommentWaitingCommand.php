@@ -35,10 +35,10 @@ class CommentWaitingCommand extends AbstractCommand
                     continue;
                 }
                 
-                $this->getCommentManager()->deleteComment($comment);
+                $this->getCommentManager()->delete($comment);
             }
 
-            $this->getCommentManager()->publishComment($comment);
+            $this->getCommentManager()->publish($comment);
         }
         
         $output->writeln('done!');

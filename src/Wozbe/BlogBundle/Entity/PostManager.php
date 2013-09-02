@@ -27,36 +27,7 @@ class PostManager
      * @param \Wozbe\BlogBundle\Entity\Post $post
      * @return \Wozbe\BlogBundle\Entity\PostManager
      */
-    public function deletePost(Post $post)
-    {
-        $objectManager = $this->getObjectManager();
-        $objectManager->remove($post);
-        $objectManager->flush();
-        
-        return $this;
-    }
-    
-    /**
-     * 
-     * @param \Wozbe\BlogBundle\Entity\Post $post
-     * @return \Wozbe\BlogBundle\Entity\PostManager
-     */
-    public function addPost($title, $slug, $content = null, $description = null)
-    {
-        $postFactory = new PostFactory();
-        $post = $postFactory->createPost($title, $slug, $content, $description);
-        
-        $this->savePost($post);
-        
-        return $post;
-    }
-    
-    /**
-     * 
-     * @param \Wozbe\BlogBundle\Entity\Post $post
-     * @return \Wozbe\BlogBundle\Entity\PostManager
-     */
-    public function savePost(Post $post)
+    public function add(Post $post)
     {
         $objectManager = $this->getObjectManager();
         $objectManager->persist($post);
@@ -70,7 +41,34 @@ class PostManager
      * @param \Wozbe\BlogBundle\Entity\Post $post
      * @return \Wozbe\BlogBundle\Entity\PostManager
      */
-    public function publishPost(Post $post)
+    public function delete(Post $post)
+    {
+        $objectManager = $this->getObjectManager();
+        $objectManager->remove($post);
+        $objectManager->flush();
+        
+        return $this;
+    }
+    
+    /**
+     * 
+     * @param \Wozbe\BlogBundle\Entity\Post $post
+     * @return \Wozbe\BlogBundle\Entity\PostManager
+     */
+    public function build($title, $slug, $content = null, $description = null)
+    {
+        $postFactory = new PostFactory();
+        $post = $postFactory->createPost($title, $slug, $content, $description);
+        
+        return $post;
+    }
+    
+    /**
+     * 
+     * @param \Wozbe\BlogBundle\Entity\Post $post
+     * @return \Wozbe\BlogBundle\Entity\PostManager
+     */
+    public function publish(Post $post)
     {
         $post->setPublished(true);
         
@@ -84,7 +82,7 @@ class PostManager
      * @param \Wozbe\BlogBundle\Entity\Post $post
      * @return \Wozbe\BlogBundle\Entity\PostManager
      */
-    public function unpublishPost(Post $post)
+    public function unpublish(Post $post)
     {
         $post->setPublished(false);
         
