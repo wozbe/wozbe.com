@@ -3,6 +3,7 @@
 namespace Wozbe\BlogBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpKernel\Exception\UnauthorizedHttpException;
 
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
@@ -22,6 +23,10 @@ class CommentController extends Controller
      */
     public function addAction(Post $post)
     {
+        if(!$this->container->getParameter('comments_enabled')) {
+            throw new UnauthorizedHttpException('Comments are disabled');
+        }
+        
         $comment = $this->getCommentManager()->build($post);
         
         $form = $this->createForm(new CommentType(), $comment, array(
@@ -56,6 +61,10 @@ class CommentController extends Controller
      */
     public function listAction(Post $post)
     {
+        if(!$this->container->getParameter('comments_enabled')) {
+            throw new UnauthorizedHttpException('Comments are disabled');
+        }
+        
         $comments = $this->getDoctrine()->getRepository('WozbeBlogBundle:Comment')->findByPost($post);
         
         return array(

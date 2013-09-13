@@ -17,3 +17,4 @@ parameters:
     email:             "thomas@tourlourat.com"
     phone:             "0953203344"
     admin_password:    "password"
+    comments_enabled:   false

@@ -14,6 +14,7 @@
   {{ post_content|markdown }}
 </div>
 
+{% if comments_enabled %}
   {{ 
     render(controller('WozbeBlogBundle:Comment:list', {'slug': post.slug})) 
   }}
@@ -21,5 +22,6 @@
   {{ 
     render(controller('WozbeBlogBundle:Comment:add', {'slug': post.slug})) 
   }}
+{% endif %}
 
 {% endblock content %}
