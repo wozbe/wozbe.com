@@ -8,8 +8,9 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 
 use Wozbe\AdminBundle\Form\Type\CommentType;
-
 use Wozbe\BlogBundle\Entity\Comment;
+
+use JMS\SecurityExtraBundle\Annotation\Secure;
 
 /**
  * @Route("/admin/comment")
@@ -19,6 +20,7 @@ class CommentController extends Controller
     /**
      * @Route("/")
      * @Template()
+     * @Secure(roles="ROLE_ADMIN")
      */
     public function listAction()
     {
@@ -30,6 +32,7 @@ class CommentController extends Controller
     /**
      * @Route("/create")
      * @Template()
+     * @Secure(roles="ROLE_ADMIN")
      */
     public function createAction()
     {
@@ -40,6 +43,7 @@ class CommentController extends Controller
      * @Route("/edit/{id}")
      * @ParamConverter("comment", class="WozbeBlogBundle:Comment")
      * @Template()
+     * @Secure(roles="ROLE_ADMIN")
      */
     public function editAction(Comment $comment)
     {
@@ -49,6 +53,7 @@ class CommentController extends Controller
     /**
      * @Route("/remove/{id}")
      * @ParamConverter("comment", class="WozbeBlogBundle:Comment")
+     * @Secure(roles="ROLE_ADMIN")
      */
     public function removeAction(Comment $comment)
     {

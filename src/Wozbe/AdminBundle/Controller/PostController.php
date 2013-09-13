@@ -8,8 +8,9 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 
 use Wozbe\AdminBundle\Form\Type\PostType;
-
 use Wozbe\BlogBundle\Entity\Post;
+
+use JMS\SecurityExtraBundle\Annotation\Secure;
 
 /**
  * @Route("/admin/post")
@@ -19,6 +20,7 @@ class PostController extends Controller
     /**
      * @Route("/")
      * @Template()
+     * @Secure(roles="ROLE_ADMIN")
      */
     public function listAction()
     {
@@ -30,6 +32,7 @@ class PostController extends Controller
     /**
      * @Route("/create")
      * @Template()
+     * @Secure(roles="ROLE_ADMIN")
      */
     public function createAction()
     {
@@ -40,6 +43,7 @@ class PostController extends Controller
      * @Route("/edit/{slug}")
      * @ParamConverter("post", class="WozbeBlogBundle:Post")
      * @Template()
+     * @Secure(roles="ROLE_ADMIN")
      */
     public function editAction(Post $post)
     {
@@ -49,6 +53,7 @@ class PostController extends Controller
     /**
      * @Route("/remove/{slug}")
      * @ParamConverter("post", class="WozbeBlogBundle:Post")
+     * @Secure(roles="ROLE_ADMIN")
      */
     public function removeAction(Post $post)
     {

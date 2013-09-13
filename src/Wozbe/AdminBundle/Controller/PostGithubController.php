@@ -8,8 +8,9 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 
 use Wozbe\AdminBundle\Form\Type\PostGithubType;
-
 use Wozbe\BlogBundle\Entity\PostGithub;
+
+use JMS\SecurityExtraBundle\Annotation\Secure;
 
 /**
  * @Route("/admin/post_github")
@@ -19,6 +20,7 @@ class PostGithubController extends Controller
     /**
      * @Route("/")
      * @Template()
+     * @Secure(roles="ROLE_ADMIN")
      */
     public function listAction()
     {
@@ -30,6 +32,7 @@ class PostGithubController extends Controller
     /**
      * @Route("/create")
      * @Template()
+     * @Secure(roles="ROLE_ADMIN")
      */
     public function createAction()
     {
@@ -40,6 +43,7 @@ class PostGithubController extends Controller
      * @Route("/edit/{id}")
      * @ParamConverter("post_github", class="WozbeBlogBundle:PostGithub")
      * @Template()
+     * @Secure(roles="ROLE_ADMIN")
      */
     public function editAction(PostGithub $postGithub)
     {
@@ -49,6 +53,7 @@ class PostGithubController extends Controller
     /**
      * @Route("/remove/{id}")
      * @ParamConverter("post_github", class="WozbeBlogBundle:PostGithub")
+     * @Secure(roles="ROLE_ADMIN")
      */
     public function removeAction(PostGithub $postGithub)
     {
@@ -57,6 +62,34 @@ class PostGithubController extends Controller
         $this->getRequest()->getSession()->getFlashBag()->add('admin', sprintf('PostGithub deleted: %s', $postGithub->getId()));
         
         return $this->redirect($this->generateUrl('wozbe_admin_postgithub_list'));
+    }
+    
+    /**
+     * @Route("/open/{id}")
+     * @ParamConverter("post_github", class="WozbeBlogBundle:PostGithub")
+     * @Template()
+     * @Secure(roles="ROLE_ADMIN")
+     */
+    public function openAction(PostGithub $postGithub)
+    {
+        return $this->handleForm($postGithub);
+    }
+    
+    /**
+     * @Route("/update/{id}")
+     * @ParamConverter("post_github", class="WozbeBlogBundle:PostGithub")
+     * @Template()
+     * @Secure(roles="ROLE_ADMIN")
+     */
+    public function updateAction(PostGithub $postGithub)
+    {
+        $this->getPostGithubManager()->updatePostFromGithub($postGithub);
+        
+        $this->getRequest()->getSession()->getFlashBag()->add('admin', sprintf('PostGithub update: %s', $postGithub->getId()));
+                
+        $postGithubUrl = $this->generateUrl('wozbe_admin_postgithub_list');
+
+        return $this->redirect($postGithubUrl);
     }
     
     protected function handleForm(PostGithub $postGithub)
@@ -84,32 +117,6 @@ class PostGithubController extends Controller
             'post_github' => $postGithub,
             'form' => $form->createView()
         );
-    }
-    
-    /**
-     * @Route("/open/{id}")
-     * @ParamConverter("post_github", class="WozbeBlogBundle:PostGithub")
-     * @Template()
-     */
-    public function openAction(PostGithub $postGithub)
-    {
-        return $this->handleForm($postGithub);
-    }
-    
-    /**
-     * @Route("/update/{id}")
-     * @ParamConverter("post_github", class="WozbeBlogBundle:PostGithub")
-     * @Template()
-     */
-    public function updateAction(PostGithub $postGithub)
-    {
-        $this->getPostGithubManager()->updatePostFromGithub($postGithub);
-        
-        $this->getRequest()->getSession()->getFlashBag()->add('admin', sprintf('PostGithub update: %s', $postGithub->getId()));
-                
-        $postGithubUrl = $this->generateUrl('wozbe_admin_postgithub_list');
-
-        return $this->redirect($postGithubUrl);
     }
 
     /**
