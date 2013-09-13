@@ -29,7 +29,7 @@ class CommentType extends AbstractType
             ->add('content', 'textarea', array(
                 'required' => true,
                 'label' => 'Content',
-                'read_only' => true
+                'read_only' => false
             ))
             ->add('save', 'submit', array('label' => 'Save'))
         ;

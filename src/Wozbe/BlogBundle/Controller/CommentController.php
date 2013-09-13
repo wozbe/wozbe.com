@@ -15,17 +15,17 @@ use Wozbe\BlogBundle\Form\Type\CommentType;
 class CommentController extends Controller
 {
     /**
-     * @Route("/{_locale}/blog/{slug}/comment", name="wozbe_blog_post_comment", requirements={"_locale" = "fr"})
+     * @Route("/{_locale}/blog/{slug}/comment", name="wozbe_blog_add_comment", requirements={"_locale" = "fr"})
      * @ParamConverter("post", class="WozbeBlogBundle:Post")
      * @Template()
      * @Method({"POST"})
      */
     public function addAction(Post $post)
     {
-        $comment = $this->getCommentManager()->buildComment($post);
+        $comment = $this->getCommentManager()->build($post);
         
         $form = $this->createForm(new CommentType(), $comment, array(
-            'action' => $this->generateUrl('wozbe_blog_post_comment', array('slug' => $comment->getPost()->getSlug())),
+            'action' => $this->generateUrl('wozbe_blog_add_comment', array('slug' => $comment->getPost()->getSlug())),
         ));
 
         $request = $this->getRequest();
@@ -33,7 +33,7 @@ class CommentController extends Controller
         if ('POST' === $request->getMethod()) {
             $form->submit($request);
             if ($form->isValid()) {
-                $this->getCommentManager()->saveComment($comment);
+                $this->getCommentManager()->add($comment);
                 
                 $request->getSession()->getFlashBag()->add('comments', 'Your comment will be publish as soon as possible. Waiting for approbation.');
                 
@@ -46,6 +46,21 @@ class CommentController extends Controller
         }
         
         return array('form' => $form->createView());
+    }
+    
+    /**
+     * @Route("/{_locale}/blog/{slug}/comments", requirements={"_locale" = "fr"})
+     * @ParamConverter("post", class="WozbeBlogBundle:Post")
+     * @Template()
+     * @Method({"GET"})
+     */
+    public function listAction(Post $post)
+    {
+        $comments = $this->getDoctrine()->getRepository('WozbeBlogBundle:Comment')->findByPost($post);
+        
+        return array(
+            'comments' => $comments,
+        );
     }
     
     /**

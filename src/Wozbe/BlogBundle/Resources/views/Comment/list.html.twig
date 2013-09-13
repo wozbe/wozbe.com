@@ -1,0 +1,24 @@
+<div class="zone-comments">
+  <a name="comments"></a>
+  <h2>{{ 'comments'|trans|capitalize }}</h2>
+  
+  {% for flashMessage in app.session.flashbag.get('comments') %}
+    <div class="alert alert-info">
+      {{ flashMessage }}
+    </div>
+  {% endfor %}
+  
+  {% for comment in comments if comment.published %}
+  <div class="row-fluid comment">
+    <a name="comment-{{ comment.id }}"></a>
+    <div class="span3">
+      <img class="avatar" />
+      <hr />
+      <h3 class="username"><a href="{{ comment.website }}">{{ comment.username }}</a></h3>
+    </div>
+    <div class="span9 content">
+      {{ comment.content }}
+    </div>
+  </div>
+  {% endfor %}
+</div>

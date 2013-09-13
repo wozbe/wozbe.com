@@ -28,7 +28,7 @@
       
     <div class="control-group">
       <div class="controls">
-        <button type="submit" class="btn">{{ 'send'|trans|capitalize }}</button>
+        {{ form_widget(form.save, {'attr': {'class': 'btn'}}) }}
       </div>
     </div>
   {{ form_end(form) }}
