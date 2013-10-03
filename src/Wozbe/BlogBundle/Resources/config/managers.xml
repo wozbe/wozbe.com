@@ -7,7 +7,6 @@
     <parameters>
         <parameter key="wozbe_blog.manager.comment.class">Wozbe\BlogBundle\Entity\CommentManager</parameter>
         <parameter key="wozbe_blog.manager.post.class">Wozbe\BlogBundle\Entity\PostManager</parameter>
-        <parameter key="wozbe_blog.manager.post_github.class">Wozbe\BlogBundle\Entity\PostGithubManager</parameter>
     </parameters>
 
     <services>
@@ -15,9 +14,6 @@
           <argument type="service" id="doctrine.orm.entity_manager" />
         </service>
         <service id="wozbe_blog.manager.post" class="%wozbe_blog.manager.post.class%">
-          <argument type="service" id="doctrine.orm.entity_manager" />
-        </service>
-        <service id="wozbe_blog.manager.post_github" class="%wozbe_blog.manager.post_github.class%">
           <argument type="service" id="doctrine.orm.entity_manager" />
         </service>
     </services>

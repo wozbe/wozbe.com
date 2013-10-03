@@ -7,7 +7,6 @@
     <parameters>
         <parameter key="wozbe_blog.repository.comment.class">Wozbe\BlogBundle\Entity\CommentRepository</parameter>
         <parameter key="wozbe_blog.repository.post.class">Wozbe\BlogBundle\Entity\PostRepository</parameter>
-        <parameter key="wozbe_blog.repository.post_github.class">Wozbe\BlogBundle\Entity\PostGithubRepository</parameter>
     </parameters>
 
     <services>
@@ -18,10 +17,6 @@
         <service id="wozbe_blog.repository.post" class="%wozbe_blog.repository.post.class%"
             factory-service="doctrine.orm.entity_manager" factory-method="getRepository">
           <argument>WozbeBlogBundle:Post</argument>
-        </service>
-        <service id="wozbe_blog.repository.post_github" class="%wozbe_blog.repository.post_github.class%"
-            factory-service="doctrine.orm.entity_manager" factory-method="getRepository">
-          <argument>WozbeBlogBundle:PostGithub</argument>
         </service>
     </services>
 </container>

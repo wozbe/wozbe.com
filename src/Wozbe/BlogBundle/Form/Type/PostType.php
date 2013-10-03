@@ -33,7 +33,6 @@ class PostType extends AbstractType
             ->add('content', 'textarea', array(
                 'required' => false,
                 'label' => 'Content',
-                'read_only' => true
             ))
             ->add('save', 'submit', array('label' => 'Save'))
         ;

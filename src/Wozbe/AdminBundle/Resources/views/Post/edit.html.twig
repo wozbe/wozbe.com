@@ -8,9 +8,6 @@
   <div class="">
     <h1>
       {{ 'Post edition'|trans }}
-      <a href="{{ url('wozbe_admin_post_edit', {'slug': post.slug}) }}">
-        <button class="btn pull-right" type="button"><i class="icon-download"></i> {{ 'Update from Github'|trans }}</button>
-      </a>
     </h1>
   </div>
   {{ include('WozbeAdminBundle:Post:form.html.twig', {'form': form}) }}

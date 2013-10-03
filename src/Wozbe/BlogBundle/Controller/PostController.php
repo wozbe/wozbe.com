@@ -17,29 +17,6 @@ use Wozbe\BlogBundle\Entity\Post;
 class PostController extends Controller
 {
     /**
-     * @Route("/blog/github_hook_blog_content", options={"sitemap" = false})
-     * @Method({"POST"})
-     */
-    public function githubHookBlogContentAction(Request $request)
-    {
-        $payloadResult = json_decode($request->request->get('payload'));
-        
-        $pathModifiedList = $payloadResult['commits']['modified'];
-        
-        $repo = $payloadResult['repository']['name'];
-        $owner = $payloadResult['repository']['owner']['name'];
-        
-        $postGithubRepository = $this->getDoctrine()->getRepository('WozbeBlogBundle:PostGithub');
-        $postGithubModifiedList = $postGithubRepository->getPostsGithubWithOwnerRepoAndPath($owner, $repo, $pathModifiedList);
-        
-        foreach($postGithubModifiedList as $postGithubModified) {
-            $this->getPostGithubManager()->updatePostFromGithub($postGithubModified);
-        }
-        
-        return new Response();
-    }
-    
-    /**
      * @Route("/{_locale}/blog", name="wozbe_blog", requirements={"_locale" = "fr"}, options={"sitemap" = true})
      * @Method({"GET", "HEAD"})
      * @Cache(expires="+2 hours", public="true")
@@ -81,14 +58,5 @@ class PostController extends Controller
     protected function getCommentManager()
     {
         return $this->get('wozbe_blog.manager.comment');
-    }
-    
-    /**
-     * 
-     * @return \Wozbe\BlogBundle\Entity\PostGithubManager
-     */
-    protected function getPostGithubManager()
-    {
-        return $this->get('wozbe_blog.manager.post_github');
     }
 }

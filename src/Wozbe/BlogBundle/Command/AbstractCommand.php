@@ -137,20 +137,4 @@ abstract class AbstractCommand extends ContainerAwareCommand
     {
         return $this->getContainer()->get('doctrine')->getRepository('WozbeBlogBundle:Post');
     }
-    
-    /**
-     * @return \Wozbe\BlogBundle\Entity\PostGithubManager
-     */
-    protected function getPostGithubManager()
-    {
-        return $this->getContainer()->get('wozbe_blog.manager.post_github');
-    }
-    
-    /**
-     * @return \Wozbe\BlogBundle\Entity\PostGithubRepository
-     */
-    protected function getPostGithubRepository()
-    {
-        return $this->getContainer()->get('doctrine')->getRepository('WozbeBlogBundle:PostGithub');
-    }
 }
