@@ -5,10 +5,9 @@
 {% block content %}
 <div class="">
   <h1>
-    Post management
+    {{ 'Post management'|trans }}
     <div class="pull-right">
-      <a href="{{ url('wozbe_admin_post_create') }}"><button class="btn">{{ 'New post'|trans }}</button></a>&nbsp;
-      <a href="{{ url('wozbe_admin_post_create') }}"><button class="btn">{{ 'New post from Github'|trans }}</button></a>
+      <a href="{{ url('wozbe_admin_post_create') }}"><button class="btn">{{ 'New post'|trans }}</button></a>
     </div>
   </h1>
 </div>
