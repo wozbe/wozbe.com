@@ -13,8 +13,11 @@
 </div>
 
 <div class="form-group">
-  {{ form_label(form.published) }}
-  {{ form_widget(form.published, {'attr': {'class': 'form-control'}}) }}
+  <div class="checkbox">
+    <label>
+      {{ form_widget(form.published) }} {{ form.published.vars.label }}
+    </label>
+  </div>
 </div>
 
 <div class="form-group">
