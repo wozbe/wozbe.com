@@ -1,0 +1,17 @@
+<?xml version="1.0" ?>
+
+<container xmlns="http://symfony.com/schema/dic/services"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+
+    <parameters>
+      <parameter key="wozbe_admin.twig.configuration_extension.class">Wozbe\AdminBundle\Twig\Extension\ConfigurationExtension</parameter>
+    </parameters>
+
+    <services>
+      <service id="wozbe_admin.twig.configuration_extension" class="%wozbe_admin.twig.configuration_extension.class%">
+        <argument type="service" id="wozbe_admin.manager.configuration" />
+        <tag name="twig.extension" />
+      </service>
+    </services>
+</container>
