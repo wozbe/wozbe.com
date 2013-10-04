@@ -75,10 +75,10 @@ var messages = {
 (function() {
   'use strict';
   
-  jQuery('#zone-contact form').on('submit', function() {
+  jQuery('.zone-contact form').on('submit', function() {
     var email = $('#contactEmail').val();
     var message = $('#contactMessage').val();
-    var $alerts = $('#zone-contact .alerts');
+    var $alerts = $('.zone-contact .alerts');
     var $mailTemplate = $('#mail-template');
 
     if(email === '' || message === '') {
