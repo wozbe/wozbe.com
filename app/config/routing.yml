@@ -13,3 +13,6 @@ wozbe_page:
 wozbe_blog:
     resource: "@WozbeBlogBundle/Controller/"
     type:     annotation
+
+admin_logout:
+    pattern:   /admin/logout

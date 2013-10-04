@@ -81,7 +81,7 @@ class PostController extends Controller
                 
                 return $this->redirect($postUrl);
             } else {
-                $this->getRequest()->getSession()->getFlashBag()->add('admin', 'A problem occured');
+                $this->getRequest()->getSession()->getFlashBag()->add('admin', 'Form is not valid');
             }
         }
         

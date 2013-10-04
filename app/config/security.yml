@@ -17,10 +17,12 @@ security:
             pattern:    ^/admin
             logout:
                 path:   /admin/logout
+                target:   /
             anonymous:    true
-            http_basic:
-                realm: "Secured Area"
+            form_login:
+                login_path:  /admin/login
+                check_path:  /admin/login_check
 
     access_control:
-        - { path: ^/admin, roles: ROLE_ADMIN }
         - { path: ^/admin/login, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/admin, roles: ROLE_ADMIN }

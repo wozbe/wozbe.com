@@ -1,17 +1,32 @@
-{% form_theme form '::form_theme.html.twig' %}
-
-{{ form_start(form, {'attr': {'class': 'form-horizontal'}}) }}
+{{ form_start(form) }}
 
 {{ form_errors(form) }}
 
-{{ form_row(form.title) }}
-{{ form_row(form.slug) }}
-{{ form_row(form.published) }}
-{{ form_row(form.description, {'attr': {'rows': 7, 'class': 'input-block-level'}}) }}
-{{ form_row(form.content, {'attr': {'rows': 15, 'class': 'input-block-level'}}) }}
-
-<div class="form-actions">
-  {{ form_row(form.save) }}
+<div class="form-group">
+  {{ form_label(form.title) }}
+  {{ form_widget(form.title, {'attr': {'class': 'form-control'}}) }}
 </div>
+
+<div class="form-group">
+  {{ form_label(form.slug) }}
+  {{ form_widget(form.slug, {'attr': {'class': 'form-control'}}) }}
+</div>
+
+<div class="form-group">
+  {{ form_label(form.published) }}
+  {{ form_widget(form.published, {'attr': {'class': 'form-control'}}) }}
+</div>
+
+<div class="form-group">
+  {{ form_label(form.description) }}
+  {{ form_widget(form.description, {'attr': {'rows': 7, 'class': 'form-control'}}) }}
+</div>
+
+<div class="form-group">
+  {{ form_label(form.content) }}
+  {{ form_widget(form.content, {'attr': {'rows': 15, 'class': 'form-control'}}) }}
+</div>
+
+{{ form_row(form.save, {'attr': {'class': 'btn btn-primary'}}) }}
 
 {{ form_end(form) }}

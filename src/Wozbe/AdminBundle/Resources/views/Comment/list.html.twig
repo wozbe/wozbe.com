@@ -26,13 +26,17 @@
       <td>{{ comment.createdAt|date('d/m/Y') }}</td>
       <td>{{ comment.post.title }}</td>
       <td>{{ comment.username }}</td>
-      <td>{% if comment.published %}<span class="label label-info">Published</span>{% else %}<span class="label label-warning">Not Published</span>{% endif %}</td>
+      <td>{% if comment.published %}<span class="label label-success">Published</span>{% else %}<span class="label label-primary">Not Published</span>{% endif %}</td>
       <td>
         <a href="{{ url('wozbe_admin_comment_edit', {'id': comment.id}) }}">
-          <button class="btn btn-mini" type="button"><i class="icon-edit"></i> {{ 'Edit'|trans }}</button>
+          <button type="button" class="btn btn-default btn-xs">
+            <span class="glyphicon glyphicon-edit"></span>
+          </button>
         </a>
         <a href="{{ url('wozbe_admin_comment_remove', {'id': comment.id}) }}">
-          <button class="btn btn-mini" type="button"><i class="icon-remove"></i> {{ 'Remove'|trans }}</button>
+          <button type="button" class="btn btn-danger btn-xs">
+            <span class="glyphicon glyphicon-remove"></span>
+          </button>
         </a>
       </td>
     </tr>

@@ -1,0 +1,29 @@
+{% extends 'WozbeAdminBundle::layout.html.twig' %}
+
+{% block title %}{{ 'Login'|trans }}{% endblock %}
+
+{% block left_part %}
+{% endblock %}
+  
+{% block content %}
+  <div class="page-header">
+    <h1>Admin <small>login is mandatory</small></h1>
+  </div>
+  {% if error %}
+      <div class="alert alert-warning">{{ error.message }}</div>
+  {% endif %}
+
+  <form action="{{ path('admin_login_check') }}" method="post">
+    <div class="form-group">
+      <label for="username">Username:</label>
+      <input type="text" class="form-control" id="username" name="_username" value="{{ last_username }}" />
+    </div>
+
+    <div class="form-group">
+      <label for="password">Password:</label>
+      <input type="password" class="form-control" id="password" name="_password" />
+    </div>
+
+    <button type="submit" class="btn btn-primary">{{ 'Login'|trans }}</button>
+  </form>
+{% endblock %}

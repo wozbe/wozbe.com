@@ -1,17 +1,32 @@
-{% form_theme form '::form_theme.html.twig' %}
-
-{{ form_start(form, {'attr': {'class': 'form-horizontal'}}) }}
+{{ form_start(form) }}
 
 {{ form_errors(form) }}
 
-{{ form_row(form.username) }}
-{{ form_row(form.email) }}
-{{ form_row(form.website) }}
-{{ form_row(form.published) }}
-{{ form_row(form.content, {'attr': {'rows': 15, 'class': 'input-block-level'}}) }}
-
-<div class="form-actions">
-  {{ form_row(form.save) }}
+<div class="form-group">
+  {{ form_label(form.username) }}
+  {{ form_widget(form.username, {'attr': {'class': 'form-control'}}) }}
 </div>
+
+<div class="form-group">
+  {{ form_label(form.email) }}
+  {{ form_widget(form.email, {'attr': {'class': 'form-control'}}) }}
+</div>
+
+<div class="form-group">
+  {{ form_label(form.website) }}
+  {{ form_widget(form.website, {'attr': {'class': 'form-control'}}) }}
+</div>
+
+<div class="form-group">
+  {{ form_label(form.published) }}
+  {{ form_widget(form.published, {'attr': {'class': 'form-control'}}) }}
+</div>
+
+<div class="form-group">
+  {{ form_label(form.content) }}
+  {{ form_widget(form.content, {'attr': {'rows': 15, 'class': 'form-control'}}) }}
+</div>
+
+{{ form_row(form.save, {'attr': {'class': 'btn btn-primary'}}) }}
 
 {{ form_end(form) }}

@@ -81,7 +81,7 @@ class CommentController extends Controller
                 
                 return $this->redirect($commentUrl);
             } else {
-                $this->getRequest()->getSession()->getFlashBag()->add('admin', 'A problem occured');
+                $this->getRequest()->getSession()->getFlashBag()->add('admin', 'Form is not valid');
             }
         }
         
