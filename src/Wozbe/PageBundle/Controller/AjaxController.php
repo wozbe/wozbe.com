@@ -24,6 +24,7 @@ class AjaxController extends Controller
         $request = $this->getRequest();
         if ($request->isXmlHttpRequest()) {
             $email = $request->request->get('email');
+            $emailTo = $this->getConfigurationManager()->get('page.email');
             $message = $request->request->get('message');
             
             $emailConstraint = new Email();
@@ -40,8 +41,8 @@ class AjaxController extends Controller
             
             $swiftMail = \Swift_Message::newInstance()
                 ->setSubject('Contact Wozbe : ' . $email)
-                ->setFrom($this->container->getParameter('email'))
-                ->setTo($this->container->getParameter('email'))
+                ->setFrom($emailTo)
+                ->setTo($emailTo)
                 ->setBody($message);
             
             $recipients = $this->get('mailer')->send($swiftMail);
@@ -49,7 +50,7 @@ class AjaxController extends Controller
             if($recipients > 0) {
                 return new JsonResponse(array (
                     'title' => $this->get('translator')->trans('success'),
-                    'message' => $this->get('translator')->trans('message_sent_to', array('%email%' => $this->container->getParameter('email'))),
+                    'message' => $this->get('translator')->trans('message_sent_to', array('%email%' => $emailTo)),
                 ));
             }
             else {
@@ -58,5 +59,13 @@ class AjaxController extends Controller
         }
         
         return new Response($this->get('translator')->trans('server_only_xml_http'), 400);
+    }
+    
+    /**
+     * @return \Wozbe\AdminBundle\Entity\ConfigurationManager
+     */
+    private function getConfigurationManager()
+    {
+        return $this->container->get('wozbe_admin.manager.configuration');
     }
 }

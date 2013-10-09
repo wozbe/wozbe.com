@@ -23,7 +23,7 @@ class CommentController extends Controller
      */
     public function addAction(Post $post)
     {
-        if(!$this->container->getParameter('comments_enabled')) {
+        if(!$this->getConfigurationManager()->get('blog.comment.enabled')) {
             throw new UnauthorizedHttpException('Comments are disabled');
         }
         
@@ -61,7 +61,7 @@ class CommentController extends Controller
      */
     public function listAction(Post $post)
     {
-        if(!$this->container->getParameter('comments_enabled')) {
+        if(!$this->getConfigurationManager()->get('blog.comment.enabled')) {
             throw new UnauthorizedHttpException('Comments are disabled');
         }
         
@@ -79,5 +79,13 @@ class CommentController extends Controller
     protected function getCommentManager()
     {
         return $this->get('wozbe_blog.manager.comment');
+    }
+    
+    /**
+     * @return \Wozbe\AdminBundle\Entity\ConfigurationManager
+     */
+    private function getConfigurationManager()
+    {
+        return $this->container->get('wozbe_admin.manager.configuration');
     }
 }

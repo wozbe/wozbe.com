@@ -14,7 +14,7 @@
   {{ post_content|markdown }}
 </div>
 
-{% if comments_enabled %}
+{% if config('blog.comment.enabled') %}
   {{ 
     render(controller('WozbeBlogBundle:Comment:list', {'slug': post.slug})) 
   }}

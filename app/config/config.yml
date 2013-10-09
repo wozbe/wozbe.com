@@ -24,10 +24,6 @@ framework:
 twig:
     debug:            %kernel.debug%
     strict_variables: %kernel.debug%
-    globals:
-        email: %email%
-        phone: %phone%
-        comments_enabled: %comments_enabled%
 
 # Doctrine Configuration
 doctrine:

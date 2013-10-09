@@ -39,7 +39,7 @@
     <div class="span6">
       <h2>{{ 'contact_us'|trans }}</h2>
       <p>
-        {% autoescape false %}{{ 'contact_description'|trans({'%phone%': phone, '%email%': email}) }}{% endautoescape %}
+        {% autoescape false %}{{ 'contact_description'|trans({'%phone%': config('page.phone'), '%email%': config('page.email')}) }}{% endautoescape %}
       </p>
       <div class="call_to_action">
         <div class="hidden-phone">
