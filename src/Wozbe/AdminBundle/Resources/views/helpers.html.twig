@@ -1,0 +1,23 @@
+{% macro link_small (content, url, type, attribute_list) %}
+  {% import _self as helpers %}
+  {{ helpers.link_base(content, url, type, attribute_list, 'btn-xs') }}
+{% endmacro %}
+
+{% macro link (content, url, type, attribute_list) %}
+  {% import _self as helpers %}
+  {{ helpers.link_base(content, url, type, attribute_list) }}
+{% endmacro %}
+
+{% macro link_base (content, url, type, attribute_list, class) %}
+    {% spaceless %}
+    <a class="link" href="{{ url }}" {% for attribute, value in attribute_list %}{{ '%attribute%="%value%"'|replace({'%attribute%': attribute, '%value%': value})|raw }} {% endfor %}>
+        <button type="button" class="btn btn-{{ type|default('default') }} {{ class }}">
+            {{ content }}
+        </button>
+    </a>
+    {% endspaceless %}
+{% endmacro %}
+
+{% macro label(success, content) %}
+    <span class="label label-{{ success|default(false) ? 'success' : 'warning' }}">{{ content }}</span>
+{% endmacro %}

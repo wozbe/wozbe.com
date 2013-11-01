@@ -4,6 +4,7 @@ namespace Wozbe\AdminBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 
@@ -20,6 +21,7 @@ class PostController extends Controller
     /**
      * @Route("/")
      * @Template()
+     * @Method({"GET"})
      * @Secure(roles="ROLE_ADMIN")
      */
     public function listAction()
@@ -32,6 +34,7 @@ class PostController extends Controller
     /**
      * @Route("/create")
      * @Template()
+     * @Method({"GET", "POST"})
      * @Secure(roles="ROLE_ADMIN")
      */
     public function createAction()
@@ -43,6 +46,7 @@ class PostController extends Controller
      * @Route("/edit/{slug}")
      * @ParamConverter("post", class="WozbeBlogBundle:Post")
      * @Template()
+     * @Method({"GET", "POST"})
      * @Secure(roles="ROLE_ADMIN")
      */
     public function editAction(Post $post)
@@ -53,10 +57,12 @@ class PostController extends Controller
     /**
      * @Route("/remove/{slug}")
      * @ParamConverter("post", class="WozbeBlogBundle:Post")
+     * @Method({"DELETE"})
      * @Secure(roles="ROLE_ADMIN")
      */
     public function removeAction(Post $post)
     {
+        var_dump('ok'); exit;
         $this->getPostManager()->delete($post);
         
         $this->getRequest()->getSession()->getFlashBag()->add('admin', sprintf('Post deleted: %s', $post->getSlug()));

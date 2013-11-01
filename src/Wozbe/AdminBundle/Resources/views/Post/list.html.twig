@@ -1,4 +1,5 @@
 {% extends 'WozbeAdminBundle::layout.html.twig' %}
+{% import 'WozbeAdminBundle::helpers.html.twig' as helpers %}
 
 {% block title %}{{ 'Posts'|trans }}{% endblock %}
 
@@ -7,11 +8,13 @@
   <h1>
     {{ 'Post management'|trans }}
     <div class="pull-right">
-      <a href="{{ url('wozbe_admin_post_create') }}">
-        <button type="button" class="btn btn-primary">
-          <span class="glyphicon glyphicon-edit"></span> {{ 'New post'|trans }}
-        </button>
-      </a>
+      {% set content_post_create %}<span class="glyphicon glyphicon-edit"></span> {{ 'New post'|trans }}{% endset %}
+      {% set url_post_create = url('wozbe_admin_post_create') %}
+      {{ helpers.link(
+        content_post_create, 
+        url_post_create, 
+        'primary'
+      ) }}
     </div>
   </h1>
 </div>
@@ -29,18 +32,25 @@
     <tr>
       <td>{{ post.title }}</td>
       <td>{{ post.createdAt|date('d/m/Y') }}</td>
-      <td>{% if post.published %}<span class="label label-success">Published</span>{% else %}<span class="label label-default">Not Published</span>{% endif %}</td>
+      <td>{{ helpers.label(post.published, 'Published'|trans) }}</td>
       <td>
-        <a href="{{ url('wozbe_admin_post_edit', {'slug': post.slug}) }}">
-          <button type="button" class="btn btn-default btn-xs">
-            <span class="glyphicon glyphicon-edit"></span>
-          </button>
-        </a>
-        <a href="{{ url('wozbe_admin_post_remove', {'slug': post.slug}) }}">
-          <button type="button" class="btn btn-danger btn-xs">
-            <span class="glyphicon glyphicon-remove"></span>
-          </button>
-        </a>
+        {% set content_post_edit %}<span class="glyphicon glyphicon-edit"></span>{% endset %}
+        {% set url_post_edit = url('wozbe_admin_post_edit', {'slug': post.slug}) %}
+        {{ helpers.link_small(
+          content_post_edit, 
+          url_post_edit
+        ) }}
+        
+        {% set content_post_edit %}<span class="glyphicon glyphicon-remove"></span>{% endset %}
+        {% set url_post_edit = url('wozbe_admin_post_remove', {'slug': post.slug}) %}
+        {{ helpers.link_small(
+          content_post_edit, 
+          url_post_edit, 
+          'danger',
+          {
+            'data-method': 'DELETE', 
+            'data-confirm': 'You will delete a post, are you sure ?'}
+        ) }}
       </td>
     </tr>
     {% endfor %}
