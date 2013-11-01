@@ -62,7 +62,6 @@ class PostController extends Controller
      */
     public function removeAction(Post $post)
     {
-        var_dump('ok'); exit;
         $this->getPostManager()->delete($post);
         
         $this->getRequest()->getSession()->getFlashBag()->add('admin', sprintf('Post deleted: %s', $post->getSlug()));
