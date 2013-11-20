@@ -12,18 +12,15 @@
 {% block content %}
 <h1>{{ 'our_skills'|trans }}</h1>
 <div class="zone-skills">
-  <div class="skill development">
+  <div class="skill architecture-devops">
     <div class="title">
-      <i class="icon-fixed-width icon-code icon-5x"></i>
-      <h2>{{ 'skill.development'|trans }}</h2>
+      <i class="icon-fixed-width icon-cogs icon-5x"></i>
+      <h2>{{ 'skill.architecture_devops'|trans }}</h2>
       <hr class="title" />
     </div>
-    <div>{% autoescape false %}{{ 'skill.description.development'|trans }}{% endautoescape %}</div>
+    <div>{% autoescape false %}{{ 'skill.description.architecture_devops'|trans }}{% endautoescape %}</div>
     <div class="logos">
-      <img src="{{ asset('bundles/wozbepage/images/technologies/logo-symfony.png') }}" />
-      <img src="{{ asset('bundles/wozbepage/images/technologies/logo-grunt.png') }}" />
-      <img src="{{ asset('bundles/wozbepage/images/technologies/logo-html5.png') }}" />
-      <img src="{{ asset('bundles/wozbepage/images/technologies/logo-nodejs.png') }}" />
+
     </div>
   </div>
   <div class="container-skills">
@@ -41,11 +38,16 @@
     </div>
     <div class="skill">
       <div class="title">
-        <i class="icon-fixed-width icon-cogs icon-5x"></i>
-        <h2>{{ 'skill.architecture_devops'|trans }}</h2>
+        <i class="icon-fixed-width icon-code icon-5x"></i>
+        <h2>{{ 'skill.development'|trans }}</h2>
         <hr class="title" />
       </div>
-      <div>{% autoescape false %}{{ 'skill.description.architecture_devops'|trans }}{% endautoescape %}</div>
+      <div>{% autoescape false %}{{ 'skill.description.development'|trans }}{% endautoescape %}</div>
+      <div class="logos">
+        <img src="{{ asset('bundles/wozbepage/images/technologies/logo-symfony.png') }}" />
+        <img src="{{ asset('bundles/wozbepage/images/technologies/logo-grunt.png') }}" />
+        <img src="{{ asset('bundles/wozbepage/images/technologies/logo-html5.png') }}" />
+      </div>
     </div>
     <br clear="both" />
   </div>

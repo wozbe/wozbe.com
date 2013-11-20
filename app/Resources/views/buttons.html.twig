@@ -8,59 +8,10 @@
 {% macro reset(text) %}
     <button type="button" class="btn">{{ text|default('Cancel') }}</button>
 {% endmacro %}
-    
-{% macro cart(num_lines) %}
-    <a href="{{ url('MktShopBundle_cart_display') }}" class="btn-flat btn-flat-light cart">
-        <i class="icon-shopping-cart"></i>
-        <span class="cart-count-product">{{ '{0} Empty cart|{1} <span class="count">%count%</span> Product|]1,Inf] <span class="count">%count%</span> Products'|transchoice(num_lines)|raw }}</span>
-    </a>
-{% endmacro %}
-    
-{% macro add_to_cart(platform_product) %}
-    <form action="{{ url('store_platform_product_add_to_cart', {id: platform_product.id, slug: platform_product.product.slug}) }}" method="post" class="form-inline">
-      <input type="number" step="1" min="1" value="1" name="quantity" placeholder="{{ 'Quantity'|trans }}" />
-      <button type="submit" class="btn-flat btn-flat-secondary">
-          <i class="icon-plus"></i>
-          {{ 'Add to cart'|trans }}
-      </button>
-    </form>
-{% endmacro %}
-
-{% macro default(url, text, icon, size, icon_background) %}
-    {% set size_class = (size|default(null) is empty) ? '' : ' btn-' ~ size %}
-    <a href="{{ url|default('') }}" class="btn{{ size_class }}" type="button">
-        {% if icon|default('') %}
-            <i class="icon-{{ icon }} icon-{{ icon_background|default('white') }}"></i>
-        {% endif %}
-        {{ text }}
-    </a>
-{% endmacro %}
-
-{% macro grid_action(url, text, icon, level) %}
-    {% set classes = ['btn', 'btn-mini'] %}
-    {% if  level|default('') is not empty %}
-        {% set classes = classes|merge(['btn-' ~ level]) %}
-    {% endif %}
-    <a href="{{ url|default('') }}" class="{{ classes|join(' ') }}" type="button">
-        {% if icon|default('') %}
-            <i class="icon-{{ icon }}{% if  level|default('') is not empty %} icon-white{% endif %}"></i>
-        {% endif %}
-        {{ text }}
-    </a>
-{% endmacro %}
 
 {% macro primary(url, text, icon, icon_background) %}
     <a href="{{ url|default('') }}" class="btn btn-primary" type="button">
         <i class="icon-{{ icon|default('ok') }} icon-{{ icon_background|default('white') }}"></i>
-        {{ text }}
-    </a>
-{% endmacro %}
-
-{% macro call_to_action(url, text, icon, icon_background) %}
-    <a href="{{ url|default('') }}" class="btn btn-success" type="button">
-        {% if icon|default('') %}
-            <i class="icon-{{ icon }} icon-{{ icon_background|default('white') }}"></i>
-        {% endif %}
         {{ text }}
     </a>
 {% endmacro %}

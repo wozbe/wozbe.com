@@ -24,14 +24,14 @@
     'Konbini',
     'konbini',
     'http://www.konbini.com',
-    ['reference.tag.symfony2'|trans, 'reference.tag.vmware_esx'|trans, 'reference.tag.coordination'|trans, 'reference.tag.infrastructure'|trans, 'reference.tag.wordpress'|trans],
+    ['reference.tag.symfony2'|trans, 'reference.tag.vmware_esx'|trans, 'reference.tag.varnish'|trans, 'reference.tag.coordination'|trans, 'reference.tag.infrastructure'|trans, 'reference.tag.wordpress'|trans],
     'reference.description.long.konbini'|trans
   ],
   [
     'La Virgule', 
     'virgule', 
     'http://www.lavirgule.tv',
-    ['reference.tag.advices'|trans, 'reference.tag.coordination'|trans, 'reference.tag.execution'|trans, 'reference.tag.cdn'|trans],
+    ['reference.tag.advices'|trans, 'reference.tag.video'|trans, 'reference.tag.server'|trans, 'reference.tag.coordination'|trans, 'reference.tag.execution'|trans, 'reference.tag.cdn'|trans],
     'reference.description.long.la_virgule'|trans
   ],
   [
@@ -76,7 +76,7 @@
       <p>{% autoescape false %}{{ description }}{% endautoescape %}</p>
       <br />
       <div class="hidden-phone">
-        {% for tag in tags %}<i class="icon-fixed-width icon-tag"></i><strong>{{ tag }}</strong>{% if false == loop.last %},{% endif %} {% endfor %}
+        {% for tag in tags %}<span><i class="icon-fixed-width icon-tag"></i><strong>{{ tag }}</strong>{% if false == loop.last %},{% endif %} </span>{% endfor %}
       </div>
     </p>
   </div>
