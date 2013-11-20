@@ -205,7 +205,6 @@
 
     .partner {
       color: @backgroundColor;
-      min-height: 330px;
       padding: 0 20px;
       margin-bottom: 30px;
 
@@ -218,9 +217,17 @@
       }
 
       .logo {
-        height: 100px;
+        height: 94px;
         text-align: center;
         margin-bottom: 10px;
+
+        img {
+          max-height: 94px;
+        }
+      }
+
+      @media screen and (min-width: 979px) {
+        min-height: 330px;
       }
     }
 
