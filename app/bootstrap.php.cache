@@ -368,15 +368,22 @@ $authorizationHeader = $this->parameters['HTTP_AUTHORIZATION'];
 } elseif (isset($this->parameters['REDIRECT_HTTP_AUTHORIZATION'])) {
 $authorizationHeader = $this->parameters['REDIRECT_HTTP_AUTHORIZATION'];
 }
-if ((null !== $authorizationHeader) && (0 === stripos($authorizationHeader,'basic'))) {
+if (null !== $authorizationHeader) {
+if (0 === stripos($authorizationHeader,'basic')) {
 $exploded = explode(':', base64_decode(substr($authorizationHeader, 6)));
 if (count($exploded) == 2) {
 list($headers['PHP_AUTH_USER'], $headers['PHP_AUTH_PW']) = $exploded;
+}
+} elseif (empty($this->parameters['PHP_AUTH_DIGEST']) && (0 === stripos($authorizationHeader,'digest'))) {
+$headers['PHP_AUTH_DIGEST'] = $authorizationHeader;
+$this->parameters['PHP_AUTH_DIGEST'] = $authorizationHeader;
 }
 }
 }
 if (isset($headers['PHP_AUTH_USER'])) {
 $headers['AUTHORIZATION'] ='Basic '.base64_encode($headers['PHP_AUTH_USER'].':'.$headers['PHP_AUTH_PW']);
+} elseif (isset($headers['PHP_AUTH_DIGEST'])) {
+$headers['AUTHORIZATION'] = $headers['PHP_AUTH_DIGEST'];
 }
 return $headers;
 }
@@ -392,6 +399,8 @@ const HEADER_CLIENT_HOST ='client_host';
 const HEADER_CLIENT_PROTO ='client_proto';
 const HEADER_CLIENT_PORT ='client_port';
 protected static $trustedProxies = array();
+protected static $trustedHostPatterns = array();
+protected static $trustedHosts = array();
 protected static $trustedHeaders = array(
 self::HEADER_CLIENT_IP =>'X_FORWARDED_FOR',
 self::HEADER_CLIENT_HOST =>'X_FORWARDED_HOST',
@@ -504,11 +513,19 @@ $request = array();
 $query = $parameters;
 break;
 }
+$queryString ='';
 if (isset($components['query'])) {
 parse_str(html_entity_decode($components['query']), $qs);
+if ($query) {
 $query = array_replace($qs, $query);
-}
 $queryString = http_build_query($query,'','&');
+} else {
+$query = $qs;
+$queryString = $components['query'];
+}
+} elseif ($query) {
+$queryString = http_build_query($query,'','&');
+}
 $server['REQUEST_URI'] = $components['path'].(''!== $queryString ?'?'.$queryString :'');
 $server['QUERY_STRING'] = $queryString;
 return new static($query, $request, array(), $cookies, $files, $server, $content);
@@ -544,6 +561,12 @@ $dup->baseUrl = null;
 $dup->basePath = null;
 $dup->method = null;
 $dup->format = null;
+if (!$dup->get('_format') && $this->get('_format')) {
+$dup->attributes->set('_format', $this->get('_format'));
+}
+if (!$dup->getRequestFormat(null)) {
+$dup->setRequestFormat($format = $this->getRequestFormat(null));
+}
 return $dup;
 }
 public function __clone()
@@ -578,7 +601,7 @@ $_SERVER['HTTP_'.$key] = implode(', ', $value);
 }
 }
 $request = array('g'=> $_GET,'p'=> $_POST,'c'=> $_COOKIE);
-$requestOrder = ini_get('request_order') ?: ini_get('variable_order');
+$requestOrder = ini_get('request_order') ?: ini_get('variables_order');
 $requestOrder = preg_replace('#[^cgp]#','', strtolower($requestOrder)) ?:'gp';
 $_REQUEST = array();
 foreach (str_split($requestOrder) as $order) {
@@ -592,6 +615,17 @@ self::$trustedProxies = $proxies;
 public static function getTrustedProxies()
 {
 return self::$trustedProxies;
+}
+public static function setTrustedHosts(array $hostPatterns)
+{
+self::$trustedHostPatterns = array_map(function ($hostPattern) {
+return sprintf('{%s}i', str_replace('}','\\}', $hostPattern));
+}, $hostPatterns);
+self::$trustedHosts = array();
+}
+public static function getTrustedHosts()
+{
+return self::$trustedHostPatterns;
 }
 public static function setTrustedHeaderName($key, $value)
 {
@@ -671,7 +705,6 @@ $ip = $clientIps[0];
 foreach ($clientIps as $key => $clientIp) {
 if (IpUtils::checkIp($clientIp, $trustedProxies)) {
 unset($clientIps[$key]);
-continue;
 }
 }
 return $clientIps ? array_reverse($clientIps) : array($ip);
@@ -719,6 +752,12 @@ return $port;
 if (self::$trustedHeaders[self::HEADER_CLIENT_PROTO] &&'https'=== $this->headers->get(self::$trustedHeaders[self::HEADER_CLIENT_PROTO],'http')) {
 return 443;
 }
+}
+if ($host = $this->headers->get('HOST')) {
+if (false !== $pos = strrpos($host,':')) {
+return intval(substr($host, $pos + 1));
+}
+return'https'=== $this->getScheme() ? 443 : 80;
 }
 return $this->server->get('SERVER_PORT');
 }
@@ -778,7 +817,7 @@ return''=== $qs ? null : $qs;
 public function isSecure()
 {
 if (self::$trustedProxies && self::$trustedHeaders[self::HEADER_CLIENT_PROTO] && $proto = $this->headers->get(self::$trustedHeaders[self::HEADER_CLIENT_PROTO])) {
-return in_array(strtolower($proto), array('https','on','1'));
+return in_array(strtolower(current(explode(',', $proto))), array('https','on','ssl','1'));
 }
 return'on'== strtolower($this->server->get('HTTPS')) || 1 == $this->server->get('HTTPS');
 }
@@ -794,7 +833,19 @@ $host = $this->server->get('SERVER_ADDR','');
 }
 $host = strtolower(preg_replace('/:\d+$/','', trim($host)));
 if ($host && !preg_match('/^\[?(?:[a-zA-Z0-9-:\]_]+\.?)+$/', $host)) {
-throw new \UnexpectedValueException('Invalid Host');
+throw new \UnexpectedValueException('Invalid Host "'.$host.'"');
+}
+if (count(self::$trustedHostPatterns) > 0) {
+if (in_array($host, self::$trustedHosts)) {
+return $host;
+}
+foreach (self::$trustedHostPatterns as $pattern) {
+if (preg_match($pattern, $host)) {
+self::$trustedHosts[] = $host;
+return $host;
+}
+}
+throw new \UnexpectedValueException('Untrusted Host "'.$host.'"');
 }
 return $host;
 }
@@ -1030,7 +1081,7 @@ do {
 $seg = $segs[$index];
 $baseUrl ='/'.$seg.$baseUrl;
 ++$index;
-} while (($last > $index) && (false !== ($pos = strpos($path, $baseUrl))) && (0 != $pos));
+} while ($last > $index && (false !== $pos = strpos($path, $baseUrl)) && 0 != $pos);
 }
 $requestUri = $this->getRequestUri();
 if ($baseUrl && false !== $prefix = $this->getUrlencodedPrefix($requestUri, $baseUrl)) {
@@ -1040,14 +1091,14 @@ if ($baseUrl && false !== $prefix = $this->getUrlencodedPrefix($requestUri, dirn
 return rtrim($prefix,'/');
 }
 $truncatedRequestUri = $requestUri;
-if (($pos = strpos($requestUri,'?')) !== false) {
+if (false !== $pos = strpos($requestUri,'?')) {
 $truncatedRequestUri = substr($requestUri, 0, $pos);
 }
 $basename = basename($baseUrl);
 if (empty($basename) || !strpos(rawurldecode($truncatedRequestUri), $basename)) {
 return'';
 }
-if ((strlen($requestUri) >= strlen($baseUrl)) && ((false !== ($pos = strpos($requestUri, $baseUrl))) && ($pos !== 0))) {
+if (strlen($requestUri) >= strlen($baseUrl) && (false !== $pos = strpos($requestUri, $baseUrl)) && $pos !== 0) {
 $baseUrl = substr($requestUri, 0, $pos + strlen($baseUrl));
 }
 return rtrim($baseUrl,'/');
@@ -1079,7 +1130,7 @@ $pathInfo ='/';
 if ($pos = strpos($requestUri,'?')) {
 $requestUri = substr($requestUri, 0, $pos);
 }
-if ((null !== $baseUrl) && (false === ($pathInfo = substr($requestUri, strlen($baseUrl))))) {
+if (null !== $baseUrl && false === $pathInfo = substr($requestUri, strlen($baseUrl))) {
 return'/';
 } elseif (null === $baseUrl) {
 return $requestUri;
@@ -1206,7 +1257,7 @@ $headers->set('Content-Type', $mimeType);
 $charset = $this->charset ?:'UTF-8';
 if (!$headers->has('Content-Type')) {
 $headers->set('Content-Type','text/html; charset='.$charset);
-} elseif (0 === strpos($headers->get('Content-Type'),'text/') && false === strpos($headers->get('Content-Type'),'charset')) {
+} elseif (0 === stripos($headers->get('Content-Type'),'text/') && false === stripos($headers->get('Content-Type'),'charset')) {
 $headers->set('Content-Type', $headers->get('Content-Type').'; charset='.$charset);
 }
 if ($headers->has('Transfer-Encoding')) {
@@ -1261,8 +1312,16 @@ $previous = null;
 $obStatus = ob_get_status(1);
 while (($level = ob_get_level()) > 0 && $level !== $previous) {
 $previous = $level;
-if ($obStatus[$level - 1] && isset($obStatus[$level - 1]['del']) && $obStatus[$level - 1]['del']) {
+if ($obStatus[$level - 1]) {
+if (version_compare(PHP_VERSION,'5.4','>=')) {
+if (isset($obStatus[$level - 1]['flags']) && ($obStatus[$level - 1]['flags'] & PHP_OUTPUT_HANDLER_REMOVABLE)) {
 ob_end_flush();
+}
+} else {
+if (isset($obStatus[$level - 1]['del']) && $obStatus[$level - 1]['del']) {
+ob_end_flush();
+}
+}
 }
 }
 flush();
@@ -1811,6 +1870,7 @@ public function __construct(ParameterBagInterface $parameterBag = null)
 {
 $this->parameterBag = null === $parameterBag ? new ParameterBag() : $parameterBag;
 $this->services = array();
+$this->aliases = array();
 $this->scopes = array();
 $this->scopeChildren = array();
 $this->scopedServices = array();
@@ -1858,20 +1918,34 @@ $this->services[$id] = $service;
 if (method_exists($this, $method ='synchronize'.strtr($id, array('_'=>'','.'=>'_')).'Service')) {
 $this->$method();
 }
+if (self::SCOPE_CONTAINER !== $scope && null === $service) {
+unset($this->scopedServices[$scope][$id]);
+}
+if (null === $service) {
+unset($this->services[$id]);
+}
 }
 public function has($id)
 {
 $id = strtolower($id);
-return array_key_exists($id, $this->services) || method_exists($this,'get'.strtr($id, array('_'=>'','.'=>'_')).'Service');
+return isset($this->services[$id])
+|| array_key_exists($id, $this->services)
+|| isset($this->aliases[$id])
+|| method_exists($this,'get'.strtr($id, array('_'=>'','.'=>'_')).'Service')
+;
 }
 public function get($id, $invalidBehavior = self::EXCEPTION_ON_INVALID_REFERENCE)
 {
+foreach (array(false, true) as $strtolower) {
+if ($strtolower) {
 $id = strtolower($id);
+}
 if (isset($this->aliases[$id])) {
 $id = $this->aliases[$id];
 }
-if (array_key_exists($id, $this->services)) {
+if (isset($this->services[$id]) || array_key_exists($id, $this->services)) {
 return $this->services[$id];
+}
 }
 if (isset($this->loading[$id])) {
 throw new ServiceCircularReferenceException($id, array_keys($this->loading));
@@ -1913,7 +1987,8 @@ return $service;
 }
 public function initialized($id)
 {
-return array_key_exists(strtolower($id), $this->services);
+$id = strtolower($id);
+return isset($this->services[$id]) || array_key_exists($id, $this->services);
 }
 public function getServiceIds()
 {
@@ -2007,7 +2082,7 @@ return isset($this->scopedServices[$name]);
 }
 public static function camelize($id)
 {
-return preg_replace_callback('/(^|_|\.)+(.)/', function ($match) { return ('.'=== $match[1] ?'_':'').strtoupper($match[2]); }, $id);
+return strtr(ucwords(strtr($id, array('_'=>' ','.'=>'_ '))), array(' '=>''));
 }
 public static function underscore($id)
 {
@@ -2097,13 +2172,12 @@ protected $debug;
 protected $booted;
 protected $name;
 protected $startTime;
-protected $classes;
 protected $loadClassCache;
-const VERSION ='2.3.1';
-const VERSION_ID ='20301';
+const VERSION ='2.3.7';
+const VERSION_ID ='20307';
 const MAJOR_VERSION ='2';
 const MINOR_VERSION ='3';
-const RELEASE_VERSION ='1';
+const RELEASE_VERSION ='7';
 const EXTRA_VERSION ='';
 public function __construct($environment, $debug)
 {
@@ -2112,7 +2186,6 @@ $this->debug = (Boolean) $debug;
 $this->booted = false;
 $this->rootDir = $this->getRootDir();
 $this->name = $this->getName();
-$this->classes = array();
 $this->bundles = array();
 if ($this->debug) {
 $this->startTime = microtime(true);
@@ -2847,7 +2920,6 @@ return (string) $var;
 namespace Symfony\Component\HttpKernel\DependencyInjection
 {
 use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\HttpKernelInterface;
 use Symfony\Component\HttpKernel\HttpKernel;
 use Symfony\Component\HttpKernel\Controller\ControllerResolverInterface;
