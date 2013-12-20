@@ -16,10 +16,6 @@ Also, [bower](https://github.com/bower/bower) & [grunt](http://gruntjs.com/) are
     # Install all NodeJS dependency
     sudo npm install
 
-To deploy you need capifony
-
-    cap production deploy
-
 Translations
 ------------
 
@@ -61,7 +57,7 @@ Easy development
 Production deployment
 ---------------------
 
-Simply use capifony 
+To deploy you need capifony which can be installed with **gem** ruby tool `$ gem install capifony`
 
     cap production deploy
 
