@@ -11,6 +11,7 @@ Also, [bower](https://github.com/bower/bower) & [grunt](http://gruntjs.com/) are
 
     # See grunt "Getting Started" : http://gruntjs.com/getting-started#installing-the-cli
     sudo npm install -g grunt-cli
+    sudo npm install -g bower
 
     # Install all NodeJS dependency
     sudo npm install
@@ -39,6 +40,10 @@ Using [glyphicons](http://glyphicons.com/) & [font-awesome](http://fortawesome.g
 
 Deploy assets
 -------------
+Download client dependencies
+    
+    bower install
+
 Symlink assets from bundles & application to web/
 
     php app/console assets:install --symlink && grunt symlink
