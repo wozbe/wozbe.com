@@ -17,7 +17,7 @@ class AppKernel extends Kernel
             new Doctrine\Bundle\DoctrineBundle\DoctrineBundle(),
             new Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle(),
             new Wozbe\PageBundle\WozbePageBundle(),
-            new Armetiz\RedirectBundle\ArmetizRedirectBundle(),
+            new Wozbe\RedirectBundle\WozbeRedirectBundle(),
             new JMS\TranslationBundle\JMSTranslationBundle(),
             new JMS\SecurityExtraBundle\JMSSecurityExtraBundle(),
             new JMS\DiExtraBundle\JMSDiExtraBundle($this),
