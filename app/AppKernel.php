@@ -5,6 +5,14 @@ use Symfony\Component\Config\Loader\LoaderInterface;
 
 class AppKernel extends Kernel
 {
+    private $options = array();
+
+    public function __construct($environment, $debug, array $options = array())
+    {
+        parent::__construct($environment, $debug);
+        $this->options = array_merge_recursive($this->options, $options);
+    }
+
     public function registerBundles()
     {
         $bundles = array(
@@ -40,5 +48,39 @@ class AppKernel extends Kernel
     public function registerContainerConfiguration(LoaderInterface $loader)
     {
         $loader->load(__DIR__.'/config/config_'.$this->getEnvironment().'.yml');
+    }
+
+    public function getCacheDir()
+    {
+        if (isset($this->options['cache_dir'])) {
+            $cacheDir = $this->options['cache_dir'];
+        } else {
+            $cacheDir = parent::getCacheDir();
+        }
+
+        return $cacheDir;
+
+        if (in_array($this->environment, array('dev', 'test'))) {
+            return '/dev/shm/symfony/cache/' .  $this->environment;
+        }
+
+        return parent::getCacheDir();
+    }
+
+    public function getLogDir()
+    {
+        if (isset($this->options['log_dir'])) {
+            $cacheDir = $this->options['log_dir'];
+        } else {
+            $cacheDir = parent::getLogDir();
+        }
+
+        return $cacheDir;
+
+        if (in_array($this->environment, array('dev', 'test'))) {
+            return '/dev/shm/symfony/logs';
+        }
+
+        return parent::getLogDir();
     }
 }

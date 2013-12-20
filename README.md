@@ -22,7 +22,6 @@ To deploy you need capifony
 
 Translations
 ------------
-
 Extract translations using JMS
 
     php app/console translation:extract en --config=app
@@ -46,7 +45,7 @@ Download client dependencies
 
 Symlink assets from bundles & application to web/
 
-    php app/console assets:install --symlink && grunt symlink
+    php app/console assets:install && grunt assets:install
 
 Make a first pass to compile assets
 
@@ -60,12 +59,50 @@ Easy development
 
 Production deployment
 ---------------------
-
 Simply use capifony 
 
     cap production deploy
 
 This will do all the deployment jobs : clone repository, install dependencies, compiled assets ...
+
+
+Vagrant
+-------
+This application is runnable using vagrant
+
+Local requirements
+
+* Vagrant
+* VirtualBox
+* Internet connection
+
+Configure the vagrant environment.
+
+```bash
+$ git submodule init
+$ git submodule update
+$ cp vagrant/config.yml.dist vagrant/config.yml
+$ vim vagrant/config.yml # Choose private IP
+$ vagrant up
+```
+
+Now VM is running, install latest requirement fixtures
+
+```bash
+$ vagrant ssh
+$ cd /vagrant
+$ app/console doctrine:database:create
+$ app/console doctrine:schema:update --force
+$ app/console wozbe:install -d
+```
+
+Because we use /dev/shm instead of NFS folder to store symfony logs and caches,
+Fix permissions.
+
+```bash
+$ sudo setfacl -R -m u:www-data:rwX -m u:`whoami`:rwX /dev/shm/symfony/
+$ sudo setfacl -dR -m u:www-data:rwx -m u:`whoami`:rwx /dev/shm/symfony/
+```
 
 License
 -------

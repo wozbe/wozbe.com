@@ -26,6 +26,8 @@ app/config/parameters.yml
 composer.phar
 composer.lock
 
+vagrant/config.yml
+.vagrant/
 *.swp
 *~
 *DS_Store
