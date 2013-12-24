@@ -18,6 +18,15 @@ if File.exist?(config_file)
     local_config.merge!(YAML.load_file(config_file))
 end
 
+$script = <<SCRIPT
+php /vagrant/app/console doctrine:database:create
+php /vagrant/app/console doctrine:schema:update --force
+php /vagrant/app/console wozbe:install --default
+
+setfacl -R -m u:www-data:rwX -m u:`whoami`:rwX /dev/shm/symfony/
+setfacl -dR -m u:www-data:rwx -m u:`whoami`:rwx /dev/shm/symfony/
+SCRIPT
+
 Vagrant.configure("2") do |config|
   # Use major codename to allow consistent upgrade
   config.vm.box = "vagrantes-debian-wheezy-x64"
@@ -31,6 +40,8 @@ Vagrant.configure("2") do |config|
       puppet.manifest_file  = "vagrant.pp"
       puppet.module_path    = "vagrant/provisioning/puppet/modules"
   end
+
+  config.vm.provision "shell", inline: $script
 
   config.vm.provider :virtualbox do |vb|
       # This two statements aim to speed up network (empiric)

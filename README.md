@@ -85,23 +85,7 @@ $ vim vagrant/config.yml # Choose private IP
 $ vagrant up
 ```
 
-Now VM is running, install latest requirement fixtures
-
-```bash
-$ vagrant ssh
-$ cd /vagrant
-$ app/console doctrine:database:create
-$ app/console doctrine:schema:update --force
-$ app/console wozbe:install -d
-```
-
-Because we use /dev/shm instead of NFS folder to store symfony logs and caches,
-Fix permissions.
-
-```bash
-$ sudo setfacl -R -m u:www-data:rwX -m u:`whoami`:rwX /dev/shm/symfony/
-$ sudo setfacl -dR -m u:www-data:rwx -m u:`whoami`:rwx /dev/shm/symfony/
-```
+Now VM is running and configured. You could create an entry inside the `/etc/hosts` file to bind **wozbe.dev** to this VM.
 
 License
 -------
