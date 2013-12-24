@@ -23,7 +23,7 @@ php /vagrant/app/console doctrine:database:create
 php /vagrant/app/console doctrine:schema:update --force
 php /vagrant/app/console wozbe:install --default
 
-if [ ! -d /dev/shm/symfony/ ]; then ]
+if [ ! -d /dev/shm/symfony/ ]; then
     mkdir /dev/shm/symfony/
 fi
 
