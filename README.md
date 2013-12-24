@@ -43,7 +43,7 @@ Download client dependencies
 
 Symlink assets from bundles & application to web/
 
-    php app/console assets:install && grunt assets:install
+    php app/console assets:install --symlink --relative && grunt assets:install
 
 Make a first pass to compile assets
 

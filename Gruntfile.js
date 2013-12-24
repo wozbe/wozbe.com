@@ -8,7 +8,9 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-uglify');
   
   grunt.file.mkdir('app/Resources/public/images/');
-  
+
+  // properties are css files
+  // values are less files
   var filesLess = {};
   
   // LESS Files management
@@ -27,7 +29,7 @@ module.exports = function(grunt) {
     // Why value.src is an array ??
     filesLess[value.dest] = value.src[0];
   });
-  
+
   // Project configuration.
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
@@ -37,24 +39,26 @@ module.exports = function(grunt) {
         files: filesLess
       }
     },
-    copy: {
+    symlink: {
       bootstrap_glyphicons_white: {
-        src: 'web/vendor/bootstrap/img/glyphicons-halflings-white.png',
-        dest: 'app/Resources/public/images/glyphicons-halflings-white.png'
+        relativeSrc: '../../../../web/vendor/bootstrap/img/glyphicons-halflings-white.png',
+        dest: 'app/Resources/public/images/glyphicons-halflings-white.png',
+        options: {type: 'file'}
       },
       bootstrap_glyphicons: {
-        src: 'web/vendor/bootstrap/img/glyphicons-halflings.png',
-        dest: 'app/Resources/public/images/glyphicons-halflings.png'
+        relativeSrc: '../../../../web/vendor/bootstrap/img/glyphicons-halflings.png',
+        dest: 'app/Resources/public/images/glyphicons-halflings.png',
+        options: {type: 'file'}
       },
       font_awesome: {
-        src: 'web/vendor/font-awesome/font/',
-        dest: 'app/Resources/public/fonts/awesome'
+        relativeSrc: '../../../../web/vendor/font-awesome/font/',
+        dest: 'app/Resources/public/fonts/awesome',
+        options: {type: 'dir'}
       },
       app: {
-        expand: true,
-        cwd: 'app/Resources/public/',
-        src: '**',
-        dest: 'web/bundles/app/'
+        relativeSrc: '../../app/Resources/public/',
+        dest: 'web/bundles/app',
+        options: {type: 'dir'}
       }
     },
     concat: {
@@ -135,6 +139,5 @@ module.exports = function(grunt) {
   grunt.registerTask('default', ['css', 'javascript']);
   grunt.registerTask('css', ['less']);
   grunt.registerTask('javascript', ['jshint', 'concat', 'uglify']);
-  grunt.registerTask('assets:install', ['copy']);
-
+  grunt.registerTask('assets:install', ['symlink']);
 };
