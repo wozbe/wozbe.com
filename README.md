@@ -1,5 +1,7 @@
-[![Wozbe](http://wozbe.com/bundles/app/images/logo-wozbe-full-alpha.png)](http://wozbe.com)
+Wozbe
 =====
+
+[![Wozbe](http://wozbe.com/bundles/app/images/logo-wozbe-full-alpha.png)](http://wozbe.com)
 
 [![Build Status](https://api.travis-ci.org/wozbe/wozbe.com.png)](http://travis-ci.org/#!/wozbe/wozbe.com)
 
@@ -55,12 +57,8 @@ Easy development
 
 Production deployment
 ---------------------
-<<<<<<< HEAD
 
 To deploy you need capifony which can be installed with **gem** ruby tool `$ gem install capifony`
-=======
-Simply use capifony 
->>>>>>> vagrant
 
     cap production deploy
 
