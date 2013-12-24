@@ -23,6 +23,10 @@ php /vagrant/app/console doctrine:database:create
 php /vagrant/app/console doctrine:schema:update --force
 php /vagrant/app/console wozbe:install --default
 
+if [ ! -d /dev/shm/symfony/ ]; then ]
+    mkdir /dev/shm/symfony/
+fi
+
 setfacl -R -m u:www-data:rwX -m u:`whoami`:rwX /dev/shm/symfony/
 setfacl -dR -m u:www-data:rwx -m u:`whoami`:rwx /dev/shm/symfony/
 SCRIPT
