@@ -23,7 +23,7 @@ Also, [bower](https://github.com/bower/bower), [grunt](http://gruntjs.com/) & [c
     bower install
     
     # Install all PHP dependencies
-    composer install --dev
+    composer install --dev --no-interaction
 
 Translations
 ------------
