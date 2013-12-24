@@ -7,16 +7,23 @@ Wozbe
 
 Requirement
 -----------
-To develop you need NodeJS & NPM on your system.
+To develop you need NodeJS, NPM & PHP on your system.
 
-Also, [bower](https://github.com/bower/bower) & [grunt](http://gruntjs.com/) are required.
+Also, [bower](https://github.com/bower/bower), [grunt](http://gruntjs.com/) & [composer](http://getcomposer.org/)are required.
 
-    # See grunt "Getting Started" : http://gruntjs.com/getting-started#installing-the-cli
-    sudo npm install -g grunt-cli
+    sudo npm install -g grunt-cli # See grunt "Getting Started" : http://gruntjs.com/getting-started#installing-the-cli
     sudo npm install -g bower
+    curl -sS https://getcomposer.org/installer | php
+    
 
-    # Install all NodeJS dependency
+    # Install all NodeJS dependencies
     sudo npm install
+    
+    # Install all client dependencies
+    bower install
+    
+    # Install all PHP dependencies
+    composer install --dev
 
 Translations
 ------------
@@ -37,10 +44,6 @@ Using [glyphicons](http://glyphicons.com/) & [font-awesome](http://fortawesome.g
 
 Deploy assets
 -------------
-Download client dependencies
-    
-    bower install
-
 Symlink assets from bundles & application to web/
 
     php app/console assets:install --symlink --relative && grunt assets:install
@@ -86,6 +89,10 @@ $ vagrant up
 ```
 
 Now VM is running and configured. You could create an entry inside the `/etc/hosts` file to bind **wozbe.dev** to this VM.
+
+```bash
+$ open http://wozbe.dev
+```
 
 License
 -------
