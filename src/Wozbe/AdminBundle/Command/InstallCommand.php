@@ -72,7 +72,7 @@ class InstallCommand extends ContainerAwareCommand
             $configurationManager->set($name, $value);
         }
         
-        $output->writeln('done!');
+        $output->writeln('Wozbe install done!');
     }
     
     protected function getDialogHelper()
