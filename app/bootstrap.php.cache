@@ -700,10 +700,9 @@ return array($ip);
 }
 $clientIps = array_map('trim', explode(',', $this->headers->get(self::$trustedHeaders[self::HEADER_CLIENT_IP])));
 $clientIps[] = $ip;
-$trustedProxies = !self::$trustedProxies ? array($ip) : self::$trustedProxies;
 $ip = $clientIps[0];
 foreach ($clientIps as $key => $clientIp) {
-if (IpUtils::checkIp($clientIp, $trustedProxies)) {
+if (IpUtils::checkIp($clientIp, self::$trustedProxies)) {
 unset($clientIps[$key]);
 }
 }
@@ -2082,7 +2081,7 @@ return isset($this->scopedServices[$name]);
 }
 public static function camelize($id)
 {
-return strtr(ucwords(strtr($id, array('_'=>' ','.'=>'_ '))), array(' '=>''));
+return strtr(ucwords(strtr($id, array('_'=>' ','.'=>'_ ','\\'=>'_ '))), array(' '=>''));
 }
 public static function underscore($id)
 {
@@ -2173,11 +2172,11 @@ protected $booted;
 protected $name;
 protected $startTime;
 protected $loadClassCache;
-const VERSION ='2.3.7';
-const VERSION_ID ='20307';
+const VERSION ='2.3.8';
+const VERSION_ID ='20308';
 const MAJOR_VERSION ='2';
 const MINOR_VERSION ='3';
-const RELEASE_VERSION ='7';
+const RELEASE_VERSION ='8';
 const EXTRA_VERSION ='';
 public function __construct($environment, $debug)
 {
@@ -2399,7 +2398,8 @@ $directChildren[$parentName] = $name;
 $topMostBundles[$name] = $bundle;
 }
 }
-if (count($diff = array_values(array_diff(array_keys($directChildren), array_keys($this->bundles))))) {
+if (!empty($directChildren) && count($diff = array_diff_key($directChildren, $this->bundles))) {
+$diff = array_keys($diff);
 throw new \LogicException(sprintf('Bundle "%s" extends bundle "%s", which is not registered.', $directChildren[$diff[0]], $diff[0]));
 }
 $this->bundleMap = array();
@@ -2518,7 +2518,7 @@ $dumper->setProxyDumper(new ProxyDumper());
 }
 $content = $dumper->dump(array('class'=> $class,'base_class'=> $baseClass));
 if (!$this->debug) {
-$content = self::stripComments($content);
+$content = static::stripComments($content);
 }
 $cache->write($content, $container->getResources());
 }

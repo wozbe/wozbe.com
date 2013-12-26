@@ -188,9 +188,25 @@ blockquote {
 }
 
 @font-face {
-  .fontFace('reeniebeanie', "{@fontFolder}'reeniebeanie-webfont'");
+  @fontPath: '../../../bundles/app/fonts/reeniebeanie-webfont';
+  font-family: 'reeniebeanie';
+  src: url('@{fontPath}.eot');
+  src: url('@{fontPath}.eot?#iefix') format('embedded-opentype'),
+    url('@{fontPath}.woff') format('woff'),
+    url('@{fontPath}.ttf') format('truetype'),
+    url('@{fontPath}.svg#reenie_beanieregular') format('svg');
+  font-weight: normal;
+  font-style: normal;
 }
 
 @font-face {
-  .fontFace('righteous', "{@fontFolder}'righteous-regular-webfont'");
+  @fontPath: '../../../bundles/app/fonts/righteous-regular-webfont';
+  font-family: 'righteous';
+  src: url('@{fontPath}.eot');
+  src: url('@{fontPath}.eot?#iefix') format('embedded-opentype'),
+  url('@{fontPath}.woff') format('woff'),
+  url('@{fontPath}.ttf') format('truetype'),
+  url('@{fontPath}.svg#reenie_beanieregular') format('svg');
+  font-weight: normal;
+  font-style: normal;
 }

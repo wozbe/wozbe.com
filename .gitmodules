@@ -1,0 +1,24 @@
+[submodule "vagrant/provisioning/puppet/modules/ntp"]
+	path = vagrant/provisioning/puppet/modules/ntp
+	url = https://github.com/puppetlabs/puppetlabs-ntp.git
+[submodule "vagrant/provisioning/puppet/modules/motd"]
+	path = vagrant/provisioning/puppet/modules/motd
+	url = https://github.com/puppetlabs/puppetlabs-motd
+[submodule "vagrant/provisioning/puppet/modules/concat"]
+	path = vagrant/provisioning/puppet/modules/concat
+	url = https://github.com/puppetlabs/puppetlabs-concat
+[submodule "vagrant/provisioning/puppet/modules/apache"]
+	path = vagrant/provisioning/puppet/modules/apache
+	url = https://github.com/puppetlabs/puppetlabs-apache
+[submodule "vagrant/provisioning/puppet/modules/stdlib"]
+	path = vagrant/provisioning/puppet/modules/stdlib
+	url = https://github.com/puppetlabs/puppetlabs-stdlib
+[submodule "vagrant/provisioning/puppet/modules/apt"]
+	path = vagrant/provisioning/puppet/modules/apt
+	url = https://github.com/puppetlabs/puppetlabs-apt
+[submodule "vagrant/provisioning/puppet/modules/wozbe"]
+	path = vagrant/provisioning/puppet/modules/wozbe
+	url = https://github.com/wozbe/puppet-wozbe.git
+[submodule "vagrant/provisioning/puppet/modules/mysql"]
+	path = vagrant/provisioning/puppet/modules/mysql
+	url = https://github.com/puppetlabs/puppetlabs-mysql.git

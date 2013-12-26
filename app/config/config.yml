@@ -51,7 +51,7 @@ swiftmailer:
     password:  %mailer_password%
     spool:     { type: memory }
 
-armetiz_redirect:
+wozbe_redirect:
     domains:
         wozbe.com:
             aliases:
