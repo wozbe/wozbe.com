@@ -26,8 +26,8 @@ $kernelOptions = array();
 
 // Uncomment the following to use the shared memory and speed vms
 $kernelOptions = array(
-    'cache_dir' => '/dev/shm/symfony/cache/',
-    'log_dir'   => '/dev/shm/symfony/logs/',
+    'cache_dir' => sprintf('/dev/shm/%s/cache/', $_SERVER['SERVER_NAME']),
+    'log_dir'   => sprintf('/dev/shm/%s/logs/', $_SERVER['SERVER_NAME']),
 );
 
 $kernel = new AppKernel('dev', true, $kernelOptions);
