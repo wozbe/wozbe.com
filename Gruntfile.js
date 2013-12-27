@@ -13,23 +13,6 @@ module.exports = function(grunt) {
   // values are less files
   var filesLess = {};
   
-  // LESS Files management
-  // Source LESS files are located inside : bundles/[bundle]/less/
-  // Destination CSS files are located inside : built/[bundle]/css/
-  var mappingFileLess = grunt.file.expandMapping(
-    ['*/less/*.less', '*/less/*/*.less'], 
-    'web/built/', {
-      cwd: 'web/bundles/',
-      rename: function(dest, matchedSrcPath, options) {
-        return dest + matchedSrcPath.replace(/less/g, 'css');
-      }
-    });
-    
-  grunt.util._.each(mappingFileLess, function(value) {
-    // Why value.src is an array ??
-    filesLess[value.dest] = value.src[0];
-  });
-
   // Project configuration.
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
@@ -136,9 +119,27 @@ module.exports = function(grunt) {
   });
 
   // Default task(s).
-  grunt.registerTask('default', ['css', 'javascript']);
+  grunt.registerTask('default', ['less:discovering', 'css', 'javascript']);
   grunt.registerTask('css', ['less']);
   grunt.registerTask('javascript', ['jshint', 'concat', 'uglify']);
   grunt.registerTask('assets:install', ['symlink']);
   grunt.registerTask('deploy', ['assets:install', 'default']);
+  grunt.registerTask('less:discovering', 'This is a function', function() {
+    // LESS Files management
+    // Source LESS files are located inside : bundles/[bundle]/less/
+    // Destination CSS files are located inside : built/[bundle]/css/
+    var mappingFileLess = grunt.file.expandMapping(
+      ['*/less/*.less', '*/less/*/*.less'],
+      'web/built/', {
+        cwd: 'web/bundles/',
+        rename: function(dest, matchedSrcPath, options) {
+          return dest + matchedSrcPath.replace(/less/g, 'css');
+        }
+      });
+
+    grunt.util._.each(mappingFileLess, function(value) {
+      // Why value.src is an array ??
+      filesLess[value.dest] = value.src[0];
+    });
+  });
 };
