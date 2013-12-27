@@ -1,0 +1,19 @@
+namespace :wozbe do
+  desc 'Install wozbe fixtures'
+  task :install do
+    invoke 'symfony:run', :'wozbe:install', fetch(:wozbe_install_flags)
+  end
+
+  desc 'Install robots.txt'
+  task :robots do
+    on roles(:web) do
+      upload! "#{fetch(:upload_files_path)}robots_#{fetch(:stage)}.txt", "#{release_path}/web/robots.txt"
+    end
+  end
+end
+
+namespace :load do
+  task :defaults do
+    set :wozbe_install_flags, '--default'
+  end
+end

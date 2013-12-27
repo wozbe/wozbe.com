@@ -1,0 +1,23 @@
+namespace :cache do
+  namespace :pagespeed do
+    desc 'Flush the mod_pagespeed cache'
+    task :flush do
+      on roles(:web) do
+        as :root do
+          execute :touch, '/var/cache/mod_pagespeed/cache.flush'
+        end
+      end
+    end
+  end
+
+  namespace :varnish do
+    desc 'Varnish restart'
+    task :restart do
+      on roles(:web) do
+        as :root do
+          execute :service, :varnish, :restart
+        end
+      end
+    end
+  end
+end
