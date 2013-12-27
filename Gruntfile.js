@@ -140,4 +140,5 @@ module.exports = function(grunt) {
   grunt.registerTask('css', ['less']);
   grunt.registerTask('javascript', ['jshint', 'concat', 'uglify']);
   grunt.registerTask('assets:install', ['symlink']);
+  grunt.registerTask('deploy', ['assets:install', 'default']);
 };
