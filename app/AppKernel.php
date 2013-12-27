@@ -59,12 +59,6 @@ class AppKernel extends Kernel
         }
 
         return $cacheDir;
-
-        if (in_array($this->environment, array('dev', 'test'))) {
-            return '/dev/shm/symfony/cache/' .  $this->environment;
-        }
-
-        return parent::getCacheDir();
     }
 
     public function getLogDir()
@@ -76,11 +70,5 @@ class AppKernel extends Kernel
         }
 
         return $cacheDir;
-
-        if (in_array($this->environment, array('dev', 'test'))) {
-            return '/dev/shm/symfony/logs';
-        }
-
-        return parent::getLogDir();
     }
 }
