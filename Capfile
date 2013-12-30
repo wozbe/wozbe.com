@@ -11,7 +11,7 @@ require 'capistrano/composer'
 require 'capistrano/npm'
 require 'capistrano/bower'
 require 'capistrano/grunt'
-require 'capistrano/symfony'
+# ruire 'capistrano/symfony'
 
 # Loads custom tasks from `lib/capistrano/tasks' if you have any defined.
 Dir.glob('capistrano/tasks/*.cap').each { |r| import r }

@@ -1,0 +1,40 @@
+namespace :symfony do
+  task :run, :command do |t, args|
+      args.with_defaults(:command => :list)
+      on roles fetch(:symfony_roles) do
+        within release_path do
+          execute :php, release_path.join('app/console'), args[:command], *args.extras
+        end
+      end
+    end
+  namespace :assets do
+    desc 'Symfony assets deployment'
+    task :install do
+      invoke 'symfony:run', :'assets:install', fetch(:symfony_assets_flags)
+    end
+  end
+  namespace :cache do
+    desc 'Clears the cache'
+    task :clear do
+      puts 'Hello form block 6'
+      invoke 'symfony:run', :'cache:clear', fetch(:symfony_cache_clear_flags)
+    end
+    desc 'Warms up an empty cache'
+    task :warmup do
+      invoke 'symfony:run', 'cache:warmup', fetch(:symfony_cache_warmup_flags)
+    end
+  end
+
+  before 'deploy:published', 'symfony:cache:warmup'
+  # after 'deploy:updated', 'symfony:cache:warmup'
+end
+
+namespace :load do
+  task :defaults do
+    set :symfony_roles, :all
+    set :symfony_default_flags, '--no-interaction --env=prod'
+    set :symfony_assets_flags, fetch(:symfony_default_flags)
+    set :symfony_cache_clear_flags, fetch(:symfony_default_flags)
+    set :symfony_cache_warmup_flags, fetch(:symfony_default_flags)
+  end
+end
