@@ -119,8 +119,8 @@ module.exports = function(grunt) {
   });
 
   // Default task(s).
-  grunt.registerTask('default', ['less:discovering', 'css', 'javascript']);
-  grunt.registerTask('css', ['less']);
+  grunt.registerTask('default', ['css', 'javascript']);
+  grunt.registerTask('css', ['less:discovering', 'less']);
   grunt.registerTask('javascript', ['jshint', 'concat', 'uglify']);
   grunt.registerTask('assets:install', ['symlink']);
   grunt.registerTask('deploy', ['assets:install', 'default']);
