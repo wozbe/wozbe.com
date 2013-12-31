@@ -28,6 +28,9 @@
         "knplabs/knp-markdown-bundle": "~1.2",
         "easybook/geshi": "~1.0.8.11"
     },
+    "require-dev": {
+        "phpunit/phpunit": "3.7.*"
+    },
     "scripts": {
         "post-install-cmd": [
             "Incenteev\\ParameterHandler\\ScriptHandler::buildParameters",
