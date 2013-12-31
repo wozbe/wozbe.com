@@ -10,7 +10,7 @@ set :format, :pretty
 # set :log_level, :info
 set :log_level, :debug
 
-set :composer_install_flags, '--no-dev --prefer-dist --no-interaction --optimize-autoloader'
+set :composer_install_flags, '--dev --prefer-dist --no-interaction --optimize-autoloader'
 
 set :linked_files, %w{app/config/parameters.yml}
 set :linked_dirs, %w{app/logs web/uploads}

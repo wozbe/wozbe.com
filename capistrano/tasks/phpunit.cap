@@ -1,0 +1,8 @@
+namespace :phpunit do
+  desc 'Run PHPUnit'
+  task :run do
+    within release_path do
+      execute :php, release_path.join('bin/phpunit'), :'assets:install', fetch(:symfony_assets_flags)
+    end
+  end
+end

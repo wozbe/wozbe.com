@@ -1,6 +1,6 @@
 GIT
   remote: git://github.com/capistrano/capistrano.git
-  revision: f5b09a197e616de472916a6b1399f10ab4cbf6c5
+  revision: 6ec76bc9b1e6404f8781d740f44e8247ab4d0bd7
   branch: master
   specs:
     capistrano (3.1.0)
