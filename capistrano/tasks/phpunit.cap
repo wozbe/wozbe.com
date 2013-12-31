@@ -1,8 +1,12 @@
 namespace :phpunit do
   desc 'Run PHPUnit'
   task :run do
-    within release_path do
-      execute :php, release_path.join('bin/phpunit'), :'assets:install', fetch(:symfony_assets_flags)
+    invoke 'symfony:run', :'doctrine:schema:update', '--env=test --force'
+    invoke 'symfony:run', :'wozbe:install', '--env=test --default'
+    on roles(:web) do
+      within release_path do
+        execute :php, release_path.join('bin/phpunit'), '-c app/'
+      end
     end
   end
 end

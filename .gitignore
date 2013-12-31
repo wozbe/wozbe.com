@@ -1,3 +1,5 @@
+bin/phpunit
+
 # Bootstrap
 app/bootstrap*
 
