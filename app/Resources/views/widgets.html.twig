@@ -12,5 +12,8 @@
   {% else %}
     <button class="btn btn-large btn-warning" type="button"><i class="icon-envelope"></i> {{ config('page.email') }}</button>
   {% endif %}
-  
+{% endmacro %}
+
+{% macro button_contact() %}
+    <a href="{{ url('wozbe_contact') }}"><button class="btn btn-large btn-warning" type="button"><i class="icon-envelope"></i> {{ 'contact'|trans }}</button></a>
 {% endmacro %}
