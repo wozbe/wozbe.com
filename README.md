@@ -36,7 +36,7 @@ $ php app/console translation:extract en --config=app
 $ php app/console translation:extract fr --config=app
 ```
 
-Update translations using JMS WebUI : **http://wozbe.local/_trans/**
+Update translations using JMS WebUI : **http://wozbe.dev/_trans/**
 
 Assets
 ------
