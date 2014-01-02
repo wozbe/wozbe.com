@@ -41,11 +41,13 @@ class PostController extends Controller
     public function postAction(Post $post)
     {
         $comments = $this->getDoctrine()->getRepository('WozbeBlogBundle:Comment')->findByPost($post);
-        
+
+        // TODO
         $post_content = str_replace('{{ site.url }}', 'http://localhost/Wozbe/bundles/wozbeblog/', $post->getContent());
         
         return array(
             'post' => $post,
+            'post_description' => $post->getDescription(),
             'post_content' => $post_content,
             'comments' => $comments,
         );
