@@ -11,26 +11,30 @@ To develop you need NodeJS, NPM & PHP on your system.
 
 Also, [bower](https://github.com/bower/bower), [grunt](http://gruntjs.com/) & [composer](http://getcomposer.org/) are required.
 
-    sudo npm install -g grunt-cli # See grunt "Getting Started" : http://gruntjs.com/getting-started#installing-the-cli
-    sudo npm install -g bower
-    curl -sS https://getcomposer.org/installer | php
-    
+```bash
+$ sudo npm install -g grunt-cli # See grunt "Getting Started" : http://gruntjs.com/getting-started#installing-the-cli
+$ sudo npm install -g bower
+$ curl -sS https://getcomposer.org/installer | php
 
-    # Install all NodeJS dependencies
-    sudo npm install
-    
-    # Install all client dependencies
-    bower install
-    
-    # Install all PHP dependencies
-    composer install --dev --no-interaction
+
+# Install all NodeJS dependencies
+$ sudo npm install
+
+# Install all client dependencies
+$ bower install
+
+# Install all PHP dependencies
+$ composer install --dev --no-interaction
+```
 
 Translations
 ------------
 Extract translations using JMS
 
-    php app/console translation:extract en --config=app
-    php app/console translation:extract fr --config=app
+```bash
+$ php app/console translation:extract en --config=app
+$ php app/console translation:extract fr --config=app
+```
 
 Update translations using JMS WebUI : **http://wozbe.local/_trans/**
 
@@ -46,27 +50,46 @@ Deploy assets
 -------------
 Symlink assets from bundles & application to web/
 
-    php app/console assets:install --symlink --relative && grunt assets:install
+```bash
+$ php app/console assets:install --symlink --relative && grunt assets:install
+```
 
 Make a first pass to compile assets
 
-    grunt
+```bash
+$ grunt
+```
 
 Files are compiled on web/built/[bundle]/[type]/
 
 Easy development
 
-    grunt watch
+```bash
+$ grunt watch
+```
 
-Production deployment
----------------------
+More informations about [Symfony & Grunt & Bower](http://wozbe.com/fr/blog/2013-08-07-integration-grunt-et-bower-au-sein-application-symfony)
 
-To deploy you need capifony which can be installed with **gem** ruby tool `$ gem install capifony`
+Deployments
+-----------
 
-    cap production deploy
+Using Ruby, install **bundler** and capistrano dependencies.
+
+```bash
+$ gem install bundler
+$ bundle install
+```
+
+To deploy, just choose your environment.
+
+```bash
+$ bundle exec cap development deploy    # Deployed branch : development
+$ bundle exec cap production deploy     # Deployed branch : master
+```
 
 This will do all the deployment jobs : clone repository, install dependencies, compiled assets ...
 
+More informations about [Symfony & Capistrano](http://wozbe.com/fr/blog/2013-12-31-realiser-deploiement-automatique-application-symfony-avec-capistrano)
 
 Vagrant
 -------
