@@ -9,7 +9,7 @@ Requirement
 -----------
 To develop you need NodeJS, NPM & PHP on your system.
 
-Also, [bower](https://github.com/bower/bower), [grunt](http://gruntjs.com/) & [composer](http://getcomposer.org/)are required.
+Also, [bower](https://github.com/bower/bower), [grunt](http://gruntjs.com/) & [composer](http://getcomposer.org/) are required.
 
     sudo npm install -g grunt-cli # See grunt "Getting Started" : http://gruntjs.com/getting-started#installing-the-cli
     sudo npm install -g bower
