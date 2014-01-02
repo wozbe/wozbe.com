@@ -5,7 +5,7 @@
 <link rel="stylesheet" href="{{ asset('built/wozbeblog/css/post.css') }}" type="text/css"/>
 {% endblock %}
 
-{%  block title %}wozbe - Blog : {{ post.title }}{% endblock %}
+{%  block title %}Wozbe - Blog : {{ post.title }}{% endblock %}
 {%  block description %}{{ post_description|striptags }}{% endblock %}
 
 {% block head_canonical %}<link rel="canonical" href="{{ path(app.request.attributes.get('_route'), {slug: post.slug}) }}"/>{% endblock head_canonical %}
