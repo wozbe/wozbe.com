@@ -36,7 +36,7 @@ class FeedController extends Controller
         $channel = new Channel();
         $channel
             ->title("Wozbe")
-            ->description("Wozbe réalise vos produits & services Web en tenant compte de vos problématiques & objectifs business.")
+            ->description($this->get('translator')->trans('description'))
             ->url($this->generateUrl('wozbe_blog', array(), UrlGeneratorInterface::ABSOLUTE_URL))
             ->appendTo($feed);
 
