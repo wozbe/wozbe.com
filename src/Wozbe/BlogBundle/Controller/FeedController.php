@@ -22,7 +22,7 @@ use Wozbe\BlogBundle\Entity\Post;
 class FeedController extends Controller
 {
     /**
-     * @Route("/{_locale}/feed/rss", name="wozbe_feed_rss", defaults={"_format" = "xml"}, requirements={"_locale" = "fr"})
+     * @Route("/{_locale}/feed/rss", name="wozbe_blog_feed_rss", defaults={"_format" = "xml"}, requirements={"_locale" = "fr"})
      * @Method({"GET", "HEAD"})
      * @Cache(expires="+2 hours", public="true")
      */

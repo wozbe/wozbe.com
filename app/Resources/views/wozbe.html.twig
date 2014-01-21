@@ -19,6 +19,7 @@
 <meta property='og:type' content='website'/>
 <meta property='og:image' content='http://wozbe.com/bundles/app/images/logo-wozbe-letter.png' />
 
+<link rel="alternate" type="application/rss+xml"  href="{{ url('wozbe_blog_feed_rss') }}" title="Wozbe RSS">
 {% block head_canonical %}<link rel="canonical" href="{{ path(app.request.attributes.get('_route')) }}"/>{% endblock head_canonical %}
 {% endblock head_meta %}
 
