@@ -45,7 +45,8 @@ class FeedController extends Controller
             $item
                 ->title($post->getTitle())
                 ->description($post->getDescription())
-                ->url($this->generateUrl('wozbe_blog_post', array('slug' => $post->getSlug(), UrlGeneratorInterface::ABSOLUTE_URL)))
+                ->pubDate($post->getModifiedAt()->getTimestamp())
+                ->url($this->generateUrl('wozbe_blog_post', array('slug' => $post->getSlug()), UrlGeneratorInterface::ABSOLUTE_URL))
                 ->appendTo($channel);
         }
 
