@@ -3,7 +3,7 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "863ebb76916ec96212cd54e969ca2aab",
+    "hash": "ccd2cd50491983ea33bc1a38eff091f5",
     "packages": [
         {
             "name": "dflydev/markdown",
@@ -1731,6 +1731,51 @@
             ],
             "description": "This bundle generates code for you",
             "time": "2013-08-21 18:09:35"
+        },
+        {
+            "name": "suin/php-rss-writer",
+            "version": "1.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/suin/php-rss-writer.git",
+                "reference": "325d2313ebb5d4d76a8f69063bb00c5464ae32f0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/suin/php-rss-writer/zipball/325d2313ebb5d4d76a8f69063bb00c5464ae32f0",
+                "reference": "325d2313ebb5d4d76a8f69063bb00c5464ae32f0",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Suin\\RSSWriter": "Source"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Hidehito Nozawa aka Suin",
+                    "email": "suinyeze@gmail.com",
+                    "homepage": "https://www.facebook.com/suinyeze",
+                    "role": "Developer, Renaming Specialist"
+                }
+            ],
+            "description": "Yet another simple RSS writer library for PHP 5.3 or later.",
+            "homepage": "https://github.com/suin/php-rss-writer",
+            "keywords": [
+                "feed",
+                "generator",
+                "rss",
+                "writer"
+            ],
+            "time": "2012-08-23 07:45:18"
         },
         {
             "name": "swiftmailer/swiftmailer",

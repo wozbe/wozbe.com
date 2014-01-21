@@ -26,7 +26,8 @@
         "jms/security-extra-bundle": "~1.5",
         "presta/sitemap-bundle": "~1.2",
         "knplabs/knp-markdown-bundle": "~1.2",
-        "easybook/geshi": "~1.0.8.11"
+        "easybook/geshi": "~1.0.8.11",
+        "suin/php-rss-writer": "~1.2"
     },
     "require-dev": {
         "phpunit/phpunit": "3.7.*"
