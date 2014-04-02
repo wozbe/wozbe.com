@@ -51,7 +51,7 @@ class InstallCommand extends ContainerAwareCommand
             'page.phone' => array(
                 'question' => 'Phone number',
                 'type' => 'number',
-                'default' => '0953203344',
+                'default' => '0984444464',
             ),
         );
         
