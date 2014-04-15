@@ -12,6 +12,7 @@ web/bundles/*
 web/vendor/*
 web/built/*
 web/assets/*
+web/.htaccess
 node_modules/*
 backups/*
 

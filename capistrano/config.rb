@@ -21,6 +21,7 @@ set :grunt_tasks, 'deploy'
 set :bower_flags, '--quiet --allow-root'
 
 
+after 'deploy:updated', 'app:copy_htaccess'
 after 'deploy:updated', 'bower:install'
 after 'deploy:updated', 'wozbe:robots'
 after 'deploy:updated', 'wozbe:install'

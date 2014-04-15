@@ -1,0 +1,10 @@
+namespace :app do
+  desc "Copy htaccess"
+  task :copy_htaccess do
+    on roles(:web) do |host|
+      within release_path do
+        execute :cp, release_path.join('web/.htaccess.dist'), release_path.join('web/.htaccess')
+      end
+    end
+  end
+end
