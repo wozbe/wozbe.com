@@ -11,7 +11,7 @@
       <unique-constraint columns="slug"/>
     </unique-constraints>
     <field name="title" type="string" column="title" length="255" nullable="false"/>
-    <field name="description" type="string" column="description" length="255" nullable="true"/>
+    <field name="description" type="text" column="description" nullable="true"/>
     <field name="content" type="text" column="content" nullable="true"/>
     <field name="createdAt" type="datetime" column="created_at" nullable="false"/>
     <field name="modifiedAt" type="datetime" column="modified_at" nullable="false"/>

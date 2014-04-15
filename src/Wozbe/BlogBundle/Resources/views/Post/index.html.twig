@@ -12,9 +12,9 @@
 {% block content %}
 <h1>{{ 'our_blog_posts'|trans }}</h1>
 
-<div class="zone-references">
+<div class="zone-articles">
   {% for post in posts %}
-  <div class="reference">
+  <div class="article">
     <div class="title">
       <a href="{{ url('wozbe_blog_post', {slug: post.slug}) }}"><h2>{{ post.title|capitalize }}</h2></a>
       <hr />

@@ -6,9 +6,13 @@
     margin-top: 0;
   }
 
-  .zone-references {
-    .reference {
-      .boxedContent (300px);
+  .zone-articles {
+    .article {
+      padding: @boxPadding;
+
+      &:nth-child(n+2) {
+        border-top: @border;
+      }
     }
   }
 }
