@@ -20,3 +20,7 @@ web_profiler:
 
 swiftmailer:
     disable_delivery: true
+
+services:
+    wozbe_admin.manager.configuration:
+        alias: wozbe_admin.manager.configuration_dummy

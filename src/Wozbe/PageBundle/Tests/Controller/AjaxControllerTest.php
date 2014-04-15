@@ -9,17 +9,20 @@ class AjaxControllerTest extends WebTestCase
     public function testAjaxContact()
     {
         $client = static::createClient();
+        $client->getContainer()->get('wozbe_admin.manager.configuration')->set('page.email', 'contact@wozbe.com');
 
         // Submit a raw JSON string in the request body
         $client->request(
             'POST',
             '/ajax/contact',
+            array(
+                "email"     => "test@wozbe.com",
+                "message"   => "Hello World",
+            ),
             array(),
-            array(),
-            array('HTTP_X-Requested-With' => 'XMLHttpRequest'),
-            '{"email": "test@wozbe.com", "message": "Hello World"}'
+            array('HTTP_X-Requested-With' => 'XMLHttpRequest')
         );
-        
+
         $this->assertTrue($client->getResponse()->isSuccessful());
         $this->assertTrue($client->getResponse()->headers->contains(
                 'Content-Type',

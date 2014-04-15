@@ -1,16 +1,16 @@
 <?php
 namespace Wozbe\AdminBundle\Twig\Extension;
 
-use Wozbe\AdminBundle\Entity\ConfigurationManager;
+use Wozbe\AdminBundle\Entity\ConfigurationManagerInterface;
 
 class ConfigurationExtension extends \Twig_Extension
 {
     /**
-     * @var \Wozbe\AdminBundle\Entity\ConfigurationManager 
+     * @var \Wozbe\AdminBundle\Entity\ConfigurationManagerInterface
      */
     protected $configurationManager;
     
-    public function __construct(ConfigurationManager $configurationManager) 
+    public function __construct(ConfigurationManagerInterface $configurationManager)
     {
         $this->configurationManager = $configurationManager;
     }

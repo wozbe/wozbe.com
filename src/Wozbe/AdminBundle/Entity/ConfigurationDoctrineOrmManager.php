@@ -2,15 +2,12 @@
 
 namespace Wozbe\AdminBundle\Entity;
 
-use Wozbe\AdminBundle\Entity\Configuration;
-use Wozbe\AdminBundle\Entity\ConfigurationRepository;
-
 use Doctrine\Common\Persistence\ObjectManager;
 
 /**
  * ConfigurationManager
  */
-class ConfigurationManager
+class ConfigurationDoctrineOrmManager implements ConfigurationManagerInterface
 {
     /**
      * @var \Doctrine\Common\Persistence\ObjectManager

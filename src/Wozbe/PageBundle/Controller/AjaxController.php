@@ -26,7 +26,7 @@ class AjaxController extends Controller
             $email = $request->request->get('email');
             $emailTo = $this->getConfigurationManager()->get('page.email');
             $message = $request->request->get('message');
-            
+
             $emailConstraint = new Email();
             
             $errorList = $this->get('validator')->validateValue(
