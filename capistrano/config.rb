@@ -8,7 +8,7 @@ set :scm, :git
 
 set :format, :pretty
 set :log_level, :info
-# set :log_level, :debug
+#set :log_level, :debug
 
 set :composer_install_flags, '--dev --prefer-dist --no-interaction --optimize-autoloader'
 
@@ -20,8 +20,6 @@ set :keep_releases, 3
 set :grunt_tasks, 'deploy'
 set :bower_flags, '--quiet --allow-root'
 
-
-after 'deploy:updated', 'app:copy_htaccess'
 after 'deploy:updated', 'bower:install'
 after 'deploy:updated', 'wozbe:robots'
 after 'deploy:updated', 'wozbe:install'
