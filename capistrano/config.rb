@@ -8,7 +8,6 @@ set :scm, :git
 
 set :format, :pretty
 set :log_level, :info
-#set :log_level, :debug
 
 set :composer_install_flags, '--dev --prefer-dist --no-interaction --optimize-autoloader'
 
@@ -27,6 +26,7 @@ after 'deploy:updated', 'grunt'
 
 # problem: after 'deploy:updated', 'phpunit:run'
 
+after 'deploy:finishing', 'app:copy_htaccess'
 after 'deploy:finishing', 'deploy:cleanup'
 after 'deploy:finishing', 'cache:pagespeed:flush'
 after 'deploy:finishing', 'cache:varnish:restart'
