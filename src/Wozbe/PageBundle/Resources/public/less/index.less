@@ -206,15 +206,8 @@
     .partner {
       color: @backgroundColor;
       padding: 0 20px;
-      margin-bottom: 30px;
 
       .transition(all @transitionDuration);
-
-      &:hover {
-        color: @orange;
-        text-shadow: 1px 1px 1px @brown;
-        border-bottom: 3px solid @orange;
-      }
 
       .logo {
         height: 94px;
@@ -231,25 +224,20 @@
       }
     }
 
-    .anonymation {
-      .logo img {
-        background: white;
-        .borderRadius(5px);
+    .tbbc {
+      h2 {
+        text-align: left;
       }
-    }
 
-    .kitpages {
-      .logo img {
-        background: white;
-        padding: 5px;
+      .logo {
+        height: auto;
 
-        .borderRadius(5px);
+        img {
+          max-height: 400px;
+          background: white;
+          .borderRadius(5px);
+        }
       }
-    }
-
-    .tagline {
-      font-family: @titleFontFamily;
-      font-size: 32px;
     }
   }
 

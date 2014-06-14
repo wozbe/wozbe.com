@@ -144,21 +144,14 @@
 </div>
 <div class="zone-partners">
   <a name="zone-partners"></a>
-  <h2>{{ 'partner.title'|trans }}</h2>
-  <div class="row-fluid">
-    <div class="span4 partner anonymation">
-      <div class="logo"><a target="_blank" href="http://www.anonymation.com/"><img alt="Anonymation Logo" src="{{ asset('bundles/wozbepage/images/logo-anonymation.png') }}" /></a></div>
-      <p>{% autoescape false %}{{ 'partner.description.anonymation'|trans }}{% endautoescape %}</p>
+  <div class="row-fluid partner tbbc">
+    <div class="span5 logo">
+      <a target="_blank" href="http://thebigbrainscompany.com/"><img alt="The Big Brains Company Logo" src="{{ asset('bundles/wozbepage/images/logo-tbbc.png') }}" /></a>
     </div>
-    <div class="span4 partner vlabs">
-      <div class="logo"><a target="_blank" href="http://www.v-labs.fr/"><img alt="VLabs Logo" src="{{ asset('bundles/wozbepage/images/logo-vlabs.png') }}" /></a></div>
-      <p>{% autoescape false %}{{ 'partner.description.vlabs'|trans }}{% endautoescape %}</p>
-    </div>
-    <div class="span4 partner kitpages">
-      <div class="logo"><a target="_blank" href="http://www.kitpages.fr/"><img alt="Kitpages Logo" src="{{ asset('bundles/wozbepage/images/logo-kitpages.png') }}" /></a></div>
-      <p>{% autoescape false %}{{ 'partner.description.kitpages'|trans }}{% endautoescape %}</p>
+    <div class="span7">
+      <h2>{{ 'partner.title'|trans }}</h2>
+      <p>{% autoescape false %}{{ 'partner.description.tbbc'|trans }}{% endautoescape %}</p>
     </div>
   </div>
-  <p class="text-center tagline">{{ 'partner.tagline'|trans }}</p>
 </div>
 {% endblock content %}
