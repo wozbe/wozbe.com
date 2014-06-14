@@ -20,7 +20,6 @@
 <meta property='og:image' content='http://wozbe.com/bundles/app/images/logo-wozbe-letter.png' />
 <link href='https://plus.google.com/104876040719786615121' rel='author' />
 
-<link rel="alternate" type="application/rss+xml"  href="{{ url('wozbe_blog_feed_rss') }}" title="Wozbe RSS">
 {% block head_canonical %}<link rel="canonical" href="{{ path(app.request.attributes.get('_route')) }}"/>{% endblock head_canonical %}
 {% endblock head_meta %}
 
@@ -64,7 +63,6 @@
           <li{% if 'wozbe' == route %} class="active"{% endif %}><a href="{{ url('wozbe') }}"><i class="icon-fixed-width icon-home"></i> {{ 'home'|trans|capitalize }}</a></li>
           <li{% if 'wozbe_skills' == route %} class="active"{% endif %}><a href="{{ url('wozbe_skills') }}"><i class="icon-fixed-width icon-tasks"></i> {{ 'skills'|trans|capitalize }}</a></li>
           <li{% if 'wozbe_references' == route %} class="active"{% endif %}><a href="{{ url('wozbe_references') }}"><i class="icon-fixed-width icon-book"></i> {{ 'references'|trans|capitalize }}</a></li>
-          <li{% if 'wozbe_blog' == route %} class="active"{% endif %}><a href="{{ url('wozbe_blog') }}"><i class="icon-fixed-width icon-quote-left"></i> {{ 'blog'|trans|capitalize }}</a></li>
           <li{% if 'wozbe_contact' == route %} class="active"{% endif %}><a href="{{ url('wozbe_contact') }}"><i class="icon-fixed-width icon-envelope"></i> {{ 'contact'|trans|capitalize }}</a></li>
         </ul>
       </div>

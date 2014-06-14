@@ -8,6 +8,12 @@ DirectoryIndex app.php
 <IfModule mod_rewrite.c>
     RewriteEngine On
 
+    # Redirect blog to big brains
+    Redirect 301 /fr/blog http://thebigbrainscompany.com/blog/
+    Redirect 301 /fr/blog/2013-08-07-integration-grunt-et-bower-au-sein-application-symfony http://thebigbrainscompany.com/blog/posts/intgration-grunt-et-bower-au-sein-d-une-application-symfony
+    Redirect 301 /fr/blog/2013-12-31-realiser-deploiement-automatique-application-symfony-avec-capistrano http://thebigbrainscompany.com/blog/posts/dployer-une-application-symfony-avec-capistrano
+
+
     # Determine the RewriteBase automatically and set it as environment variable.
     # If you are using Apache aliases to do mass virtual hosting or installed the
     # project in a subdirectory, the base path will be prepended to allow proper
