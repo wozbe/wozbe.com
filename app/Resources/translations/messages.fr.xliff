@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:jms="urn:jms:translation" version="1.2">
-  <file date="2014-06-14T13:41:25Z" source-language="en" target-language="fr" datatype="plaintext" original="not.available">
+  <file date="2014-06-20T11:23:18Z" source-language="en" target-language="fr" datatype="plaintext" original="not.available">
     <header>
       <tool tool-id="JMSTranslationBundle" tool-name="JMSTranslationBundle" tool-version="1.1.0-DEV"/>
       <note>The source node in most cases contains the sample message as written by the developer. If it looks like a dot-delimitted string such as "form.label.firstname", then the developer has not provided a default message.</note>
@@ -502,7 +502,7 @@ Le positionnement géographique de chacun des <strong>Big Braineurs</strong> nou
       <trans-unit id="d6e1b0ce561ed3daa9fa03bc19fe00e338f0edca" resname="skill.description.development">
         <jms:reference-file line="45">views/Default/skills.html.twig</jms:reference-file>
         <source>skill.description.development</source>
-        <target><![CDATA[<p>Ayant acquis de fortes compétences dans les <strong>technologies du Web</strong>, et plus particulièrement avec <strong>Symfony2</strong>. Wozbe prend en charge le développement de vos produits & services.</p><p>Nous travaillons avec des outils <strong>collaboratifs & de controle qualité</strong> tels que GIT, PHPUnit, TravisCI...</p><p>Wozbe possède une maitrise des technologies client & serveur comme <strong>PHP, Javascript & ActionScript</strong>.<br />En cas de besoin spécifique, nous pouvons associés des technologies comme <strong>NodeJS</strong>, <strong>MongoDB</strong>, <strong>Redis</strong>, <strong>ElasticSearch</strong></p>]]></target>
+        <target><![CDATA[<p>Ayant acquis de fortes compétences dans les <strong>technologies du Web</strong>, et plus particulièrement avec <strong>Symfony2</strong>. Wozbe prend en charge le développement de vos produits & services.</p><p>Nous travaillons avec des outils <strong>collaboratifs & de controle qualité</strong> tels que GIT, PHPUnit, TravisCI...</p><p>Wozbe possède une maitrise des technologies client & serveur comme <strong>PHP, Javascript & ActionScript</strong>.<br />En cas de besoin spécifique, nous pouvons associés des technologies comme <strong>NodeJS</strong>, <strong>MongoDB</strong>, <strong>AngularJS</strong>, <strong>Redis</strong>, <strong>ElasticSearch</strong></p>]]></target>
       </trans-unit>
       <trans-unit id="85ec9a6f1aa0abacb676966660894fd4a9d8a275" resname="skill.description.infrastructure">
         <jms:reference-file line="33">views/Default/skills.html.twig</jms:reference-file>
