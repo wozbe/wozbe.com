@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:jms="urn:jms:translation" version="1.2">
-  <file date="2014-09-02T10:11:50Z" source-language="en" target-language="en" datatype="plaintext" original="not.available">
+  <file date="2014-09-02T10:37:33Z" source-language="en" target-language="en" datatype="plaintext" original="not.available">
     <header>
       <tool tool-id="JMSTranslationBundle" tool-name="JMSTranslationBundle" tool-version="1.1.0-DEV"/>
       <note>The source node in most cases contains the sample message as written by the developer. If it looks like a dot-delimitted string such as "form.label.firstname", then the developer has not provided a default message.</note>
@@ -152,10 +152,20 @@
         <source>add_your_comment</source>
         <target>Add Your Comment</target>
       </trans-unit>
+      <trans-unit id="fbcd8f26478099a06593e956e3d42fa5835f3a3e" resname="all_rights_reserved">
+        <jms:reference-file line="77">Resources/views/wozbe.html.twig</jms:reference-file>
+        <source>all_rights_reserved</source>
+        <target>All rights reserved</target>
+      </trans-unit>
       <trans-unit id="169254c45fa4ed7ea11c00541ffb17b0cde39625" resname="blog">
         <jms:reference-file line="8">views/Post/index.html.twig</jms:reference-file>
         <source>blog</source>
         <target>Blog</target>
+      </trans-unit>
+      <trans-unit id="4dc29abcce8d6d7caf6b5338196005e0943c61a6" resname="build_with">
+        <jms:reference-file line="84">Resources/views/wozbe.html.twig</jms:reference-file>
+        <source>build_with</source>
+        <target>Build with</target>
       </trans-unit>
       <trans-unit id="da38860cb875cb64092e402d80d9fe29c4865b18" resname="close">
         <jms:reference-file line="111">Resources/views/wozbe.html.twig</jms:reference-file>
@@ -192,16 +202,16 @@
         <target>Dashboard</target>
       </trans-unit>
       <trans-unit id="cb329146a0dd0d566b0628744d67936558741ffa" resname="description">
-        <jms:reference-file line="5">Resources/views/wozbe.html.twig</jms:reference-file>
         <jms:reference-file line="39">BlogBundle/Controller/FeedController.php</jms:reference-file>
         <jms:reference-file line="78">views/Default/index.html.twig</jms:reference-file>
+        <jms:reference-file line="5">Resources/views/wozbe.html.twig</jms:reference-file>
         <source>description</source>
         <target><![CDATA[<strong>Wozbe</strong> completes your <strong>products and web services</strong> accounting for your <strong>problems and business goals</strong>.]]></target>
       </trans-unit>
       <trans-unit id="a88b7dcd1a9e3e17770bbaa6d7515b31a2d7e85d" resname="email">
         <jms:reference-file line="103">Resources/views/wozbe.html.twig</jms:reference-file>
         <source>email</source>
-        <target>email</target>
+        <target>Email</target>
       </trans-unit>
       <trans-unit id="11f9578d05e6f7bb58a3cdd00107e9f4e3882671" resname="error">
         <jms:reference-file line="23">views/Default/contact.html.twig</jms:reference-file>
@@ -216,7 +226,7 @@
       <trans-unit id="88fc09e54b17679b0028556344b50c9fe169bdb5" resname="keywords">
         <jms:reference-file line="6">Resources/views/wozbe.html.twig</jms:reference-file>
         <source>keywords</source>
-        <target>wozbe,lyon,rhone,france,consultant,symfony,nodejs,development,infrastructure,architecture,cdn,plateform,design,ovh,modern,paris,startup,association,collaboration,projet</target>
+        <target>wozbe,lyon,rhone,france,consultant,symfony,nodejs,developpement,infrastructure,architecture,cdn,plateform,design,ergonomie,ovh,moderne,paris,startup,association,partenariat,projet</target>
       </trans-unit>
       <trans-unit id="b4057305a88ab90db113d8509c04d3f00fa4152f" resname="legals_informations">
         <jms:reference-file line="78">Resources/views/wozbe.html.twig</jms:reference-file>
@@ -277,7 +287,7 @@ The geographical locations of each of the <strong>Big Brainers</strong> helps us
       <trans-unit id="f6be6ca910984ef05a237a180d464ceb8847c14a" resname="phone">
         <jms:reference-file line="102">Resources/views/wozbe.html.twig</jms:reference-file>
         <source>phone</source>
-        <target>phone</target>
+        <target>Phone</target>
       </trans-unit>
       <trans-unit id="87e38948d5e85c16362140ded9b90d9171b5fa1b" resname="posts">
         <jms:reference-file line="48">Resources/views/layout.html.twig</jms:reference-file>
@@ -470,8 +480,8 @@ Focusing on VSE/SMEs, these projects are one way for Wozbe to stay in contact wi
         <target>Our References</target>
       </trans-unit>
       <trans-unit id="f4c9a69f715c3c60aa2fc15795b3834d2dc51b9d" resname="references">
-        <jms:reference-file line="65">Resources/views/wozbe.html.twig</jms:reference-file>
         <jms:reference-file line="50">Resources/views/layout.html.twig</jms:reference-file>
+        <jms:reference-file line="65">Resources/views/wozbe.html.twig</jms:reference-file>
         <source>references</source>
         <target>References</target>
       </trans-unit>
@@ -600,9 +610,9 @@ If you need more information or if you want to implement a <strong>High-Availabi
         <target>Skills</target>
       </trans-unit>
       <trans-unit id="0780fb588fda543293c20eff3a4019e198bd37ed" resname="slogan">
-        <jms:reference-file line="77">Resources/views/wozbe.html.twig</jms:reference-file>
         <jms:reference-file line="3">views/Default/index.html.twig</jms:reference-file>
         <jms:reference-file line="13">views/Default/index.html.twig</jms:reference-file>
+        <jms:reference-file line="77">Resources/views/wozbe.html.twig</jms:reference-file>
         <source>slogan</source>
         <target>Completing web projects</target>
       </trans-unit>
