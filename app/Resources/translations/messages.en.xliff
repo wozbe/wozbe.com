@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:jms="urn:jms:translation" version="1.2">
-  <file date="2014-09-02T10:37:33Z" source-language="en" target-language="en" datatype="plaintext" original="not.available">
+  <file date="2014-09-02T15:11:27Z" source-language="en" target-language="en" datatype="plaintext" original="not.available">
     <header>
       <tool tool-id="JMSTranslationBundle" tool-name="JMSTranslationBundle" tool-version="1.1.0-DEV"/>
       <note>The source node in most cases contains the sample message as written by the developer. If it looks like a dot-delimitted string such as "form.label.firstname", then the developer has not provided a default message.</note>
@@ -187,7 +187,9 @@
       <trans-unit id="c66e2449a055979b034c0a365c42bf498ec6c480" resname="contact_description">
         <jms:reference-file line="42">views/Default/contact.html.twig</jms:reference-file>
         <source>contact_description</source>
-        <target>We don't know each other ? It's time to meet !</target>
+        <target><![CDATA[Perhaps we haven’t met yet. Well, <strong>now’s the time to meet!</strong>
+<br />
+By telephone or around a table to talk about your projects, or simply just to meet each other!]]></target>
       </trans-unit>
       <trans-unit id="23c27e8d350c6c1628758ff08447f7aced93fd9a" resname="contact_us">
         <jms:reference-file line="4">views/Default/contact.html.twig</jms:reference-file>
