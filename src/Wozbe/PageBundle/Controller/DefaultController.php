@@ -23,7 +23,7 @@ class DefaultController extends Controller
     }
     
     /**
-     * @Route("/{_locale}", name="wozbe", requirements={"_locale" = "fr"}, options={"sitemap" = true})
+     * @Route("/{_locale}", name="wozbe", options={"sitemap" = true})
      * @Method({"GET", "HEAD"})
      * @Cache(expires="+2 hours", public="true")
      */
@@ -33,7 +33,7 @@ class DefaultController extends Controller
     }
     
     /**
-     * @Route("/{_locale}/skills", name="wozbe_skills", requirements={"_locale" = "fr"}, options={"sitemap" = true})
+     * @Route("/{_locale}/skills", name="wozbe_skills", options={"sitemap" = true})
      * @Method({"GET", "HEAD"})
      * @Cache(expires="+2 hours", public="true")
      */
@@ -43,7 +43,7 @@ class DefaultController extends Controller
     }
     
     /**
-     * @Route("/{_locale}/references", name="wozbe_references", requirements={"_locale" = "fr"}, options={"sitemap" = true})
+     * @Route("/{_locale}/references", name="wozbe_references", options={"sitemap" = true})
      * @Method({"GET", "HEAD"})
      * @Cache(expires="+2 hours", public="true")
      */
@@ -53,7 +53,7 @@ class DefaultController extends Controller
     }
     
     /**
-     * @Route("/{_locale}/contact", name="wozbe_contact", requirements={"_locale" = "fr"}, options={"sitemap" = true})
+     * @Route("/{_locale}/contact", name="wozbe_contact", options={"sitemap" = true})
      * @Method({"GET", "HEAD"})
      * @Cache(expires="+2 hours", public="true")
      */
