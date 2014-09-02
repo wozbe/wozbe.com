@@ -15,9 +15,23 @@ class DefaultControllerTest extends WebTestCase
             array('/fr/contact'),
         );
     }
+
+    public function getPages ()
+    {
+        return array (
+            array('/fr'),
+            array('/fr/skills'),
+            array('/fr/references'),
+            array('/fr/contact'),
+            array('/en'),
+            array('/en/skills'),
+            array('/en/references'),
+            array('/en/contact'),
+        );
+    }
     
     /**
-     * @dataProvider getPagesFR
+     * @dataProvider getPages
      */
     public function testPages($url)
     {
@@ -63,7 +77,7 @@ class DefaultControllerTest extends WebTestCase
         
         $this->assertTrue($client->getResponse()->isSuccessful());
 
-        $this->assertGreaterThan(0, $crawler->filter('html:contains("Informations légales")')->count());
+        $this->assertGreaterThan(0, $crawler->filter('html:contains("Informations Légales")')->count());
         $this->assertGreaterThan(0, $crawler->filter('#modalInformations')->count());
     }
     
