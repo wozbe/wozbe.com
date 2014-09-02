@@ -58,13 +58,18 @@
         <span class="icon-bar"></span>
       </a>
       <div class="nav-collapse collapse">
+        {% set route = app.request.attributes.get('_route') %}
         <ul class="nav">
-          {% set route = app.request.attributes.get('_route') %}
           <li{% if 'wozbe' == route %} class="active"{% endif %}><a href="{{ url('wozbe') }}"><i class="icon-fixed-width icon-home"></i> {{ 'home'|trans|capitalize }}</a></li>
           <li{% if 'wozbe_skills' == route %} class="active"{% endif %}><a href="{{ url('wozbe_skills') }}"><i class="icon-fixed-width icon-tasks"></i> {{ 'skills'|trans|capitalize }}</a></li>
           <li{% if 'wozbe_references' == route %} class="active"{% endif %}><a href="{{ url('wozbe_references') }}"><i class="icon-fixed-width icon-book"></i> {{ 'references'|trans|capitalize }}</a></li>
           <li{% if 'wozbe_contact' == route %} class="active"{% endif %}><a href="{{ url('wozbe_contact') }}"><i class="icon-fixed-width icon-envelope"></i> {{ 'contact'|trans|capitalize }}</a></li>
         </ul>
+
+      <ul class="nav pull-right">
+          <li><a href="{{ url(route, {_locale: 'fr'}) }}" alt="{{ 'version.fr'|trans|capitalize }}" title="{{ 'version.fr'|trans|capitalize }}"><img src="{{ asset('bundles/app/images/locale-fr.png') }}" /></a></li>
+          <li><a href="{{ url(route, {_locale: 'en'}) }}" alt="{{ 'version.en'|trans|capitalize }}" title="{{ 'version.en'|trans|capitalize }}"><img src="{{ asset('bundles/app/images/locale-en.png') }}" /></a></li>
+      </ul>
       </div>
     </div>
   </div>
