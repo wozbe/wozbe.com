@@ -18,6 +18,8 @@
 <meta property='og:site_name' content='Wozbe'/>
 <meta property='og:type' content='website'/>
 <meta property='og:image' content='http://wozbe.com/bundles/app/images/logo-wozbe-letter.png' />
+<link rel="alternate" hreflang="en" href="{{ url(app.request.attributes.get('_route'), {_locale: 'en'}) }}">
+<link rel="alternate" hreflang="fr" href="{{ url(app.request.attributes.get('_route'), {_locale: 'fr'}) }}">
 <link href='https://plus.google.com/104876040719786615121' rel='author' />
 
 {% block head_canonical %}<link rel="canonical" href="{{ path(app.request.attributes.get('_route')) }}"/>{% endblock head_canonical %}
@@ -92,20 +94,23 @@
 
 {% block content_after %}
 <!-- Modal -->
-<div id="modalInformations" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="modalInformations" aria-hidden="true">
+<div id="modalInformations" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="modalInformations" aria-hidden="true" itemscope itemtype="http://data-vocabulary.org/Organization">
   <div class="modal-header">
     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-    <h3 id="myModalLabel">{{ 'legals_informations'|trans }}</h3>
+    <h3 id="myModalLabel">{{ 'legals_informations'|trans }} : <span itemprop="name">Wozbe</span></h3>
   </div>
   <div class="modal-body">
     <p class="text-center">
       <img alt="Logo Wozbe" src="{{ asset('bundles/app/images/logo-wozbe-simple.png') }}" /><br />
       <br />
-      320 avenue Berthelot<br />
-      69371 Lyon cedex 08<br />
+      <span itemprop="address" itemscope itemtype="http://data-vocabulary.org/Address">
+      <span itemprop="street-address">320 avenue Berthelot</span><br />
+      <span itemprop="postal-code">69371</span> <span itemprop="locality">Lyon</span> Cedex 08, <span itemprop="country-name">France</span><br />
+      </span>
       <br />
-      {{ 'phone'|trans|capitalize }} : {{ config('page.phone') }}<br />
+      {{ 'phone'|trans|capitalize }} : <span itemprop="tel">{{ config('page.phone') }}</span><br />
       {{ 'email'|trans|capitalize }} : {{ config('page.email') }}<br />
+      <a href="http://wozbe.com" itemprop="url">wozbe.com</a><br />
       <br />
       SARL au capital de 1000€<br />
       792 992 018 RCS Lyon<br />
