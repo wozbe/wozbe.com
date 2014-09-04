@@ -68,7 +68,7 @@
           <li{% if 'wozbe_contact' == route %} class="active"{% endif %}><a href="{{ url('wozbe_contact') }}"><i class="icon-fixed-width icon-envelope"></i> {{ 'contact'|trans|capitalize }}</a></li>
         </ul>
 
-      <ul class="nav pull-right">
+      <ul class="nav pull-right" style="height: 60px">
           <li><a href="{{ url(route, {_locale: 'fr'}) }}" alt="{{ 'version.fr'|trans|capitalize }}" title="{{ 'version.fr'|trans|capitalize }}"><img src="{{ asset('bundles/app/images/locale-fr.png') }}" /></a></li>
           <li><a href="{{ url(route, {_locale: 'en'}) }}" alt="{{ 'version.en'|trans|capitalize }}" title="{{ 'version.en'|trans|capitalize }}"><img src="{{ asset('bundles/app/images/locale-en.png') }}" /></a></li>
       </ul>
