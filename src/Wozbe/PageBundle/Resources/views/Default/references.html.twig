@@ -64,7 +64,7 @@
 ] %}
 
 <div class="zone-references">
-  {% for i in 0..5 %}
+  {% for i in 0..references|length %}
   {% set title = cycle(references, i)[0] %}
   {% set screen = cycle(references, i)[1] %}
   {% set link = cycle(references, i)[2] %}
