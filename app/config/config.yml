@@ -68,6 +68,7 @@ jms_translation:
             dirs: [%kernel.root_dir%/Resources/views, %kernel.root_dir%/../src]
             output_dir: %kernel.root_dir%/Resources/translations
             ignored_domains: [routes]
+            excluded_names: ["*TestCase.php", "*Test.php"]
             output_format: xliff
             
 services:
