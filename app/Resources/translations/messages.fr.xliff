@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:jms="urn:jms:translation" version="1.2">
-  <file date="2014-10-07T15:21:04Z" source-language="en" target-language="fr" datatype="plaintext" original="not.available">
+  <file date="2015-03-02T17:45:12Z" source-language="en" target-language="fr" datatype="plaintext" original="not.available">
     <header>
       <tool tool-id="JMSTranslationBundle" tool-name="JMSTranslationBundle" tool-version="1.1.0-DEV"/>
       <note>The source node in most cases contains the sample message as written by the developer. If it looks like a dot-delimitted string such as "form.label.firstname", then the developer has not provided a default message.</note>
@@ -153,7 +153,7 @@
         <target>Ajoute ton commentaire</target>
       </trans-unit>
       <trans-unit id="fbcd8f26478099a06593e956e3d42fa5835f3a3e" resname="all_rights_reserved">
-        <jms:reference-file line="96">Resources/views/wozbe.html.twig</jms:reference-file>
+        <jms:reference-file line="101">Resources/views/wozbe.html.twig</jms:reference-file>
         <source>all_rights_reserved</source>
         <target>Tous droits réservés</target>
       </trans-unit>
@@ -163,12 +163,12 @@
         <target>Blog</target>
       </trans-unit>
       <trans-unit id="4dc29abcce8d6d7caf6b5338196005e0943c61a6" resname="build_with">
-        <jms:reference-file line="103">Resources/views/wozbe.html.twig</jms:reference-file>
+        <jms:reference-file line="108">Resources/views/wozbe.html.twig</jms:reference-file>
         <source>build_with</source>
         <target>Fait avec</target>
       </trans-unit>
       <trans-unit id="da38860cb875cb64092e402d80d9fe29c4865b18" resname="close">
-        <jms:reference-file line="133">Resources/views/wozbe.html.twig</jms:reference-file>
+        <jms:reference-file line="138">Resources/views/wozbe.html.twig</jms:reference-file>
         <source>close</source>
         <target>Fermer</target>
       </trans-unit>
@@ -180,7 +180,7 @@
       </trans-unit>
       <trans-unit id="1a73af9e7ae00182733b2292511b814be66f065f" resname="contact">
         <jms:reference-file line="18">Resources/views/widgets.html.twig</jms:reference-file>
-        <jms:reference-file line="80">Resources/views/wozbe.html.twig</jms:reference-file>
+        <jms:reference-file line="84">Resources/views/wozbe.html.twig</jms:reference-file>
         <source>contact</source>
         <target>Contact</target>
       </trans-unit>
@@ -209,7 +209,7 @@
         <target><![CDATA[<strong>Wozbe</strong> réalise vos <strong>produits & services Web</strong> en tenant compte de <strong>vos problématiques & objectifs business</strong>.]]></target>
       </trans-unit>
       <trans-unit id="a88b7dcd1a9e3e17770bbaa6d7515b31a2d7e85d" resname="email">
-        <jms:reference-file line="124">Resources/views/wozbe.html.twig</jms:reference-file>
+        <jms:reference-file line="129">Resources/views/wozbe.html.twig</jms:reference-file>
         <source>email</source>
         <target>Email</target>
       </trans-unit>
@@ -219,7 +219,7 @@
         <target>Erreur</target>
       </trans-unit>
       <trans-unit id="e83249bd3ba79932e16fb1fb5100dafade9954c2" resname="home">
-        <jms:reference-file line="77">Resources/views/wozbe.html.twig</jms:reference-file>
+        <jms:reference-file line="81">Resources/views/wozbe.html.twig</jms:reference-file>
         <source>home</source>
         <target>Accueil</target>
       </trans-unit>
@@ -229,8 +229,8 @@
         <target>wozbe,lyon,rhone,france,consultant,symfony,nodejs,developpement,infrastructure,architecture,cdn,plateforme,design,ergonomie,ovh,moderne,paris,startup,association,partenariat,projet</target>
       </trans-unit>
       <trans-unit id="b4057305a88ab90db113d8509c04d3f00fa4152f" resname="legals_informations">
-        <jms:reference-file line="97">Resources/views/wozbe.html.twig</jms:reference-file>
-        <jms:reference-file line="112">Resources/views/wozbe.html.twig</jms:reference-file>
+        <jms:reference-file line="102">Resources/views/wozbe.html.twig</jms:reference-file>
+        <jms:reference-file line="117">Resources/views/wozbe.html.twig</jms:reference-file>
         <source>legals_informations</source>
         <target>Informations Légales</target>
       </trans-unit>
@@ -284,7 +284,7 @@ Le positionnement géographique de chacun des <strong>Big Braineurs</strong> nou
         <target>The Big Brains Company</target>
       </trans-unit>
       <trans-unit id="f6be6ca910984ef05a237a180d464ceb8847c14a" resname="phone">
-        <jms:reference-file line="123">Resources/views/wozbe.html.twig</jms:reference-file>
+        <jms:reference-file line="128">Resources/views/wozbe.html.twig</jms:reference-file>
         <source>phone</source>
         <target>Téléphone</target>
       </trans-unit>
@@ -487,7 +487,7 @@ Co-fondé avec <a href="http://fr.linkedin.com/in/borisguery">Boris Guéry</a>.]
         <target>Nos Réferences</target>
       </trans-unit>
       <trans-unit id="f4c9a69f715c3c60aa2fc15795b3834d2dc51b9d" resname="references">
-        <jms:reference-file line="79">Resources/views/wozbe.html.twig</jms:reference-file>
+        <jms:reference-file line="83">Resources/views/wozbe.html.twig</jms:reference-file>
         <jms:reference-file line="50">Resources/views/layout.html.twig</jms:reference-file>
         <source>references</source>
         <target>Réferences</target>
@@ -582,12 +582,12 @@ Co-fondé avec <a href="http://fr.linkedin.com/in/borisguery">Boris Guéry</a>.]
         <target>Méthode de travail</target>
       </trans-unit>
       <trans-unit id="816f2b87d3d3be351dee9d599849e5804aacc967" resname="skills">
-        <jms:reference-file line="78">Resources/views/wozbe.html.twig</jms:reference-file>
+        <jms:reference-file line="82">Resources/views/wozbe.html.twig</jms:reference-file>
         <source>skills</source>
         <target>Compétences</target>
       </trans-unit>
       <trans-unit id="0780fb588fda543293c20eff3a4019e198bd37ed" resname="slogan">
-        <jms:reference-file line="96">Resources/views/wozbe.html.twig</jms:reference-file>
+        <jms:reference-file line="101">Resources/views/wozbe.html.twig</jms:reference-file>
         <jms:reference-file line="3">views/Default/index.html.twig</jms:reference-file>
         <jms:reference-file line="13">views/Default/index.html.twig</jms:reference-file>
         <source>slogan</source>
@@ -603,13 +603,18 @@ Co-fondé avec <a href="http://fr.linkedin.com/in/borisguery">Boris Guéry</a>.]
         <source>success</source>
         <target>Succès</target>
       </trans-unit>
-      <trans-unit id="7958efae80c4b2eeedf5d3bc4a339593a6bde9c0" resname="version.en">
+      <trans-unit id="0a2b9827e548969e4dfe1b0d16c072ef347836d6" resname="training">
         <jms:reference-file line="85">Resources/views/wozbe.html.twig</jms:reference-file>
+        <source>training</source>
+        <target>Formations</target>
+      </trans-unit>
+      <trans-unit id="7958efae80c4b2eeedf5d3bc4a339593a6bde9c0" resname="version.en">
+        <jms:reference-file line="90">Resources/views/wozbe.html.twig</jms:reference-file>
         <source>version.en</source>
         <target>Anglais</target>
       </trans-unit>
       <trans-unit id="7eb7ed175725a6faa8bc3299e10b9f04fc229639" resname="version.fr">
-        <jms:reference-file line="84">Resources/views/wozbe.html.twig</jms:reference-file>
+        <jms:reference-file line="89">Resources/views/wozbe.html.twig</jms:reference-file>
         <source>version.fr</source>
         <target>Français</target>
       </trans-unit>

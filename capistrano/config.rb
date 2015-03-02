@@ -7,7 +7,7 @@ server 'arthos.armetiz.info', user: fetch(:ssh_user), roles: %w{web app db}
 set :scm, :git
 
 set :format, :pretty
-set :log_level, :info
+set :log_level, :debug
 
 set :composer_install_flags, '--dev --prefer-dist --no-interaction --optimize-autoloader'
 
