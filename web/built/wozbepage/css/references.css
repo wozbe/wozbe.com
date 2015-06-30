@@ -1,0 +1,30 @@
+.page-references footer {
+  margin-top: 0;
+}
+.page-references .zone-references .reference {
+  float: left;
+  position: relative;
+  width: 49.9%;
+  min-height: 700px;
+  border-right: 1px solid #dddddd;
+  padding: 30px 5%;
+}
+.page-references .zone-references .reference:nth-child(n+3) {
+  border-top: 1px solid #dddddd;
+}
+.page-references .zone-references .reference:nth-child(even) {
+  border-right: none;
+}
+.page-references .zone-references .reference .screenshot {
+  border: 1px solid #dddddd;
+  margin-bottom: 30px;
+}
+@media (max-width: 767px) {
+  .page-references .zone-references .reference {
+    width: 100%;
+    border-right: none;
+  }
+  .page-references .zone-references .reference:nth-child(n+2) {
+    border-top: 1px solid #dddddd;
+  }
+}

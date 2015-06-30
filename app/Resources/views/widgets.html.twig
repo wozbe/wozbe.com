@@ -1,19 +1,19 @@
 {% macro button_contact_phone(doLink = true) %}
   {% if doLink %}
-    <a href="tel://{{ config('page.phone') }}"><button class="btn btn-large btn-warning" type="button"><i class="icon-phone-sign"></i> {{ config('page.phone') }}</button></a>
+    <a href="tel://{{ phone }}"><button class="btn btn-large btn-warning" type="button"><i class="icon-phone-sign"></i> {{ phone }}</button></a>
   {% else %}
-    <button class="btn btn-large btn-warning" type="button"><i class="icon-phone-sign"></i> {{ config('page.phone') }}</button>
+    <button class="btn btn-large btn-warning" type="button"><i class="icon-phone-sign"></i> {{ phone }}</button>
   {% endif %}
 {% endmacro %}
 
 {% macro button_contact_email(doLink = true) %}
   {% if doLink %}
-    <a href="mailto:{{ config('page.email') }}"><button class="btn btn-large btn-warning" type="button"><i class="icon-envelope"></i> {{ config('page.email') }}</button></a>
+    <a href="mailto:{{ email }}"><button class="btn btn-large btn-warning" type="button"><i class="icon-envelope"></i> {{ email }}</button></a>
   {% else %}
-    <button class="btn btn-large btn-warning" type="button"><i class="icon-envelope"></i> {{ config('page.email') }}</button>
+    <button class="btn btn-large btn-warning" type="button"><i class="icon-envelope"></i> {{ email }}</button>
   {% endif %}
 {% endmacro %}
 
 {% macro button_contact() %}
-    <a href="{{ url('wozbe_contact') }}"><button class="btn btn-large btn-warning" type="button"><i class="icon-envelope"></i> {{ 'contact'|trans }}</button></a>
+  <button class="btn btn-large btn-warning" type="button"><i class="icon-phone-sign"></i> {{ phone }}</button>
 {% endmacro %}

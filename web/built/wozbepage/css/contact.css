@@ -1,0 +1,24 @@
+.zone-contact {
+  margin: 40px 20px 0;
+}
+.zone-contact h2 {
+  text-align: left;
+}
+.zone-contact .call_to_action {
+  margin-top: 20px;
+}
+.page-contact .map {
+  position: relative;
+  padding-bottom: 35%;
+  height: 0;
+  overflow: hidden;
+}
+.page-contact .map iframe,
+.page-contact .map object,
+.page-contact .map embed {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}

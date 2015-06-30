@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:jms="urn:jms:translation" version="1.2">
-  <file date="2015-03-02T17:45:12Z" source-language="en" target-language="fr" datatype="plaintext" original="not.available">
+  <file date="2015-03-30T11:35:03Z" source-language="en" target-language="fr" datatype="plaintext" original="not.available">
     <header>
       <tool tool-id="JMSTranslationBundle" tool-name="JMSTranslationBundle" tool-version="1.1.0-DEV"/>
       <note>The source node in most cases contains the sample message as written by the developer. If it looks like a dot-delimitted string such as "form.label.firstname", then the developer has not provided a default message.</note>
@@ -294,41 +294,61 @@ Le positionnement géographique de chacun des <strong>Big Braineurs</strong> nou
         <target>Article</target>
       </trans-unit>
       <trans-unit id="875e76a5b153b506f48dabe1f3d49fa7a9beb477" resname="reference.description.long.1cup">
-        <jms:reference-file line="27">views/Default/references.html.twig</jms:reference-file>
+        <jms:reference-file line="34">views/Default/references.html.twig</jms:reference-file>
         <source>reference.description.long.1cup</source>
         <target><![CDATA[Un événement mensuel où <strong>les entrepreneurs rencontrent un expert</strong> et échange gratuitement, de 14h à 17h.
-Aller sur <a href="http://1cup.io">1Cup.io</a> pour découvrir la prochaine date et les experts disponibles.<br />
+Aller sur <a href="http://1cupexpert.com">1CupExpert.com</a> pour découvrir la prochaine date et les experts disponibles.<br />
 Co-fondé avec <a href="http://fr.linkedin.com/in/borisguery">Boris Guéry</a>.]]></target>
       </trans-unit>
+      <trans-unit id="af1fc72d34f3c89afa650a9af1adfe9982f5276a" resname="reference.description.long.airplane-dealer">
+        <jms:reference-file line="41">views/Default/references.html.twig</jms:reference-file>
+        <source>reference.description.long.airplane-dealer</source>
+        <target><![CDATA[Plateforme permettant <strong>de vendre et d'acheter des avions</strong> entre particuliers. <a href="http://airplane-dealer.com" target="_blank">Airplane Dealer</a> présente une innovation d'usage avec une mise en avant des facteurs décisionnels liés à la transaction.<br />
+Produit conçu par Wozbe.]]></target>
+      </trans-unit>
       <trans-unit id="42690451cd1fa9cfc18d2092361d21ead87c7600" resname="reference.description.long.armetiz">
-        <jms:reference-file line="62">views/Default/references.html.twig</jms:reference-file>
+        <jms:reference-file line="83">views/Default/references.html.twig</jms:reference-file>
         <source>reference.description.long.armetiz</source>
         <target><![CDATA[Armetiz.info est le support de communication personnel de <strong>Thomas Tourlourat</strong> gérant de Wozbe.<br />On y retrouve des articles sur le <a href="http://www.armetiz.info/category/systeme/">système</a>, la <a href="http://www.armetiz.info/category/programmation/">programmation</a>, les <a href="http://www.armetiz.info/category/livres/">livres</a> ou encore l'<a href="http://www.armetiz.info/category/aeronautique-2/">aéronautique</a>]]></target>
       </trans-unit>
-      <trans-unit id="e7561053fd576d833448e1dfda14adfe223546cc" resname="reference.description.long.kolor">
+      <trans-unit id="036ebc91f9cad8dcdd8b57d452e8f90ed3a37118" resname="reference.description.long.dubai360">
         <jms:reference-file line="20">views/Default/references.html.twig</jms:reference-file>
+        <source>reference.description.long.dubai360</source>
+        <target><![CDATA[Découvrez la plus grande visite virtuelle du monde à travers plus de <strong>8TeraPixel</strong>, des médias gigapixel, des vidéos et photos 360°.<br />
+Wozbe est intervenu en tant qu'expert d'architecture Cloud afin de réaliser une application haute-disponibilité et performante répondant aux critères d'une telle opération.
+Le collectif <strong>TheBigBrainsCompany</strong> a travaillé en équipe avec la société Kolor pour que l'ensemble des micro-systèmes de ce projet soit techniquement homogène et de qualité.<br />
+L'ensemble du projet a été conçu pour être hébergé de façon pertinente sur <strong>AWS</strong> grâce à des services dédiés.]]></target>
+      </trans-unit>
+      <trans-unit id="e7561053fd576d833448e1dfda14adfe223546cc" resname="reference.description.long.kolor">
+        <jms:reference-file line="48">views/Default/references.html.twig</jms:reference-file>
         <source>reference.description.long.kolor</source>
         <target><![CDATA[Kolor propose des solutions d'assemblage d'images et de visites virtuelles. Pour le développement d'une plateforme d'hébergement et de diffusion de vidéo 360°, Wozbe a apporté son expertise au niveau des <strong>infrastructures de diffusion HTTP</strong>.<br /><br />De plus, nous avons travaillé sur la mise en place de <strong>processus de développement</strong> et <strong>des stratégies de déploiement</strong> pour une plateforme basée sur <strong>Symfony2</strong>]]></target>
       </trans-unit>
       <trans-unit id="5468c91c8bdad20fa57d12012f85046a1f07ee3a" resname="reference.description.long.konbini">
-        <jms:reference-file line="34">views/Default/references.html.twig</jms:reference-file>
+        <jms:reference-file line="55">views/Default/references.html.twig</jms:reference-file>
         <source>reference.description.long.konbini</source>
         <target><![CDATA[Konbini est une agence de communication <strong>digitale & brand content</strong> basée à Paris.<br /> Wozbe a réalisé le <strong>développement d'une solution de gestion vidéo</strong> basée sur Symfony2, ainsi qu'un accompagnement sur la mise en place de Wordpress avec des options avancées comme la <strong>Géolocalisation, et le Multi-Site</strong>.<br /><br />Aussi, nous avons assuré <strong>la conception & le déploiement</strong> des infrastructures hébergeant l'ensemble des projets Web réalisés par Konbini.<br /><strong>La coordination technique</strong> est effectuée sur differents projets.]]></target>
       </trans-unit>
       <trans-unit id="5edce068248c64a7169ea3a975cffaeab04cd106" resname="reference.description.long.la_virgule">
-        <jms:reference-file line="41">views/Default/references.html.twig</jms:reference-file>
+        <jms:reference-file line="62">views/Default/references.html.twig</jms:reference-file>
         <source>reference.description.long.la_virgule</source>
         <target><![CDATA[<strong>La Virgule</strong> est une startup média avec les problématiques associées à la <strong>diffusion de vidéo</strong>.<br />Wozbe réalise un travail d'accompagnement et de conseils sur les choix techniques afin de péréniser le projet.]]></target>
       </trans-unit>
       <trans-unit id="2d37c260dd8c4582c7addfff0da2981c3b0afbce" resname="reference.description.long.numerosus">
-        <jms:reference-file line="48">views/Default/references.html.twig</jms:reference-file>
+        <jms:reference-file line="69">views/Default/references.html.twig</jms:reference-file>
         <source>reference.description.long.numerosus</source>
         <target><![CDATA[Numerosus est une <strong>plateforme de vente</strong>, valorisant des biens immobiliers. Wozbe s'investit pleinement à la création de ce projet et de cette <strong>entreprise ambitieuse</strong>.<br />Développée avec le <strong>framework Symfony2</strong>, nous utilisons des technologies modernes & innovantes.]]></target>
       </trans-unit>
       <trans-unit id="ce33c3d419d525754759c2ea9a50417247caaca9" resname="reference.description.long.turnaway">
-        <jms:reference-file line="55">views/Default/references.html.twig</jms:reference-file>
+        <jms:reference-file line="76">views/Default/references.html.twig</jms:reference-file>
         <source>reference.description.long.turnaway</source>
         <target><![CDATA[Turnaway est une <strong>association d'indépendants</strong> où nous participons à la réalisation de certains projets d'infrastructure.<br />Orientés TPE/PME, ces projets sont un moyen pour Wozbe de rester en contact avec des contraintes hors-Web.]]></target>
+      </trans-unit>
+      <trans-unit id="babe05d00ab32f359ca58983b9275772775a2f99" resname="reference.description.long.v360go">
+        <jms:reference-file line="27">views/Default/references.html.twig</jms:reference-file>
+        <source>reference.description.long.v360go</source>
+        <target><![CDATA[Exécuté en mode Agile, cette plateforme d'hébergement vidéos 360 a été réalisée avec Symfony et une <strong>architecture asynchrone</strong> basée sur <strong>CQRS & EventSourcing</strong>.<br />
+Hébergée sur AWS, elle a été couplée par nos soins à des <strong>solutions métiers Kolor</strong> pour la manipulation des vidéos 360.]]></target>
       </trans-unit>
       <trans-unit id="38e715a246aa4cbc6365e9ef77443917a9978072" resname="reference.description.short.armetiz">
         <jms:reference-file line="110">views/Default/index.html.twig</jms:reference-file>
@@ -371,113 +391,137 @@ Co-fondé avec <a href="http://fr.linkedin.com/in/borisguery">Boris Guéry</a>.]
         <target>Aperçu %project%</target>
       </trans-unit>
       <trans-unit id="5b86bec9cd47d61191b144e6e640bc1076d0ab2a" resname="reference.tag.advices">
-        <jms:reference-file line="19">views/Default/references.html.twig</jms:reference-file>
-        <jms:reference-file line="26">views/Default/references.html.twig</jms:reference-file>
-        <jms:reference-file line="40">views/Default/references.html.twig</jms:reference-file>
+        <jms:reference-file line="33">views/Default/references.html.twig</jms:reference-file>
         <jms:reference-file line="47">views/Default/references.html.twig</jms:reference-file>
+        <jms:reference-file line="61">views/Default/references.html.twig</jms:reference-file>
+        <jms:reference-file line="68">views/Default/references.html.twig</jms:reference-file>
         <source>reference.tag.advices</source>
         <target>Conseils</target>
       </trans-unit>
       <trans-unit id="15dc910ff76ce2aefb8229fc6a7acc0261fa946e" resname="reference.tag.architecture">
         <jms:reference-file line="19">views/Default/references.html.twig</jms:reference-file>
+        <jms:reference-file line="26">views/Default/references.html.twig</jms:reference-file>
         <jms:reference-file line="47">views/Default/references.html.twig</jms:reference-file>
+        <jms:reference-file line="68">views/Default/references.html.twig</jms:reference-file>
         <source>reference.tag.architecture</source>
         <target>Architecture</target>
       </trans-unit>
+      <trans-unit id="57bc1bff0468d501aac9f65b758ac2fba30afefa" resname="reference.tag.aws">
+        <jms:reference-file line="19">views/Default/references.html.twig</jms:reference-file>
+        <jms:reference-file line="26">views/Default/references.html.twig</jms:reference-file>
+        <source>reference.tag.aws</source>
+        <target state="new">reference.tag.aws</target>
+      </trans-unit>
       <trans-unit id="66287e66086cc1682ac4474870d9f2c71a87ca11" resname="reference.tag.blog">
-        <jms:reference-file line="54">views/Default/references.html.twig</jms:reference-file>
-        <jms:reference-file line="61">views/Default/references.html.twig</jms:reference-file>
+        <jms:reference-file line="75">views/Default/references.html.twig</jms:reference-file>
+        <jms:reference-file line="82">views/Default/references.html.twig</jms:reference-file>
         <source>reference.tag.blog</source>
         <target>Blog</target>
       </trans-unit>
       <trans-unit id="bcfdfdebfc2389b0fe7a254907c796fb4fb4a6b8" resname="reference.tag.business">
-        <jms:reference-file line="26">views/Default/references.html.twig</jms:reference-file>
+        <jms:reference-file line="33">views/Default/references.html.twig</jms:reference-file>
         <source>reference.tag.business</source>
         <target>Business</target>
       </trans-unit>
       <trans-unit id="e3af348b8076417d970c1e704669e0fbf02b2185" resname="reference.tag.cdn">
-        <jms:reference-file line="40">views/Default/references.html.twig</jms:reference-file>
+        <jms:reference-file line="61">views/Default/references.html.twig</jms:reference-file>
         <source>reference.tag.cdn</source>
         <target>CDN</target>
       </trans-unit>
       <trans-unit id="594d8c899fdede1f9b752dae975035baeee5b44e" resname="reference.tag.communication">
-        <jms:reference-file line="54">views/Default/references.html.twig</jms:reference-file>
+        <jms:reference-file line="75">views/Default/references.html.twig</jms:reference-file>
         <source>reference.tag.communication</source>
         <target>Communication</target>
       </trans-unit>
       <trans-unit id="7e3888cb1ea8f1d0f292775f5bbe5b52b92827a3" resname="reference.tag.coordination">
-        <jms:reference-file line="33">views/Default/references.html.twig</jms:reference-file>
         <jms:reference-file line="40">views/Default/references.html.twig</jms:reference-file>
+        <jms:reference-file line="54">views/Default/references.html.twig</jms:reference-file>
+        <jms:reference-file line="61">views/Default/references.html.twig</jms:reference-file>
         <source>reference.tag.coordination</source>
         <target>Coordination</target>
       </trans-unit>
       <trans-unit id="460719b75f33e18a7a47d809ed743846d421c10d" resname="reference.tag.event">
-        <jms:reference-file line="26">views/Default/references.html.twig</jms:reference-file>
+        <jms:reference-file line="33">views/Default/references.html.twig</jms:reference-file>
         <source>reference.tag.event</source>
         <target>Evénement</target>
       </trans-unit>
       <trans-unit id="cbfa947148aad134149d914d39a28423b382ba7d" resname="reference.tag.execution">
-        <jms:reference-file line="19">views/Default/references.html.twig</jms:reference-file>
-        <jms:reference-file line="40">views/Default/references.html.twig</jms:reference-file>
         <jms:reference-file line="47">views/Default/references.html.twig</jms:reference-file>
+        <jms:reference-file line="61">views/Default/references.html.twig</jms:reference-file>
+        <jms:reference-file line="68">views/Default/references.html.twig</jms:reference-file>
         <source>reference.tag.execution</source>
         <target>Execution</target>
       </trans-unit>
       <trans-unit id="2caa79b90938618e4b3d0409508223d21ef9dbd5" resname="reference.tag.infrastructure">
         <jms:reference-file line="19">views/Default/references.html.twig</jms:reference-file>
-        <jms:reference-file line="33">views/Default/references.html.twig</jms:reference-file>
+        <jms:reference-file line="26">views/Default/references.html.twig</jms:reference-file>
+        <jms:reference-file line="40">views/Default/references.html.twig</jms:reference-file>
         <jms:reference-file line="47">views/Default/references.html.twig</jms:reference-file>
         <jms:reference-file line="54">views/Default/references.html.twig</jms:reference-file>
+        <jms:reference-file line="68">views/Default/references.html.twig</jms:reference-file>
+        <jms:reference-file line="75">views/Default/references.html.twig</jms:reference-file>
         <source>reference.tag.infrastructure</source>
         <target>Infrastructure</target>
       </trans-unit>
-      <trans-unit id="cc8d7db10e980c61878c6648c00be9f43cc4cc6f" resname="reference.tag.process">
+      <trans-unit id="36365f0c3ed6669a03ed6124e6d01bc11346fcd5" resname="reference.tag.management">
         <jms:reference-file line="19">views/Default/references.html.twig</jms:reference-file>
+        <jms:reference-file line="26">views/Default/references.html.twig</jms:reference-file>
+        <source>reference.tag.management</source>
+        <target state="new">reference.tag.management</target>
+      </trans-unit>
+      <trans-unit id="cc8d7db10e980c61878c6648c00be9f43cc4cc6f" resname="reference.tag.process">
+        <jms:reference-file line="47">views/Default/references.html.twig</jms:reference-file>
         <source>reference.tag.process</source>
         <target>Process</target>
       </trans-unit>
       <trans-unit id="d7e03447ac34d730bc133c04557c6fda94a05200" resname="reference.tag.search_development">
-        <jms:reference-file line="61">views/Default/references.html.twig</jms:reference-file>
+        <jms:reference-file line="82">views/Default/references.html.twig</jms:reference-file>
         <source>reference.tag.search_development</source>
         <target><![CDATA[R&D]]></target>
       </trans-unit>
       <trans-unit id="2e0d188ed2279269fbd4829d58b5fcb20ea8134c" resname="reference.tag.server">
-        <jms:reference-file line="40">views/Default/references.html.twig</jms:reference-file>
+        <jms:reference-file line="61">views/Default/references.html.twig</jms:reference-file>
         <source>reference.tag.server</source>
         <target>Serveur</target>
       </trans-unit>
       <trans-unit id="52fc9aaf64e4dc19f86d4d1c38f05b7afa97eddc" resname="reference.tag.symfony2">
         <jms:reference-file line="19">views/Default/references.html.twig</jms:reference-file>
-        <jms:reference-file line="33">views/Default/references.html.twig</jms:reference-file>
+        <jms:reference-file line="26">views/Default/references.html.twig</jms:reference-file>
+        <jms:reference-file line="40">views/Default/references.html.twig</jms:reference-file>
         <jms:reference-file line="47">views/Default/references.html.twig</jms:reference-file>
+        <jms:reference-file line="54">views/Default/references.html.twig</jms:reference-file>
+        <jms:reference-file line="68">views/Default/references.html.twig</jms:reference-file>
         <source>reference.tag.symfony2</source>
         <target>Symfony2</target>
       </trans-unit>
       <trans-unit id="7998dbd576838786a72a03591b625761549c9ecb" resname="reference.tag.training">
-        <jms:reference-file line="19">views/Default/references.html.twig</jms:reference-file>
-        <jms:reference-file line="26">views/Default/references.html.twig</jms:reference-file>
+        <jms:reference-file line="33">views/Default/references.html.twig</jms:reference-file>
+        <jms:reference-file line="47">views/Default/references.html.twig</jms:reference-file>
         <source>reference.tag.training</source>
         <target>Formation</target>
       </trans-unit>
       <trans-unit id="c0faf8b8f029eb94f549527c85e0e882daf21d88" resname="reference.tag.varnish">
-        <jms:reference-file line="33">views/Default/references.html.twig</jms:reference-file>
+        <jms:reference-file line="40">views/Default/references.html.twig</jms:reference-file>
+        <jms:reference-file line="54">views/Default/references.html.twig</jms:reference-file>
         <source>reference.tag.varnish</source>
         <target>Varnish</target>
       </trans-unit>
       <trans-unit id="f0157f15621f95b5049ed37f129693e20a32db9a" resname="reference.tag.video">
-        <jms:reference-file line="40">views/Default/references.html.twig</jms:reference-file>
+        <jms:reference-file line="61">views/Default/references.html.twig</jms:reference-file>
         <source>reference.tag.video</source>
         <target>Vidéo</target>
       </trans-unit>
       <trans-unit id="c051bbd514f63d7561e86fe70648d1ad8bc5529d" resname="reference.tag.vmware_esx">
-        <jms:reference-file line="33">views/Default/references.html.twig</jms:reference-file>
+        <jms:reference-file line="40">views/Default/references.html.twig</jms:reference-file>
+        <jms:reference-file line="54">views/Default/references.html.twig</jms:reference-file>
         <source>reference.tag.vmware_esx</source>
         <target>VMWare ESX</target>
       </trans-unit>
       <trans-unit id="e60389b907b825f00e25be909c5b6ed840f250c5" resname="reference.tag.wordpress">
-        <jms:reference-file line="33">views/Default/references.html.twig</jms:reference-file>
+        <jms:reference-file line="40">views/Default/references.html.twig</jms:reference-file>
         <jms:reference-file line="54">views/Default/references.html.twig</jms:reference-file>
-        <jms:reference-file line="61">views/Default/references.html.twig</jms:reference-file>
+        <jms:reference-file line="75">views/Default/references.html.twig</jms:reference-file>
+        <jms:reference-file line="82">views/Default/references.html.twig</jms:reference-file>
         <source>reference.tag.wordpress</source>
         <target>Wordpress</target>
       </trans-unit>

@@ -1,0 +1,9 @@
+.blog-index footer {
+  margin-top: 0;
+}
+.blog-index .zone-articles .article {
+  padding: 30px 5%;
+}
+.blog-index .zone-articles .article:nth-child(n+2) {
+  border-top: 1px solid #dddddd;
+}

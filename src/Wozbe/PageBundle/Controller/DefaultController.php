@@ -51,14 +51,4 @@ class DefaultController extends Controller
     {
         return $this->render('WozbePageBundle:Default:references.html.twig');
     }
-    
-    /**
-     * @Route("/{_locale}/contact", name="wozbe_contact", options={"sitemap" = true})
-     * @Method({"GET", "HEAD"})
-     * @Cache(expires="+2 hours", public="true")
-     */
-    public function contactAction()
-    {
-        return $this->render('WozbePageBundle:Default:contact.html.twig');
-    }
 }

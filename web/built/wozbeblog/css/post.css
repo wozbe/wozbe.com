@@ -1,0 +1,62 @@
+.blog-post .zone-post,
+.blog-post .zone-add-comment {
+  margin: 0 20px;
+}
+.blog-post .zone-post h1 {
+  background: none;
+  color: #ff9000;
+  font-size: 3em;
+}
+.blog-post .zone-post h2,
+.blog-post .zone-post h3 {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: normal;
+}
+.blog-post .zone-post h2 {
+  font-size: 23.400000000000002px;
+}
+.blog-post .zone-post h3 {
+  font-size: 19.5px;
+}
+.blog-post .zone-post h2 {
+  text-align: left;
+}
+.blog-post .zone-post blockquote {
+  margin: 20px;
+}
+.blog-post .zone-comments {
+  border-top: 1px solid #ff9000;
+  margin-top: 50px;
+  padding-top: 20px;
+}
+.blog-post .zone-comments h2 {
+  color: #ff9000;
+  font-size: 3em;
+}
+.blog-post .zone-comments .alert {
+  margin: 20px;
+}
+.blog-post .zone-comments .comment {
+  border-bottom: 1px solid #dddddd;
+  margin: 20px 0;
+  padding: 0 20px;
+  min-height: 100px;
+  text-align: center;
+}
+.blog-post .zone-comments .comment .username {
+  text-align: center;
+  color: #7f2d09;
+  font-size: 2em;
+}
+.blog-post .zone-comments .comment .avatar {
+  height: 110px;
+  width: 100px;
+  background: grey;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  margin-top: 5px;
+}
+.blog-post .zone-comments .comment .content {
+  text-align: left;
+  padding: 0 20px;
+}

@@ -13,50 +13,71 @@
 <h1>{{ 'our_references'|trans }}</h1>
 {% set references = [
   [
+    'Dubai360',
+    'screen-dubai360.png',
+    'http://dubai360.com',
+    ['reference.tag.symfony2'|trans, 'reference.tag.management'|trans, 'reference.tag.infrastructure'|trans, 'reference.tag.architecture'|trans, 'reference.tag.aws'|trans],
+    'reference.description.long.dubai360'|trans
+  ],
+  [
+    'V360Go',
+    'screen-v360go.png',
+    false,
+    ['reference.tag.symfony2'|trans, 'reference.tag.management'|trans, 'reference.tag.infrastructure'|trans, 'reference.tag.architecture'|trans, 'reference.tag.aws'|trans],
+    'reference.description.long.v360go'|trans
+  ],
+  [
+    '1Cup Expert',
+    'screen-1cupexpert.png',
+    'http://1cupexpert.com',
+    ['reference.tag.business'|trans, 'reference.tag.event'|trans, 'reference.tag.advices'|trans, 'reference.tag.training'|trans],
+    'reference.description.long.1cup'|trans
+  ],
+  [
+    'Airplane Dealer',
+    'screen-airplane-dealer.png',
+    'http://airplane-dealer.com',
+    ['reference.tag.symfony2'|trans, 'reference.tag.vmware_esx'|trans, 'reference.tag.varnish'|trans, 'reference.tag.coordination'|trans, 'reference.tag.infrastructure'|trans, 'reference.tag.wordpress'|trans],
+    'reference.description.long.airplane-dealer'|trans
+  ],
+  [
     'Kolor', 
-    'kolor', 
+    'screen-kolor.png',
     'http://www.kolor.com',
     ['reference.tag.symfony2'|trans, 'reference.tag.process'|trans, 'reference.tag.infrastructure'|trans, 'reference.tag.architecture'|trans, 'reference.tag.advices'|trans, 'reference.tag.execution'|trans, 'reference.tag.training'|trans],
     'reference.description.long.kolor'|trans
   ],
   [
-    '1Cup Expert',
-    '1cup',
-    'http://1cup.io',
-    ['reference.tag.business'|trans, 'reference.tag.event'|trans, 'reference.tag.advices'|trans, 'reference.tag.training'|trans],
-    'reference.description.long.1cup'|trans
-  ],
-  [
     'Konbini',
-    'konbini',
+    'screen-konbini.jpg',
     'http://www.konbini.com',
     ['reference.tag.symfony2'|trans, 'reference.tag.vmware_esx'|trans, 'reference.tag.varnish'|trans, 'reference.tag.coordination'|trans, 'reference.tag.infrastructure'|trans, 'reference.tag.wordpress'|trans],
     'reference.description.long.konbini'|trans
   ],
   [
     'La Virgule', 
-    'virgule', 
+    'screen-virgule.jpg',
     'http://www.lavirgule.tv',
     ['reference.tag.advices'|trans, 'reference.tag.video'|trans, 'reference.tag.server'|trans, 'reference.tag.coordination'|trans, 'reference.tag.execution'|trans, 'reference.tag.cdn'|trans],
     'reference.description.long.la_virgule'|trans
   ],
   [
     'Numerosus', 
-    'numerosus', 
-    'http://www.numerosus.com',
+    'screen-numerosus.jpg',
+    false,
     ['reference.tag.architecture'|trans, 'reference.tag.symfony2'|trans, 'reference.tag.infrastructure'|trans, 'reference.tag.advices'|trans, 'reference.tag.execution'|trans, ],
     'reference.description.long.numerosus'|trans
   ],
   [
     'Turnaway', 
-    'turnaway', 
+    'screen-turnaway.jpg',
     'http://www.turnaway.fr',
     ['reference.tag.wordpress'|trans, 'reference.tag.communication'|trans, 'reference.tag.infrastructure'|trans, 'reference.tag.blog'|trans],
     'reference.description.long.turnaway'|trans
   ],
   [
     'Armetiz.info', 
-    'armetiz', 
+    'screen-armetiz.jpg',
     'http://www.armetiz.info',
     ['reference.tag.blog'|trans, 'reference.tag.wordpress'|trans, 'reference.tag.search_development'|trans],
     'reference.description.long.armetiz'|trans
@@ -66,7 +87,7 @@
 <div class="zone-references">
   {% for i in 0..references|length - 1 %}
   {% set title = cycle(references, i)[0] %}
-  {% set screen = cycle(references, i)[1] %}
+  {% set screenFile = cycle(references, i)[1] %}
   {% set link = cycle(references, i)[2] %}
   {% set tags = cycle(references, i)[3] %}
   {% set description = cycle(references, i)[4] %}
@@ -76,14 +97,14 @@
       <hr />
     </div>
     <p class="text-center">
-      <a href="{{ link }}" target="_blank"><img alt="{{ title }} aperçu" class="screenshot" src="{{ asset('bundles/wozbepage/images/screen-' ~ screen ~ '.jpg') }}" /></a>
+      {% if link %}
+      <a href="{{ link }}" target="_blank"><img alt="{{ title }} aperçu" class="screenshot" src="{{ asset('bundles/wozbepage/images/' ~ screenFile) }}" /></a>
+      {% else %}
+        <img alt="{{ title }} aperçu" class="screenshot" src="{{ asset('bundles/wozbepage/images/' ~ screenFile) }}" />
+      {% endif %}
     </p>
     <p class="description">
       <p>{% autoescape false %}{{ description }}{% endautoescape %}</p>
-      <br />
-      <div class="hidden-phone">
-        {% for tag in tags %}<span><i class="icon-fixed-width icon-tag"></i><strong>{{ tag }}</strong>{% if false == loop.last %},{% endif %} </span>{% endfor %}
-      </div>
     </p>
   </div>
   {% endfor %}

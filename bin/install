@@ -1,0 +1,7 @@
+#!/bin/sh
+
+composer install
+
+# cache
+app/console cache:clear
+app/console assets:install

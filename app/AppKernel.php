@@ -17,23 +17,18 @@ class AppKernel extends Kernel
     {
         $bundles = array(
             new Symfony\Bundle\FrameworkBundle\FrameworkBundle(),
-            new Symfony\Bundle\SecurityBundle\SecurityBundle(),
             new Symfony\Bundle\TwigBundle\TwigBundle(),
             new Symfony\Bundle\MonologBundle\MonologBundle(),
             new Symfony\Bundle\SwiftmailerBundle\SwiftmailerBundle(),
             new Symfony\Bundle\AsseticBundle\AsseticBundle(),
-            new Doctrine\Bundle\DoctrineBundle\DoctrineBundle(),
             new Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle(),
             new Wozbe\PageBundle\WozbePageBundle(),
             new Wozbe\RedirectBundle\WozbeRedirectBundle(),
             new JMS\TranslationBundle\JMSTranslationBundle(),
-            new JMS\SecurityExtraBundle\JMSSecurityExtraBundle(),
             new JMS\DiExtraBundle\JMSDiExtraBundle($this),
             new JMS\AopBundle\JMSAopBundle(),
             new Presta\SitemapBundle\PrestaSitemapBundle(),
             new Knp\Bundle\MarkdownBundle\KnpMarkdownBundle(),
-            new Wozbe\BlogBundle\WozbeBlogBundle(),
-            new Wozbe\AdminBundle\WozbeAdminBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {
@@ -48,27 +43,5 @@ class AppKernel extends Kernel
     public function registerContainerConfiguration(LoaderInterface $loader)
     {
         $loader->load(__DIR__.'/config/config_'.$this->getEnvironment().'.yml');
-    }
-
-    public function getCacheDir()
-    {
-        if (isset($this->options['cache_dir'])) {
-            $cacheDir = $this->options['cache_dir'];
-        } else {
-            $cacheDir = parent::getCacheDir();
-        }
-
-        return $cacheDir;
-    }
-
-    public function getLogDir()
-    {
-        if (isset($this->options['log_dir'])) {
-            $cacheDir = $this->options['log_dir'];
-        } else {
-            $cacheDir = parent::getLogDir();
-        }
-
-        return $cacheDir;
     }
 }

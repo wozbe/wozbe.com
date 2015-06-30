@@ -32,7 +32,7 @@
 <meta property='og:title' content='{{ block('title') }}'/>
 <meta property='og:description' content='{{ block('description') }}'/>
 <meta property='og:site_name' content='Wozbe'/>
-<meta property='og:type' content='website'/>
+<meta property='ogt:type' content='website'/>
 <meta property='og:image' content='http://wozbe.com/bundles/app/images/logo-wozbe-letter.png' />
 <link rel="alternate" hreflang="en" href="{{ url(app.request.attributes.get('_route'), {_locale: 'en'}) }}">
 <link rel="alternate" hreflang="fr" href="{{ url(app.request.attributes.get('_route'), {_locale: 'fr'}) }}">
@@ -81,7 +81,6 @@
           <li{% if 'wozbe' == route %} class="active"{% endif %}><a href="{{ url('wozbe') }}"><i class="icon-fixed-width icon-home"></i> {{ 'home'|trans|capitalize }}</a></li>
           <li{% if 'wozbe_skills' == route %} class="active"{% endif %}><a href="{{ url('wozbe_skills') }}"><i class="icon-fixed-width icon-tasks"></i> {{ 'skills'|trans|capitalize }}</a></li>
           <li{% if 'wozbe_references' == route %} class="active"{% endif %}><a href="{{ url('wozbe_references') }}"><i class="icon-fixed-width icon-book"></i> {{ 'references'|trans|capitalize }}</a></li>
-          <li{% if 'wozbe_contact' == route %} class="active"{% endif %}><a href="{{ url('wozbe_contact') }}"><i class="icon-fixed-width icon-envelope"></i> {{ 'contact'|trans|capitalize }}</a></li>
           <li><a href="http://anowis-formations.com/"><i class="icon-fixed-width icon-rocket"></i> {{ 'training'|trans|capitalize }}</a></li>
         </ul>
 
@@ -125,8 +124,8 @@
       <span itemprop="postal-code">69371</span> <span itemprop="locality">Lyon</span> Cedex 08, <span itemprop="country-name">France</span><br />
       </span>
       <br />
-      {{ 'phone'|trans|capitalize }} : <span itemprop="tel">{{ config('page.phone') }}</span><br />
-      {{ 'email'|trans|capitalize }} : {{ config('page.email') }}<br />
+      {{ 'phone'|trans|capitalize }} : <span itemprop="tel">{{ phone }}</span><br />
+      {{ 'email'|trans|capitalize }} : {{ email }}<br />
       <a href="http://wozbe.com" itemprop="url">wozbe.com</a><br />
       <br />
       SARL au capital de 1000€<br />
