@@ -8,7 +8,6 @@ vendor/*
 */logs/*
 */cache/*
 web/uploads/*
-web/bundles/*
 web/vendor/*
 web/built/*
 web/assets/*

@@ -1,0 +1,78 @@
+@import "web/bundles/app/less/functions.less";
+@import "web/bundles/app/less/variables.less";
+
+.blog-post {
+  .zone-post,
+  .zone-add-comment {
+    margin: 0 @zoneMarginSides;
+  }
+
+  .zone-post {
+    h1 {
+      background: none;
+      color: @orange;
+      font-size: 3em;
+    }
+
+    h2, 
+    h3 {
+      font-family: @baseFontFamily;
+      font-weight: normal;
+    }
+
+    h2 { font-size: @baseFontSize * 1.8; }
+    h3 { font-size: @baseFontSize * 1.50; }
+
+    h2 {
+      text-align: left;
+    }
+
+    blockquote {
+      margin: @zoneMarginSides;
+    }
+  }
+
+  .zone-comments {
+    border-top: 1px solid @orange;
+    margin-top: 50px;
+    padding-top: 20px;
+
+    h2 {
+      color: @orange;
+      font-size: 3em;
+    }
+
+    .alert {
+      margin: @zoneMarginSides;
+    }
+
+    .comment {
+      border-bottom: @border;
+      margin: @zoneMarginSides 0;
+      padding: 0 @zoneMarginSides;
+      min-height: 100px;
+      text-align: center;
+
+      .username {
+        text-align: center;
+        color: @brown;
+        font-size: 2em;
+      }
+      
+      .avatar {
+        height: 110px;
+        width: 100px;
+        background: grey;
+
+        margin-right: 10px;
+        margin-bottom: 10px;
+        margin-top: 5px;
+      }
+
+      .content {
+        text-align: left;
+        padding: 0 @zoneMarginSides;
+      }
+    }
+  }
+}
