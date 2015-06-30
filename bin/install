@@ -3,5 +3,5 @@
 composer install
 
 # cache
-app/console cache:clear
-app/console assets:install
+app/console cache:clear --env=prod
+app/console assets:install --env=prod

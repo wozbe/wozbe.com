@@ -22,26 +22,26 @@ module.exports = function(grunt) {
         files: filesLess
       }
     },
-    symlink: {
+    copy: {
       bootstrap_glyphicons_white: {
-        relativeSrc: '../../../../web/vendor/bootstrap/img/glyphicons-halflings-white.png',
-        dest: 'app/Resources/public/images/glyphicons-halflings-white.png',
-        options: {type: 'file'}
+        src: ['web/vendor/bootstrap/img/glyphicons-halflings-white.png'],
+        dest: 'app/Resources/public/images/glyphicons-halflings-white.png'
       },
       bootstrap_glyphicons: {
-        relativeSrc: '../../../../web/vendor/bootstrap/img/glyphicons-halflings.png',
-        dest: 'app/Resources/public/images/glyphicons-halflings.png',
-        options: {type: 'file'}
+        src: 'web/vendor/bootstrap/img/glyphicons-halflings.png',
+        dest: 'app/Resources/public/images/glyphicons-halflings.png'
       },
       font_awesome: {
-        relativeSrc: '../../../../web/vendor/font-awesome/font/',
-        dest: 'app/Resources/public/fonts/awesome',
-        options: {type: 'dir'}
+        expand: true,
+        cwd: 'web/vendor/font-awesome/font/',
+        src: '**',
+        dest: 'app/Resources/public/fonts/awesome'
       },
       app: {
-        relativeSrc: '../../app/Resources/public/',
-        dest: 'web/bundles/app',
-        options: {type: 'dir'}
+        expand: true,
+        cwd: 'app/Resources/public/',
+        src: '**',
+        dest: 'web/bundles/app/'
       }
     },
     concat: {
@@ -122,7 +122,7 @@ module.exports = function(grunt) {
   grunt.registerTask('default', ['css', 'javascript']);
   grunt.registerTask('css', ['less:discovering', 'less']);
   grunt.registerTask('javascript', ['jshint', 'concat', 'uglify']);
-  grunt.registerTask('assets:install', ['symlink']);
+  grunt.registerTask('assets:install', ['copy']);
   grunt.registerTask('deploy', ['assets:install', 'default']);
   grunt.registerTask('less:discovering', 'This is a function', function() {
     // LESS Files management
