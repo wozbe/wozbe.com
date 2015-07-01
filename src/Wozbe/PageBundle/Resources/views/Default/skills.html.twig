@@ -57,7 +57,7 @@
       <h2>{{ 'skill.video_streaming'|trans }}</h2>
       <hr class="title" />
     </div>
-    <div>{% autoescape false %}{{ 'skill.description.video_streaming'|trans({'%url_contact%': url('wozbe_contact')}) }}{% endautoescape %}</div>
+    <div>{% autoescape false %}{{ 'skill.description.video_streaming'|trans({'%url_contact%': 'mailto:' ~ email}) }}{% endautoescape %}</div>
   </div>
 </div>
 {% endblock content %}

@@ -12,7 +12,6 @@ class DefaultControllerTest extends WebTestCase
             array('/fr'),
             array('/fr/skills'),
             array('/fr/references'),
-            array('/fr/contact'),
         );
     }
 
@@ -22,11 +21,9 @@ class DefaultControllerTest extends WebTestCase
             array('/fr'),
             array('/fr/skills'),
             array('/fr/references'),
-            array('/fr/contact'),
             array('/en'),
             array('/en/skills'),
             array('/en/references'),
-            array('/en/contact'),
         );
     }
     
@@ -37,6 +34,10 @@ class DefaultControllerTest extends WebTestCase
     {
         $client = static::createClient();
         $client->request('GET', $url);
+
+        if(!$client->getResponse()->isSuccessful()) {
+            var_dump($client->getResponse()); exit;
+        }
                 
         $this->assertTrue($client->getResponse()->isSuccessful());
     }
@@ -89,7 +90,7 @@ class DefaultControllerTest extends WebTestCase
         $client = static::createClient();
 
         $crawler = $client->request('GET', $url);
-        
+
         $this->assertTrue($client->getResponse()->isSuccessful());
 
         $this->assertGreaterThan(0, $crawler->filter('html:contains("GoogleAnalyticsObject")')->count());
