@@ -1,6 +1,6 @@
 #!/bin/sh
 
-composer install
+composer install --no-interaction
 
 # cache
 app/console cache:clear --env=prod
