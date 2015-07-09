@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:jms="urn:jms:translation" version="1.2">
-  <file date="2015-03-30T11:35:03Z" source-language="en" target-language="fr" datatype="plaintext" original="not.available">
+  <file date="2015-07-09T09:41:43Z" source-language="en" target-language="fr" datatype="plaintext" original="not.available">
     <header>
       <tool tool-id="JMSTranslationBundle" tool-name="JMSTranslationBundle" tool-version="1.1.0-DEV"/>
       <note>The source node in most cases contains the sample message as written by the developer. If it looks like a dot-delimitted string such as "form.label.firstname", then the developer has not provided a default message.</note>
@@ -296,9 +296,24 @@ Le positionnement géographique de chacun des <strong>Big Braineurs</strong> nou
       <trans-unit id="875e76a5b153b506f48dabe1f3d49fa7a9beb477" resname="reference.description.long.1cup">
         <jms:reference-file line="34">views/Default/references.html.twig</jms:reference-file>
         <source>reference.description.long.1cup</source>
-        <target><![CDATA[Un événement mensuel où <strong>les entrepreneurs rencontrent un expert</strong> et échange gratuitement, de 14h à 17h.
-Aller sur <a href="http://1cupexpert.com">1CupExpert.com</a> pour découvrir la prochaine date et les experts disponibles.<br />
-Co-fondé avec <a href="http://fr.linkedin.com/in/borisguery">Boris Guéry</a>.]]></target>
+        <target><![CDATA[<p>
+    <em>
+        Tous les 1ers Jeudi du mois, des experts de tous les horizons 
+        se mettent à disposition des entrepreneurs. (et c’est gratuit)
+    </em>
+</p>
+
+<p>
+    <a href="http://1cupexpert.com" target="_blank">1CupExpert.com</a> 
+    est un événement mensuel où <strong>les entrepreneurs rencontrent des experts</strong> et échangent gratuitement, de 14h à 18h.
+</p>
+<p>
+    Allez sur <a href="http://1cupexpert.com">1CupExpert.com</a> pour découvrir la prochaine date et les experts disponibles !<br />
+</p>
+<p>
+    Co-fondé par <a href="http://wozbe.com" target="_blank">Wozbe</a> & <a href="http://fr.linkedin.com/in/borisguery">Boris Guéry</a>.<br />
+    Grahisme & Illustration par <a href="http://yuminette.com/" target="_blank">Elise Lesueur</a>.
+</p>]]></target>
       </trans-unit>
       <trans-unit id="af1fc72d34f3c89afa650a9af1adfe9982f5276a" resname="reference.description.long.airplane-dealer">
         <jms:reference-file line="41">views/Default/references.html.twig</jms:reference-file>
@@ -314,10 +329,18 @@ Produit conçu par Wozbe.]]></target>
       <trans-unit id="036ebc91f9cad8dcdd8b57d452e8f90ed3a37118" resname="reference.description.long.dubai360">
         <jms:reference-file line="20">views/Default/references.html.twig</jms:reference-file>
         <source>reference.description.long.dubai360</source>
-        <target><![CDATA[Découvrez la plus grande visite virtuelle du monde à travers plus de <strong>8TeraPixel</strong>, des médias gigapixel, des vidéos et photos 360°.<br />
+        <target><![CDATA[<p>
+<em>Découvrez <a href="http://dubai360.com" target="_blank">dubai360.com</a>, la plus grande visite virtuelle du monde à travers plus de <strong>8TeraPixel</strong>, des médias gigapixel, des vidéos et photos 360°.</em>
+</p>
+<p>
 Wozbe est intervenu en tant qu'expert d'architecture Cloud afin de réaliser une application haute-disponibilité et performante répondant aux critères d'une telle opération.
-Le collectif <strong>TheBigBrainsCompany</strong> a travaillé en équipe avec la société Kolor pour que l'ensemble des micro-systèmes de ce projet soit techniquement homogène et de qualité.<br />
-L'ensemble du projet a été conçu pour être hébergé de façon pertinente sur <strong>AWS</strong> grâce à des services dédiés.]]></target>
+</p>
+<p>
+Le collectif <a href="http://thebigbrainscompany.com/" target="_blank">TheBigBrainsCompany</a> a travaillé en équipe avec la société <a href="http://www.kolor.com/" target="_blank">Kolor</a> pour que l'ensemble des micro-systèmes de ce projet soit techniquement homogène et de qualité.<br />
+<p>
+</p>
+L'ensemble du projet a été conçu pour être hébergé de façon pertinente sur <strong>AWS</strong> grâce à des services dédiés.
+</p>]]></target>
       </trans-unit>
       <trans-unit id="e7561053fd576d833448e1dfda14adfe223546cc" resname="reference.description.long.kolor">
         <jms:reference-file line="48">views/Default/references.html.twig</jms:reference-file>
@@ -347,8 +370,36 @@ L'ensemble du projet a été conçu pour être hébergé de façon pertinente su
       <trans-unit id="babe05d00ab32f359ca58983b9275772775a2f99" resname="reference.description.long.v360go">
         <jms:reference-file line="27">views/Default/references.html.twig</jms:reference-file>
         <source>reference.description.long.v360go</source>
-        <target><![CDATA[Exécuté en mode Agile, cette plateforme d'hébergement vidéos 360 a été réalisée avec Symfony et une <strong>architecture asynchrone</strong> basée sur <strong>CQRS & EventSourcing</strong>.<br />
-Hébergée sur AWS, elle a été couplée par nos soins à des <strong>solutions métiers Kolor</strong> pour la manipulation des vidéos 360.]]></target>
+        <target><![CDATA[<p>
+    <em>
+        <a href="http://www.vsnmobil.com/products/v360" target="_blank">V.360°</a>
+        est une des premières caméra miniature « mains libre » 360°.
+    </em>
+</p>
+<p>
+    Elle a été créée par la société <a href="http://www.vsnmobil.com/" target="_blank">VSN Mobil</a>.
+</p>
+<p>
+    <a href="http://www.vsnmobil.com/" target="_blank">VSN Mobil</a> nous a confié, à 
+    <a href="http://wozbe.com" target="_blank">Wozbe</a> et à notre partenaire 
+    <a href="http://anonymation.com" target="_blank">Anonymation</a>, le développement
+    d'une <strong>plateforme</strong> permettant le
+    <strong>partage de vidéos</strong> produites par leur caméra.
+</p>
+<p>
+    Cette plateforme, qui est déployée dans le <strong>cloud AWS</strong>,
+    intègre un workflow complexe d'<strong>encodage</strong> des vidéos en <strong>entrée</strong>
+    vers un certain nombre de formats en <strong>sorties</strong>.
+</p>
+<p>
+    <a href="http://www.vsnmobil.com/" target="_blank">VSN Mobil</a> a fait appel à nous car leur
+    projet nécessitait de pouvoir gérer un traffic important à moyen et long terme.
+</p>
+<p>
+    Nous avons mis en place une <strong>architecture scalable</strong> reposant sur les principes
+    de l'<strong>Event Sourcing</strong> que nous avons implémenté avec <strong>Symfony</strong> et
+    optimisé pour être <strong>auto-scalable</strong>.
+</p>]]></target>
       </trans-unit>
       <trans-unit id="38e715a246aa4cbc6365e9ef77443917a9978072" resname="reference.description.short.armetiz">
         <jms:reference-file line="110">views/Default/index.html.twig</jms:reference-file>

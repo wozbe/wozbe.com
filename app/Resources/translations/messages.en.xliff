@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:jms="urn:jms:translation" version="1.2">
-  <file date="2015-03-30T10:56:04Z" source-language="en" target-language="en" datatype="plaintext" original="not.available">
+  <file date="2015-07-09T09:28:31Z" source-language="en" target-language="en" datatype="plaintext" original="not.available">
     <header>
       <tool tool-id="JMSTranslationBundle" tool-name="JMSTranslationBundle" tool-version="1.1.0-DEV"/>
       <note>The source node in most cases contains the sample message as written by the developer. If it looks like a dot-delimitted string such as "form.label.firstname", then the developer has not provided a default message.</note>
@@ -306,7 +306,20 @@ Co-founded with <a href="http://fr.linkedin.com/in/borisguery">Boris Guéry</a>.
       <trans-unit id="af1fc72d34f3c89afa650a9af1adfe9982f5276a" resname="reference.description.long.airplane-dealer">
         <jms:reference-file line="41">views/Default/references.html.twig</jms:reference-file>
         <source>reference.description.long.airplane-dealer</source>
-        <target>reference.description.long.airplane-dealer</target>
+        <target><![CDATA[
+<p>
+    <em>
+        <a href="http://airplane-dealer.com/" target="_blank">Airplane-dealer.com</a> is
+        a dedicated platform for deals on personal airplanes.
+    </em>
+</p>
+<p>
+    It provides an innovation in its uses
+    with a highlight of decisional factors related to the transaction.
+</p>
+<p>
+    Imagined and created by the <a href="http://wozbe.com/" target="_blank">Wozbe</a>
+</p>]]></target>
       </trans-unit>
       <trans-unit id="42690451cd1fa9cfc18d2092361d21ead87c7600" resname="reference.description.long.armetiz">
         <jms:reference-file line="83">views/Default/references.html.twig</jms:reference-file>
@@ -317,7 +330,35 @@ You can find articles about the <a href="http://www.armetiz.info/category/system
       <trans-unit id="036ebc91f9cad8dcdd8b57d452e8f90ed3a37118" resname="reference.description.long.dubai360">
         <jms:reference-file line="20">views/Default/references.html.twig</jms:reference-file>
         <source>reference.description.long.dubai360</source>
-        <target>reference.description.long.dubai360</target>
+        <target><![CDATA[<p>
+    <em><a href="http://dubai360.com" target="_blank">Dubai360.com</a>
+    is the largest 360° interactive virtual tour ever built for a city.</em>
+</p>
+
+<p>
+    Thanks to <a href="http://kolor.com" target="_blank">Kolor</a> technologies,
+    the means deployed by the city, and the incredible work of the entire team,
+    users get the possibility to <strong>take a 360° virtual tour of Dubaï city from their
+    computer or mobile devices</strong>.
+</p>
+
+<p>
+    <a href="http://kolor.com" target="_blank">Kolor</a> trusted
+    <a href="http://thebigbrainscompany.com">The Big Brains Company</a>
+    for taking the <strong>lead</strong> in creating the product &amp;
+    <strong>cloud architectures</strong>.
+</p>
+
+<p>
+    We built <strong>architectures</strong> capable of integrating
+    <a href="http://kolor.com" target="_blank">Kolor</a>'s technologies, which involved
+    working with <strong>gigantic images and videos</strong> within complex workflows.
+</p>
+
+<p>
+    We also had to build a <strong>very scalable system</strong>, deployed on
+    <strong>Amazon AWS</strong>, and capable of handling large traffics.
+</p>]]></target>
       </trans-unit>
       <trans-unit id="e7561053fd576d833448e1dfda14adfe223546cc" resname="reference.description.long.kolor">
         <jms:reference-file line="48">views/Default/references.html.twig</jms:reference-file>
@@ -356,7 +397,36 @@ Focusing on VSE/SMEs, these projects are one way for Wozbe to stay in contact wi
       <trans-unit id="babe05d00ab32f359ca58983b9275772775a2f99" resname="reference.description.long.v360go">
         <jms:reference-file line="27">views/Default/references.html.twig</jms:reference-file>
         <source>reference.description.long.v360go</source>
-        <target state="new">reference.description.long.v360go</target>
+        <target><![CDATA[
+<p>
+    <em>
+        <a href="http://www.vsnmobil.com/products/v360" target="_blank">V.360°</a> is
+        the world's first 360° seamless HD action camera.
+    </em>
+</p>
+<p>
+    It was imagined and created by the <a href="http://www.vsnmobil.com/" target="_blank">VSN Mobil</a>
+    company.
+</p>
+<p>
+    <a href="http://www.vsnmobil.com/" target="_blank">VSN Mobil</a> trusted <a href="http://wozbe.com" target="_blank">Wozbe</a> 
+    and our partner     
+    <a href="http://anonymation.com" target="_blank">Anonymation</a>
+    for developing a social platform for sharing videos produced with their
+    camera device.
+</p>
+<p>
+    The plateform runs on <strong>Amazon AWS</strong> and implements complex workflows
+    for <strong>transcoding input</strong> raw videos to different <strong>output formats</strong>.
+</p>
+<p>
+    <a href="http://www.vsnmobil.com/" target="_blank">VSN Mobil</a> needed us to build a project
+    capable of handling large traffic in the long run.
+</p>
+<p>
+    To do so, we built an <strong>auto-scalable architecture</strong> implementing
+    <strong>Event Sourcing &amp; CQRS</strong> principles and powered by <strong>Symfony</strong>.
+</p>]]></target>
       </trans-unit>
       <trans-unit id="38e715a246aa4cbc6365e9ef77443917a9978072" resname="reference.description.short.armetiz">
         <jms:reference-file line="110">views/Default/index.html.twig</jms:reference-file>
